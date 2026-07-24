@@ -1,0 +1,11 @@
+{
+  "name": "小一國語200單元互動學習庫",
+  "short_name": "小一國語",
+  "description": "國小一年級國語識字、注音、部首、描寫與測驗",
+  "lang": "zh-Hant-TW",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf0",
+  "theme_color": "#5c9861"
+}
