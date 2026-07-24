@@ -1,5 +1,4 @@
 # 小一國語 200 單元互動學習庫
-https://pc007ya.github.io/Student_LearningProgram/
 
 可直接部署至 GitHub Pages 的純靜態互動教材。
 
