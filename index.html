@@ -200,6 +200,9 @@
             <button onClick="{{ g.go }}" style="border:1.5px solid {{ g.border }};background:{{ g.bg }};color:{{ g.fg }};border-radius:99px;padding:10px 22px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer">{{ g.label }}</button>
           </sc-for>
         </div>
+        <div style="margin-bottom:16px;padding:13px 16px;border:1px solid #d9f4f8;border-radius:18px;background:linear-gradient(90deg,#eafbfd,#f3f0ff);font-size:12px;font-weight:800;line-height:1.7;color:#4a3d7a">
+          🎯 每個單元每天最多完成三輪；100% 全對才會得到 I／II／III。第二輪每題少 5 秒，第三輪再少 5 秒，完成 III 後請換別的練習。
+        </div>
         <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
             <article style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:20px;box-shadow:0 14px 30px rgba(43,31,87,.06);display:flex;flex-direction:column;gap:12px">
@@ -209,6 +212,7 @@
                   <strong style="display:block;font-size:17px;font-weight:900">{{ u.title }}</strong>
                   <span style="font-size:12px;font-weight:800;color:#9a90c8">{{ u.sub }}</span>
                 </div>
+                <span style="margin-left:auto;min-width:38px;height:38px;padding:0 8px;border-radius:14px;display:grid;place-items:center;font-size:14px;font-weight:900;color:{{ u.masteryFg }};background:{{ u.masteryBg }};border:1.5px solid {{ u.masteryBorder }}">{{ u.masteryMark }}</span>
               </div>
               <div style="display:flex;gap:6px">
                 <sc-for list="{{ u.stars }}" as="s" hint-placeholder-count="3">
@@ -445,6 +449,7 @@
           <div style="background:#fff6e0;border-radius:22px;padding:16px"><p style="margin:0;font-size:12px;font-weight:900;color:#c58b1e">星星幣</p><p style="margin:6px 0 0;font-size:26px;font-weight:900;color:#a06400">+{{ gainCoins }}</p></div>
           <div style="background:#eafbfd;border-radius:22px;padding:16px"><p style="margin:0;font-size:12px;font-weight:900;color:#4aa9b6">XP</p><p style="margin:6px 0 0;font-size:26px;font-weight:900;color:#0e7d8c">+{{ gainXp }}</p></div>
         </div>
+        <p style="margin:-8px 0 22px;padding:13px 16px;border-radius:18px;background:{{ resultNoteBg }};color:{{ resultNoteFg }};font-size:14px;font-weight:900;line-height:1.7">{{ resultNote }}</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
           <button onClick="{{ goShop }}" style="border:0;border-radius:20px;padding:15px 26px;font-size:16px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#ff7ab8,#7c5cff);cursor:pointer">🎁 去<ruby>兌<rt>ㄉㄨㄟˋ</rt></ruby><ruby>換<rt>ㄏㄨㄢˋ</rt></ruby>獎勵</button>
           <button onClick="{{ goMap }}" style="border:1.5px solid #ddd5ff;border-radius:20px;padding:15px 26px;font-size:16px;font-weight:900;font-family:inherit;color:#5b3fe0;background:#fbfaff;cursor:pointer">回關卡地圖</button>
@@ -958,10 +963,15 @@ function isItemCompatible(item, avatar) {
 }
 
 const MATH_UNITS = [
-  { id: "u1", grade: 1, icon: "🍎", tint: "#ffe0e6", title: "10 以內的加法", sub: "一年級 · 數與量" },
-  { id: "u2", grade: 1, icon: "🧁", tint: "#ffeccc", title: "10 以內的減法", sub: "一年級 · 數與量" },
-  { id: "u3", grade: 1, icon: "📏", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
-  { id: "u4", grade: 1, icon: "🔷", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
+  { id: "u1", grade: 1, difficulty: 1, icon: "🍎", tint: "#ffe0e6", title: "10 以內的加法", sub: "一年級 · 數與量" },
+  { id: "u2", grade: 1, difficulty: 1, icon: "🧁", tint: "#ffeccc", title: "10 以內的減法", sub: "一年級 · 數與量" },
+  { id: "u3", grade: 1, difficulty: 1, icon: "📏", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
+  { id: "u4", grade: 1, difficulty: 1, icon: "🔷", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
+  { id: "u14", grade: 1, difficulty: 2, icon: "🌟", tint: "#fff0cc", title: "50 以內的加法", sub: "一年級 · 進階加法" },
+  { id: "u15", grade: 1, difficulty: 2, icon: "🚀", tint: "#eafbfd", title: "50 以內的減法", sub: "一年級 · 進階減法" },
+  { id: "u16", grade: 1, difficulty: 2, icon: "✖️", tint: "#f1e6ff", title: "個位數的乘法", sub: "一年級 · 乘法入門" },
+  { id: "u17", grade: 1, difficulty: 3, icon: "🍰", tint: "#ffe0ef", title: "認識分數", sub: "一年級 · 分數入門" },
+  { id: "u18", grade: 1, difficulty: 3, icon: "➗", tint: "#e6f7ee", title: "個位數的除法", sub: "一年級 · 除法入門" },
   { id: "u5", grade: 2, icon: "➕", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 數與量" },
   { id: "u13", grade: 2, icon: "🔢", tint: "#e8f2ff", title: "三位數的加減", sub: "二年級 · 直式計算" },
   { id: "u6", grade: 2, icon: "✖️", tint: "#f1e6ff", title: "九九乘法", sub: "二年級 · 數與量" },
@@ -1028,6 +1038,20 @@ const ENCOURAGE_FEEDBACKS = [
   "沒關係，再試一題就會更熟！",
   "差一點點，繼續加油！",
 ];
+function localDateKey() {
+  const now = new Date();
+  return now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+}
+function normalizeDailyMastery(value) {
+  const today = localDateKey();
+  if (!value || value.date !== today || !value.units || typeof value.units !== "object") return { date: today, units: {} };
+  return { date: today, units: Object.assign({}, value.units) };
+}
+function dailyMasteryRound(profile, unitId) {
+  const daily = normalizeDailyMastery(profile && profile.dailyMastery);
+  return Math.max(0, Math.min(3, Number(daily.units[unitId]) || 0));
+}
+function masteryRoman(round) { return ["—", "I", "II", "III"][Math.max(0, Math.min(3, round))]; }
 function randomFeedback(list) { return list[Math.floor(Math.random() * list.length)]; }
 function readSpeechMuted() {
   try { return localStorage.getItem(SPEECH_MUTE_STORE_KEY) === "1"; } catch (_) { return false; }
@@ -1087,6 +1111,7 @@ function makeProfile() {
     equipped: Object.assign({}, BASE_EQUIP),
     avatar: "girl", avatarStyle: "atelier", avatarSelected: false,
     favorites: [], log: [],
+    dailyMastery: { date: localDateKey(), units: {} },
   };
 }
 function makeStudents() {
@@ -1112,7 +1137,7 @@ class Component extends DCLogic {
     subject: "math",
     grade: 1,
     unit: null, quizSubject: "math",
-    qs: [], qi: 0, picked: null, locked: false, correct: 0, timeLeft: 30, feedbackTitle: "",
+    qs: [], qi: 0, picked: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, feedbackTitle: "", resultMastery: 0, resultNote: "",
     gain: { xp: 0, coins: 0 },
     assigned: "u2",
     shopCat: "hair", slot: "hair", shopQuery: "", shopOwnedOnly: false,
@@ -1145,6 +1170,7 @@ class Component extends DCLogic {
         profile.owned = Array.from(new Set(BASE_OWNED.concat(legacyOwned, splitOwned)));
         const storedEquipped = profile.equipped && typeof profile.equipped === "object" ? profile.equipped : {};
         profile.equipped = Object.assign({}, BASE_EQUIP, storedEquipped);
+        profile.dailyMastery = normalizeDailyMastery(profile.dailyMastery);
         if (storedEquipped.outfit && storedEquipped.outfit !== "outfit-00" && !storedEquipped.top && !storedEquipped.bottom) {
           profile.equipped.top = storedEquipped.outfit.replace("outfit-", "top-");
           profile.equipped.bottom = storedEquipped.outfit.replace("outfit-", "bottom-");
@@ -1212,6 +1238,7 @@ class Component extends DCLogic {
     this.toastTimer = setTimeout(() => this.setState({ toast: "" }), 2200);
   }
   seconds() { return this.props.timerSeconds ?? 30; }
+  roundSeconds(round) { return Math.max(5, this.seconds() - Math.max(0, Math.min(2, round)) * 5); }
   total() { return this.props.questionCount ?? 10; }
   fitKey() {
     const p = this.prof();
@@ -1275,6 +1302,21 @@ class Component extends DCLogic {
         const names = ["圓形", "正方形", "三角形", "長方形"];
         const pick = r(0, 3);
         q = { stem: "圖中第一個是什麼形狀？", ans: names[pick], fig: "shape", figData: { pick }, explain: "它有" + (pick === 0 ? "圓圓的邊，沒有角" : pick === 2 ? "3 個角、3 個邊" : "4 個角、4 個邊") + "，所以是" + names[pick] + "。", opts: shuffle(names) };
+      } else if (unitId === "u14") {
+        const a = r(6, 39), b = r(2, 50 - a);
+        q = { stem: a + " ＋ " + b + " ＝ ？", ans: a + b, fig: "none", explain: "先把十位和個位分開計算，" + a + " 加 " + b + " 等於 " + (a + b) + "。" };
+      } else if (unitId === "u15") {
+        const a = r(15, 50), b = r(2, a - 1);
+        q = { stem: a + " － " + b + " ＝ ？", ans: a - b, fig: "none", explain: "從 " + a + " 拿走 " + b + "，還剩下 " + (a - b) + "。" };
+      } else if (unitId === "u16") {
+        const a = r(2, 9), b = r(2, 9);
+        q = { stem: a + " × " + b + " ＝ ？", ans: a * b, fig: "dots", figData: { a: Math.min(a * b, 12), b: 0 }, explain: a + " 組、每組 " + b + " 個，一共有 " + (a * b) + " 個。" };
+      } else if (unitId === "u17") {
+        const den = [2, 3, 4, 5, 6, 8][r(0, 5)], num = r(1, den - 1);
+        q = { stem: "塗色的部分是幾分之幾？", ans: num + "/" + den, fig: "fracbar", figData: { den, num }, explain: "全部分成 " + den + " 等份，塗色有 " + num + " 份，所以是 " + num + "/" + den + "。", opts: shuffle([num + "/" + den, den + "/" + num, num + "/" + (den + 1), (num + 1) + "/" + den]) };
+      } else if (unitId === "u18") {
+        const divisor = r(2, 9), quotient = r(2, 9), dividend = divisor * quotient;
+        q = { stem: dividend + " ÷ " + divisor + " ＝ ？", ans: quotient, fig: "groups", figData: { groups: divisor, per: quotient, rem: 0 }, explain: dividend + " 個平均分成 " + divisor + " 組，每組有 " + quotient + " 個。" };
       } else if (unitId === "u5") {
         const a = r(11, 68), b = r(11, 30);
         q = { stem: a + " ＋ " + b + " ＝ ？", ans: a + b, fig: "none", explain: "先加個位：" + (a % 10) + " ＋ " + (b % 10) + "，再加十位，答案是 " + (a + b) + "。" };
@@ -1328,10 +1370,12 @@ class Component extends DCLogic {
   startUnit(id) {
     clearTimeout(this.autoNextTimer);
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
+    const round = dailyMasteryRound(this.prof(), id);
+    if (round >= 3) { this.flash("這個單元今天已完成三輪，換一個練習吧！"); return; }
     const chinese = id === "c2" || id === "c4";
     const qs = chinese ? this.buildChinese(id === "c2" ? 1 : 2) : this.buildMath(id);
     if (!qs.length) { this.flash("字彙還在載入中，請稍等一下"); return; }
-    this.setState({ screen: "quiz", unit: id, quizSubject: chinese ? "chinese" : "math", qs, qi: 0, picked: null, locked: false, correct: 0, timeLeft: this.seconds(), feedbackTitle: "" }, () => this.speakQuestion(qs[0]));
+    this.setState({ screen: "quiz", unit: id, quizSubject: chinese ? "chinese" : "math", qs, qi: 0, picked: null, locked: false, correct: 0, quizRound: round, timeLeft: this.roundSeconds(round), feedbackTitle: "", resultNote: "" }, () => this.speakQuestion(qs[0]));
   }
 
   pick(index) {
@@ -1364,25 +1408,34 @@ class Component extends DCLogic {
     const s = this.state;
     if (s.qi + 1 < s.qs.length) {
       const nextQuestion = s.qs[s.qi + 1];
-      this.setState({ qi: s.qi + 1, picked: null, locked: false, timeLeft: this.seconds(), feedbackTitle: "" }, () => this.speakQuestion(nextQuestion));
+      this.setState({ qi: s.qi + 1, picked: null, locked: false, timeLeft: this.roundSeconds(s.quizRound), feedbackTitle: "" }, () => this.speakQuestion(nextQuestion));
       return;
     }
     const all = s.correct === s.qs.length;
     const coins = s.correct * 3 + (all ? 10 : 0);
     const xp = s.correct * 8;
     const unitTitle = (MATH_UNITS.concat(CH_UNITS).find((u) => u.id === s.unit) || { title: "練習" }).title;
+    const completedRound = all ? Math.min(3, s.quizRound + 1) : s.quizRound;
+    const resultNote = all
+      ? (completedRound >= 3 ? "今天已完成 III 輪，請換別的單元練習，明天會重新開始。" : "完成 " + masteryRoman(completedRound) + " 輪！下一輪每題時間會減少 5 秒。")
+      : "這一輪要 100% 全對才會升級，整理錯題後再挑戰一次吧！";
     this.patch((p) => ({
       coins: p.coins + coins, xp: p.xp + xp,
       correctTotal: p.correctTotal + s.correct,
       perfect: p.perfect + (all ? 1 : 0),
       todayCount: Math.min(10, p.todayCount + s.qs.length),
       cleared: all && p.cleared.indexOf(s.unit) < 0 ? p.cleared.concat(s.unit) : p.cleared,
+      dailyMastery: all ? (() => {
+        const daily = normalizeDailyMastery(p.dailyMastery);
+        daily.units[s.unit] = completedRound;
+        return daily;
+      })() : normalizeDailyMastery(p.dailyMastery),
       log: [
         { icon: "⭐", tint: "#fff6e0", text: "答對獎勵星星幣", amount: "+" + coins, color: "#ffb020", when: "剛剛" },
         { icon: "✅", tint: "#e6f7ee", text: "完成「" + unitTitle + "」" + s.correct + "/" + s.qs.length, amount: "+" + xp + " XP", color: "#35c98a", when: "剛剛" },
       ].concat(p.log).slice(0, 8),
     }));
-    this.setState({ screen: "result", gain: { xp, coins } });
+    this.setState({ screen: "result", gain: { xp, coins }, resultMastery: completedRound, resultNote });
   }
 
   signToday() {
@@ -1804,17 +1857,22 @@ class Component extends DCLogic {
       })),
       units: subjectUnits.filter((u) => u.grade === s.grade).map((u) => {
         const isLib = u.kind === "library";
-        const done = p.cleared.indexOf(u.id) >= 0;
-        const stars = done ? 3 : 0;
+        const round = isLib ? 0 : dailyMasteryRound(p, u.id);
+        const atLimit = round >= 3;
+        const difficulty = Math.max(1, Math.min(3, Number(u.difficulty) || 1));
         return {
           icon: u.icon, tint: u.tint, title: u.title, sub: u.sub,
-          pct: isLib ? 100 : (done ? 100 : 0),
-          stars: isLib ? ["📖", "📖", "📖"] : [0, 1, 2].map((i) => (i < stars ? "⭐" : "☆")),
-          stateLabel: isLib ? gradeWords.length + " 個字" : done ? "已通關" : "未開始",
-          stateColor: isLib ? "#35c98a" : done ? "#35c98a" : "#b3a9d8",
-          btnLabel: isLib ? "進入學習庫" : done ? "再挑戰一次" : "開始闖關",
-          btnBg: done && !isLib ? "#f0ecff" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
-          btnFg: done && !isLib ? "#5b3fe0" : "#fff",
+          pct: isLib ? 100 : Math.round(round / 3 * 100),
+          stars: isLib ? ["📖", "📖", "📖"] : [0, 1, 2].map((i) => (i < difficulty ? "⭐" : "☆")),
+          masteryMark: isLib ? "字庫" : masteryRoman(round),
+          masteryBg: round ? "#e6f7ee" : "#fbfaff",
+          masteryFg: round ? "#1d7a55" : "#b3a9d8",
+          masteryBorder: round ? "#9fe3c4" : "#ece7ff",
+          stateLabel: isLib ? gradeWords.length + " 個字" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
+          stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
+          btnLabel: isLib ? "進入學習庫" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
+          btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
+          btnFg: atLimit ? "#9a90c8" : "#fff",
           start: () => this.startUnit(u.id),
         };
       }),
@@ -1940,6 +1998,9 @@ class Component extends DCLogic {
 
       resultFace: s.correct >= s.qs.length * 0.8 ? "🏆" : s.correct >= s.qs.length * 0.5 ? "😃" : "💪",
       resultTitle: s.correct >= s.qs.length * 0.8 ? "太厲害了！" : s.correct >= s.qs.length * 0.5 ? "做得不錯！" : "再練一次會更好！",
+      resultNote: s.resultNote,
+      resultNoteBg: s.correct === s.qs.length ? "#e6f7ee" : "#fff6e0",
+      resultNoteFg: s.correct === s.qs.length ? "#1d7a55" : "#a06400",
       correct: s.correct, gainCoins: s.gain.coins, gainXp: s.gain.xp,
 
       shopCats: SLOTS.map((cat) => ({
