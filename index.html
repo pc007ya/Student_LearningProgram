@@ -228,6 +228,45 @@
       </div>
     </sc-if>
 
+    <sc-if value="{{ isWeekly }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:880px;margin:0 auto;display:grid;gap:16px">
+        <section style="background:linear-gradient(145deg,#2b1f57,#5b3fe0);border-radius:30px;padding:26px;color:#fff;box-shadow:0 20px 42px rgba(43,31,87,.2)">
+          <p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.2em;color:#8ee9f2">WEEKLY EXAM · {{ weeklyKey }}</p>
+          <h2 style="margin:8px 0 6px;font-size:30px;font-weight:900">📝 每週考卷</h2>
+          <p style="margin:0;font-size:14px;font-weight:700;line-height:1.8;opacity:.82">每週只能完成一次。寫完整份考卷後，才會公布分數、答案與逐題檢討。</p>
+        </section>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <sc-for list="{{ gradeTabs }}" as="g" hint-placeholder-count="2"><button onClick="{{ g.go }}" style="border:1.5px solid {{ g.border }};background:{{ g.bg }};color:{{ g.fg }};border-radius:99px;padding:10px 22px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer">{{ g.label }}</button></sc-for>
+        </div>
+        <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+          <h3 style="margin:0 0 12px;font-size:20px;font-weight:900">本週範圍</h3>
+          <sc-for list="{{ weeklySections }}" as="section" hint-placeholder-count="5">
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #f3f0ff"><span style="font-size:22px">{{ section.icon }}</span><span style="flex:1"><strong style="display:block;font-size:14px;font-weight:900">{{ section.title }}</strong><span style="font-size:12px;font-weight:700;color:#9a90c8">{{ section.stars }}</span></span><strong style="font-size:14px;color:#5b3fe0">{{ section.count }} 題</strong></div>
+          </sc-for>
+          <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap"><span style="font-size:14px;font-weight:900;color:#7c74a8">共 {{ weeklyTotal }} 題 · 每題 {{ weeklyTime }} 秒</span><button onClick="{{ startWeekly }}" style="border:0;border-radius:18px;padding:14px 26px;background:{{ weeklyBtnBg }};color:{{ weeklyBtnFg }};font-family:inherit;font-size:16px;font-weight:900;cursor:pointer">{{ weeklyBtnLabel }}</button></div>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isWeeklyQuiz }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:760px;margin:0 auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="flex:1"><div style="display:flex;justify-content:space-between;font-size:12px;font-weight:900;color:#7c74a8"><span>每週考卷 · {{ examUnitTitle }}</span><span>第 {{ examNo }} / {{ examTotal }} 題</span></div><div style="margin-top:5px;height:10px;border-radius:99px;background:#eee9ff;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#7c5cff,#22c8d8);width:{{ examPct }}%"></div></div></div><div style="width:58px;height:58px;border-radius:50%;display:grid;place-items:center;align-content:center;border:3px solid {{ timerFg }};background:{{ timerBg }};color:{{ timerFg }};font-size:19px;font-weight:900"><span>{{ timeLeft }}</span><small style="font-size:9px">秒</small></div></div>
+        <section style="background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:26px;box-shadow:0 18px 38px rgba(43,31,87,.08)">
+          <p style="margin:0 0 8px;font-size:12px;font-weight:900;color:#ff7ab8">作答期間不公布正誤</p>
+          <h2 style="margin:0;font-size:26px;font-weight:900;line-height:1.65">{{ examStem }}</h2>
+          <p style="margin:8px 0 20px;font-size:15px;font-weight:900;color:#a06400">{{ examHint }}</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px"><sc-for list="{{ examOptions }}" as="option" hint-placeholder-count="4"><button onClick="{{ option.pick }}" style="border:2px solid #e6e0ff;border-radius:20px;padding:18px;background:#fbfaff;color:#2b1f57;font-family:inherit;font-size:20px;font-weight:900;cursor:pointer">{{ option.label }}</button></sc-for></div>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isWeeklyResult }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:880px;margin:0 auto;display:grid;gap:16px">
+        <section style="text-align:center;background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:28px;box-shadow:0 18px 38px rgba(43,31,87,.08)"><div style="font-size:60px">📊</div><h2 style="margin:8px 0;font-size:30px;font-weight:900">本週考卷 {{ examScore }} 分</h2><p style="margin:0;color:#7c74a8;font-size:14px;font-weight:800">整份考卷已完成，以下是逐題檢討。下週才可再作答。</p><button onClick="{{ goWeekly }}" style="margin-top:16px;border:1.5px solid #ddd5ff;border-radius:16px;padding:11px 20px;background:#fbfaff;color:#5b3fe0;font-family:inherit;font-weight:900;cursor:pointer">回週考首頁</button></section>
+        <section style="display:grid;gap:10px"><sc-for list="{{ examReview }}" as="row" hint-placeholder-count="8"><article style="background:#fff;border:2px solid {{ row.border }};border-radius:22px;padding:18px"><div style="display:flex;align-items:flex-start;gap:12px"><span style="font-size:24px">{{ row.mark }}</span><span style="flex:1"><strong style="display:block;font-size:16px;font-weight:900">{{ row.stem }}</strong><span style="font-size:12px;font-weight:800;color:#9a90c8">{{ row.unitTitle }}</span></span></div><p style="margin:12px 0 4px;font-size:14px;font-weight:900;color:{{ row.fg }}">你的答案：{{ row.answer }}　｜　正確答案：{{ row.correctAnswer }}</p><p style="margin:0;font-size:13px;font-weight:700;line-height:1.7;color:#4a3d7a">{{ row.explain }}</p></article></sc-for></section>
+      </div>
+    </sc-if>
+
     <sc-if value="{{ isLibrary }}" hint-placeholder-val="{{ true }}">
       <div>
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px">
@@ -270,6 +309,32 @@
       </div>
     </sc-if>
 
+    <sc-if value="{{ isWriting }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:760px;margin:0 auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <button onClick="{{ goMap }}" style="border:1px solid #ece7ff;background:#fff;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;font-family:inherit;color:#7c74a8">←</button>
+          <div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">HANDWRITING</p><h2 style="margin:4px 0 0;font-size:24px;font-weight:900">✍️ 寫字練習辨識</h2></div>
+        </div>
+        <section style="background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:24px;box-shadow:0 18px 38px rgba(43,31,87,.08)">
+          <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:16px">
+            <span style="font-size:52px">{{ writingPicture }}</span>
+            <span><strong style="display:block;font-size:28px;font-weight:900;color:#2b1f57">{{ writingWord }}</strong><span style="font-size:17px;font-weight:900;color:#a06400">{{ writingZhuyin }}</span></span>
+          </div>
+          <div style="position:relative;width:min(100%,340px);aspect-ratio:1;margin:0 auto;border:3px solid #ddd5ff;border-radius:24px;overflow:hidden;background:#fbfaff">
+            <span style="position:absolute;inset:0;display:grid;place-items:center;font-family:serif;font-size:230px;line-height:1;color:rgba(124,92,255,.16);user-select:none">{{ writingChar }}</span>
+            <span style="position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed #ddd5ff"></span><span style="position:absolute;top:50%;left:0;right:0;border-top:1px dashed #ddd5ff"></span>
+            <canvas id="writing-pad" width="320" height="320" onPointerDown="{{ writingStart }}" onPointerMove="{{ writingMove }}" onPointerUp="{{ writingEnd }}" onPointerCancel="{{ writingEnd }}" style="position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair"></canvas>
+          </div>
+          <p style="margin:16px auto 0;max-width:520px;padding:12px 16px;border-radius:16px;text-align:center;font-size:14px;font-weight:900;line-height:1.6;color:{{ writingFeedbackFg }};background:{{ writingFeedbackBg }}">{{ writingFeedback }}</p>
+          <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <button onClick="{{ clearWriting }}" style="border:1.5px solid #ddd5ff;border-radius:16px;padding:12px 20px;background:#fff;color:#7c74a8;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">清除重寫</button>
+            <button onClick="{{ recognizeWriting }}" style="border:0;border-radius:16px;padding:12px 24px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">辨識寫字</button>
+            <button onClick="{{ nextWriting }}" style="border:1.5px solid #ffd98a;border-radius:16px;padding:12px 20px;background:#fffaf0;color:#a06400;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">換下一個字 →</button>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+
     <sc-if value="{{ isQuiz }}" hint-placeholder-val="{{ true }}">
       <div style="max-width:760px;margin:0 auto">
         <div class="quiz-progress" style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
@@ -292,6 +357,7 @@
 
           <sc-if value="{{ figZhuyin }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;padding:26px 18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;text-align:center">
+              <span style="display:grid;place-items:center;min-height:72px;margin-bottom:8px;font-size:58px">{{ zhuyinPicture }}</span>
               <p style="margin:0;font-size:56px;font-weight:900;color:#a06400;letter-spacing:.08em">{{ zhuyinBig }}</p>
               <p style="margin:12px 0 0;font-size:16px;font-weight:800;color:#7c74a8">語詞提示：{{ zhuyinWord }}</p>
             </div>
@@ -301,6 +367,17 @@
             <div class="quiz-visual" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">
               <sc-for list="{{ dots }}" as="d" hint-placeholder-count="8">
                 <span style="width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:{{ d.bg }}">{{ d.icon }}</span>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ figBaskets }}" hint-placeholder-val="{{ false }}">
+            <div class="quiz-visual" style="margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:18px;border-radius:22px;background:#fffaf0;border:1px dashed #ffd98a">
+              <sc-for list="{{ basketGroups }}" as="basket" hint-placeholder-count="5">
+                <span style="min-width:76px;border-radius:18px;padding:10px 12px;display:grid;justify-items:center;gap:4px;background:#fff;border:1px solid #ffe2ab">
+                  <span style="font-size:32px;line-height:1">🧺</span>
+                  <strong style="font-size:13px;font-weight:900;color:#a06400">🍎 × {{ basket.each }}</strong>
+                </span>
               </sc-for>
             </div>
           </sc-if>
@@ -614,7 +691,7 @@
           <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap">
             <div>
               <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">DAILY CHECK-IN</p>
-              <h2 style="margin:8px 0 0;font-size:28px;font-weight:900"><ruby>七<rt>ㄑㄧ</rt></ruby><ruby>月<rt>ㄩㄝˋ</rt></ruby><ruby>簽<rt>ㄑㄧㄢ</rt></ruby><ruby>到<rt>ㄉㄠˋ</rt></ruby><ruby>月<rt>ㄩㄝˋ</rt></ruby><ruby>曆<rt>ㄌㄧˋ</rt></ruby></h2>
+              <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">{{ calendarTitle }}學習月曆</h2>
               <p style="margin:8px 0 0;font-size:14px;font-weight:700;color:#7c74a8"><ruby>連<rt>ㄌㄧㄢˊ</rt></ruby><ruby>續<rt>ㄒㄩˋ</rt></ruby><ruby>簽<rt>ㄑㄧㄢ</rt></ruby><ruby>到<rt>ㄉㄠˋ</rt></ruby><ruby>越<rt>ㄩㄝˋ</rt></ruby><ruby>多<rt>ㄉㄨㄛ</rt></ruby><ruby>天<rt>ㄊㄧㄢ</rt></ruby>，<ruby>星<rt>ㄒㄧㄥ</rt></ruby><ruby>星<rt>ㄒㄧㄥ</rt></ruby><ruby>幣<rt>ㄅㄧˋ</rt></ruby><ruby>加<rt>ㄐㄧㄚ</rt></ruby><ruby>倍<rt>ㄅㄟˋ</rt></ruby>！</p>
             </div>
             <button onClick="{{ signToday }}" disabled="{{ signedToday }}" style="border:0;border-radius:20px;padding:16px 28px;font-size:17px;font-weight:900;font-family:inherit;cursor:pointer;color:{{ signBtnFg }};background:{{ signBtnBg }};box-shadow:0 12px 24px rgba(255,176,32,.24)">{{ signBtnLabel }}</button>
@@ -624,12 +701,20 @@
               <div style="text-align:center;font-size:12px;font-weight:900;color:#b3a9d8">{{ w }}</div>
             </sc-for>
             <sc-for list="{{ calendar }}" as="d" hint-placeholder-count="35">
-              <div style="aspect-ratio:1;border-radius:16px;border:1.5px solid {{ d.border }};background:{{ d.bg }};display:grid;place-items:center;gap:2px">
+              <button onClick="{{ d.open }}" disabled="{{ d.disabled }}" style="aspect-ratio:1;border-radius:16px;border:1.5px solid {{ d.border }};background:{{ d.bg }};display:grid;place-items:center;align-content:center;gap:1px;font-family:inherit;cursor:{{ d.cursor }}">
                 <span style="font-size:13px;font-weight:900;color:{{ d.fg }}">{{ d.label }}</span>
                 <span style="font-size:16px;line-height:1">{{ d.mark }}</span>
-              </div>
+                <span style="font-size:9px;font-weight:900;color:#5b3fe0">{{ d.expLabel }}</span>
+              </button>
             </sc-for>
           </div>
+        </section>
+
+        <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+          <h3 style="margin:0 0 4px;font-size:20px;font-weight:900">{{ selectedDateLabel }} EXP 明細</h3>
+          <p style="margin:0 0 14px;font-size:14px;font-weight:900;color:#5b3fe0">當日共獲得 {{ selectedDateXp }} EXP　{{ selectedDateBadges }}</p>
+          <sc-for list="{{ selectedXpRows }}" as="row" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f0ff"><span style="font-size:20px">✨</span><span style="flex:1"><strong style="display:block;font-size:14px;font-weight:900">{{ row.source }}</strong><span style="font-size:12px;font-weight:700;color:#9a90c8">{{ row.detail }}</span></span><strong style="font-size:15px;color:#35c98a">+{{ row.amount }} EXP</strong></div></sc-for>
+          <sc-if value="{{ selectedXpEmpty }}" hint-placeholder-val="{{ false }}"><p style="margin:0;color:#b3a9d8;font-size:13px;font-weight:800">這一天還沒有取得 EXP。</p></sc-if>
         </section>
 
         <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
@@ -663,6 +748,15 @@
             <button onClick="{{ t.go }}" style="border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:99px;padding:11px 22px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ t.label }}</button>
           </sc-for>
         </div>
+
+        <sc-if value="{{ adminWeekly }}" hint-placeholder-val="{{ false }}">
+          <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">WEEKLY EXAM BUILDER</p><h2 style="margin:8px 0 4px;font-size:28px;font-weight:900">每週考卷設定</h2><p style="margin:0;font-size:13px;font-weight:700;color:#9a90c8">設定各模組題數與難度；0 題代表本週不出題。學生交卷後才會看到分數與檢討。</p></div><label style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:900;color:#4a3d7a">每題時間<select value="{{ weeklyTeacherTime }}" onChange="{{ changeWeeklyTime }}" style="border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;background:#fff;color:#5b3fe0;font-family:inherit;font-weight:900"><sc-for list="{{ weeklyTimeOptions }}" as="option" hint-placeholder-count="6"><option value="{{ option.value }}">{{ option.label }}</option></sc-for></select></label></div>
+            <div style="display:flex;gap:8px;margin-top:18px"><sc-for list="{{ weeklyTeacherGrades }}" as="grade" hint-placeholder-count="2"><button onClick="{{ grade.go }}" style="border:1.5px solid {{ grade.border }};background:{{ grade.bg }};color:{{ grade.fg }};border-radius:99px;padding:9px 18px;font-family:inherit;font-weight:900;cursor:pointer">{{ grade.label }}</button></sc-for></div>
+            <div style="margin-top:16px;display:grid;gap:9px"><sc-for list="{{ weeklyModuleRows }}" as="row" hint-placeholder-count="10"><div style="display:grid;grid-template-columns:minmax(180px,1fr) 130px 140px;gap:10px;align-items:center;padding:12px 14px;border-radius:18px;background:#fbfaff;border:1px solid #ece7ff"><span style="display:flex;align-items:center;gap:10px"><span style="font-size:22px">{{ row.icon }}</span><span><strong style="display:block;font-size:14px;font-weight:900">{{ row.title }}</strong><span style="font-size:11px;font-weight:700;color:#9a90c8">{{ row.subject }}</span></span></span><label style="font-size:12px;font-weight:900;color:#7c74a8">題數 <select value="{{ row.count }}" onChange="{{ row.changeCount }}" style="margin-left:4px;border:1px solid #ddd5ff;border-radius:9px;padding:7px;background:#fff;font-family:inherit"><sc-for list="{{ row.countOptions }}" as="option" hint-placeholder-count="6"><option value="{{ option.value }}">{{ option.label }}</option></sc-for></select></label><label style="font-size:12px;font-weight:900;color:#7c74a8">難度 <select value="{{ row.difficulty }}" onChange="{{ row.changeDifficulty }}" style="margin-left:4px;border:1px solid #ddd5ff;border-radius:9px;padding:7px;background:#fff;font-family:inherit"><sc-for list="{{ row.difficultyOptions }}" as="option" hint-placeholder-count="3"><option value="{{ option.value }}">{{ option.label }}</option></sc-for></select></label></div></sc-for></div>
+            <p style="margin:16px 0 0;padding:12px 15px;border-radius:16px;background:#e6f7ee;color:#1d7a55;font-size:13px;font-weight:900">目前 {{ weeklyTeacherTotal }} 題 · 設定會自動儲存到這台裝置。</p>
+          </section>
+        </sc-if>
 
         <sc-if value="{{ adminStudents }}" hint-placeholder-val="{{ true }}">
           <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
@@ -967,11 +1061,14 @@ const MATH_UNITS = [
   { id: "u2", grade: 1, difficulty: 1, icon: "🧁", tint: "#ffeccc", title: "10 以內的減法", sub: "一年級 · 數與量" },
   { id: "u3", grade: 1, difficulty: 1, icon: "📏", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
   { id: "u4", grade: 1, difficulty: 1, icon: "🔷", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
-  { id: "u14", grade: 1, difficulty: 2, icon: "🌟", tint: "#fff0cc", title: "50 以內的加法", sub: "一年級 · 進階加法" },
-  { id: "u15", grade: 1, difficulty: 2, icon: "🚀", tint: "#eafbfd", title: "50 以內的減法", sub: "一年級 · 進階減法" },
+  { id: "u19", grade: 1, difficulty: 1, icon: "🔗", tint: "#e6f7ee", title: "橫式個位數連續加減", sub: "一年級 · 3～5 次運算" },
+  { id: "u14", grade: 1, difficulty: 2, icon: "🌟", tint: "#fff0cc", title: "直式 50 以內加法", sub: "一年級 · 進階加法" },
+  { id: "u15", grade: 1, difficulty: 2, icon: "🚀", tint: "#eafbfd", title: "直式 50 以內減法", sub: "一年級 · 進階減法" },
   { id: "u16", grade: 1, difficulty: 2, icon: "✖️", tint: "#f1e6ff", title: "個位數的乘法", sub: "一年級 · 乘法入門" },
   { id: "u17", grade: 1, difficulty: 3, icon: "🍰", tint: "#ffe0ef", title: "認識分數", sub: "一年級 · 分數入門" },
   { id: "u18", grade: 1, difficulty: 3, icon: "➗", tint: "#e6f7ee", title: "個位數的除法", sub: "一年級 · 除法入門" },
+  { id: "u20", grade: 1, difficulty: 3, icon: "💯", tint: "#ffeccc", title: "直式 99 以內加法", sub: "一年級 · 百以內加法" },
+  { id: "u21", grade: 1, difficulty: 3, icon: "🎯", tint: "#e8f2ff", title: "直式 99 以內減法", sub: "一年級 · 百以內減法" },
   { id: "u5", grade: 2, icon: "➕", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 數與量" },
   { id: "u13", grade: 2, icon: "🔢", tint: "#e8f2ff", title: "三位數的加減", sub: "二年級 · 直式計算" },
   { id: "u6", grade: 2, icon: "✖️", tint: "#f1e6ff", title: "九九乘法", sub: "二年級 · 數與量" },
@@ -981,16 +1078,25 @@ const MATH_UNITS = [
   { id: "u10", grade: 2, icon: "🍰", tint: "#ffe0ef", title: "認識分數", sub: "二年級 · 分數" },
   { id: "u11", grade: 2, icon: "🍕", tint: "#e6f7ee", title: "分數比大小", sub: "二年級 · 分數" },
   { id: "u12", grade: 2, icon: "🐔", tint: "#dff1ff", title: "動物的腳數（推理）", sub: "二年級 · 代數思考" },
+  { id: "u22", grade: 2, difficulty: 1, icon: "🔗", tint: "#e6f7ee", title: "橫式十位數連續加減", sub: "二年級 · 3～5 次運算" },
+  { id: "u23", grade: 2, difficulty: 2, icon: "➕", tint: "#fff0cc", title: "直式 200 以內加法", sub: "二年級 · 進階加法" },
+  { id: "u24", grade: 2, difficulty: 2, icon: "➖", tint: "#eafbfd", title: "直式 200 以內減法", sub: "二年級 · 進階減法" },
+  { id: "u25", grade: 2, difficulty: 3, icon: "🧠", tint: "#f1e6ff", title: "直式 500 以內加法", sub: "二年級 · 挑戰加法" },
+  { id: "u26", grade: 2, difficulty: 3, icon: "🏁", tint: "#ffe0ef", title: "直式 500 以內減法", sub: "二年級 · 挑戰減法" },
+  { id: "u27", grade: 2, difficulty: 2, icon: "🧺", tint: "#fff6cc", title: "十位數 × 個位數", sub: "二年級 · 乘法進階" },
+  { id: "u28", grade: 2, difficulty: 3, icon: "🍎", tint: "#ffe6d1", title: "十位數 × 個位數挑戰", sub: "二年級 · 進位乘法" },
 ];
 const CH_UNITS = [
   { id: "c1", grade: 1, icon: "📚", tint: "#e6f7ee", title: "學習庫", sub: "一年級 · 識字單元", kind: "library" },
   { id: "c2", grade: 1, icon: "🎲", tint: "#ffeef6", title: "隨機測驗", sub: "一年級 · 聽注音選國字", kind: "quiz" },
   { id: "c3", grade: 2, icon: "📚", tint: "#e6f7ee", title: "學習庫", sub: "二年級 · 識字單元", kind: "library" },
   { id: "c4", grade: 2, icon: "🎲", tint: "#ffeef6", title: "隨機測驗", sub: "二年級 · 聽注音選國字", kind: "quiz" },
+  { id: "c5", grade: 1, difficulty: 1, icon: "✍️", tint: "#fff0cc", title: "寫字練習辨識", sub: "一年級 · 描寫與辨識", kind: "writing" },
+  { id: "c6", grade: 2, difficulty: 2, icon: "✍️", tint: "#eafbfd", title: "寫字練習辨識", sub: "二年級 · 描寫與辨識", kind: "writing" },
 ];
 
 const WEEK = ["日", "一", "二", "三", "四", "五", "六"];
-const TODAY = 25;
+const TODAY = new Date().getDate();
 const AVATAR_IMAGES = {
   girl: { atelier: "rewards/avatar-female-v2.png", creative: "rewards/avatar-female-creative-v3.png", performance: "rewards/avatar-female-performance-v3.png" },
   boy: { atelier: "rewards/avatar-male-v2.png", creative: "rewards/avatar-male-creative-v3.png", performance: "rewards/avatar-male-performance-v3.png" },
@@ -1025,6 +1131,7 @@ const PROFILE_STORE_KEY = "learning-planet.student-profiles.v1";
 const SPEECH_MUTE_STORE_KEY = "learning-planet.question-speech-muted.v1";
 const AUTO_NEXT_STORE_KEY = "learning-planet.quiz-auto-next.v1";
 const WARDROBE_FIT_STORE_KEY = "learning-planet.wardrobe-fit.v1";
+const WEEKLY_CONFIG_STORE_KEY = "learning-planet.weekly-exam-config.v1";
 const DEFAULT_WARDROBE_FIT = { x: 0, y: 0, width: 100, height: 100, topEnd: 0, bottomStart: 0 };
 const CORRECT_FEEDBACKS = [
   "太棒了！答對囉！",
@@ -1052,6 +1159,36 @@ function dailyMasteryRound(profile, unitId) {
   return Math.max(0, Math.min(3, Number(daily.units[unitId]) || 0));
 }
 function masteryRoman(round) { return ["—", "I", "II", "III"][Math.max(0, Math.min(3, round))]; }
+function weekKey() {
+  const now = new Date();
+  const utc = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  const day = utc.getUTCDay() || 7;
+  utc.setUTCDate(utc.getUTCDate() + 4 - day);
+  const yearStart = new Date(Date.UTC(utc.getUTCFullYear(), 0, 1));
+  const week = Math.ceil((((utc - yearStart) / 86400000) + 1) / 7);
+  return utc.getUTCFullYear() + "-W" + String(week).padStart(2, "0");
+}
+function defaultWeeklyConfig() {
+  return {
+    timeSeconds: 45,
+    modules: {
+      u1: { count: 3, difficulty: 1 }, u14: { count: 2, difficulty: 2 }, u17: { count: 1, difficulty: 3 },
+      c2: { count: 4, difficulty: 1 },
+      u22: { count: 3, difficulty: 1 }, u23: { count: 2, difficulty: 2 }, u27: { count: 1, difficulty: 2 },
+      c4: { count: 4, difficulty: 2 },
+    },
+  };
+}
+function readWeeklyConfig() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(WEEKLY_CONFIG_STORE_KEY) || "null");
+    if (saved && saved.modules && typeof saved.modules === "object") return Object.assign(defaultWeeklyConfig(), saved, { modules: Object.assign({}, defaultWeeklyConfig().modules, saved.modules) });
+  } catch (_) {}
+  return defaultWeeklyConfig();
+}
+function saveWeeklyConfig(value) {
+  try { localStorage.setItem(WEEKLY_CONFIG_STORE_KEY, JSON.stringify(value)); } catch (_) {}
+}
 function randomFeedback(list) { return list[Math.floor(Math.random() * list.length)]; }
 function readSpeechMuted() {
   try { return localStorage.getItem(SPEECH_MUTE_STORE_KEY) === "1"; } catch (_) { return false; }
@@ -1112,6 +1249,7 @@ function makeProfile() {
     avatar: "girl", avatarStyle: "atelier", avatarSelected: false,
     favorites: [], log: [],
     dailyMastery: { date: localDateKey(), units: {} },
+    masteryHistory: {}, xpLedger: [], rewardedRuns: [], weeklyExam: null,
   };
 }
 function makeStudents() {
@@ -1137,9 +1275,12 @@ class Component extends DCLogic {
     subject: "math",
     grade: 1,
     unit: null, quizSubject: "math",
-    qs: [], qi: 0, picked: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, feedbackTitle: "", resultMastery: 0, resultNote: "",
+    qs: [], qi: 0, picked: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, quizRunId: "", feedbackTitle: "", resultMastery: 0, resultNote: "",
     gain: { xp: 0, coins: 0 },
-    assigned: "u2",
+    assigned: "u2", weeklyConfig: readWeeklyConfig(), weeklyTeacherGrade: 1,
+    examQs: [], examIndex: 0, examAnswers: [], examStartedAt: 0, examReview: [], examScore: 0,
+    writingWord: null, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false,
+    selectedDate: localDateKey(),
     shopCat: "hair", slot: "hair", shopQuery: "", shopOwnedOnly: false,
     shopMessage: "上衣與下身是獨立道具，可自由混搭；髮型與服裝依角色分流，帽子、鞋履與手持道具共用。",
     words: [], customWords: [],
@@ -1171,6 +1312,10 @@ class Component extends DCLogic {
         const storedEquipped = profile.equipped && typeof profile.equipped === "object" ? profile.equipped : {};
         profile.equipped = Object.assign({}, BASE_EQUIP, storedEquipped);
         profile.dailyMastery = normalizeDailyMastery(profile.dailyMastery);
+        profile.masteryHistory = profile.masteryHistory && typeof profile.masteryHistory === "object" ? profile.masteryHistory : {};
+        profile.xpLedger = Array.isArray(profile.xpLedger) ? profile.xpLedger : [];
+        profile.rewardedRuns = Array.isArray(profile.rewardedRuns) ? profile.rewardedRuns : [];
+        profile.weeklyExam = profile.weeklyExam && typeof profile.weeklyExam === "object" ? profile.weeklyExam : null;
         if (storedEquipped.outfit && storedEquipped.outfit !== "outfit-00" && !storedEquipped.top && !storedEquipped.bottom) {
           profile.equipped.top = storedEquipped.outfit.replace("outfit-", "top-");
           profile.equipped.bottom = storedEquipped.outfit.replace("outfit-", "bottom-");
@@ -1191,6 +1336,10 @@ class Component extends DCLogic {
     }).catch(() => {});
     this.timer = setInterval(() => {
       const s = this.state;
+      if (s.screen === "weeklyQuiz") {
+        if (s.timeLeft > 1) { this.setState({ timeLeft: s.timeLeft - 1 }); return; }
+        this.answerWeekly(-1, true); return;
+      }
       if (s.screen !== "quiz" || s.locked) return;
       if (s.timeLeft > 1) { this.setState({ timeLeft: s.timeLeft - 1 }); return; }
       this.finishAnswer(-1, false, true);
@@ -1274,12 +1423,83 @@ class Component extends DCLogic {
       const others = shuffle(pool.filter((x) => x.c !== w.c)).slice(0, 3).map((x) => x.c);
       return {
         stem: "聽聽看，這個注音是哪一個字？",
-        ans: w.c, fig: "zhuyin", figData: { z: w.z, word: w.w.split(w.c).join("◯") },
+        ans: w.c, fig: "zhuyin", figData: { z: w.z, word: w.w.split(w.c).join("◯"), picture: w.i || "🖼️" },
         speakText: w.c,
         explain: "「" + w.c + "」讀作 " + w.z + "，語詞是「" + w.w + "」，部首是「" + w.r + "」。",
         opts: shuffle([w.c].concat(others)),
       };
     });
+  }
+
+  startWriting(grade) {
+    const pool = this.gradeWords(grade);
+    if (!pool.length) { this.flash("字彙還在載入中，請稍等一下"); return; }
+    const word = pool[Math.floor(Math.random() * pool.length)];
+    this.setState({ screen: "writing", grade, writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => this.clearWriting());
+  }
+  writingPosition(event) {
+    const canvas = document.getElementById("writing-pad");
+    if (!canvas) return null;
+    const rect = canvas.getBoundingClientRect();
+    return { canvas, x: (event.clientX - rect.left) * canvas.width / rect.width, y: (event.clientY - rect.top) * canvas.height / rect.height };
+  }
+  beginWriting(event) {
+    const point = this.writingPosition(event);
+    if (!point) return;
+    event.preventDefault();
+    this.writingActive = true;
+    this.writingPoints = 1;
+    const ctx = point.canvas.getContext("2d");
+    ctx.beginPath(); ctx.moveTo(point.x, point.y);
+    if (point.canvas.setPointerCapture) point.canvas.setPointerCapture(event.pointerId);
+  }
+  moveWriting(event) {
+    if (!this.writingActive) return;
+    const point = this.writingPosition(event);
+    if (!point) return;
+    event.preventDefault();
+    const ctx = point.canvas.getContext("2d");
+    ctx.lineWidth = 17; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "#2b1f57";
+    ctx.lineTo(point.x, point.y); ctx.stroke();
+    this.writingPoints = (this.writingPoints || 0) + 1;
+  }
+  endWriting() { this.writingActive = false; }
+  clearWriting() {
+    const canvas = document.getElementById("writing-pad");
+    if (canvas) canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    this.writingPoints = 0;
+    if (this.state.screen === "writing") this.setState({ writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false });
+  }
+  recognizeWriting() {
+    const canvas = document.getElementById("writing-pad");
+    const word = this.state.writingWord;
+    if (!canvas || !word) return;
+    const ctx = canvas.getContext("2d");
+    const ink = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    const guide = document.createElement("canvas"); guide.width = canvas.width; guide.height = canvas.height;
+    const g = guide.getContext("2d");
+    g.fillStyle = "#000"; g.font = "230px serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(word.c, 160, 168);
+    const mask = g.getImageData(0, 0, guide.width, guide.height).data;
+    let drawn = 0, overlap = 0;
+    for (let i = 3; i < ink.length; i += 4) if (ink[i] > 20) { drawn += 1; if (mask[i] > 5) overlap += 1; }
+    const precision = drawn ? overlap / drawn : 0;
+    const good = drawn > 650 && (this.writingPoints || 0) > 8 && precision > .22;
+    if (good) {
+      const rewardId = "writing:" + localDateKey() + ":" + word.c;
+      this.patch((p) => {
+        if (p.rewardedRuns.indexOf(rewardId) >= 0) return {};
+        return { xp: p.xp + 5, rewardedRuns: p.rewardedRuns.concat(rewardId).slice(-300), xpLedger: [{ id: rewardId, date: localDateKey(), amount: 5, source: "寫字練習", detail: "描寫「" + word.c + "」" }].concat(p.xpLedger).slice(0, 500) };
+      });
+    }
+    this.setState({ writingFeedbackGood: good, writingFeedback: good ? "✓ 描寫位置很接近！認得是「" + word.c + "」。" : "再沿著淡色筆畫寫一次，注意字要寫在方格中央。" });
+    if (!this.state.speechMuted) this.speakText(good ? "寫得很好，這是" + word.c : "再試一次，沿著淡色筆畫慢慢寫");
+  }
+  nextWriting() {
+    const pool = this.gradeWords(this.state.grade);
+    const current = this.state.writingWord;
+    const candidates = pool.filter((word) => !current || word.c !== current.c);
+    const word = (candidates.length ? candidates : pool)[Math.floor(Math.random() * (candidates.length || pool.length))];
+    this.setState({ writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => this.clearWriting());
   }
 
   buildMath(unitId) {
@@ -1302,21 +1522,38 @@ class Component extends DCLogic {
         const names = ["圓形", "正方形", "三角形", "長方形"];
         const pick = r(0, 3);
         q = { stem: "圖中第一個是什麼形狀？", ans: names[pick], fig: "shape", figData: { pick }, explain: "它有" + (pick === 0 ? "圓圓的邊，沒有角" : pick === 2 ? "3 個角、3 個邊" : "4 個角、4 個邊") + "，所以是" + names[pick] + "。", opts: shuffle(names) };
+      } else if (unitId === "u19" || unitId === "u22") {
+        const max = unitId === "u19" ? 30 : 99;
+        const steps = r(3, 5);
+        let value = r(unitId === "u19" ? 3 : 20, unitId === "u19" ? 9 : 60);
+        const parts = [String(value)];
+        for (let step = 0; step < steps; step += 1) {
+          const canSubtract = value > (unitId === "u19" ? 3 : 15);
+          const minus = canSubtract && (value >= max || r(0, 1) === 0);
+          const amount = minus ? r(1, Math.min(value, unitId === "u19" ? 9 : 25)) : r(1, Math.max(1, Math.min(max - value, unitId === "u19" ? 9 : 25)));
+          value += minus ? -amount : amount;
+          parts.push(minus ? "－" : "＋", String(amount));
+        }
+        q = { stem: parts.join(" ") + " ＝ ？", ans: value, fig: "none", explain: "按照由左到右的順序一步一步計算，答案是 " + value + "。" };
       } else if (unitId === "u14") {
         const a = r(6, 39), b = r(2, 50 - a);
-        q = { stem: a + " ＋ " + b + " ＝ ？", ans: a + b, fig: "none", explain: "先把十位和個位分開計算，" + a + " 加 " + b + " 等於 " + (a + b) + "。" };
+        q = { stem: "請用直式算出答案", ans: a + b, fig: "columns", figData: { a, b, plus: true }, explain: "個位對個位、十位對十位，從個位加起，答案是 " + (a + b) + "。" };
       } else if (unitId === "u15") {
         const a = r(15, 50), b = r(2, a - 1);
-        q = { stem: a + " － " + b + " ＝ ？", ans: a - b, fig: "none", explain: "從 " + a + " 拿走 " + b + "，還剩下 " + (a - b) + "。" };
+        q = { stem: "請用直式算出答案", ans: a - b, fig: "columns", figData: { a, b, plus: false }, explain: "個位對個位、十位對十位，從個位減起，答案是 " + (a - b) + "。" };
       } else if (unitId === "u16") {
         const a = r(2, 9), b = r(2, 9);
-        q = { stem: a + " × " + b + " ＝ ？", ans: a * b, fig: "dots", figData: { a: Math.min(a * b, 12), b: 0 }, explain: a + " 組、每組 " + b + " 個，一共有 " + (a * b) + " 個。" };
+        q = { stem: "一盤有 " + a + " 顆蘋果，買了 " + b + " 盤。" + a + " × " + b + " ＝ ？", ans: a * b, fig: "baskets", figData: { groups: b, each: a }, explain: b + " 盤、每盤 " + a + " 顆，就是 " + a + " × " + b + " ＝ " + (a * b) + "。" };
       } else if (unitId === "u17") {
         const den = [2, 3, 4, 5, 6, 8][r(0, 5)], num = r(1, den - 1);
         q = { stem: "塗色的部分是幾分之幾？", ans: num + "/" + den, fig: "fracbar", figData: { den, num }, explain: "全部分成 " + den + " 等份，塗色有 " + num + " 份，所以是 " + num + "/" + den + "。", opts: shuffle([num + "/" + den, den + "/" + num, num + "/" + (den + 1), (num + 1) + "/" + den]) };
       } else if (unitId === "u18") {
         const divisor = r(2, 9), quotient = r(2, 9), dividend = divisor * quotient;
         q = { stem: dividend + " ÷ " + divisor + " ＝ ？", ans: quotient, fig: "groups", figData: { groups: divisor, per: quotient, rem: 0 }, explain: dividend + " 個平均分成 " + divisor + " 組，每組有 " + quotient + " 個。" };
+      } else if (unitId === "u20" || unitId === "u21") {
+        const plus = unitId === "u20";
+        let a = r(20, 89), b = r(10, plus ? 99 - a : a - 1);
+        q = { stem: "請用直式算出答案", ans: plus ? a + b : a - b, fig: "columns", figData: { a, b, plus }, explain: "直式要把位數對齊，" + (plus ? "滿十記得進位" : "不夠減時向十位借一") + "，答案是 " + (plus ? a + b : a - b) + "。" };
       } else if (unitId === "u5") {
         const a = r(11, 68), b = r(11, 30);
         q = { stem: a + " ＋ " + b + " ＝ ？", ans: a + b, fig: "none", explain: "先加個位：" + (a % 10) + " ＋ " + (b % 10) + "，再加十位，答案是 " + (a + b) + "。" };
@@ -1328,7 +1565,7 @@ class Component extends DCLogic {
         q = { stem: a + (plus ? " ＋ " : " － ") + b + " ＝ ？", ans, fig: "columns", figData: { a, b, plus }, explain: "直式對齊個十百位，" + (plus ? "從個位加起，滿十進一" : "從個位減起，不夠就向前借一") + "，答案是 " + ans + "。" };
       } else if (unitId === "u6") {
         const a = r(2, 9), b = r(2, 9);
-        q = { stem: a + " × " + b + " ＝ ？", ans: a * b, fig: "dots", figData: { a: Math.min(a * b, 12), b: 0 }, explain: a + " 個 " + b + " 相加，就是 " + a * b + "。" };
+        q = { stem: "一籃有 " + a + " 顆蘋果，共有 " + b + " 籃。" + a + " × " + b + " ＝ ？", ans: a * b, fig: "baskets", figData: { groups: b, each: a }, explain: b + " 籃、每籃 " + a + " 顆，合起來是 " + (a * b) + " 顆。" };
       } else if (unitId === "u7") {
         const h = r(1, 12), m = [0, 15, 30, 45][r(0, 3)];
         const label = h + " 點" + (m === 0 ? "整" : " " + m + " 分");
@@ -1348,6 +1585,15 @@ class Component extends DCLogic {
         const pair = [[2, 4], [3, 6], [4, 8], [2, 3], [3, 8], [4, 6]][r(0, 5)];
         const big = "1/" + pair[0], small = "1/" + pair[1];
         q = { stem: "哪一個分數比較大？", ans: big, fig: "fraccmp", figData: { a: pair[0], b: pair[1] }, explain: "分成越多份，每一份就越小，所以 " + big + " 比 " + small + " 大。", opts: shuffle([big, small, "一樣大", "沒辦法比"]) };
+      } else if (["u23", "u24", "u25", "u26"].indexOf(unitId) >= 0) {
+        const plus = unitId === "u23" || unitId === "u25";
+        const limit = unitId === "u23" || unitId === "u24" ? 200 : 500;
+        let a = r(Math.floor(limit * .35), limit - 20), b = r(11, plus ? limit - a : a - 1);
+        const ans = plus ? a + b : a - b;
+        q = { stem: "請用直式算出答案", ans, fig: "columns", figData: { a, b, plus }, explain: "個、十、百位要對齊，" + (plus ? "由個位開始相加" : "由個位開始相減") + "，答案是 " + ans + "。" };
+      } else if (unitId === "u27" || unitId === "u28") {
+        const a = unitId === "u27" ? r(10, 19) : r(20, 49), b = r(2, 9);
+        q = { stem: "一籃有 " + a + " 顆蘋果，共有 " + b + " 籃。" + a + " × " + b + " ＝ ？", ans: a * b, fig: "baskets", figData: { groups: b, each: a }, explain: b + " 籃、每籃 " + a + " 顆，" + a + " × " + b + " ＝ " + (a * b) + "。" };
       } else {
         const ch = r(2, 5), rb = r(1, 4);
         const legs = ch * 2 + rb * 4;
@@ -1367,15 +1613,88 @@ class Component extends DCLogic {
     return list;
   }
 
+  updateWeeklyModule(unitId, field, value) {
+    const parsed = Math.max(field === "count" ? 0 : 1, Math.min(field === "count" ? 10 : 3, Number(value) || 0));
+    this.setState((s) => {
+      const modules = Object.assign({}, s.weeklyConfig.modules);
+      modules[unitId] = Object.assign({ count: 0, difficulty: 1 }, modules[unitId] || {}, { [field]: parsed });
+      const weeklyConfig = Object.assign({}, s.weeklyConfig, { modules });
+      saveWeeklyConfig(weeklyConfig);
+      return { weeklyConfig };
+    });
+  }
+  updateWeeklyTime(value) {
+    const timeSeconds = Math.max(10, Math.min(120, Number(value) || 45));
+    this.setState((s) => {
+      const weeklyConfig = Object.assign({}, s.weeklyConfig, { timeSeconds });
+      saveWeeklyConfig(weeklyConfig); return { weeklyConfig };
+    });
+  }
+  startWeeklyExam() {
+    const p = this.prof();
+    if (p.weeklyExam && p.weeklyExam.week === weekKey() && p.weeklyExam.submitted) { this.setState({ screen: "weeklyResult", examReview: p.weeklyExam.review || [], examScore: p.weeklyExam.score || 0 }); return; }
+    const units = MATH_UNITS.concat(CH_UNITS).filter((unit) => unit.grade === this.state.grade && unit.kind !== "library" && unit.kind !== "writing");
+    const questions = [];
+    units.forEach((unit) => {
+      const setup = this.state.weeklyConfig.modules[unit.id] || { count: 0, difficulty: unit.difficulty || 1 };
+      const count = Math.max(0, Math.min(10, Number(setup.count) || 0));
+      if (!count) return;
+      const built = unit.id.charAt(0) === "c" ? this.buildChinese(unit.grade) : this.buildMath(unit.id);
+      built.slice(0, count).forEach((question) => questions.push(Object.assign({}, question, { unitId: unit.id, unitTitle: unit.title, difficulty: setup.difficulty || unit.difficulty || 1 })));
+    });
+    if (!questions.length) { this.flash("老師還沒有設定這個年級的週考題目"); return; }
+    questions.sort(() => Math.random() - .5);
+    const runId = "weekly:" + weekKey() + ":" + this.state.currentId;
+    this.setState({ screen: "weeklyQuiz", examQs: questions, examIndex: 0, examAnswers: [], examStartedAt: Date.now(), timeLeft: this.state.weeklyConfig.timeSeconds, quizRunId: runId }, () => this.speakQuestion(questions[0]));
+  }
+  answerWeekly(index, timedOut) {
+    const s = this.state;
+    if (s.screen !== "weeklyQuiz") return;
+    const question = s.examQs[s.examIndex];
+    const answer = index >= 0 ? question.opts[index] : null;
+    const answers = s.examAnswers.concat({ answer, correct: answer === question.ans, timedOut: !!timedOut });
+    if (s.examIndex + 1 < s.examQs.length) {
+      const next = s.examQs[s.examIndex + 1];
+      this.setState({ examIndex: s.examIndex + 1, examAnswers: answers, timeLeft: s.weeklyConfig.timeSeconds }, () => this.speakQuestion(next));
+      return;
+    }
+    this.submitWeekly(answers);
+  }
+  submitWeekly(answers) {
+    const s = this.state;
+    const correct = answers.filter((answer) => answer.correct).length;
+    const score = Math.round(correct / Math.max(1, s.examQs.length) * 100);
+    const review = s.examQs.map((question, index) => ({
+      stem: question.fig === "columns" ? question.figData.a + (question.figData.plus ? " ＋ " : " － ") + question.figData.b + " ＝ ？" : question.stem,
+      unitTitle: question.unitTitle, answer: answers[index] && answers[index].answer != null ? String(answers[index].answer) : "未作答",
+      correctAnswer: String(question.ans), correct: !!(answers[index] && answers[index].correct), explain: question.explain,
+    }));
+    const exam = { week: weekKey(), submitted: true, score, correct, total: s.examQs.length, review, submittedAt: new Date().toISOString() };
+    const rewardId = "weekly:" + weekKey();
+    const xp = correct * 10;
+    this.patch((p) => {
+      const rewarded = p.rewardedRuns.indexOf(rewardId) >= 0;
+      return {
+        weeklyExam: exam,
+        xp: p.xp + (rewarded ? 0 : xp),
+        correctTotal: p.correctTotal + (rewarded ? 0 : correct),
+        rewardedRuns: rewarded ? p.rewardedRuns : p.rewardedRuns.concat(rewardId).slice(-300),
+        xpLedger: rewarded ? p.xpLedger : [{ id: rewardId, date: localDateKey(), amount: xp, source: "每週考卷", detail: score + " 分（" + correct + "/" + s.examQs.length + "）" }].concat(p.xpLedger).slice(0, 500),
+      };
+    });
+    this.setState({ screen: "weeklyResult", examReview: review, examScore: score, gain: { xp, coins: 0 } });
+  }
+
   startUnit(id) {
     clearTimeout(this.autoNextTimer);
+    if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
     const round = dailyMasteryRound(this.prof(), id);
     if (round >= 3) { this.flash("這個單元今天已完成三輪，換一個練習吧！"); return; }
     const chinese = id === "c2" || id === "c4";
     const qs = chinese ? this.buildChinese(id === "c2" ? 1 : 2) : this.buildMath(id);
     if (!qs.length) { this.flash("字彙還在載入中，請稍等一下"); return; }
-    this.setState({ screen: "quiz", unit: id, quizSubject: chinese ? "chinese" : "math", qs, qi: 0, picked: null, locked: false, correct: 0, quizRound: round, timeLeft: this.roundSeconds(round), feedbackTitle: "", resultNote: "" }, () => this.speakQuestion(qs[0]));
+    this.setState({ screen: "quiz", unit: id, quizSubject: chinese ? "chinese" : "math", qs, qi: 0, picked: null, locked: false, correct: 0, quizRound: round, quizRunId: "quiz:" + this.state.currentId + ":" + id + ":" + Date.now(), timeLeft: this.roundSeconds(round), feedbackTitle: "", resultNote: "" }, () => this.speakQuestion(qs[0]));
   }
 
   pick(index) {
@@ -1419,22 +1738,28 @@ class Component extends DCLogic {
     const resultNote = all
       ? (completedRound >= 3 ? "今天已完成 III 輪，請換別的單元練習，明天會重新開始。" : "完成 " + masteryRoman(completedRound) + " 輪！下一輪每題時間會減少 5 秒。")
       : "這一輪要 100% 全對才會升級，整理錯題後再挑戰一次吧！";
-    this.patch((p) => ({
-      coins: p.coins + coins, xp: p.xp + xp,
-      correctTotal: p.correctTotal + s.correct,
-      perfect: p.perfect + (all ? 1 : 0),
-      todayCount: Math.min(10, p.todayCount + s.qs.length),
-      cleared: all && p.cleared.indexOf(s.unit) < 0 ? p.cleared.concat(s.unit) : p.cleared,
-      dailyMastery: all ? (() => {
-        const daily = normalizeDailyMastery(p.dailyMastery);
-        daily.units[s.unit] = completedRound;
-        return daily;
-      })() : normalizeDailyMastery(p.dailyMastery),
-      log: [
-        { icon: "⭐", tint: "#fff6e0", text: "答對獎勵星星幣", amount: "+" + coins, color: "#ffb020", when: "剛剛" },
-        { icon: "✅", tint: "#e6f7ee", text: "完成「" + unitTitle + "」" + s.correct + "/" + s.qs.length, amount: "+" + xp + " XP", color: "#35c98a", when: "剛剛" },
-      ].concat(p.log).slice(0, 8),
-    }));
+    const rewardId = s.quizRunId || ("quiz:" + s.unit + ":" + Date.now());
+    this.patch((p) => {
+      if (p.rewardedRuns.indexOf(rewardId) >= 0) return {};
+      const daily = normalizeDailyMastery(p.dailyMastery);
+      if (all) daily.units[s.unit] = completedRound;
+      const masteryHistory = Object.assign({}, p.masteryHistory);
+      if (all && completedRound >= 3) masteryHistory[localDateKey()] = Array.from(new Set((masteryHistory[localDateKey()] || []).concat(s.unit)));
+      return {
+        coins: p.coins + coins, xp: p.xp + xp,
+        correctTotal: p.correctTotal + s.correct,
+        perfect: p.perfect + (all ? 1 : 0),
+        todayCount: Math.min(10, p.todayCount + s.qs.length),
+        cleared: all && p.cleared.indexOf(s.unit) < 0 ? p.cleared.concat(s.unit) : p.cleared,
+        dailyMastery: daily, masteryHistory,
+        rewardedRuns: p.rewardedRuns.concat(rewardId).slice(-300),
+        xpLedger: [{ id: rewardId, date: localDateKey(), amount: xp, source: unitTitle, detail: s.correct + "/" + s.qs.length + (all ? " · 完成 " + masteryRoman(completedRound) : "") }].concat(p.xpLedger).slice(0, 500),
+        log: [
+          { icon: "⭐", tint: "#fff6e0", text: "答對獎勵星星幣", amount: "+" + coins, color: "#ffb020", when: "剛剛" },
+          { icon: "✅", tint: "#e6f7ee", text: "完成「" + unitTitle + "」" + s.correct + "/" + s.qs.length, amount: "+" + xp + " XP", color: "#35c98a", when: "剛剛" },
+        ].concat(p.log).slice(0, 8),
+      };
+    });
     this.setState({ screen: "result", gain: { xp, coins }, resultMastery: completedRound, resultNote });
   }
 
@@ -1706,6 +2031,13 @@ class Component extends DCLogic {
       const artworkHeight = item.category === "top" || item.category === "bottom" ? 210 : item.category === "shoes" || item.category === "hand" ? 172 : 138;
       return React.createElement("div", { role: "img", "aria-label": item.name + " 圖像", style: { position: "relative", height: artworkHeight, overflow: "hidden", borderRadius: 20, border: "1px solid rgba(255,255,255,.12)", background: "radial-gradient(circle at 50% 45%," + item.color + "55,transparent 58%),linear-gradient(145deg,#211a43,#110d28)" } }, pieces);
     };
+    const makeQuestionPicture = (picture) => {
+      const value = picture || "🖼️";
+      if (!/^(https?:|data:|rewards\/|images\/)/.test(value)) return React.createElement("span", { role: "img", "aria-label": "題目圖片提示" }, value);
+      return React.createElement("span", { style: { position: "relative", width: 86, height: 72, display: "grid", placeItems: "center" } },
+        React.createElement("span", { style: { position: "absolute", inset: 0, display: "grid", placeItems: "center", fontSize: 48 }, "aria-hidden": "true" }, "🖼️"),
+        React.createElement("img", { src: value, alt: "題目圖片提示", onError: (e) => { e.currentTarget.style.display = "none"; }, style: { position: "relative", zIndex: 1, width: "100%", height: "100%", objectFit: "contain" } }));
+    };
     const allUnits = MATH_UNITS.concat(CH_UNITS);
     const unit = allUnits.find((u) => u.id === s.unit) || MATH_UNITS[0];
     const q = s.qs[s.qi];
@@ -1720,23 +2052,30 @@ class Component extends DCLogic {
 
     const tabDefs = [
       { key: "map", icon: "🗺️", label: "闖關" },
+      { key: "weekly", icon: "📝", label: "週考" },
       { key: "rank", icon: "🏆", label: "排行" },
       { key: "achieve", icon: "🎖️", label: "成就" },
       { key: "closet", icon: "👗", label: "衣櫃" },
       { key: "shop", icon: "🎁", label: "獎勵" },
       { key: "signin", icon: "📅", label: "簽到" },
     ];
-    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" ? "map" : s.screen;
+    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen;
     const subjectUnits = s.subject === "math" ? MATH_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
     const detail = s.detailChar ? this.allWords().find((w) => w.c === s.detailChar) : null;
+    const weeklyExamDone = !!(p.weeklyExam && p.weeklyExam.week === weekKey() && p.weeklyExam.submitted);
+    const weeklyUnits = allUnits.filter((candidate) => candidate.grade === s.grade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
+      const setup = s.weeklyConfig.modules[candidate.id] || { count: 0, difficulty: candidate.difficulty || 1 };
+      return { unit: candidate, count: Number(setup.count) || 0, difficulty: Number(setup.difficulty) || candidate.difficulty || 1 };
+    }).filter((entry) => entry.count > 0);
+    const examQuestion = s.examQs[s.examIndex];
 
     const vals = {
       isLogin: s.screen === "login",
       isApp: s.screen !== "login",
       isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map",
-      isQuiz: s.screen === "quiz", isResult: s.screen === "result", isShop: s.screen === "shop",
+      isQuiz: s.screen === "quiz", isResult: s.screen === "result", isWriting: s.screen === "writing", isWeekly: s.screen === "weekly", isWeeklyQuiz: s.screen === "weeklyQuiz", isWeeklyResult: s.screen === "weeklyResult", isShop: s.screen === "shop",
       isCloset: s.screen === "closet", isRank: s.screen === "rank", isAchieve: s.screen === "achieve",
       isLibrary: s.screen === "library", isTeacher: s.screen === "teacher",
       toast: s.toast,
@@ -1756,7 +2095,7 @@ class Component extends DCLogic {
         login: () => this.setState({ screen: "home", currentId: st.id, teacher: false, slot: "hair", shopCat: "hair" }),
       })),
       rosterEmpty: s.students.filter((st) => st.classId === s.loginClass).length === 0,
-      loginTeacher: () => this.setState({ screen: "teacher", teacher: true, currentId: null, adminTab: "students" }),
+      loginTeacher: () => this.setState({ screen: "teacher", teacher: true, currentId: null, adminTab: "weekly" }),
       logout: () => {
         clearTimeout(this.autoNextTimer);
         if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
@@ -1807,25 +2146,46 @@ class Component extends DCLogic {
 
       assignedText: "陳老師指派：" + (allUnits.find((u) => u.id === s.assigned) || MATH_UNITS[0]).title + "　" + this.total() + " 題　限時 " + this.seconds() + " 秒／題",
       startAssigned: () => this.startUnit(s.assigned),
-      goSignin: go("signin"), goShop: go("shop"), goMap: go("map"), goCloset: go("closet"),
+      goSignin: go("signin"), goShop: go("shop"), goMap: go("map"), goCloset: go("closet"), goWeekly: go("weekly"),
+
+      weeklyKey: weekKey(), weeklyTime: s.weeklyConfig.timeSeconds,
+      weeklySections: weeklyUnits.map((entry) => ({ icon: entry.unit.icon, title: entry.unit.title, count: entry.count, stars: "⭐".repeat(Math.max(1, Math.min(3, entry.difficulty))) })),
+      weeklyTotal: weeklyUnits.reduce((sum, entry) => sum + entry.count, 0),
+      weeklyBtnLabel: weeklyExamDone ? "查看本週成績" : "開始作答（僅一次）",
+      weeklyBtnBg: weeklyExamDone ? "#e6f7ee" : "linear-gradient(90deg,#7c5cff,#22c8d8)", weeklyBtnFg: weeklyExamDone ? "#1d7a55" : "#fff",
+      startWeekly: () => this.startWeeklyExam(),
+      examNo: s.examIndex + 1, examTotal: s.examQs.length, examPct: Math.round((s.examIndex + 1) / Math.max(1, s.examQs.length) * 100),
+      examUnitTitle: examQuestion ? examQuestion.unitTitle : "",
+      examStem: examQuestion ? (examQuestion.fig === "columns" ? examQuestion.figData.a + (examQuestion.figData.plus ? " ＋ " : " － ") + examQuestion.figData.b + " ＝ ？" : examQuestion.stem) : "",
+      examHint: examQuestion && examQuestion.fig === "zhuyin" ? (examQuestion.figData.picture || "🖼️") + "　" + examQuestion.figData.z + "　語詞：" + examQuestion.figData.word : "",
+      examOptions: examQuestion ? examQuestion.opts.map((option, index) => ({ label: String(option), pick: () => this.answerWeekly(index, false) })) : [],
+      examScore: s.examScore,
+      examReview: s.examReview.map((row) => ({ stem: row.stem, unitTitle: row.unitTitle, answer: row.answer, correctAnswer: row.correctAnswer, explain: row.explain, mark: row.correct ? "✓" : "✕", border: row.correct ? "#9fe3c4" : "#ffd0e6", fg: row.correct ? "#1d7a55" : "#b0316f" })),
 
       ledger: p.log,
       ledgerEmpty: p.log.length === 0,
 
       weekHeads: WEEK,
-      calendar: Array.from({ length: 35 }, (_, i) => {
-        const day = i - 2;
-        const valid = day >= 1 && day <= 31;
-        const signed = valid && p.signedDays.indexOf(day) >= 0;
-        const isToday = day === TODAY;
-        return {
-          label: valid ? String(day) : "",
-          mark: signed ? "🏅" : isToday ? "❓" : "",
-          bg: !valid ? "transparent" : signed ? "#fff6e0" : isToday ? "#f1e6ff" : "#fbfaff",
-          border: !valid ? "transparent" : signed ? "#ffd98a" : isToday ? "#7c5cff" : "#f0ecff",
-          fg: signed ? "#a06400" : isToday ? "#7c5cff" : "#b3a9d8",
-        };
-      }),
+      calendarTitle: (new Date().getMonth() + 1) + " 月",
+      calendar: (() => {
+        const now = new Date(), year = now.getFullYear(), month = now.getMonth();
+        const offset = new Date(year, month, 1).getDay(), days = new Date(year, month + 1, 0).getDate();
+        return Array.from({ length: 42 }, (_, index) => {
+          const day = index - offset + 1, valid = day >= 1 && day <= days;
+          const date = valid ? year + "-" + String(month + 1).padStart(2, "0") + "-" + String(day).padStart(2, "0") : "";
+          const signed = valid && p.signedDays.indexOf(day) >= 0, isToday = date === localDateKey(), selected = date === s.selectedDate;
+          const entries = valid ? p.xpLedger.filter((entry) => entry.date === date) : [];
+          const exp = entries.reduce((sum, entry) => sum + Number(entry.amount || 0), 0);
+          const badges = valid ? (p.masteryHistory[date] || []) : [];
+          return { label: valid ? String(day) : "", mark: badges.length ? "🏅×" + badges.length : signed ? "✓" : isToday ? "•" : "", expLabel: exp ? "+" + exp + " EXP" : "", disabled: !valid, cursor: valid ? "pointer" : "default",
+            bg: !valid ? "transparent" : selected ? "#eafbfd" : signed ? "#fff6e0" : isToday ? "#f1e6ff" : "#fbfaff", border: !valid ? "transparent" : selected ? "#22c8d8" : signed ? "#ffd98a" : isToday ? "#7c5cff" : "#f0ecff", fg: signed ? "#a06400" : isToday || selected ? "#5b3fe0" : "#b3a9d8", open: () => valid && this.setState({ selectedDate: date }) };
+        });
+      })(),
+      selectedDateLabel: s.selectedDate,
+      selectedDateXp: p.xpLedger.filter((entry) => entry.date === s.selectedDate).reduce((sum, entry) => sum + Number(entry.amount || 0), 0),
+      selectedDateBadges: (p.masteryHistory[s.selectedDate] || []).length ? "· 🏅 完成三輪單元 " + (p.masteryHistory[s.selectedDate] || []).length + " 個" : "",
+      selectedXpRows: p.xpLedger.filter((entry) => entry.date === s.selectedDate).map((entry) => ({ source: entry.source, detail: entry.detail, amount: entry.amount })),
+      selectedXpEmpty: !p.xpLedger.some((entry) => entry.date === s.selectedDate),
       signedToday: p.signedDays.indexOf(TODAY) >= 0,
       signBtnLabel: p.signedDays.indexOf(TODAY) >= 0 ? "今天已簽到 ✓" : "簽到領星星幣 ⭐",
       signBtnBg: p.signedDays.indexOf(TODAY) >= 0 ? "#f0ecff" : "linear-gradient(90deg,#ffb020,#ff7ab8)",
@@ -1899,6 +2259,16 @@ class Component extends DCLogic {
         close: () => this.setState({ detailChar: null }),
       } : { char: "", zhuyin: "", word: "", radical: "", unit: "", pic: "", favLabel: "" },
 
+      writingChar: s.writingWord ? s.writingWord.c : "字",
+      writingWord: s.writingWord ? s.writingWord.w : "寫字",
+      writingZhuyin: s.writingWord ? s.writingWord.z : "",
+      writingPicture: s.writingWord ? (s.writingWord.i || "🖼️") : "🖼️",
+      writingFeedback: s.writingFeedback,
+      writingFeedbackFg: s.writingFeedbackGood ? "#1d7a55" : "#7c74a8",
+      writingFeedbackBg: s.writingFeedbackGood ? "#e6f7ee" : "#f3f0ff",
+      writingStart: (e) => this.beginWriting(e), writingMove: (e) => this.moveWriting(e), writingEnd: () => this.endWriting(),
+      clearWriting: () => this.clearWriting(), recognizeWriting: () => this.recognizeWriting(), nextWriting: () => this.nextWriting(),
+
       quizUnitTitle: unit.title,
       qNo: s.qi + 1, qTotal: s.qs.length || this.total(),
       quizPct: Math.round((s.qi + (s.locked ? 1 : 0)) / (s.qs.length || 1) * 100),
@@ -1939,7 +2309,9 @@ class Component extends DCLogic {
       figZhuyin: !!q && q.fig === "zhuyin",
       zhuyinBig: q && q.fig === "zhuyin" ? q.figData.z : "",
       zhuyinWord: q && q.fig === "zhuyin" ? q.figData.word : "",
+      zhuyinPicture: q && q.fig === "zhuyin" ? makeQuestionPicture(q.figData.picture) : "🖼️",
       figDots: !!q && q.fig === "dots",
+      figBaskets: !!q && q.fig === "baskets",
       figLine: !!q && q.fig === "line",
       figClock: !!q && q.fig === "clock",
       figShape: !!q && q.fig === "shape",
@@ -1952,6 +2324,7 @@ class Component extends DCLogic {
         icon: i < q.figData.a ? "🍎" : "🍏",
         bg: i < q.figData.a ? "#ffe0e6" : "#e6f7ee",
       })) : [],
+      basketGroups: q && q.fig === "baskets" ? Array.from({ length: q.figData.groups }, () => ({ each: q.figData.each })) : [],
       ticks: q && q.fig === "line" ? Array.from({ length: q.figData.max + 1 }, (_, i) => ({ pos: i / q.figData.max * 100, label: i % 2 === 0 ? String(i) : "" })) : [],
       markerPos: q && q.fig === "line" ? q.figData.t / q.figData.max * 100 : 0,
       clockMarks: Array.from({ length: 12 }, (_, i) => {
@@ -2085,6 +2458,7 @@ class Component extends DCLogic {
       }),
 
       adminTabs: [
+        { key: "weekly", label: "每週考卷" },
         { key: "students", label: "學員維護" },
         { key: "classes", label: "班級管理" },
         { key: "vocab", label: "字彙維護" },
@@ -2097,9 +2471,22 @@ class Component extends DCLogic {
         border: s.adminTab === t.key ? "#2b1f57" : "#ece7ff",
       })),
       adminStudents: s.adminTab === "students",
+      adminWeekly: s.adminTab === "weekly",
       adminClasses: s.adminTab === "classes",
       adminVocab: s.adminTab === "vocab",
       adminAssign: s.adminTab === "assign",
+
+      weeklyTeacherTime: s.weeklyConfig.timeSeconds,
+      weeklyTimeOptions: [15, 20, 30, 45, 60, 90, 120].map((value) => ({ value, label: value + " 秒" })),
+      changeWeeklyTime: (e) => this.updateWeeklyTime(e.target.value),
+      weeklyTeacherGrades: [1, 2].map((grade) => ({ label: grade === 1 ? "一年級" : "二年級", go: () => this.setState({ weeklyTeacherGrade: grade }), bg: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#fff", fg: s.weeklyTeacherGrade === grade ? "#fff" : "#7c74a8", border: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#ddd5ff" })),
+      weeklyModuleRows: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
+        const setup = s.weeklyConfig.modules[candidate.id] || { count: 0, difficulty: candidate.difficulty || 1 };
+        return { icon: candidate.icon, title: candidate.title, subject: candidate.id.charAt(0) === "c" ? "國文" : "數學", count: setup.count || 0, difficulty: setup.difficulty || candidate.difficulty || 1,
+          countOptions: Array.from({ length: 11 }, (_, value) => ({ value, label: value + " 題" })), difficultyOptions: [1, 2, 3].map((value) => ({ value, label: "⭐".repeat(value) })),
+          changeCount: (e) => this.updateWeeklyModule(candidate.id, "count", e.target.value), changeDifficulty: (e) => this.updateWeeklyModule(candidate.id, "difficulty", e.target.value) };
+      }),
+      weeklyTeacherTotal: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade).reduce((sum, candidate) => sum + Number((s.weeklyConfig.modules[candidate.id] || {}).count || 0), 0),
 
       studentCount: s.students.length,
       loggedIn: s.students.filter((st) => st.profile.signedDays.indexOf(TODAY) >= 0).length,
