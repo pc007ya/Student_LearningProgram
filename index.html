@@ -255,6 +255,40 @@
           <p style="margin:0 0 8px;font-size:12px;font-weight:900;color:#ff7ab8">作答期間不公布正誤</p>
           <h2 style="margin:0;font-size:26px;font-weight:900;line-height:1.65">{{ examStem }}</h2>
           <p style="margin:8px 0 20px;font-size:15px;font-weight:900;color:#a06400">{{ examHint }}</p>
+
+          <sc-if value="{{ figZhuyin }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;padding:22px 18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;text-align:center"><span style="display:grid;place-items:center;min-height:62px;margin-bottom:6px;font-size:52px">{{ zhuyinPicture }}</span><p style="margin:0;font-size:48px;font-weight:900;color:#a06400;letter-spacing:.08em">{{ zhuyinBig }}</p><p style="margin:10px 0 0;font-size:15px;font-weight:800;color:#7c74a8">語詞提示：{{ zhuyinWord }}</p></div>
+          </sc-if>
+          <sc-if value="{{ figDots }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;display:flex;flex-wrap:wrap;gap:10px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="8"><span style="width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:{{ d.bg }}">{{ d.icon }}</span></sc-for></div>
+          </sc-if>
+          <sc-if value="{{ figBaskets }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:18px;border-radius:22px;background:#fffaf0;border:1px dashed #ffd98a"><sc-for list="{{ basketGroups }}" as="basket" hint-placeholder-count="5"><span style="min-width:76px;border-radius:18px;padding:10px 12px;display:grid;justify-items:center;gap:4px;background:#fff;border:1px solid #ffe2ab"><span style="font-size:32px;line-height:1">🧺</span><strong style="font-size:13px;font-weight:900;color:#a06400">🍎 × {{ basket.each }}</strong></span></sc-for></div>
+          </sc-if>
+          <sc-if value="{{ figLine }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;padding:26px 18px 14px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><div style="position:relative;height:4px;background:#2b1f57;border-radius:99px"><sc-for list="{{ ticks }}" as="t" hint-placeholder-count="11"><span style="position:absolute;top:-8px;left:{{ t.pos }}%;width:2px;height:20px;background:#2b1f57"></span></sc-for><span style="position:absolute;top:-26px;left:{{ markerPos }}%;transform:translateX(-50%);font-size:22px">🔺</span></div><div style="position:relative;height:22px;margin-top:6px"><sc-for list="{{ ticks }}" as="t" hint-placeholder-count="11"><span style="position:absolute;left:{{ t.pos }}%;transform:translateX(-50%);font-size:13px;font-weight:900;color:#7c74a8">{{ t.label }}</span></sc-for></div></div>
+          </sc-if>
+          <sc-if value="{{ figClock }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;display:flex;justify-content:center;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><div style="position:relative;width:150px;height:150px;border-radius:50%;background:#fff;border:7px solid #2b1f57"><sc-for list="{{ clockMarks }}" as="m" hint-placeholder-count="12"><span style="position:absolute;left:50%;top:50%;font-size:13px;font-weight:900;color:#2b1f57;transform:translate(-50%,-50%) translate({{ m.x }}px,{{ m.y }}px)">{{ m.n }}</span></sc-for><span style="position:absolute;left:50%;bottom:50%;width:7px;height:40px;margin-left:-3.5px;border-radius:99px;background:#2b1f57;transform-origin:50% 100%;transform:rotate({{ hourDeg }}deg)"></span><span style="position:absolute;left:50%;bottom:50%;width:5px;height:58px;margin-left:-2.5px;border-radius:99px;background:#ff7ab8;transform-origin:50% 100%;transform:rotate({{ minDeg }}deg)"></span></div></div>
+          </sc-if>
+          <sc-if value="{{ figShape }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><sc-for list="{{ shapes }}" as="shape" hint-placeholder-count="4"><span style="width:74px;height:74px;background:{{ shape.color }};border-radius:{{ shape.radius }};clip-path:{{ shape.clip }}"></span></sc-for></div>
+          </sc-if>
+          <sc-if value="{{ figGroups }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;flex-wrap:wrap;gap:12px"><sc-for list="{{ groups }}" as="group" hint-placeholder-count="4"><span style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px;border-radius:18px;background:#fff;border:2px solid #ffe2ab"><span style="font-size:26px">🐒</span><span style="display:flex;gap:3px;flex-wrap:wrap;max-width:76px;justify-content:center"><sc-for list="{{ group.items }}" as="item" hint-placeholder-count="4"><span style="font-size:18px">{{ item }}</span></sc-for></span></span></sc-for></div>
+          </sc-if>
+          <sc-if value="{{ figFracbar }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;padding:20px 18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><div style="display:flex;height:66px;border:3px solid #2b1f57;border-radius:12px;overflow:hidden"><sc-for list="{{ fracCells }}" as="cell" hint-placeholder-count="4"><span style="flex:1;border-right:2px solid #2b1f57;background:{{ cell.bg }}"></span></sc-for></div></div>
+          </sc-if>
+          <sc-if value="{{ figFraccmp }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;gap:26px;justify-content:center"><sc-for list="{{ fracPies }}" as="pie" hint-placeholder-count="2"><span style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="width:96px;height:96px;border-radius:50%;background:{{ pie.pie }};border:3px solid #2b1f57"></span><strong style="font-size:16px">{{ pie.label }}</strong></span></sc-for></div>
+          </sc-if>
+          <sc-if value="{{ figLegs }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 0 20px;display:grid;gap:10px"><sc-for list="{{ legRows }}" as="row" hint-placeholder-count="2"><div style="padding:14px;border-radius:18px;background:#fbfaff;border:1px dashed #ddd5ff"><span style="display:flex;gap:5px;flex-wrap:wrap"><sc-for list="{{ row.items }}" as="animal" hint-placeholder-count="5"><span style="font-size:28px">{{ animal }}</span></sc-for></span><small style="font-weight:900;color:#7c74a8">{{ row.note }}</small></div></sc-for></div>
+          </sc-if>
+          <sc-if value="{{ figColumns }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:0 auto 20px;max-width:260px;padding:18px 24px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;font-size:30px;font-weight:900"><div style="display:grid;grid-template-columns:36px repeat(3,1fr);text-align:center;color:#9a90c8;font-size:11px"><span></span><sc-for list="{{ colHeads }}" as="head" hint-placeholder-count="3"><span>{{ head }}</span></sc-for></div><div style="display:grid;grid-template-columns:36px repeat(3,1fr);text-align:center"><span></span><sc-for list="{{ colRowA }}" as="digit" hint-placeholder-count="3"><span>{{ digit }}</span></sc-for><span>{{ colSign }}</span><sc-for list="{{ colRowB }}" as="digit" hint-placeholder-count="3"><span>{{ digit }}</span></sc-for></div><div style="height:3px;background:#2b1f57;margin-top:4px"></div><p style="margin:8px 0 0;text-align:center;font-size:12px;color:#7c74a8">{{ colHint }}</p></div>
+          </sc-if>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px"><sc-for list="{{ examOptions }}" as="option" hint-placeholder-count="4"><button onClick="{{ option.pick }}" style="border:2px solid #e6e0ff;border-radius:20px;padding:18px;background:#fbfaff;color:#2b1f57;font-family:inherit;font-size:20px;font-weight:900;cursor:pointer">{{ option.label }}</button></sc-for></div>
         </section>
       </div>
@@ -263,7 +297,7 @@
     <sc-if value="{{ isWeeklyResult }}" hint-placeholder-val="{{ false }}">
       <div style="max-width:880px;margin:0 auto;display:grid;gap:16px">
         <section style="text-align:center;background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:28px;box-shadow:0 18px 38px rgba(43,31,87,.08)"><div style="font-size:60px">📊</div><h2 style="margin:8px 0;font-size:30px;font-weight:900">本週考卷 {{ examScore }} 分</h2><p style="margin:0;color:#7c74a8;font-size:14px;font-weight:800">整份考卷已完成，以下是逐題檢討。下週才可再作答。</p><button onClick="{{ goWeekly }}" style="margin-top:16px;border:1.5px solid #ddd5ff;border-radius:16px;padding:11px 20px;background:#fbfaff;color:#5b3fe0;font-family:inherit;font-weight:900;cursor:pointer">回週考首頁</button></section>
-        <section style="display:grid;gap:10px"><sc-for list="{{ examReview }}" as="row" hint-placeholder-count="8"><article style="background:#fff;border:2px solid {{ row.border }};border-radius:22px;padding:18px"><div style="display:flex;align-items:flex-start;gap:12px"><span style="font-size:24px">{{ row.mark }}</span><span style="flex:1"><strong style="display:block;font-size:16px;font-weight:900">{{ row.stem }}</strong><span style="font-size:12px;font-weight:800;color:#9a90c8">{{ row.unitTitle }}</span></span></div><p style="margin:12px 0 4px;font-size:14px;font-weight:900;color:{{ row.fg }}">你的答案：{{ row.answer }}　｜　正確答案：{{ row.correctAnswer }}</p><p style="margin:0;font-size:13px;font-weight:700;line-height:1.7;color:#4a3d7a">{{ row.explain }}</p></article></sc-for></section>
+        <section style="display:grid;gap:10px"><sc-for list="{{ examReview }}" as="row" hint-placeholder-count="8"><article style="background:#fff;border:2px solid {{ row.border }};border-radius:22px;padding:18px"><div style="display:flex;align-items:flex-start;gap:12px"><span style="font-size:24px">{{ row.mark }}</span><span style="flex:1"><strong style="display:block;font-size:16px;font-weight:900">{{ row.stem }}</strong><span style="font-size:12px;font-weight:800;color:#9a90c8">{{ row.unitTitle }}</span><span style="display:block;margin-top:4px;font-size:12px;font-weight:800;color:#a06400">{{ row.visualSummary }}</span></span></div><p style="margin:12px 0 4px;font-size:14px;font-weight:900;color:{{ row.fg }}">你的答案：{{ row.answer }}　｜　正確答案：{{ row.correctAnswer }}</p><p style="margin:0;font-size:13px;font-weight:700;line-height:1.7;color:#4a3d7a">{{ row.explain }}</p></article></sc-for></section>
       </div>
     </sc-if>
 
@@ -1668,6 +1702,12 @@ class Component extends DCLogic {
       stem: question.fig === "columns" ? question.figData.a + (question.figData.plus ? " ＋ " : " － ") + question.figData.b + " ＝ ？" : question.stem,
       unitTitle: question.unitTitle, answer: answers[index] && answers[index].answer != null ? String(answers[index].answer) : "未作答",
       correctAnswer: String(question.ans), correct: !!(answers[index] && answers[index].correct), explain: question.explain,
+      visualSummary: question.fig === "fracbar" ? "圖示：共分成 " + question.figData.den + " 等份，其中 " + question.figData.num + " 份已塗色。"
+        : question.fig === "fraccmp" ? "圖示：比較 1/" + question.figData.a + " 與 1/" + question.figData.b + "。"
+        : question.fig === "line" ? "圖示：數線上的三角形位於 " + question.figData.t + "。"
+        : question.fig === "clock" ? "圖示：時鐘顯示 " + question.figData.h + " 點 " + String(question.figData.m).padStart(2, "0") + " 分。"
+        : question.fig === "zhuyin" ? "注音提示：" + question.figData.z + "；語詞：" + question.figData.word + "。"
+        : "",
     }));
     const exam = { week: weekKey(), submitted: true, score, correct, total: s.examQs.length, review, submittedAt: new Date().toISOString() };
     const rewardId = "weekly:" + weekKey();
@@ -2040,7 +2080,10 @@ class Component extends DCLogic {
     };
     const allUnits = MATH_UNITS.concat(CH_UNITS);
     const unit = allUnits.find((u) => u.id === s.unit) || MATH_UNITS[0];
-    const q = s.qs[s.qi];
+    // Weekly questions use the same visual data as normal practice questions.
+    // Keeping one active visual question prevents fraction/clock/number-line
+    // prompts from losing the diagram that is required to answer them.
+    const q = s.screen === "weeklyQuiz" ? s.examQs[s.examIndex] : s.qs[s.qi];
     const className = (id) => (s.classes.find((c) => c.id === id) || { name: "未分班" }).name;
     const myClass = me ? me.classId : s.loginClass;
     const classmates = s.students.filter((st) => st.classId === myClass);
@@ -2160,7 +2203,7 @@ class Component extends DCLogic {
       examHint: examQuestion && examQuestion.fig === "zhuyin" ? (examQuestion.figData.picture || "🖼️") + "　" + examQuestion.figData.z + "　語詞：" + examQuestion.figData.word : "",
       examOptions: examQuestion ? examQuestion.opts.map((option, index) => ({ label: String(option), pick: () => this.answerWeekly(index, false) })) : [],
       examScore: s.examScore,
-      examReview: s.examReview.map((row) => ({ stem: row.stem, unitTitle: row.unitTitle, answer: row.answer, correctAnswer: row.correctAnswer, explain: row.explain, mark: row.correct ? "✓" : "✕", border: row.correct ? "#9fe3c4" : "#ffd0e6", fg: row.correct ? "#1d7a55" : "#b0316f" })),
+      examReview: s.examReview.map((row) => ({ stem: row.stem, unitTitle: row.unitTitle, answer: row.answer, correctAnswer: row.correctAnswer, explain: row.explain, visualSummary: row.visualSummary || "", mark: row.correct ? "✓" : "✕", border: row.correct ? "#9fe3c4" : "#ffd0e6", fg: row.correct ? "#1d7a55" : "#b0316f" })),
 
       ledger: p.log,
       ledgerEmpty: p.log.length === 0,
