@@ -274,6 +274,9 @@
           <sc-if value="{{ figShape }}" hint-placeholder-val="{{ false }}">
             <div style="margin:0 0 20px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><sc-for list="{{ shapes }}" as="shape" hint-placeholder-count="4"><span style="width:74px;height:74px;background:{{ shape.color }};border-radius:{{ shape.radius }};clip-path:{{ shape.clip }}"></span></sc-for></div>
           </sc-if>
+          <sc-if value="{{ figMathGame }}" hint-placeholder-val="{{ false }}">
+            {{ specialGameVisual }}
+          </sc-if>
           <sc-if value="{{ figGroups }}" hint-placeholder-val="{{ false }}">
             <div style="margin:0 0 20px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;flex-wrap:wrap;gap:12px"><sc-for list="{{ groups }}" as="group" hint-placeholder-count="4"><span style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px;border-radius:18px;background:#fff;border:2px solid #ffe2ab"><span style="font-size:26px">🐒</span><span style="display:flex;gap:3px;flex-wrap:wrap;max-width:76px;justify-content:center"><sc-for list="{{ group.items }}" as="item" hint-placeholder-count="4"><span style="font-size:18px">{{ item }}</span></sc-for></span></span></sc-for></div>
           </sc-if>
@@ -451,6 +454,10 @@
                 <span style="width:74px;height:74px;background:{{ s.color }};border-radius:{{ s.radius }};clip-path:{{ s.clip }}"></span>
               </sc-for>
             </div>
+          </sc-if>
+
+          <sc-if value="{{ figMathGame }}" hint-placeholder-val="{{ false }}">
+            {{ specialGameVisual }}
           </sc-if>
 
           <sc-if value="{{ figGroups }}" hint-placeholder-val="{{ false }}">
@@ -1119,6 +1126,8 @@ const MATH_UNITS = [
   { id: "u26", grade: 2, difficulty: 3, icon: "🏁", tint: "#ffe0ef", title: "直式 500 以內減法", sub: "二年級 · 挑戰減法" },
   { id: "u27", grade: 2, difficulty: 2, icon: "🧺", tint: "#fff6cc", title: "十位數 × 個位數", sub: "二年級 · 乘法進階" },
   { id: "u28", grade: 2, difficulty: 3, icon: "🍎", tint: "#ffe6d1", title: "十位數 × 個位數挑戰", sub: "二年級 · 進位乘法" },
+  { id: "u29", grade: 1, difficulty: 2, icon: "🧩", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
+  { id: "u30", grade: 2, difficulty: 2, icon: "⚖️", tint: "#fff0cc", title: "測量實驗室", sub: "二年級 · 時鐘、重量與角度", kind: "math-game" },
 ];
 const CH_UNITS = [
   { id: "c1", grade: 1, icon: "📚", tint: "#e6f7ee", title: "學習庫", sub: "一年級 · 識字單元", kind: "library" },
@@ -1179,6 +1188,21 @@ const ENCOURAGE_FEEDBACKS = [
   "沒關係，再試一題就會更熟！",
   "差一點點，繼續加油！",
 ];
+const MATH_GAME_FALLBACK = {
+  schemaVersion: 1,
+  modules: [
+    { id: "u29", questions: [
+      { id: "shape-triangle-demo", type: "shape-count", stem: "圖中一共有幾個三角形？", answer: 4, options: [3, 4, 5, 6], explain: "逐一指出三角形，共有 4 個。", visual: { items: ["triangle", "circle", "triangle", "square", "triangle", "rectangle", "triangle"] } },
+      { id: "solid-cube-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "正方體", options: ["正方體", "長方體", "圓柱體", "圓錐體"], explain: "每一面都是一樣大的正方形，所以是正方體。", visual: { solid: "cube" } },
+      { id: "blocks-demo", type: "block-count", stem: "這座積木一共用了幾個小正方體？", answer: 6, options: [4, 5, 6, 7], explain: "3＋2＋1＝6，共有 6 個。", visual: { columns: [3, 2, 1] } }
+    ] },
+    { id: "u30", questions: [
+      { id: "clock-demo", type: "clock", stem: "時鐘現在是幾點幾分？", answer: "8 點 30 分", options: ["8 點 30 分", "6 點 40 分", "8 點整", "9 點 30 分"], explain: "長針指向 6 是 30 分，短針走過 8。", visual: { hour: 8, minute: 30 } },
+      { id: "weight-demo", type: "weight", stem: "看天平，哪一邊的物品比較重？", answer: "西瓜比較重", options: ["西瓜比較重", "蘋果比較重", "一樣重", "無法判斷"], explain: "天平較低的一端比較重。", visual: { left: { icon: "🍉", label: "西瓜", weight: 5 }, right: { icon: "🍎", label: "蘋果", weight: 2 } } },
+      { id: "angle-demo", type: "protractor", stem: "量角器上的角是多少度？", answer: "60°", options: ["30°", "60°", "90°", "120°"], explain: "射線通過 60° 的刻度，所以是 60°。", visual: { angle: 60 } }
+    ] }
+  ]
+};
 function localDateKey() {
   const now = new Date();
   return now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
@@ -1318,6 +1342,7 @@ class Component extends DCLogic {
     shopCat: "hair", slot: "hair", shopQuery: "", shopOwnedOnly: false,
     shopMessage: "上衣與下身是獨立道具，可自由混搭；髮型與服裝依角色分流，帽子、鞋履與手持道具共用。",
     words: [], customWords: [],
+    mathGameBank: MATH_GAME_FALLBACK,
     libUnit: "全部", detailChar: null,
     newName: "", newSeat: "", newClass: "c301",
     editId: null, editName: "", editSeat: "", editClass: "c301",
@@ -1367,6 +1392,9 @@ class Component extends DCLogic {
     }));
     fetch("chinese-words.json").then((r) => r.json()).then((words) => {
       this.setState({ words, vUnit: words.length ? words[0].u : "" });
+    }).catch(() => {});
+    fetch("math-games.json").then((r) => r.json()).then((bank) => {
+      if (bank && bank.schemaVersion === 1 && Array.isArray(bank.modules)) this.setState({ mathGameBank: bank });
     }).catch(() => {});
     this.timer = setInterval(() => {
       const s = this.state;
@@ -1540,6 +1568,31 @@ class Component extends DCLogic {
     const n = this.total();
     const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
     const shuffle = (a) => a.slice().sort(() => Math.random() - 0.5);
+    if (unitId === "u29" || unitId === "u30") {
+      const module = (this.state.mathGameBank.modules || []).find((entry) => entry.id === unitId);
+      const source = module && Array.isArray(module.questions) ? module.questions : [];
+      if (!source.length) return [];
+      const questions = [];
+      while (questions.length < n) {
+        shuffle(source).forEach((item) => {
+          if (questions.length >= n) return;
+          const visual = item.visual || {};
+          const figData = item.type === "clock" || item.type === "clock-target"
+            ? { h: visual.hour, m: visual.minute }
+            : Object.assign({}, visual);
+          questions.push({
+            id: item.id,
+            stem: item.stem,
+            ans: item.answer,
+            opts: shuffle(item.options || []),
+            explain: item.explain,
+            fig: item.type === "shape-count" ? "shapeCount" : item.type === "block-count" ? "blocks" : item.type === "clock-target" ? "clock" : item.type,
+            figData,
+          });
+        });
+      }
+      return questions;
+    }
     const list = [];
     for (let i = 0; i < n; i += 1) {
       let q;
@@ -1706,6 +1759,11 @@ class Component extends DCLogic {
         : question.fig === "fraccmp" ? "圖示：比較 1/" + question.figData.a + " 與 1/" + question.figData.b + "。"
         : question.fig === "line" ? "圖示：數線上的三角形位於 " + question.figData.t + "。"
         : question.fig === "clock" ? "圖示：時鐘顯示 " + question.figData.h + " 點 " + String(question.figData.m).padStart(2, "0") + " 分。"
+        : question.fig === "shapeCount" ? "圖示：混合排列的三角形、圓形、正方形與長方形。"
+        : question.fig === "solid" ? "圖示：" + (question.figData.solid === "cuboid" ? "長方體" : "正方體") + "。"
+        : question.fig === "blocks" ? "圖示：積木柱高度為 " + question.figData.columns.join("、") + "。"
+        : question.fig === "weight" ? "圖示：天平左側是「" + question.figData.left.label + "」，右側是「" + question.figData.right.label + "」。"
+        : question.fig === "protractor" ? "圖示：量角器上的射線通過 " + question.figData.angle + "°。"
         : question.fig === "zhuyin" ? "注音提示：" + question.figData.z + "；語詞：" + question.figData.word + "。"
         : "",
     }));
@@ -2078,6 +2136,48 @@ class Component extends DCLogic {
         React.createElement("span", { style: { position: "absolute", inset: 0, display: "grid", placeItems: "center", fontSize: 48 }, "aria-hidden": "true" }, "🖼️"),
         React.createElement("img", { src: value, alt: "題目圖片提示", onError: (e) => { e.currentTarget.style.display = "none"; }, style: { position: "relative", zIndex: 1, width: "100%", height: "100%", objectFit: "contain" } }));
     };
+    const makeMathGameVisual = (question) => {
+      if (!question || ["shapeCount", "solid", "blocks", "weight", "protractor"].indexOf(question.fig) < 0) return null;
+      const data = question.figData || {};
+      const shell = { margin: "20px 0", minHeight: 180, padding: 20, borderRadius: 24, background: "linear-gradient(145deg,#fbfaff,#eef9fb)", border: "1px dashed #c9bfff", display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap", overflow: "hidden" };
+      if (question.fig === "shapeCount") {
+        const shapeStyles = {
+          triangle: { background: "#ffb020", clipPath: "polygon(50% 0,0 100%,100% 100%)", borderRadius: 0 },
+          circle: { background: "#ff7ab8", borderRadius: "50%" },
+          square: { background: "#7c5cff", borderRadius: 10 },
+          rectangle: { background: "#22c8d8", borderRadius: 10, width: 82 },
+        };
+        return React.createElement("div", { role: "img", "aria-label": "平面形狀數量題", style: shell }, (data.items || []).map((type, index) => React.createElement("span", { key: index, style: Object.assign({ display: "block", width: 58, height: 58, filter: "drop-shadow(0 7px 7px rgba(43,31,87,.13))" }, shapeStyles[type] || shapeStyles.square) })));
+      }
+      if (question.fig === "solid") {
+        const cuboid = data.solid === "cuboid";
+        return React.createElement("div", { role: "img", "aria-label": cuboid ? "長方體圖形" : "正方體圖形", style: shell },
+          React.createElement("div", { style: { position: "relative", width: cuboid ? 190 : 140, height: 120 } },
+            React.createElement("span", { style: { position: "absolute", left: 20, top: 28, width: cuboid ? 145 : 95, height: 82, borderRadius: 10, background: "linear-gradient(135deg,#8f6bff,#5b3fe0)", border: "4px solid #2b1f57" } }),
+            React.createElement("span", { style: { position: "absolute", left: 38, top: 10, width: cuboid ? 145 : 95, height: 82, borderRadius: 10, border: "4px solid #2b1f57", transform: "skewY(-20deg)", background: "rgba(124,92,255,.24)" } }),
+            React.createElement("span", { style: { position: "absolute", left: 20, top: 28, width: 22, height: 82, background: "#22c8d8", clipPath: "polygon(0 0,100% 0,100% 78%,0 100%)" } })));
+      }
+      if (question.fig === "blocks") {
+        return React.createElement("div", { role: "img", "aria-label": "小正方體積木堆疊", style: shell }, (data.columns || []).map((height, column) => React.createElement("span", { key: column, style: { alignSelf: "flex-end", display: "flex", flexDirection: "column-reverse", gap: 3, transform: "translateY(" + (column % 2 ? 8 : 0) + "px)" } }, Array.from({ length: height }, (_, index) => React.createElement("span", { key: index, style: { width: 48, height: 48, display: "grid", placeItems: "center", borderRadius: 9, color: "#fff", fontSize: 23, fontWeight: 900, background: "linear-gradient(135deg,#22c8d8 0 50%,#178ca0 51%)", border: "3px solid #2b1f57", boxShadow: "inset 7px 7px rgba(255,255,255,.22)" } }, "◇")))));
+      }
+      if (question.fig === "weight") {
+        const left = data.left || {}, right = data.right || {};
+        const tilt = Number(left.weight || 0) === Number(right.weight || 0) ? 0 : Number(left.weight || 0) > Number(right.weight || 0) ? -7 : 7;
+        return React.createElement("div", { role: "img", "aria-label": "比較左右重量的天平", style: Object.assign({}, shell, { minHeight: 220 }) },
+          React.createElement("div", { style: { position: "relative", width: "min(440px,100%)", height: 180 } },
+            React.createElement("span", { style: { position: "absolute", left: "50%", bottom: 10, width: 16, height: 115, transform: "translateX(-50%)", borderRadius: 8, background: "#2b1f57" } }),
+            React.createElement("span", { style: { position: "absolute", left: "50%", bottom: 0, width: 110, height: 18, transform: "translateX(-50%)", borderRadius: 20, background: "#7c5cff" } }),
+            React.createElement("div", { style: { position: "absolute", left: "10%", right: "10%", top: 54, height: 8, borderRadius: 8, background: "#ffb020", transform: "rotate(" + tilt + "deg)", transformOrigin: "center" } },
+              [[left, 0], [right, 1]].map(([item, side]) => React.createElement("span", { key: side, style: { position: "absolute", left: side ? "auto" : 0, right: side ? 0 : "auto", top: -38, width: 112, transform: "translateX(" + (side ? "45%" : "-45%") + ") rotate(" + (-tilt) + "deg)", textAlign: "center" } }, React.createElement("strong", { style: { display: "block", fontSize: 34 } }, item.icon), React.createElement("small", { style: { display: "block", marginTop: 28, padding: "7px 5px", borderRadius: "0 0 30px 30px", borderBottom: "5px solid #7c5cff", color: "#4a3d7a", fontWeight: 900 } }, item.label))))));
+      }
+      const angle = Math.max(0, Math.min(180, Number(data.angle) || 0));
+      return React.createElement("div", { role: "img", "aria-label": "量角器顯示 " + angle + " 度", style: Object.assign({}, shell, { minHeight: 220 }) },
+        React.createElement("div", { style: { position: "relative", width: 310, height: 170, borderRadius: "170px 170px 14px 14px", border: "5px solid #7c5cff", borderBottomWidth: 8, background: "repeating-conic-gradient(from 270deg at 50% 88%,rgba(124,92,255,.22) 0deg 1deg,transparent 1deg 10deg)" } },
+          [0, 45, 90, 135, 180].map((mark, index) => React.createElement("small", { key: mark, style: { position: "absolute", left: [94, 73, 48, 20, 1][index] + "%", bottom: [5, 45, 72, 45, 5][index] + "%", fontWeight: 900, color: "#7c74a8" } }, mark + "°")),
+          React.createElement("span", { style: { position: "absolute", left: "50%", bottom: 18, width: 125, height: 5, borderRadius: 9, background: "#2b1f57", transformOrigin: "0 50%", transform: "rotate(" + (-angle) + "deg)" } }),
+          React.createElement("span", { style: { position: "absolute", left: "50%", bottom: 18, width: 125, height: 5, borderRadius: 9, background: "#ff7ab8" } }),
+          React.createElement("span", { style: { position: "absolute", left: "50%", bottom: 11, width: 18, height: 18, transform: "translateX(-50%)", borderRadius: "50%", background: "#ffb020" } })));
+    };
     const allUnits = MATH_UNITS.concat(CH_UNITS);
     const unit = allUnits.find((u) => u.id === s.unit) || MATH_UNITS[0];
     // Weekly questions use the same visual data as normal practice questions.
@@ -2358,6 +2458,8 @@ class Component extends DCLogic {
       figLine: !!q && q.fig === "line",
       figClock: !!q && q.fig === "clock",
       figShape: !!q && q.fig === "shape",
+      figMathGame: !!q && ["shapeCount", "solid", "blocks", "weight", "protractor"].indexOf(q.fig) >= 0,
+      specialGameVisual: makeMathGameVisual(q),
       figGroups: !!q && q.fig === "groups",
       figFracbar: !!q && q.fig === "fracbar",
       figFraccmp: !!q && q.fig === "fraccmp",

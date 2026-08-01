@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "u29",
+      "title": "形狀偵探隊",
+      "questions": [
+        {
+          "id": "shape-triangle-01",
+          "type": "shape-count",
+          "stem": "圖中一共有幾個三角形？",
+          "answer": 4,
+          "options": [3, 4, 5, 6],
+          "explain": "一個一個指出三角形並做記號，共有 4 個三角形。",
+          "visual": { "target": "triangle", "items": ["triangle", "circle", "triangle", "square", "circle", "triangle", "rectangle", "triangle"] }
+        },
+        {
+          "id": "shape-circle-01",
+          "type": "shape-count",
+          "stem": "圖中一共有幾個圓形？",
+          "answer": 5,
+          "options": [3, 4, 5, 6],
+          "explain": "把圓圓的圖形逐一數完，共有 5 個圓形。",
+          "visual": { "target": "circle", "items": ["circle", "triangle", "circle", "square", "circle", "rectangle", "circle", "triangle", "circle"] }
+        },
+        {
+          "id": "solid-cube-01",
+          "type": "solid",
+          "stem": "這個立體圖形叫什麼？",
+          "answer": "正方體",
+          "options": ["正方體", "長方體", "圓柱體", "圓錐體"],
+          "explain": "它的每一個面都是一樣大的正方形，所以是正方體。",
+          "visual": { "solid": "cube" }
+        },
+        {
+          "id": "solid-cuboid-01",
+          "type": "solid",
+          "stem": "這個立體圖形叫什麼？",
+          "answer": "長方體",
+          "options": ["正方體", "長方體", "球體", "圓柱體"],
+          "explain": "這個盒子有長、寬、高，而且側面是長方形，所以是長方體。",
+          "visual": { "solid": "cuboid" }
+        },
+        {
+          "id": "blocks-06",
+          "type": "block-count",
+          "stem": "這座積木一共用了幾個小正方體？",
+          "answer": 6,
+          "options": [4, 5, 6, 7],
+          "explain": "下面一層 3 個，中間一層 2 個，最上面 1 個，3＋2＋1＝6。",
+          "visual": { "columns": [3, 2, 1] }
+        },
+        {
+          "id": "blocks-08",
+          "type": "block-count",
+          "stem": "數一數，這座積木共有幾個小正方體？",
+          "answer": 8,
+          "options": [6, 7, 8, 9],
+          "explain": "四根積木柱的高度分別是 3、2、2、1，合起來是 8 個。",
+          "visual": { "columns": [3, 2, 2, 1] }
+        }
+      ]
+    },
+    {
+      "id": "u30",
+      "title": "測量實驗室",
+      "questions": [
+        {
+          "id": "clock-read-0830",
+          "type": "clock",
+          "stem": "時鐘現在是幾點幾分？",
+          "answer": "8 點 30 分",
+          "options": ["8 點 30 分", "6 點 40 分", "8 點整", "9 點 30 分"],
+          "explain": "長針指向 6 是 30 分，短針走過 8，所以是 8 點 30 分。",
+          "visual": { "hour": 8, "minute": 30 }
+        },
+        {
+          "id": "clock-write-0945",
+          "type": "clock-target",
+          "stem": "要表示 9 點 45 分，時針和分針應該像哪一個時鐘？",
+          "answer": "9 點 45 分",
+          "options": ["9 點 45 分", "9 點 15 分", "8 點 45 分", "10 點整"],
+          "explain": "45 分時長針指向 9，時針在 9 和 10 之間。",
+          "visual": { "hour": 9, "minute": 45 }
+        },
+        {
+          "id": "weight-compare-01",
+          "type": "weight",
+          "stem": "看天平，哪一邊的物品比較重？",
+          "answer": "西瓜比較重",
+          "options": ["西瓜比較重", "蘋果比較重", "一樣重", "無法判斷"],
+          "explain": "天平較低的一端比較重；西瓜那一端較低，所以西瓜比較重。",
+          "visual": { "left": { "icon": "🍉", "label": "西瓜", "weight": 5 }, "right": { "icon": "🍎", "label": "蘋果", "weight": 2 } }
+        },
+        {
+          "id": "weight-compare-02",
+          "type": "weight",
+          "stem": "看天平，兩邊的重量關係是什麼？",
+          "answer": "一樣重",
+          "options": ["左邊比較重", "右邊比較重", "一樣重", "無法判斷"],
+          "explain": "天平保持水平，表示左右兩邊一樣重。",
+          "visual": { "left": { "icon": "💎💎", "label": "2 顆寶石", "weight": 4 }, "right": { "icon": "⚖️", "label": "4 公斤", "weight": 4 } }
+        },
+        {
+          "id": "angle-60",
+          "type": "protractor",
+          "stem": "量角器上的角是多少度？",
+          "answer": "60°",
+          "options": ["30°", "60°", "90°", "120°"],
+          "explain": "一邊對準 0°，另一邊通過 60° 的刻度，所以這個角是 60°。",
+          "visual": { "angle": 60 }
+        },
+        {
+          "id": "angle-120",
+          "type": "protractor",
+          "stem": "請讀出量角器上的角度。",
+          "answer": "120°",
+          "options": ["60°", "90°", "120°", "150°"],
+          "explain": "從右側的 0° 往逆時針讀，射線通過 120°，這是一個鈍角。",
+          "visual": { "angle": 120 }
+        }
+      ]
+    }
+  ]
+}
