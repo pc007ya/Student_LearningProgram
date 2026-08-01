@@ -1229,8 +1229,7 @@ const GACHA_SOURCE_SHEETS = [
   ["吉伊", "chiikawa"], ["小八", "hachiware"], ["兔兔", "usagi"], ["小桃", "momonga"], ["師傅", "rakko"], ["栗子", "kurimanju"], ["獅薩", "shisa"], ["古本", "furuhon"], ["其他角色", "other"],
 ];
 const GACHA_SOURCE_SHEET_ID = "17gH9HZKvW_6fMCWYLyqnzMHj40rA7PiwWg6L0GvbFgQ";
-const GACHA_NEW_GOODS_GROUPS = ["0807吉伊劇場版2彈&一般新品", "0807吉伊酸梅超人聯名", "三麗鷗毛絨捏臉臉受注"];
-const GACHA_NEW_GOODS_ALL_GROUPS = ["MindWave周邊"];
+const GACHA_NEW_GOODS_GROUPS = ["0807吉伊劇場版2彈&一般新品", "0807吉伊酸梅超人聯名", "三麗鷗毛絨捏臉臉受注", "吉伊幽靈森林", "MindWave周邊", "Sanrio House夏日限定", "寶可夢百變怪變身"];
 const GACHA_NEW_GOODS_SHEET_ID = "1zA9Y-kgt5QPOZt_r4-H6ZTWFaLmSRjc13dcFZYEp-JY";
 const SPEECH_MUTE_STORE_KEY = "learning-planet.question-speech-muted.v1";
 const AUTO_NEXT_STORE_KEY = "learning-planet.quiz-auto-next.v1";
@@ -1522,11 +1521,10 @@ class Component extends DCLogic {
         if (value("團名")) activeGroup = value("團名");
         const role = value("角色"), name = value("名稱"), asset = value("圖片"), stock = value("庫存") || String(index + 1);
         const isHangingDollGroup = GACHA_NEW_GOODS_GROUPS.indexOf(activeGroup) >= 0;
-        const isAllProductsGroup = GACHA_NEW_GOODS_ALL_GROUPS.indexOf(activeGroup) >= 0;
-        if ((!isHangingDollGroup && !isAllProductsGroup) || (isHangingDollGroup && name.indexOf("吊娃") < 0) || !asset) return null;
+        if (!isHangingDollGroup || name.indexOf("吊娃") < 0 || !asset) return null;
         const character = role || "其他角色";
         const title = character === "其他角色" && role ? role + "・" + name : name;
-        return { id: "newgoods-" + index + "-" + stock, character, name: title, type: isHangingDollGroup || name.indexOf("吊娃") >= 0 ? "吊娃" : "周邊", rarity: "限定", weight: 2, asset, sourceUrl: value("商品網址"), group: activeGroup };
+        return { id: "newgoods-" + index + "-" + stock, character, name: title, type: "吊娃", rarity: "限定", weight: 2, asset, sourceUrl: value("商品網址"), group: activeGroup };
       }).filter(Boolean);
       if (!additions.length) return;
       this.setState((state) => {
