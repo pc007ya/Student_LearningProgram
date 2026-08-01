@@ -1130,6 +1130,9 @@ const MATH_UNITS = [
   { id: "u30", grade: 2, difficulty: 2, icon: "⚖️", tint: "#fff0cc", title: "測量實驗室", sub: "二年級 · 時鐘、重量與角度", kind: "math-game" },
   { id: "u31", grade: 1, difficulty: 2, icon: "🧊", tint: "#eafbfd", title: "小一立方體數量", sub: "一年級 · 排、柱、層與數量估計", kind: "math-game" },
   { id: "u32", grade: 2, difficulty: 3, icon: "🏗️", tint: "#f1e6ff", title: "小二立方體空間推理", sub: "二年級 · 長寬高、遮擋與隱藏積木", kind: "math-game" },
+  { id: "u33", grade: 1, difficulty: 2, icon: "🧩", tint: "#fff0cc", title: "圖形觀察與拼圖", sub: "一年級 · 旋轉、方向與方格組合", kind: "math-game" },
+  { id: "u34", grade: 1, difficulty: 1, icon: "🔎", tint: "#e6f7ee", title: "數一數與比多少", sub: "一年級 · 物件、圖形、比較與估量", kind: "math-game" },
+  { id: "u35", grade: 1, difficulty: 2, icon: "🧠", tint: "#ffeef6", title: "順序與位置推理", sub: "一年級 · 先後、上下左右與生活邏輯", kind: "math-game" },
 ];
 const CH_UNITS = [
   { id: "c1", grade: 1, icon: "📚", tint: "#e6f7ee", title: "學習庫", sub: "一年級 · 識字單元", kind: "library" },
@@ -1211,6 +1214,15 @@ const MATH_GAME_FALLBACK = {
     ] },
     { id: "u32", questions: [
       { id: "g2-cubes-demo", type: "block-count", stem: "包含被遮住的積木，共有幾個小正方體？", answer: 8, options: [6, 7, 8, 9], explain: "四根柱子的高度是 3、1、2、2，合計 8 個。", visual: { cubes: [[0,0,0],[0,0,1],[0,0,2],[1,0,0],[0,1,0],[0,1,1],[1,1,0],[1,1,1]], skill: "看柱高" } }
+    ] },
+    { id: "u33", questions: [
+      { id: "grid-match-demo", type: "gridChoices", stem: "哪一個方格圖形和目標圖形相同，只是轉了方向？", speakText: "目標是由四個小方格組成的L形。請比較甲、乙、丙、丁。", answer: "乙", options: ["甲", "乙", "丙", "丁"], explain: "把目標圖形在心中轉動，乙的連接位置完全相同。", visual: { target: ["100","100","110"], choices: [{ label: "甲", cells: ["111","010","000"] },{ label: "乙", cells: ["111","100","000"] },{ label: "丙", cells: ["110","011","000"] },{ label: "丁", cells: ["101","111","000"] }] } }
+    ] },
+    { id: "u34", questions: [
+      { id: "count-demo", type: "countItems", stem: "圖中有幾隻兔子？", speakText: "請只數兔子，不要把小鳥算進去。", answer: 5, options: [4, 5, 6, 7], explain: "逐一指出兔子，共有 5 隻。", visual: { items: ["🐰","🐦","🐰","🐰","🐦","🐰","🐦","🐰"], skill: "分類後再數" } }
+    ] },
+    { id: "u35", questions: [
+      { id: "sequence-demo", type: "sequenceCards", stem: "準備吃飯時，哪一件事應該最先做？", speakText: "甲是洗手，乙是擦乾，丙是坐好，丁是開始吃飯。", answer: "甲", options: ["甲", "乙", "丙", "丁"], explain: "吃飯前應先把手洗乾淨，所以甲最先。", visual: { cards: [{ label: "甲", icon: "🧼", text: "洗手" },{ label: "乙", icon: "🧻", text: "擦乾" },{ label: "丙", icon: "🪑", text: "坐好" },{ label: "丁", icon: "🍚", text: "吃飯" }] } }
     ] }
   ]
 };
@@ -1579,7 +1591,7 @@ class Component extends DCLogic {
     const n = this.total();
     const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
     const shuffle = (a) => a.slice().sort(() => Math.random() - 0.5);
-    if (["u29", "u30", "u31", "u32"].indexOf(unitId) >= 0) {
+    if (MATH_UNITS.some((entry) => entry.id === unitId && entry.kind === "math-game")) {
       const module = (this.state.mathGameBank.modules || []).find((entry) => entry.id === unitId);
       const source = module && Array.isArray(module.questions) ? module.questions : [];
       if (!source.length) return [];
@@ -1594,6 +1606,7 @@ class Component extends DCLogic {
           questions.push({
             id: item.id,
             stem: item.stem,
+            speakText: item.speakText || "",
             ans: item.answer,
             opts: shuffle(item.options || []),
             explain: item.explain,
@@ -1775,6 +1788,10 @@ class Component extends DCLogic {
         : question.fig === "blocks" ? (question.figData.columns
           ? "圖示：積木柱高度為 " + question.figData.columns.join("、") + "。"
           : "圖示：用小正方體組成的立體排列；觀察方法是「" + (question.figData.skill || "分層數") + "」。")
+        : question.fig === "gridChoices" ? "圖示：比較目標方格圖形與甲、乙、丙、丁四個選項。"
+        : question.fig === "countItems" ? "圖示：把物件分類後再計數或比較。"
+        : question.fig === "sequenceCards" ? "圖示：甲、乙、丙、丁四張生活或自然變化圖卡。"
+        : question.fig === "logicWheel" ? "圖示：圓形位置圖，觀察相對位置與移動方向。"
         : question.fig === "weight" ? "圖示：天平左側是「" + question.figData.left.label + "」，右側是「" + question.figData.right.label + "」。"
         : question.fig === "protractor" ? "圖示：量角器上的射線通過 " + question.figData.angle + "°。"
         : question.fig === "zhuyin" ? "注音提示：" + question.figData.z + "；語詞：" + question.figData.word + "。"
@@ -2150,9 +2167,37 @@ class Component extends DCLogic {
         React.createElement("img", { src: value, alt: "題目圖片提示", onError: (e) => { e.currentTarget.style.display = "none"; }, style: { position: "relative", zIndex: 1, width: "100%", height: "100%", objectFit: "contain" } }));
     };
     const makeMathGameVisual = (question) => {
-      if (!question || ["shapeCount", "solid", "blocks", "weight", "protractor"].indexOf(question.fig) < 0) return null;
+      if (!question || ["shapeCount", "solid", "blocks", "weight", "protractor", "gridChoices", "countItems", "sequenceCards", "logicWheel"].indexOf(question.fig) < 0) return null;
       const data = question.figData || {};
       const shell = { margin: "20px 0", minHeight: 180, padding: 20, borderRadius: 24, background: "linear-gradient(145deg,#fbfaff,#eef9fb)", border: "1px dashed #c9bfff", display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap", overflow: "hidden" };
+      const makeCellGrid = (cells, compact) => {
+        const rows = Array.isArray(cells) && cells.length ? cells : ["1"];
+        const cols = Math.max.apply(null, rows.map((row) => String(row).length));
+        const size = compact ? 20 : 28;
+        return React.createElement("span", { style: { display: "grid", gridTemplateColumns: "repeat(" + cols + "," + size + "px)", gridAutoRows: size + "px", gap: 3, padding: 8, borderRadius: 12, background: "#fff" } },
+          rows.flatMap((row, y) => Array.from({ length: cols }, (_, x) => React.createElement("span", { key: y + "-" + x, style: { borderRadius: 5, border: "2px solid " + (String(row)[x] === "1" ? "#2b1f57" : "#ece7ff"), background: String(row)[x] === "1" ? "linear-gradient(135deg,#7c5cff,#22c8d8)" : "#fff", opacity: String(row)[x] === "1" ? 1 : .35 } }))));
+      };
+      if (question.fig === "gridChoices") {
+        return React.createElement("div", { role: "img", "aria-label": data.alt || "目標方格圖形與四個候選圖形", style: Object.assign({}, shell, { alignItems: "stretch" }) },
+          React.createElement("span", { style: { minWidth: 130, display: "grid", placeItems: "center", alignContent: "center", gap: 8, padding: 12, borderRadius: 18, background: "#f3f0ff" } }, React.createElement("strong", { style: { fontSize: 13, color: "#5b3fe0" } }, data.targetTitle || "目標圖形"), makeCellGrid(data.target, false)),
+          React.createElement("span", { style: { flex: "1 1 300px", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(160px,1fr))", gap: 10 } }, (data.choices || []).map((choice) => React.createElement("span", { key: choice.label, style: { display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 8, borderRadius: 16, background: "#fff", border: "1px solid #ece7ff" } }, React.createElement("strong", { style: { width: 28, height: 28, display: "grid", placeItems: "center", borderRadius: "50%", background: "#fff0cc", color: "#a06400" } }, choice.label), makeCellGrid(choice.cells, true)))));
+      }
+      if (question.fig === "countItems") {
+        const groups = Array.isArray(data.groups) ? data.groups : null;
+        return React.createElement("div", { role: "img", "aria-label": data.alt || "物件數量觀察圖", style: Object.assign({}, shell, { flexDirection: "column", gap: 10 }) },
+          groups ? React.createElement("div", { style: { width: "100%", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(160px,1fr))", gap: 14 } }, groups.map((group, index) => React.createElement("span", { key: index, style: { minHeight: 110, display: "flex", alignContent: "center", justifyContent: "center", alignItems: "center", gap: 7, flexWrap: "wrap", padding: 12, borderRadius: 18, background: "#fff", border: "2px solid " + (index ? "#c9ebd8" : "#ffd98a") } }, React.createElement("strong", { style: { flexBasis: "100%", textAlign: "center", fontSize: 13, color: "#7c74a8" } }, group.label || (index ? "右邊" : "左邊")), (group.items || []).map((item, itemIndex) => React.createElement("span", { key: itemIndex, style: { fontSize: 34, lineHeight: 1 } }, item)))))
+            : React.createElement("div", { style: { maxWidth: 470, display: "flex", justifyContent: "center", alignItems: "center", alignContent: "center", gap: 10, flexWrap: "wrap", padding: 14, borderRadius: 18, background: "#fff" } }, (data.items || []).map((item, index) => React.createElement("span", { key: index, style: { fontSize: 38, lineHeight: 1 } }, item))),
+          data.skill ? React.createElement("strong", { style: { fontSize: 12, color: "#5b3fe0" } }, "觀察方法：" + data.skill) : null);
+      }
+      if (question.fig === "sequenceCards") {
+        return React.createElement("div", { role: "img", "aria-label": data.alt || "四張順序觀察圖卡", style: Object.assign({}, shell, { alignItems: "stretch" }) }, (data.cards || []).map((card) => React.createElement("span", { key: card.label, style: { flex: "1 1 105px", minHeight: 125, display: "grid", placeItems: "center", alignContent: "center", gap: 6, padding: 10, borderRadius: 18, background: "#fff", border: "1px solid #ece7ff" } }, React.createElement("strong", { style: { width: 30, height: 30, display: "grid", placeItems: "center", borderRadius: "50%", background: "#f3f0ff", color: "#5b3fe0" } }, card.label), React.createElement("span", { style: { fontSize: 42 } }, card.icon), React.createElement("small", { style: { fontWeight: 900, color: "#4a3d7a" } }, card.text))));
+      }
+      if (question.fig === "logicWheel") {
+        const nodes = data.nodes || [];
+        return React.createElement("div", { role: "img", "aria-label": data.alt || "圓形位置關係圖", style: Object.assign({}, shell, { minHeight: 260 }) }, React.createElement("div", { style: { position: "relative", width: "min(210px,100%)", aspectRatio: "1", borderRadius: "50%", border: "9px solid #7c5cff", background: "radial-gradient(circle,#fff 0 45%,#eafbfd 46% 100%)" } },
+          React.createElement("span", { style: { position: "absolute", inset: 0, display: "grid", placeItems: "center", fontSize: 42 } }, data.center || "🎡"),
+          nodes.map((node, index) => { const angle = (Number(node.position ?? index) / Math.max(1, nodes.length)) * Math.PI * 2 - Math.PI / 2; return React.createElement("span", { key: node.label || index, style: { position: "absolute", left: "calc(50% + " + Math.cos(angle) * 78 + "px)", top: "calc(50% + " + Math.sin(angle) * 78 + "px)", width: 46, height: 46, transform: "translate(-50%,-50%)", display: "grid", placeItems: "center", borderRadius: "50%", border: "3px solid #2b1f57", background: "#fff", fontSize: 24 } }, node.icon); })));
+      }
       if (question.fig === "shapeCount") {
         const shapeStyles = {
           triangle: { background: "#ffb020", clipPath: "polygon(50% 0,0 100%,100% 100%)", borderRadius: 0 },
@@ -2482,7 +2527,7 @@ class Component extends DCLogic {
         });
       },
       qStem: q ? q.stem : "",
-      speak: () => this.speakText(q ? (q.speakText || q.stem) : ""),
+      speak: () => this.speakText(q ? (q.speakText ? q.stem + "。" + q.speakText : q.stem) : ""),
       locked: s.locked,
       quitQuiz: () => {
         clearTimeout(this.autoNextTimer);
@@ -2507,7 +2552,7 @@ class Component extends DCLogic {
       figLine: !!q && q.fig === "line",
       figClock: !!q && q.fig === "clock",
       figShape: !!q && q.fig === "shape",
-      figMathGame: !!q && ["shapeCount", "solid", "blocks", "weight", "protractor"].indexOf(q.fig) >= 0,
+      figMathGame: !!q && ["shapeCount", "solid", "blocks", "weight", "protractor", "gridChoices", "countItems", "sequenceCards", "logicWheel"].indexOf(q.fig) >= 0,
       specialGameVisual: makeMathGameVisual(q),
       figGroups: !!q && q.fig === "groups",
       figFracbar: !!q && q.fig === "fracbar",
