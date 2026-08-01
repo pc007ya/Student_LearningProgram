@@ -37,6 +37,9 @@
   @keyframes gachaCapsuleLand { 0% { transform:translateY(-190px) scale(.58);opacity:0 } 68% { transform:translateY(10px) scale(1.08);opacity:1 } 84% { transform:translateY(-7px) scale(.94) } 100% { transform:translateY(0) scale(1);opacity:1 } }
   @keyframes gachaCapsuleHalo { 0%,100% { transform:scale(.9);opacity:.45 } 50% { transform:scale(1.14);opacity:1 } }
   @keyframes gachaCapsuleOpen { 0% { transform:scale(.68) rotate(-12deg);opacity:0 } 55% { transform:scale(1.08) rotate(5deg);opacity:1 } 100% { transform:scale(1) rotate(0) } }
+  @keyframes memoryCardReveal { 0% { transform:rotateY(86deg) scale(.9);opacity:.25 } 100% { transform:rotateY(0) scale(1);opacity:1 } }
+  @keyframes memoryMatch { 0%,100% { transform:translateY(0) scale(1) } 45% { transform:translateY(-8px) scale(1.06) } }
+  @media (max-width:540px) { .memory-card { min-height:104px !important; border-radius:18px !important; } .memory-card-number { font-size:38px !important; } }
   @media (orientation: landscape) and (max-height: 850px) {
     .app-shell { padding: 8px 14px 14px !important; }
     .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
@@ -239,6 +242,48 @@
             </article>
           </sc-for>
         </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMemory }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:780px;margin:0 auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <button onClick="{{ memoryBack }}" aria-label="回到闖關地圖" style="border:1px solid #ece7ff;background:#fff;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;font-family:inherit;color:#7c74a8">←</button>
+          <div style="flex:1"><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">NUMBER MEMORY</p><h2 style="margin:4px 0 0;font-size:24px;font-weight:900">🃏 記憶翻牌</h2></div>
+          <span style="padding:9px 13px;border-radius:99px;background:#fff6e0;color:#a06400;font-size:13px;font-weight:900">翻牌 {{ memoryMoves }} 次</span>
+        </div>
+        <section style="background:linear-gradient(145deg,#ffffff,#f6f1ff);border:1px solid #ece7ff;border-radius:30px;padding:22px;box-shadow:0 18px 38px rgba(43,31,87,.08)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+            <div><strong style="display:block;font-size:20px;font-weight:900">數字 × 數量配對</strong><span style="font-size:13px;font-weight:800;color:#7c74a8">找出同一個數字和相同數量的角色卡。</span></div>
+            <span style="padding:8px 12px;border-radius:99px;background:#eafbfd;color:#0e7d8c;font-size:13px;font-weight:900">已配對 {{ memoryPairCount }} / 6 對</span>
+          </div>
+          <p style="margin:0 0 16px;padding:11px 14px;border-radius:15px;background:{{ memoryNoteBg }};color:{{ memoryNoteFg }};font-size:14px;font-weight:900;text-align:center">{{ memoryNote }}</p>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:900px">
+            <sc-for list="{{ memoryCards }}" as="card" hint-placeholder-count="12">
+              <button class="memory-card" onClick="{{ card.flip }}" aria-label="{{ card.aria }}" style="position:relative;min-height:132px;padding:0;border:0;border-radius:22px;overflow:hidden;cursor:{{ card.cursor }};background:{{ card.cardBg }};box-shadow:{{ card.shadow }};transform:{{ card.transform }};transition:transform .24s ease,box-shadow .24s ease;animation:{{ card.animation }};font-family:inherit">
+                <sc-if value="{{ card.isBack }}" hint-placeholder-val="{{ false }}">
+                  <span style="position:absolute;inset:0;background-image:url('images/memory-cards/card-back.png');background-size:cover;background-position:center"></span>
+                  <span style="position:absolute;inset:10px;border:2px solid rgba(255,255,255,.75);border-radius:15px"></span>
+                </sc-if>
+                <sc-if value="{{ card.isFront }}" hint-placeholder-val="{{ false }}">
+                  <span style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:9px;background:{{ card.faceBg }}">
+                    <sc-if value="{{ card.isNumber }}" hint-placeholder-val="{{ false }}">
+                      <span style="width:42px;height:42px;background-image:url('images/memory-cards/mascot-sprite.png');background-repeat:no-repeat;background-size:300% auto;background-position:{{ card.spritePos }} center"></span>
+                      <strong class="memory-card-number" style="font-size:48px;font-weight:900;line-height:1;color:#2b1f57">{{ card.value }}</strong>
+                    </sc-if>
+                    <sc-if value="{{ card.isQuantity }}" hint-placeholder-val="{{ false }}">
+                      <span style="display:flex;max-width:94px;justify-content:center;align-content:center;flex-wrap:wrap;gap:2px">
+                        <sc-for list="{{ card.icons }}" as="icon" hint-placeholder-count="4"><span style="width:{{ icon.size }}px;height:{{ icon.size }}px;background-image:url('images/memory-cards/mascot-sprite.png');background-repeat:no-repeat;background-size:300% auto;background-position:{{ icon.pos }} center"></span></sc-for>
+                      </span>
+                      <small style="font-size:11px;font-weight:900;color:#7c74a8">數一數</small>
+                    </sc-if>
+                  </span>
+                </sc-if>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ memoryComplete }}" hint-placeholder-val="{{ false }}"><div style="margin-top:18px;display:flex;justify-content:center"><button onClick="{{ memoryRestart }}" style="border:0;border-radius:18px;padding:13px 24px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-size:15px;font-weight:900;cursor:pointer">再玩一次 →</button></div></sc-if>
+        </section>
       </div>
     </sc-if>
 
@@ -1232,6 +1277,7 @@ const MATH_UNITS = [
   { id: "u33", grade: 1, difficulty: 2, icon: "🧩", tint: "#fff0cc", title: "圖形觀察與拼圖", sub: "一年級 · 3×3、4×4、5×5 旋轉矩陣 · 50 題庫", kind: "math-game" },
   { id: "u34", grade: 1, difficulty: 1, icon: "🔎", tint: "#e6f7ee", title: "數一數與比多少", sub: "一年級 · 物件比較、＞＜＝ · 50 題庫", kind: "math-game" },
   { id: "u35", grade: 1, difficulty: 2, icon: "🧠", tint: "#ffeef6", title: "順序與位置推理", sub: "一年級 · 先後、上下左右 · 50 題庫", kind: "math-game" },
+  { id: "u38", grade: 1, difficulty: 1, icon: "🃏", tint: "#e8f2ff", title: "記憶翻牌", sub: "一年級 · 數字與數量配對 · 一星", kind: "memory" },
 ];
 const CH_UNITS = [
   { id: "c1", grade: 1, icon: "📚", tint: "#e6f7ee", title: "學習庫", sub: "一年級 · 識字單元", kind: "library" },
@@ -1475,6 +1521,7 @@ class Component extends DCLogic {
     assigned: "u2", weeklyConfig: readWeeklyConfig(), weeklyTeacherGrade: 1,
     examQs: [], examIndex: 0, examAnswers: [], examStartedAt: 0, examReview: [], examScore: 0,
     writingWord: null, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false,
+    memoryDeck: [], memoryFlipped: [], memoryMatched: [], memoryMoves: 0, memoryLocked: false, memoryStatus: "", memoryNote: "",
     selectedDate: localDateKey(),
     shopCat: "hair", slot: "hair", shopQuery: "", shopOwnedOnly: false,
     shopMessage: "上衣與下身是獨立道具，可自由混搭；髮型與服裝依角色分流，帽子、鞋履與手持道具共用。",
@@ -1614,6 +1661,8 @@ class Component extends DCLogic {
     clearTimeout(this.autoNextTimer);
     clearInterval(this.questionSpeechTimer);
     clearInterval(this.lessonSpeechTimer);
+    clearTimeout(this.memoryPreviewTimer);
+    clearTimeout(this.memoryResolveTimer);
     if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
   }
 
@@ -1697,6 +1746,60 @@ class Component extends DCLogic {
     const word = pool[Math.floor(Math.random() * pool.length)];
     clearTimeout(this.writingClearTimer);
     this.setState({ screen: "writing", grade, writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => { this.clearWriting(); this.speakWritingWord(); });
+  }
+  startMemory() {
+    clearTimeout(this.memoryPreviewTimer);
+    clearTimeout(this.memoryResolveTimer);
+    const shuffle = (items) => items.slice().sort(() => Math.random() - .5);
+    const mascots = [
+      { name: "小倉鼠", pos: "0%" },
+      { name: "小貓咪", pos: "50%" },
+      { name: "小兔兔", pos: "100%" },
+    ];
+    const deck = shuffle([1, 2, 3, 4, 5, 6].flatMap((value) => {
+      const mascot = mascots[(value - 1) % mascots.length];
+      return [
+        { id: "number-" + value, type: "number", value, mascot, icons: [mascot] },
+        { id: "quantity-" + value, type: "quantity", value, mascot, icons: Array.from({ length: value }, () => mascot) },
+      ];
+    }));
+    this.setState({ screen: "memory", unit: "u38", memoryDeck: deck, memoryFlipped: deck.map((card) => card.id), memoryMatched: [], memoryMoves: 0, memoryLocked: true, memoryStatus: "preview", memoryNote: "先看清楚卡片，等等找出數字和數量相同的一對！" }, () => {
+      if (!this.state.speechMuted) this.speakText("先看清楚卡片，等等找出數字和數量相同的一對");
+      this.memoryPreviewTimer = setTimeout(() => this.setState({ memoryFlipped: [], memoryLocked: false, memoryStatus: "play", memoryNote: "翻兩張牌，找出數字和數量相同的一對！" }), 2600);
+    });
+  }
+  flipMemoryCard(id) {
+    const s = this.state;
+    if (s.screen !== "memory" || s.memoryStatus !== "play" || s.memoryLocked || s.memoryFlipped.indexOf(id) >= 0 || s.memoryMatched.indexOf(id) >= 0) return;
+    const flipped = s.memoryFlipped.concat(id);
+    if (flipped.length < 2) { this.setState({ memoryFlipped: flipped }); return; }
+    const first = s.memoryDeck.find((card) => card.id === flipped[0]);
+    const second = s.memoryDeck.find((card) => card.id === flipped[1]);
+    const matched = !!first && !!second && first.value === second.value && first.type !== second.type;
+    this.setState({ memoryFlipped: flipped, memoryLocked: true, memoryMoves: s.memoryMoves + 1, memoryNote: matched ? "答對了！這一對的數字和數量一樣。" : "再記一下位置，這一對還不一樣。" });
+    clearTimeout(this.memoryResolveTimer);
+    this.memoryResolveTimer = setTimeout(() => {
+      if (!matched) { this.setState({ memoryFlipped: [], memoryLocked: false }); return; }
+      const memoryMatched = Array.from(new Set(s.memoryMatched.concat(flipped)));
+      const complete = memoryMatched.length === s.memoryDeck.length;
+      if (!complete) { this.setState({ memoryMatched, memoryFlipped: [], memoryLocked: false }); return; }
+      this.finishMemory(memoryMatched, s.memoryMoves + 1);
+    }, matched ? 640 : 950);
+  }
+  finishMemory(memoryMatched, moves) {
+    const profile = this.prof();
+    const round = dailyMasteryRound(profile, "u38");
+    const rewardId = "memory:" + localDateKey() + ":" + (round + 1);
+    const rewarded = round < 3 && profile.rewardedRuns.indexOf(rewardId) < 0;
+    this.patch((p) => {
+      const daily = normalizeDailyMastery(p.dailyMastery);
+      const currentRound = dailyMasteryRound(p, "u38");
+      if (currentRound >= 3 || p.rewardedRuns.indexOf(rewardId) >= 0) return {};
+      daily.units.u38 = currentRound + 1;
+      return { dailyMastery: daily, coins: p.coins + 5, xp: p.xp + 5, correctTotal: p.correctTotal + 6, rewardedRuns: p.rewardedRuns.concat(rewardId).slice(-300), xpLedger: [{ id: rewardId, date: localDateKey(), amount: 5, source: "記憶翻牌", detail: "完成數字與數量配對" }].concat(p.xpLedger).slice(0, 500) };
+    });
+    this.setState({ memoryMatched, memoryFlipped: [], memoryLocked: true, memoryStatus: "complete", memoryNote: rewarded ? "全部配對成功！獲得 5 顆星幣。" : "全部配對成功！今天的本單元獎勵已完成。", gain: { xp: rewarded ? 5 : 0, coins: rewarded ? 5 : 0 } });
+    if (!this.state.speechMuted) this.speakText("全部配對成功，做得真好");
   }
   writingPosition(event) {
     const canvas = document.getElementById("writing-pad");
@@ -2137,7 +2240,7 @@ class Component extends DCLogic {
   startWeeklyExam() {
     const p = this.prof();
     if (p.weeklyExam && p.weeklyExam.week === weekKey() && p.weeklyExam.submitted) { this.setState({ screen: "weeklyResult", examReview: p.weeklyExam.review || [], examScore: p.weeklyExam.score || 0 }); return; }
-    const units = MATH_UNITS.concat(CH_UNITS).filter((unit) => unit.grade === this.state.grade && unit.kind !== "library" && unit.kind !== "writing");
+    const units = MATH_UNITS.concat(CH_UNITS).filter((unit) => unit.grade === this.state.grade && unit.kind !== "library" && unit.kind !== "writing" && unit.kind !== "memory");
     const questions = [];
     units.forEach((unit) => {
       const setup = this.state.weeklyConfig.modules[unit.id] || { count: 0, difficulty: unit.difficulty || 1 };
@@ -2209,6 +2312,7 @@ class Component extends DCLogic {
   startUnit(id) {
     clearTimeout(this.autoNextTimer);
     if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
+    if (id === "u38") { this.startMemory(); return; }
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
     const unit = MATH_UNITS.find((entry) => entry.id === id);
     if (unit && unit.lesson) { this.setState({ screen: "lessonIntro", unit: id, lessonSpeechIndex: -1 }, () => this.speakLessonNarration()); return; }
@@ -2968,13 +3072,13 @@ class Component extends DCLogic {
       { key: "collection", icon: "🧸", label: "蒐集" },
       { key: "signin", icon: "📅", label: "簽到" },
     ];
-    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "lessonIntro" || s.screen === "library" || s.screen === "writing" ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen;
+    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "lessonIntro" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen;
     const subjectUnits = s.subject === "math" ? MATH_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
     const detail = s.detailChar ? this.allWords().find((w) => w.c === s.detailChar) : null;
     const weeklyExamDone = !!(p.weeklyExam && p.weeklyExam.week === weekKey() && p.weeklyExam.submitted);
-    const weeklyUnits = allUnits.filter((candidate) => candidate.grade === s.grade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
+    const weeklyUnits = allUnits.filter((candidate) => candidate.grade === s.grade && candidate.kind !== "library" && candidate.kind !== "writing" && candidate.kind !== "memory").map((candidate) => {
       const setup = s.weeklyConfig.modules[candidate.id] || { count: 0, difficulty: candidate.difficulty || 1 };
       return { unit: candidate, count: Number(setup.count) || 0, difficulty: Number(setup.difficulty) || candidate.difficulty || 1 };
     }).filter((entry) => entry.count > 0);
@@ -2984,11 +3088,34 @@ class Component extends DCLogic {
       isLogin: s.screen === "login",
       isLessonIntro: s.screen === "lessonIntro",
       isApp: s.screen !== "login",
-      isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map",
+      isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isQuiz: s.screen === "quiz", isResult: s.screen === "result", isWriting: s.screen === "writing", isWeekly: s.screen === "weekly", isWeeklyQuiz: s.screen === "weeklyQuiz", isWeeklyResult: s.screen === "weeklyResult", isShop: s.screen === "shop", isGacha: s.screen === "gacha", isCollection: s.screen === "collection",
       isCloset: s.screen === "closet", isRank: s.screen === "rank", isAchieve: s.screen === "achieve",
       isLibrary: s.screen === "library", isTeacher: s.screen === "teacher",
       toast: s.toast,
+      memoryMoves: s.memoryMoves,
+      memoryPairCount: Math.floor((s.memoryMatched || []).length / 2),
+      memoryComplete: s.memoryStatus === "complete",
+      memoryNote: s.memoryNote,
+      memoryNoteBg: s.memoryStatus === "complete" ? "#e6f7ee" : s.memoryStatus === "preview" ? "#fff6e0" : "#eafbfd",
+      memoryNoteFg: s.memoryStatus === "complete" ? "#1d7a55" : s.memoryStatus === "preview" ? "#a06400" : "#0e7d8c",
+      memoryBack: () => { clearTimeout(this.memoryPreviewTimer); clearTimeout(this.memoryResolveTimer); this.setState({ screen: "map" }); },
+      memoryRestart: () => this.startMemory(),
+      memoryCards: (s.memoryDeck || []).map((card) => {
+        const front = s.memoryFlipped.indexOf(card.id) >= 0 || s.memoryMatched.indexOf(card.id) >= 0;
+        const matched = s.memoryMatched.indexOf(card.id) >= 0;
+        const size = card.value >= 6 ? 25 : card.value >= 5 ? 28 : card.value >= 4 ? 33 : 42;
+        const typeName = card.type === "number" ? "數字 " + card.value : card.mascot.name + " " + card.value + " 隻";
+        return {
+          isFront: front, isBack: !front, isNumber: card.type === "number", isQuantity: card.type === "quantity", value: card.value,
+          icons: (card.icons || []).map((icon) => ({ pos: icon.pos, size })), spritePos: card.mascot.pos,
+          faceBg: card.type === "number" ? "linear-gradient(145deg,#fffdf2,#fff0c9)" : "linear-gradient(145deg,#f4fbff,#edf7ff)",
+          cardBg: front ? "#fff" : "#dfefff", cursor: s.memoryStatus === "play" && !front ? "pointer" : "default",
+          shadow: matched ? "0 10px 24px rgba(53,201,138,.3)" : "0 10px 22px rgba(43,31,87,.12)",
+          transform: matched ? "translateY(-3px)" : "rotateY(0deg)", animation: matched ? "memoryMatch .55s ease both" : front ? "memoryCardReveal .22s ease both" : "none",
+          aria: front ? typeName : "翻開第 " + (s.memoryDeck.indexOf(card) + 1) + " 張記憶牌", flip: () => this.flipMemoryCard(card.id),
+        };
+      }),
 
       classChips: s.classes.map((c) => ({
         label: c.name, count: s.students.filter((st) => st.classId === c.id).length,
@@ -3453,7 +3580,7 @@ class Component extends DCLogic {
       weeklyTimeOptions: [15, 20, 30, 45, 60, 90, 120].map((value) => ({ value, label: value + " 秒" })),
       changeWeeklyTime: (e) => this.updateWeeklyTime(e.target.value),
       weeklyTeacherGrades: [1, 2].map((grade) => ({ label: grade === 1 ? "一年級" : "二年級", go: () => this.setState({ weeklyTeacherGrade: grade }), bg: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#fff", fg: s.weeklyTeacherGrade === grade ? "#fff" : "#7c74a8", border: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#ddd5ff" })),
-      weeklyModuleRows: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
+      weeklyModuleRows: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade && candidate.kind !== "library" && candidate.kind !== "writing" && candidate.kind !== "memory").map((candidate) => {
         const setup = s.weeklyConfig.modules[candidate.id] || { count: 0, difficulty: candidate.difficulty || 1 };
         return { icon: candidate.icon, title: candidate.title, subject: candidate.id.charAt(0) === "c" ? "國文" : "數學", count: setup.count || 0, difficulty: setup.difficulty || candidate.difficulty || 1,
           countOptions: Array.from({ length: 11 }, (_, value) => ({ value, label: value + " 題" })), difficultyOptions: [1, 2, 3].map((value) => ({ value, label: "⭐".repeat(value) })),
