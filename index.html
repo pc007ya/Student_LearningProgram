@@ -1128,6 +1128,8 @@ const MATH_UNITS = [
   { id: "u28", grade: 2, difficulty: 3, icon: "🍎", tint: "#ffe6d1", title: "十位數 × 個位數挑戰", sub: "二年級 · 進位乘法" },
   { id: "u29", grade: 1, difficulty: 2, icon: "🧩", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
   { id: "u30", grade: 2, difficulty: 2, icon: "⚖️", tint: "#fff0cc", title: "測量實驗室", sub: "二年級 · 時鐘、重量與角度", kind: "math-game" },
+  { id: "u31", grade: 1, difficulty: 2, icon: "🧊", tint: "#eafbfd", title: "小一立方體數量", sub: "一年級 · 排、柱、層與數量估計", kind: "math-game" },
+  { id: "u32", grade: 2, difficulty: 3, icon: "🏗️", tint: "#f1e6ff", title: "小二立方體空間推理", sub: "二年級 · 長寬高、遮擋與隱藏積木", kind: "math-game" },
 ];
 const CH_UNITS = [
   { id: "c1", grade: 1, icon: "📚", tint: "#e6f7ee", title: "學習庫", sub: "一年級 · 識字單元", kind: "library" },
@@ -1203,6 +1205,12 @@ const MATH_GAME_FALLBACK = {
       { id: "clock-demo", type: "clock", stem: "時鐘現在是幾點幾分？", answer: "8 點 30 分", options: ["8 點 30 分", "6 點 40 分", "8 點整", "9 點 30 分"], explain: "長針指向 6 是 30 分，短針走過 8。", visual: { hour: 8, minute: 30 } },
       { id: "weight-demo", type: "weight", stem: "看天平，哪一邊的物品比較重？", answer: "西瓜比較重", options: ["西瓜比較重", "蘋果比較重", "一樣重", "無法判斷"], explain: "天平較低的一端比較重。", visual: { left: { icon: "🍉", label: "西瓜", weight: 5 }, right: { icon: "🍎", label: "蘋果", weight: 2 } } },
       { id: "angle-demo", type: "protractor", stem: "量角器上的角是多少度？", answer: "60°", options: ["30°", "60°", "90°", "120°"], explain: "射線通過 60° 的刻度，所以是 60°。", visual: { angle: 60 } }
+    ] },
+    { id: "u31", questions: [
+      { id: "g1-cubes-demo", type: "block-count", stem: "這座積木共有幾個小正方體？", answer: 6, options: [4, 5, 6, 7], explain: "由下往上分層數：3＋2＋1＝6。", visual: { cubes: [[0,0,0],[1,0,0],[1,0,1],[2,0,0],[2,0,1],[2,0,2]], skill: "分層數" } }
+    ] },
+    { id: "u32", questions: [
+      { id: "g2-cubes-demo", type: "block-count", stem: "包含被遮住的積木，共有幾個小正方體？", answer: 8, options: [6, 7, 8, 9], explain: "四根柱子的高度是 3、1、2、2，合計 8 個。", visual: { cubes: [[0,0,0],[0,0,1],[0,0,2],[1,0,0],[0,1,0],[0,1,1],[1,1,0],[1,1,1]], skill: "看柱高" } }
     ] }
   ]
 };
@@ -1571,7 +1579,7 @@ class Component extends DCLogic {
     const n = this.total();
     const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
     const shuffle = (a) => a.slice().sort(() => Math.random() - 0.5);
-    if (unitId === "u29" || unitId === "u30") {
+    if (["u29", "u30", "u31", "u32"].indexOf(unitId) >= 0) {
       const module = (this.state.mathGameBank.modules || []).find((entry) => entry.id === unitId);
       const source = module && Array.isArray(module.questions) ? module.questions : [];
       if (!source.length) return [];
@@ -1764,7 +1772,9 @@ class Component extends DCLogic {
         : question.fig === "clock" ? "圖示：時鐘顯示 " + question.figData.h + " 點 " + String(question.figData.m).padStart(2, "0") + " 分。"
         : question.fig === "shapeCount" ? "圖示：混合排列的三角形、圓形、正方形與長方形。"
         : question.fig === "solid" ? "圖示：" + ({ cube: "正方體", cuboid: "長方體", cylinder: "圓柱體", cone: "圓錐體" }[question.figData.solid] || "立體圖形") + "。"
-        : question.fig === "blocks" ? "圖示：積木柱高度為 " + question.figData.columns.join("、") + "。"
+        : question.fig === "blocks" ? (question.figData.columns
+          ? "圖示：積木柱高度為 " + question.figData.columns.join("、") + "。"
+          : "圖示：用小正方體組成的立體排列；觀察方法是「" + (question.figData.skill || "分層數") + "」。")
         : question.fig === "weight" ? "圖示：天平左側是「" + question.figData.left.label + "」，右側是「" + question.figData.right.label + "」。"
         : question.fig === "protractor" ? "圖示：量角器上的射線通過 " + question.figData.angle + "°。"
         : question.fig === "zhuyin" ? "注音提示：" + question.figData.z + "；語詞：" + question.figData.word + "。"
@@ -2165,7 +2175,39 @@ class Component extends DCLogic {
           }) : React.createElement("span", { role: "status", style: { color: "#7c74a8", fontWeight: 900 } }, "立體圖形圖片載入中"));
       }
       if (question.fig === "blocks") {
-        return React.createElement("div", { role: "img", "aria-label": "小正方體積木堆疊", style: shell }, (data.columns || []).map((height, column) => React.createElement("span", { key: column, style: { alignSelf: "flex-end", display: "flex", flexDirection: "column-reverse", gap: 3, transform: "translateY(" + (column % 2 ? 8 : 0) + "px)" } }, Array.from({ length: height }, (_, index) => React.createElement("span", { key: index, style: { width: 48, height: 48, display: "grid", placeItems: "center", borderRadius: 9, color: "#fff", fontSize: 23, fontWeight: 900, background: "linear-gradient(135deg,#22c8d8 0 50%,#178ca0 51%)", border: "3px solid #2b1f57", boxShadow: "inset 7px 7px rgba(255,255,255,.22)" } }, "◇")))));
+        const cubes = Array.isArray(data.cubes) && data.cubes.length
+          ? data.cubes.map((point) => [Number(point[0]) || 0, Number(point[1]) || 0, Number(point[2]) || 0])
+          : (data.columns || []).flatMap((height, x) => Array.from({ length: height }, (_, z) => [x, 0, z]));
+        const unitSize = cubes.length >= 18 ? 72 : cubes.length >= 10 ? 84 : 102;
+        const projected = cubes.map((point, index) => ({
+          key: point.join("-") + "-" + index,
+          x: (point[0] - point[1]) * unitSize * .39,
+          y: (point[0] + point[1]) * unitSize * .21 - point[2] * unitSize * .47,
+          depth: point[0] + point[1] + point[2] * .01,
+        })).sort((a, b) => a.depth - b.depth || a.y - b.y || a.x - b.x);
+        const minX = Math.min.apply(null, projected.map((cube) => cube.x));
+        const maxX = Math.max.apply(null, projected.map((cube) => cube.x));
+        const minY = Math.min.apply(null, projected.map((cube) => cube.y));
+        const maxY = Math.max.apply(null, projected.map((cube) => cube.y));
+        const stageWidth = Math.max(280, maxX - minX + unitSize + 34);
+        const stageHeight = Math.max(190, maxY - minY + unitSize + 30);
+        return React.createElement("div", { style: Object.assign({}, shell, { minHeight: 250, flexDirection: "column", gap: 8 }) },
+          React.createElement("div", { role: "img", "aria-label": data.alt || "使用相同小正方體組成的立體積木排列", style: { position: "relative", width: "min(" + Math.ceil(stageWidth) + "px,100%)", aspectRatio: stageWidth + "/" + stageHeight } },
+            projected.map((cube) => React.createElement("img", {
+              key: cube.key,
+              src: data.image || "images/math-games/solid-cube.png",
+              alt: "",
+              "aria-hidden": "true",
+              style: {
+                position: "absolute",
+                left: ((cube.x - minX + 17) / stageWidth * 100) + "%",
+                top: ((cube.y - minY + 15) / stageHeight * 100) + "%",
+                width: (unitSize / stageWidth * 100) + "%",
+                height: "auto",
+                display: "block",
+              }
+            }))),
+          data.skill ? React.createElement("span", { style: { borderRadius: 99, padding: "6px 12px", background: "#fff", border: "1px solid #ddd5ff", color: "#5b3fe0", fontSize: 12, fontWeight: 900 } }, "觀察方法：" + data.skill) : null);
       }
       if (question.fig === "weight") {
         const left = data.left || {}, right = data.right || {};
