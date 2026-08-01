@@ -586,7 +586,7 @@
                 <div style="display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border-radius:18px;background:#fff;border:1px solid #ece7ff"><span style="width:28px;height:28px;flex:none;display:grid;place-items:center;border-radius:50%;background:#fff0cc;color:#a06400;font-size:13px;font-weight:900">{{ step.no }}</span><span style="font-size:14px;font-weight:800;line-height:1.55;color:#4a3d7a"><sc-for list="{{ step.chars }}" as="char" hint-placeholder-count="18"><span style="display:inline-grid;place-items:center;min-width:1.34em;height:1.34em;vertical-align:middle;border-radius:50%;background:{{ char.bg }};box-shadow:{{ char.shadow }};transition:background .12s ease,box-shadow .12s ease">{{ char.text }}</span></sc-for></span></div>
               </sc-for>
             </div>
-            <p style="margin:18px 0 0;border-radius:16px;padding:11px 14px;background:#eafbfd;color:#0e7d8c;font-size:13px;font-weight:900">🎁 完成這次 10 題挑戰，可獲得 10 顆星星幣，剛好抽一次扭蛋。</p>
+            <p style="margin:18px 0 0;border-radius:16px;padding:11px 14px;background:#eafbfd;color:#0e7d8c;font-size:13px;font-weight:900">🎁 每次固定從 30 題候選題抽出 10 題，不會重複；{{ lessonStars }} 難度滿分可得 {{ lessonRewardBase }} 顆星星幣。答對率會按比例計算，最後四捨五入。</p>
             <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:20px"><button onClick="{{ skipLesson }}" style="border:1.5px solid #c9bfff;border-radius:17px;padding:12px 17px;background:#fff;color:#5b3fe0;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">略過解說</button><button onClick="{{ startLessonChallenge }}" style="border:0;border-radius:17px;padding:12px 19px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">開始 10 題挑戰 →</button></div>
           </div>
         </section>
@@ -1364,6 +1364,14 @@ function saveWeeklyConfig(value) {
   try { localStorage.setItem(WEEKLY_CONFIG_STORE_KEY, JSON.stringify(value)); } catch (_) {}
 }
 function randomFeedback(list) { return list[Math.floor(Math.random() * list.length)]; }
+function rewardBaseForDifficulty(difficulty) {
+  return [5, 10, 15][Math.max(1, Math.min(3, Number(difficulty) || 1)) - 1];
+}
+function rewardCoinsForAccuracy(difficulty, correct, total) {
+  const base = rewardBaseForDifficulty(difficulty);
+  const rate = total > 0 ? correct / total : 0;
+  return { base, rate, coins: Math.round(base * rate) };
+}
 function readSpeechMuted() {
   try { return localStorage.getItem(SPEECH_MUTE_STORE_KEY) === "1"; } catch (_) { return false; }
 }
@@ -1741,38 +1749,109 @@ class Component extends DCLogic {
     this.setState({ writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => this.clearWriting());
   }
 
-  buildMath(unitId) {
-    const n = this.total();
+  buildMoneyChallenge(count) {
+    const shuffle = (items) => items.slice().sort(() => Math.random() - 0.5);
+    const numericOptions = (answer) => {
+      const candidates = [answer - 10, answer - 5, answer - 1, answer + 1, answer + 5, answer + 10, answer + 50].filter((value) => value >= 0 && value !== answer);
+      return shuffle([answer].concat(candidates.slice(0, 3)));
+    };
+    const coinItems = (coins) => coins.map((coin) => "🪙 " + coin);
+    const joinCoins = (coins) => coins.map((coin) => coin + " 元").join("和");
+    const bank = [];
+    [1, 5, 10, 50, 100].forEach((coin) => {
+      const alternatives = [1, 5, 10, 50, 100].filter((value) => value !== coin);
+      bank.push({ id: "money-recognize-" + coin, stem: "這是一枚 " + coin + " 元硬幣，面額是多少？", speakText: "請看硬幣上的數字，這是 " + coin + " 元。", ans: coin + " 元", opts: shuffle([coin + " 元"].concat(alternatives.slice(0, 3).map((value) => value + " 元"))), explain: "硬幣上的數字是 " + coin + "，所以是 " + coin + " 元。", fig: "countItems", figData: { items: coinItems([coin]), skill: "先看硬幣上的數字" } });
+    });
+    [[1,1],[1,5],[1,10],[5,5],[5,10],[10,10],[10,50],[50,50],[50,100],[100,100]].forEach((coins, index) => {
+      const answer = coins[0] + coins[1];
+      bank.push({ id: "money-pair-" + index, stem: "桌上有 " + joinCoins(coins) + "，合起來有多少元？", ans: answer, opts: numericOptions(answer), explain: coins.join("＋") + "＝" + answer + "，共有 " + answer + " 元。", fig: "countItems", figData: { items: coinItems(coins), skill: "把每一枚硬幣的面額加起來" } });
+    });
+    [[1,1,5],[1,5,10],[5,5,10],[10,10,5],[10,50,10],[1,10,50],[5,10,50],[10,50,50],[50,50,100],[1,5,100]].forEach((coins, index) => {
+      const answer = coins.reduce((sum, coin) => sum + coin, 0);
+      bank.push({ id: "money-triple-" + index, stem: "有 " + coins.map((coin) => coin + " 元").join("、") + "硬幣，合起來有多少元？", ans: answer, opts: numericOptions(answer), explain: coins.join("＋") + "＝" + answer + "，所以共有 " + answer + " 元。", fig: "countItems", figData: { items: coinItems(coins), skill: "一枚一枚加，不重複也不漏掉" } });
+    });
+    [[6,[1,5]],[15,[5,10]],[20,[10,10]],[55,[5,50]],[60,[10,50]]].forEach(([price, coins], index) => {
+      const choices = [[1,5],[1,10],[5,10],[10,10],[5,50],[10,50]].map((set) => ({ label: joinCoins(set), total: set[0] + set[1] }));
+      const answer = joinCoins(coins);
+      const wrong = shuffle(choices.filter((choice) => choice.total !== price && choice.label !== answer)).slice(0, 3).map((choice) => choice.label);
+      bank.push({ id: "money-pay-" + index, stem: "買一樣東西要 " + price + " 元，哪一組硬幣剛好可以付錢？", ans: answer, opts: shuffle([answer].concat(wrong)), explain: coins.join("＋") + "＝" + price + "，這一組剛好付 " + price + " 元。", fig: "countItems", figData: { items: coinItems(coins), skill: "先算每一組硬幣的總額，再找剛好的" } });
+    });
+    return shuffle(bank).slice(0, count);
+  }
+
+  buildTwoDigitChallenge(count) {
+    const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+    const shuffle = (items) => items.slice().sort(() => Math.random() - 0.5);
+    const options = (answer) => {
+      const values = [answer - 10, answer - 1, answer + 1, answer + 10, answer - 5, answer + 5].filter((value) => value >= 0 && value !== answer);
+      return shuffle([answer].concat(values.slice(0, 3)));
+    };
+    const bank = [], used = new Set();
+    const labels = ["顆星星", "本故事書", "張貼紙", "顆糖果", "支鉛筆", "朵小花"];
+    let safety = 0;
+    while (bank.length < 30 && safety < 300) {
+      safety += 1;
+      const kind = bank.length % 4;
+      const plus = kind < 2;
+      let a, b, method;
+      if (kind === 0) {
+        const aTens = r(1, 6), bTens = r(1, 8 - aTens), aOnes = r(1, 7), bOnes = r(1, 9 - aOnes);
+        a = aTens * 10 + aOnes; b = bTens * 10 + bOnes; method = "不進位";
+      } else if (kind === 1) {
+        const aTens = r(1, 6), bTens = r(1, 8 - aTens), aOnes = r(2, 9), bOnes = r(10 - aOnes, 9);
+        a = aTens * 10 + aOnes; b = bTens * 10 + bOnes; method = "進位";
+      } else if (kind === 2) {
+        const bTens = r(1, 5), aTens = r(bTens, 9), bOnes = r(1, 7), aOnes = r(bOnes, 9);
+        a = aTens * 10 + aOnes; b = bTens * 10 + bOnes; method = "不退位";
+      } else {
+        const bTens = r(1, 6), aTens = r(bTens + 1, 9), aOnes = r(0, 7), bOnes = r(aOnes + 1, 9);
+        a = aTens * 10 + aOnes; b = bTens * 10 + bOnes; method = "退位";
+      }
+      const answer = plus ? a + b : a - b;
+      const key = [plus ? "+" : "-", a, b].join(":");
+      if (used.has(key)) continue;
+      used.add(key);
+      const vertical = Math.random() >= .5;
+      const label = labels[bank.length % labels.length];
+      const expression = a + (plus ? "＋" : "－") + b;
+      bank.push({
+        id: "two-digit-" + key,
+        stem: vertical ? "請用直式算出 " + expression + " 的答案。" : expression + "＝？",
+        speakText: expression + "等於多少？",
+        ans: answer,
+        opts: options(answer),
+        explain: method + "計算：" + expression + "＝" + answer + "。",
+        fig: vertical ? "columns" : "none",
+        figData: vertical ? { a, b, plus } : {},
+        layout: vertical ? "vertical" : "horizontal",
+        context: label,
+      });
+    }
+    return shuffle(bank).slice(0, count);
+  }
+
+  buildMath(unitId, requestedCount) {
+    const n = requestedCount || this.total();
     const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
     const shuffle = (a) => a.slice().sort(() => Math.random() - 0.5);
     if (MATH_UNITS.some((entry) => entry.id === unitId && entry.kind === "math-game")) {
+      if (unitId === "u36") return this.buildMoneyChallenge(n);
+      if (unitId === "u37") return this.buildTwoDigitChallenge(n);
       const module = (this.state.mathGameBank.modules || []).find((entry) => entry.id === unitId);
       const source = module && Array.isArray(module.questions) ? module.questions : [];
       if (!source.length) return [];
-      const questions = [];
-      while (questions.length < n) {
-        shuffle(source).forEach((item) => {
-          if (questions.length >= n) return;
-          const visual = item.visual || {};
-          const figData = item.type === "clock" || item.type === "clock-target"
-            ? { h: visual.hour, m: visual.minute }
-            : Object.assign({}, visual);
-          questions.push({
-            id: item.id,
-            stem: item.stem,
-            speakText: item.speakText || "",
-            ans: item.answer,
-            opts: shuffle(item.options || []),
-            explain: item.explain,
-            fig: item.type === "shape-count" ? "shapeCount" : item.type === "block-count" ? "blocks" : item.type === "clock-target" ? "clock" : item.type,
-            figData,
-          });
-        });
-      }
-      return questions;
+      return shuffle(source).slice(0, n).map((item) => {
+        const visual = item.visual || {};
+        const figData = item.type === "clock" || item.type === "clock-target"
+          ? { h: visual.hour, m: visual.minute }
+          : Object.assign({}, visual);
+        return { id: item.id, stem: item.stem, speakText: item.speakText || "", ans: item.answer, opts: shuffle(item.options || []), explain: item.explain, fig: item.type === "shape-count" ? "shapeCount" : item.type === "block-count" ? "blocks" : item.type === "clock-target" ? "clock" : item.type, figData };
+      });
     }
-    const list = [];
-    for (let i = 0; i < n; i += 1) {
+    const list = [], seen = new Set();
+    let attempts = 0;
+    while (list.length < n && attempts < n * 40) {
+      attempts += 1;
       let q;
       if (unitId === "u1") {
         const a = r(1, 6), b = r(1, 10 - a);
@@ -1873,6 +1952,10 @@ class Component extends DCLogic {
         }
         q.opts = shuffle([q.ans].concat(Array.from(wrongs)));
       }
+      const signature = unitId + ":" + q.stem + ":" + String(q.ans);
+      if (seen.has(signature)) continue;
+      seen.add(signature);
+      q.id = "generated:" + signature;
       list.push(q);
     }
     return list;
@@ -1980,7 +2063,8 @@ class Component extends DCLogic {
     const round = dailyMasteryRound(this.prof(), id);
     if (round >= 3) { this.flash("這個單元今天已完成三輪，換一個練習吧！"); return; }
     const chinese = id === "c2" || id === "c4";
-    const qs = chinese ? this.buildChinese(id === "c2" ? 1 : 2) : this.buildMath(id);
+    const unit = MATH_UNITS.find((entry) => entry.id === id);
+    const qs = chinese ? this.buildChinese(id === "c2" ? 1 : 2) : this.buildMath(id, unit && unit.lesson ? 10 : undefined);
     if (!qs.length) { this.flash("字彙還在載入中，請稍等一下"); return; }
     this.setState({ screen: "quiz", unit: id, quizSubject: chinese ? "chinese" : "math", qs, qi: 0, picked: null, locked: false, correct: 0, quizRound: round, quizRunId: "quiz:" + this.state.currentId + ":" + id + ":" + Date.now(), timeLeft: this.roundSeconds(round), feedbackTitle: "", resultNote: "" }, () => this.speakQuestion(qs[0]));
   }
@@ -2062,16 +2146,17 @@ class Component extends DCLogic {
       return;
     }
     const all = s.correct === s.qs.length;
-    const challengeUnit = MATH_UNITS.find((u) => u.id === s.unit);
-    const gachaChallengeBonus = challengeUnit && challengeUnit.gachaReward ? 10 : 0;
-    const coins = s.correct * 3 + (all ? 10 : 0) + gachaChallengeBonus;
+    const challengeUnit = MATH_UNITS.concat(CH_UNITS).find((u) => u.id === s.unit);
+    const reward = rewardCoinsForAccuracy(challengeUnit && challengeUnit.difficulty, s.correct, s.qs.length);
+    const coins = reward.coins;
     const xp = s.correct * 8;
     const unitTitle = (MATH_UNITS.concat(CH_UNITS).find((u) => u.id === s.unit) || { title: "練習" }).title;
     const completedRound = all ? Math.min(3, s.quizRound + 1) : s.quizRound;
     let resultNote = all
       ? (completedRound >= 3 ? "今天已完成 III 輪，請換別的單元練習，明天會重新開始。" : "完成 " + masteryRoman(completedRound) + " 輪！下一輪每題時間會減少 5 秒。")
       : "這一輪要 100% 全對才會升級，整理錯題後再挑戰一次吧！";
-    if (gachaChallengeBonus) resultNote += " 已完成 10 題挑戰，獲得 10 顆星星幣，可去抽一次扭蛋！";
+    const rewardRate = Math.round(reward.rate * 100);
+    resultNote += " 答對率 " + rewardRate + "%：" + reward.base + " 顆星星幣 × " + rewardRate + "%＝" + (reward.base * reward.rate).toFixed(1) + "，四捨五入後獲得 " + coins + " 顆。";
     const rewardId = s.quizRunId || ("quiz:" + s.unit + ":" + Date.now());
     this.patch((p) => {
       if (p.rewardedRuns.indexOf(rewardId) >= 0) return {};
@@ -2089,7 +2174,7 @@ class Component extends DCLogic {
         rewardedRuns: p.rewardedRuns.concat(rewardId).slice(-300),
         xpLedger: [{ id: rewardId, date: localDateKey(), amount: xp, source: unitTitle, detail: s.correct + "/" + s.qs.length + (all ? " · 完成 " + masteryRoman(completedRound) : "") }].concat(p.xpLedger).slice(0, 500),
         log: [
-          { icon: "⭐", tint: "#fff6e0", text: "答對獎勵星星幣", amount: "+" + coins, color: "#ffb020", when: "剛剛" },
+          { icon: "⭐", tint: "#fff6e0", text: "答對率 " + rewardRate + "% 的星星幣獎勵", amount: "+" + coins, color: "#ffb020", when: "剛剛" },
           { icon: "✅", tint: "#e6f7ee", text: "完成「" + unitTitle + "」" + s.correct + "/" + s.qs.length, amount: "+" + xp + " XP", color: "#35c98a", when: "剛剛" },
         ].concat(p.log).slice(0, 8),
       };
@@ -2972,6 +3057,8 @@ class Component extends DCLogic {
       lessonIcon: unit.icon || "📘",
       lessonTitle: unit.title || "數學挑戰",
       lessonSub: unit.sub || "一年級數學",
+      lessonStars: "⭐".repeat(Math.max(1, Math.min(3, Number(unit.difficulty) || 1))),
+      lessonRewardBase: rewardBaseForDifficulty(unit.difficulty),
       lessonLeadChars,
       lessonSteps,
       skipLesson: () => this.skipLesson(),
