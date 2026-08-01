@@ -1232,6 +1232,8 @@ const GACHA_SOURCE_SHEETS = [
   ["吉伊", "chiikawa"], ["小八", "hachiware"], ["兔兔", "usagi"], ["小桃", "momonga"], ["師傅", "rakko"], ["栗子", "kurimanju"], ["獅薩", "shisa"], ["古本", "furuhon"], ["其他角色", "other"],
 ];
 const GACHA_SOURCE_SHEET_ID = "17gH9HZKvW_6fMCWYLyqnzMHj40rA7PiwWg6L0GvbFgQ";
+const GACHA_NEW_GOODS_GROUPS = ["0807吉伊劇場版2彈&一般新品", "0807吉伊酸梅超人聯名", "三麗鷗毛絨捏臉臉受注"];
+const GACHA_NEW_GOODS_SHEET_ID = "1zA9Y-kgt5QPOZt_r4-H6ZTWFaLmSRjc13dcFZYEp-JY";
 const SPEECH_MUTE_STORE_KEY = "learning-planet.question-speech-muted.v1";
 const AUTO_NEXT_STORE_KEY = "learning-planet.quiz-auto-next.v1";
 const WARDROBE_FIT_STORE_KEY = "learning-planet.wardrobe-fit.v1";
@@ -1500,7 +1502,7 @@ class Component extends DCLogic {
           return Object.assign({}, student, { profile: Object.assign({}, student.profile, { gachaOwned: owned }) });
         });
         saveStudentProfiles(students); return { gachaBank: { schemaVersion: 1, items }, students };
-      });
+      }, () => this.loadNewGachaGoods());
     }).catch(() => {});
     this.timer = setInterval(() => {
       const s = this.state;
@@ -1512,6 +1514,27 @@ class Component extends DCLogic {
       if (s.timeLeft > 1) { this.setState({ timeLeft: s.timeLeft - 1 }); return; }
       this.finishAnswer(-1, false, true);
     }, 1000);
+  }
+  loadNewGachaGoods() {
+    fetch("https://docs.google.com/spreadsheets/d/" + GACHA_NEW_GOODS_SHEET_ID + "/gviz/tq?tqx=out:json&sheet=" + encodeURIComponent("最新開團")).then((r) => r.text()).then((text) => {
+      const table = JSON.parse(text.match(/\{.*\}/s)[0]).table, headers = table.cols.map((col) => col.label), idx = (name) => headers.indexOf(name);
+      let activeGroup = "";
+      const allowedCharacters = ["吉伊", "小八", "兔兔", "小桃", "師傅", "栗子", "獅薩", "古本"];
+      const additions = (table.rows || []).map((row, index) => {
+        const cells = row.c || [], value = (name) => { const i = idx(name); return i >= 0 && cells[i] && cells[i].v != null ? String(cells[i].v).trim() : ""; };
+        if (value("團名")) activeGroup = value("團名");
+        const role = value("角色"), name = value("名稱"), asset = value("圖片"), stock = value("庫存") || String(index + 1);
+        if (GACHA_NEW_GOODS_GROUPS.indexOf(activeGroup) < 0 || name.indexOf("吊娃") < 0 || !asset) return null;
+        const character = allowedCharacters.indexOf(role) >= 0 ? role : "其他角色";
+        const title = character === "其他角色" && role ? role + "・" + name : name;
+        return { id: "newgoods-" + index + "-" + stock, character, name: title, type: "吊娃", rarity: "限定", weight: 2, asset, sourceUrl: value("商品網址"), group: activeGroup };
+      }).filter(Boolean);
+      if (!additions.length) return;
+      this.setState((state) => {
+        const current = state.gachaBank.items || [], known = new Set(current.map((item) => item.id));
+        return { gachaBank: Object.assign({}, state.gachaBank, { items: current.concat(additions.filter((item) => !known.has(item.id))) }) };
+      });
+    }).catch(() => {});
   }
   componentDidUpdate(prevProps, prevState) {
     document.body.dataset.nozhuyin = (this.props.showZhuyin ?? true) ? "0" : "1";
@@ -2444,7 +2467,7 @@ class Component extends DCLogic {
       const iconMap = { "吉伊": "chiikawa", "小八": "hachiware", "兔兔": "usagi", "小桃": "momonga", "師傅": "rakko", "栗子": "kurimanju", "獅薩": "shisa", "古本": "furuhon", "其他角色": "other" };
       return { character, owned, total: entries.length, pct: entries.length ? Math.round(owned / entries.length * 100) : 0, color: palette[character] || "#7c5cff", icon: "images/gacha/categories/" + iconMap[character] + ".png", go: () => this.setState({ collectionCharacter: character, collectionPage: 0 }) };
     }).filter((entry) => entry.total);
-    const rarityColors = { "普通": "#22aebc", "稀有": "#7c5cff", "傳說": "#d75c93" };
+    const rarityColors = { "普通": "#22aebc", "稀有": "#7c5cff", "傳說": "#d75c93", "限定": "#e08a13" };
 
     const tabDefs = [
       { key: "map", icon: "🗺️", label: "闖關" },
