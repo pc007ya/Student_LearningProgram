@@ -2019,8 +2019,10 @@ class Component extends DCLogic {
       }));
       const answer = cubes.length;
       const options = shuffle([answer, Math.max(1, answer - 1), answer + 1, answer + depth].filter((value, index, all) => all.indexOf(value) === index));
-      const rowClues = heights.map((row, index) => "第 " + (index + 1) + " 排：" + row.join("、") + " 層").join("；");
-      bank.push({ id: "cube-" + (advanced ? "g2-" : "g1-") + signature, stem: advanced ? "這個 " + width + "×" + depth + " 的堆疊，包含看不到的積木，共有幾個小正方體？" : "這個 " + width + "×" + depth + " 的堆疊，把每根柱子的高度加起來，共有幾個小正方體？", ans: answer, opts: options, explain: "各柱高度相加：" + heights.flat().join("＋") + "＝" + answer + "。", fig: "blocks", figData: { cubes, visibleCubes, skill: advanced ? "先依前後排的柱高推理被遮住的積木" : "把每一根柱子的高度加起來", clue: "從前到後的柱高：" + rowClues } });
+      const rowClues = heights.map((row, index) => "第 " + (index + 1) + " 排（" + (index === 0 ? "前" : "後") + "）：" + row.join("、") + " 層").join("；");
+      const figData = { cubes, skill: advanced ? "先依前後排的柱高推理被遮住的積木" : "小一題每一個小正方體都會畫出來，再把每一根柱子的高度加起來", clue: "柱高資料：" + rowClues };
+      if (advanced) figData.visibleCubes = visibleCubes;
+      bank.push({ id: "cube-" + (advanced ? "g2-" : "g1-") + signature, stem: advanced ? "這個 " + width + "×" + depth + " 的堆疊，包含看不到的積木，共有幾個小正方體？" : "這個 " + width + "×" + depth + " 的堆疊，把每根柱子的高度加起來，共有幾個小正方體？", ans: answer, opts: options, explain: "各柱高度相加：" + heights.flat().join("＋") + "＝" + answer + "。", fig: "blocks", figData });
     }
     return shuffle(bank).slice(0, count);
   }
