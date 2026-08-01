@@ -25,7 +25,8 @@
   @keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-7px) } }
   @keyframes gachaCoinDrop { 0% { transform:translateY(-72px) scale(.75);opacity:0 } 15% { opacity:1 } 72% { transform:translateY(0) scale(1);opacity:1 } 100% { transform:translateY(12px) scale(.56);opacity:0 } }
   @keyframes gachaKnobPulse { 0%,100% { box-shadow:0 0 0 4px rgba(255,226,83,.28),0 0 18px 7px rgba(255,202,44,.46) } 50% { box-shadow:0 0 0 9px rgba(255,239,125,.56),0 0 34px 16px rgba(255,195,28,.82) } }
-  @keyframes gachaKnobTurn { from { transform:translateX(-50%) rotate(0deg) scale(1) } 50% { transform:translateX(-50%) rotate(180deg) scale(1.09) } to { transform:translateX(-50%) rotate(360deg) scale(1) } }
+  @keyframes gachaKnobTurn { from { transform:rotate(0deg) scale(1) } 50% { transform:rotate(180deg) scale(1.09) } to { transform:rotate(360deg) scale(1) } }
+  @keyframes gachaKnobSpriteTurn { from { transform:rotate(0deg) scale(1) } 50% { transform:rotate(180deg) scale(1.08) } to { transform:rotate(360deg) scale(1) } }
   @keyframes gachaShake { 0%,100% { transform:translate(0,0) rotate(0) } 20% { transform:translate(-7px,3px) rotate(-1.2deg) } 40% { transform:translate(7px,-4px) rotate(1.2deg) } 60% { transform:translate(-6px,-3px) rotate(-.8deg) } 80% { transform:translate(6px,4px) rotate(.8deg) } }
   @keyframes gachaCapsuleDrop { 0% { transform:translate(-50%,-160px) scale(.7);opacity:0 } 65% { transform:translate(-50%,8px) scale(1);opacity:1 } 82% { transform:translate(-50%,-6px) scale(.95) } 100% { transform:translate(-50%,0) scale(1);opacity:1 } }
   @keyframes gachaCapsuleOpen { 0% { transform:scale(.68) rotate(-12deg);opacity:0 } 55% { transform:scale(1.08) rotate(5deg);opacity:1 } 100% { transform:scale(1) rotate(0) } }
@@ -706,8 +707,9 @@
           </div>
           <div style="position:absolute;z-index:4;right:18px;top:18px;border:1px solid rgba(255,255,255,.8);border-radius:99px;padding:9px 13px;background:rgba(43,31,87,.48);backdrop-filter:blur(8px);color:#fff;font-size:13px;font-weight:900;box-shadow:0 8px 18px rgba(43,31,87,.18)">⭐ {{ gachaCoinBalance }}</div>
           <span id="gacha-coin-slot" role="button" tabindex="0" aria-label="代幣孔" onClick="{{ prepareGacha }}" onDragOver="{{ allowGachaCoinDrop }}" onDrop="{{ dropGachaCoin }}" style="position:absolute;z-index:6;left:calc(50% + 58px);bottom:142px;width:48px;height:70px;border-radius:14px;cursor:pointer"></span>
-          <div role="button" tabindex="0" draggable="true" aria-label="拖曳星星幣到投幣孔" onPointerDown="{{ startGachaCoinDrag }}" onPointerMove="{{ moveGachaCoinDrag }}" onPointerUp="{{ endGachaCoinDrag }}" onPointerCancel="{{ cancelGachaCoinDrag }}" onMouseDown="{{ startGachaCoinDrag }}" onMouseMove="{{ moveGachaCoinDrag }}" onMouseUp="{{ endGachaCoinDrag }}" onDragStart="{{ startNativeGachaCoinDrag }}" onDragEnd="{{ cancelGachaCoinDrag }}" style="position:absolute;z-index:5;right:14px;bottom:5px;width:132px;height:132px;touch-action:none;cursor:grab;transition:transform .18s ease"><img src="{{ gachaCoinBowlAsset }}" alt="一碗星星幣，拖曳到投幣孔" style="width:100%;height:100%;object-fit:contain;pointer-events:none"><span style="position:absolute;right:5px;bottom:8px;border-radius:99px;padding:4px 8px;background:#2b1f57;color:#fff;font-size:10px;font-weight:900;white-space:nowrap">拖我投幣</span></div>
-          <button onClick="{{ turnGachaKnob }}" disabled="{{ gachaKnobDisabled }}" aria-label="旋轉扭蛋機" style="position:absolute;z-index:3;left:50%;bottom:113px;width:108px;height:108px;transform:translateX(-50%);border:{{ gachaKnobBorder }};border-radius:50%;background:transparent;box-shadow:{{ gachaKnobGlow }};cursor:pointer;animation:{{ gachaKnobMotion }}"></button>
+          <div style="position:absolute;z-index:5;right:14px;bottom:5px;width:132px;height:132px"><img src="{{ gachaCoinBowlAsset }}" alt="一碗星星幣" style="width:100%;height:100%;object-fit:contain;pointer-events:none"><span style="position:absolute;right:5px;bottom:8px;border-radius:99px;padding:4px 8px;background:#2b1f57;color:#fff;font-size:10px;font-weight:900;white-space:nowrap">拖幣投放</span><div role="button" tabindex="0" draggable="true" aria-label="拖曳星星幣到投幣孔" onPointerDown="{{ startGachaCoinDrag }}" onPointerMove="{{ moveGachaCoinDrag }}" onPointerUp="{{ endGachaCoinDrag }}" onPointerCancel="{{ cancelGachaCoinDrag }}" onMouseDown="{{ startGachaCoinDrag }}" onMouseMove="{{ moveGachaCoinDrag }}" onMouseUp="{{ endGachaCoinDrag }}" onDragStart="{{ startNativeGachaCoinDrag }}" onDragEnd="{{ cancelGachaCoinDrag }}" style="position:absolute;z-index:2;left:55px;top:31px;width:40px;height:40px;display:grid;place-items:center;border:3px solid #b87900;border-radius:50%;background:radial-gradient(circle at 32% 26%,#fff9c6,#ffd249 42%,#e79a00);color:#fff8bb;font-size:24px;font-weight:900;text-shadow:0 2px 0 #b87900;touch-action:none;cursor:grab;transition:transform .18s ease;box-shadow:0 4px 0 #b87900,0 7px 14px rgba(76,43,5,.28)">★</div></div>
+          <sc-if value="{{ showGachaKnobSpin }}" hint-placeholder-val="{{ false }}"><img src="{{ gachaKnobSprite }}" alt="" style="position:absolute;z-index:4;left:calc(50% - 67px);bottom:102px;width:90px;height:90px;border-radius:50%;pointer-events:none;animation:gachaKnobSpriteTurn 1s linear"></sc-if>
+          <button onClick="{{ turnGachaKnob }}" disabled="{{ gachaKnobDisabled }}" aria-label="旋轉扭蛋機" style="position:absolute;z-index:3;left:calc(50% - 67px);bottom:102px;width:90px;height:90px;border:{{ gachaKnobBorder }};border-radius:50%;background:transparent;box-shadow:{{ gachaKnobGlow }};cursor:pointer;animation:{{ gachaKnobMotion }}"></button>
         </section>
         <sc-if value="{{ hasGachaResult }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;z-index:30;inset:0;display:grid;place-items:center;padding:20px;background:rgba(10,7,24,.94)"><canvas id="gacha-confetti" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas><article style="position:relative;z-index:1;width:min(390px,100%);border:3px solid {{ gachaResultColor }};border-radius:32px;padding:24px;background:#fff;text-align:center;box-shadow:0 20px 60px #000;animation:gachaCapsuleOpen .5s ease-out"><p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:{{ gachaResultColor }}">恭喜獲得</p><div style="margin:10px auto 2px;width:176px;height:176px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ff7ab8,#7c5cff);overflow:hidden"><img src="{{ gachaResult.asset }}" alt="{{ gachaResult.character }} {{ gachaResult.name }}" style="width:158px;height:158px;object-fit:contain;background:#fff;border-radius:50%"></div><strong style="display:block;font-size:24px;font-weight:900">{{ gachaResult.character }}・{{ gachaResult.name }}</strong><span style="display:inline-block;margin-top:7px;border-radius:99px;padding:5px 11px;background:#f4f0ff;color:{{ gachaResultColor }};font-size:12px;font-weight:900">{{ gachaResult.rarity }}</span><p style="font-size:13px;font-weight:800;color:#7c74a8">{{ gachaResultNote }}</p><div style="display:flex;gap:9px"><button onClick="{{ clearGachaResult }}" style="flex:1;border:0;border-radius:16px;padding:12px;background:#f3f0ff;color:#5b3fe0;font-family:inherit;font-weight:900;cursor:pointer">再抽一次</button><button onClick="{{ goCollection }}" style="flex:1;border:0;border-radius:16px;padding:12px;background:{{ gachaResultColor }};color:#fff;font-family:inherit;font-weight:900;cursor:pointer">放進圖鑑</button></div></article></div></sc-if>
         <p style="margin:0;padding:12px 16px;border-radius:18px;background:#fff;border:1px solid #ece7ff;font-size:12px;font-weight:700;line-height:1.65;color:#7c74a8">圖鑑依角色分類顯示；抽到重複娃娃時，收藏數量會自動累加。</p>
@@ -2012,6 +2014,7 @@ class Component extends DCLogic {
     if (!items.length) { this.flash("扭蛋圖鑑還在載入中，請稍等一下"); return; }
     if (this.state.gachaStage !== "idle") return;
     if (p.coins < 10) { this.flash("星星幣不夠，抽一次需要 10 顆 ⭐"); return; }
+    this.playGachaSound("roll");
     this.setState({ gachaStage: "coin", gachaResult: null });
     clearTimeout(this.gachaCoinTimer);
     this.gachaCoinTimer = setTimeout(() => this.setState({ gachaStage: "ready" }), 1000);
@@ -2026,6 +2029,7 @@ class Component extends DCLogic {
     if (event.pointerId != null && bowl.setPointerCapture) bowl.setPointerCapture(event.pointerId);
     bowl.style.transition = "none";
     bowl.style.cursor = "grabbing";
+    this.playGachaSound("lift");
     event.preventDefault();
   }
 
@@ -2069,8 +2073,33 @@ class Component extends DCLogic {
     this.prepareGacha();
   }
 
+  playGachaSound(kind) {
+    if (this.state.speechMuted || typeof window === "undefined") return;
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    const context = this.gachaAudioContext || (this.gachaAudioContext = new AudioContextClass());
+    if (context.state === "suspended") context.resume().catch(() => {});
+    const now = context.currentTime;
+    const tone = (frequency, start, duration, type, volume, endFrequency) => {
+      const oscillator = context.createOscillator(), gain = context.createGain();
+      oscillator.type = type || "sine";
+      oscillator.frequency.setValueAtTime(frequency, now + start);
+      if (endFrequency) oscillator.frequency.exponentialRampToValueAtTime(endFrequency, now + start + duration);
+      gain.gain.setValueAtTime(.0001, now + start);
+      gain.gain.exponentialRampToValueAtTime(volume, now + start + .012);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + start + duration);
+      oscillator.connect(gain).connect(context.destination);
+      oscillator.start(now + start); oscillator.stop(now + start + duration + .02);
+    };
+    if (kind === "lift") { tone(1320, 0, .09, "triangle", .055, 1660); tone(1760, .10, .12, "sine", .045, 2100); return; }
+    if (kind === "roll") { tone(960, 0, .05, "square", .04, 820); tone(760, .07, .05, "square", .04, 640); tone(570, .14, .06, "square", .045, 450); tone(360, .23, .10, "sine", .05, 270); return; }
+    if (kind === "turn") { tone(125, 0, .82, "sawtooth", .028, 350); tone(420, .08, .12, "triangle", .025, 520); return; }
+    if (kind === "pop") { tone(260, 0, .18, "sine", .07, 760); tone(880, .08, .16, "triangle", .05, 1400); tone(420, .18, .12, "sine", .035, 620); }
+  }
+
   turnGachaKnob() {
     if (this.state.gachaStage !== "ready") return;
+    this.playGachaSound("turn");
     this.setState({ gachaStage: "spinning" });
     clearTimeout(this.gachaSpinTimer); clearTimeout(this.gachaShakeTimer); clearTimeout(this.gachaDropTimer);
     this.gachaSpinTimer = setTimeout(() => this.setState({ gachaStage: "shaking" }), 1000);
@@ -2101,6 +2130,7 @@ class Component extends DCLogic {
           log: [{ icon: "🫧", tint: "#eafbfd", text: "星光扭蛋獲得「" + item.character + "・" + item.name + "」", amount: "-" + cost + " ⭐", color: "#22aebc", when: "剛剛" }].concat(profile.log || []).slice(0, 8),
         };
       });
+      this.playGachaSound("pop");
       this.setState({ gachaStage: "result", gachaResult: Object.assign({}, item, { duplicate: ownedBefore > 0 }) });
       this.startGachaConfetti();
       if (!this.state.speechMuted) this.speakText("恭喜獲得" + item.character + item.name);
@@ -2639,6 +2669,7 @@ class Component extends DCLogic {
       gachaProgress: gachaItems.length ? Math.round(gachaOwnedUnique / gachaItems.length * 100) : 0,
       gachaCoinBalance: Number(p.coins) || 0,
       gachaCoinBowlAsset: "images/gacha/star-coin-bowl-v1.png",
+      gachaKnobSprite: "images/gacha/gacha-knob-sprite-v1.png",
       gachaStageLabel: s.gachaStage === "idle" ? "請點機台右側的代幣孔投幣。" : s.gachaStage === "ready" ? "投幣完成！發亮的黃色旋鈕可以轉動了。" : s.gachaStage === "spinning" ? "旋鈕正在轉動…" : s.gachaStage === "shaking" ? "扭蛋機劇烈晃動中…" : s.gachaStage === "dropping" ? "扭蛋正在送出…" : "開獎中…",
       gachaCoinDisabled: s.gachaStage !== "idle" || !gachaItems.length,
       gachaKnobDisabled: s.gachaStage !== "ready",
@@ -2646,6 +2677,7 @@ class Component extends DCLogic {
       gachaKnobMotion: s.gachaStage === "ready" ? "gachaKnobPulse .9s ease-in-out infinite" : s.gachaStage === "spinning" ? "gachaKnobTurn 1s linear" : "none",
       gachaKnobBorder: s.gachaStage === "ready" ? "3px solid rgba(255,244,152,.98)" : s.gachaStage === "spinning" ? "5px dashed #fff4a3" : "2px solid transparent",
       gachaKnobGlow: s.gachaStage === "ready" ? "0 0 0 4px rgba(255,226,83,.28),0 0 18px 7px rgba(255,202,44,.46)" : s.gachaStage === "spinning" ? "0 0 26px 10px rgba(255,217,70,.92)" : "none",
+      showGachaKnobSpin: s.gachaStage === "spinning",
       prepareGacha: () => this.prepareGacha(), startGachaCoinDrag: (event) => this.startGachaCoinDrag(event), moveGachaCoinDrag: (event) => this.moveGachaCoinDrag(event), endGachaCoinDrag: (event) => this.endGachaCoinDrag(event), cancelGachaCoinDrag: () => this.cancelGachaCoinDrag(), startNativeGachaCoinDrag: (event) => this.startNativeGachaCoinDrag(event), allowGachaCoinDrop: (event) => this.allowGachaCoinDrop(event), dropGachaCoin: (event) => this.dropGachaCoin(event), turnGachaKnob: () => this.turnGachaKnob(), clearGachaResult: () => this.clearGachaResult(),
       hasGachaResult: s.gachaStage === "result" && !!s.gachaResult,
       gachaResult: s.gachaResult || { character: "", name: "", rarity: "", asset: "", duplicate: false },
