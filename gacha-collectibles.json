@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "series": "吉伊卡哇・寶寶收藏 第一彈",
+  "source": {
+    "catalog": "https://jiwusales.github.io/jiwusales_chiikawa/",
+    "note": "商品圖與名稱依參考圖鑑的公開資料整理；本遊戲僅使用第一彈 18 款作為學習網站的收藏進度。"
+  },
+  "items": [
+    { "id": "chiikawa-01", "character": "吉伊", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 28, "asset": "images/gacha/chiikawa-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362685" },
+    { "id": "chiikawa-02", "character": "吉伊", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 12, "asset": "images/gacha/chiikawa-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359159" },
+    { "id": "hachiware-01", "character": "小八", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 28, "asset": "images/gacha/hachiware-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362692" },
+    { "id": "hachiware-02", "character": "小八", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 12, "asset": "images/gacha/hachiware-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359166" },
+    { "id": "usagi-01", "character": "兔兔", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 28, "asset": "images/gacha/usagi-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362708" },
+    { "id": "usagi-02", "character": "兔兔", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 12, "asset": "images/gacha/usagi-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359173" },
+    { "id": "momonga-01", "character": "小桃", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 24, "asset": "images/gacha/momonga-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362715" },
+    { "id": "momonga-02", "character": "小桃", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 10, "asset": "images/gacha/momonga-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359180" },
+    { "id": "rakko-01", "character": "師傅", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 20, "asset": "images/gacha/rakko-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362746" },
+    { "id": "rakko-02", "character": "師傅", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 8, "asset": "images/gacha/rakko-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359210" },
+    { "id": "kurimanju-01", "character": "栗子", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 20, "asset": "images/gacha/kurimanju-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362722" },
+    { "id": "kurimanju-02", "character": "栗子", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 8, "asset": "images/gacha/kurimanju-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359197" },
+    { "id": "shisa-01", "character": "獅薩", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 18, "asset": "images/gacha/shisa-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362739" },
+    { "id": "shisa-02", "character": "獅薩", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 7, "asset": "images/gacha/shisa-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359203" },
+    { "id": "furuhon-01", "character": "古本", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 18, "asset": "images/gacha/furuhon-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362753" },
+    { "id": "furuhon-02", "character": "古本", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 7, "asset": "images/gacha/furuhon-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359227" },
+    { "id": "other-01", "character": "其他角色", "name": "甲蟲・基礎二代", "type": "甲蟲", "rarity": "稀有", "weight": 6, "asset": "images/gacha/other-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609403227" },
+    { "id": "other-02", "character": "其他角色", "name": "甲蟲・魔法", "type": "甲蟲", "rarity": "傳說", "weight": 4, "asset": "images/gacha/other-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4582662970410" }
+  ]
+}
