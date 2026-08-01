@@ -30,7 +30,7 @@
           "answer": "正方體",
           "options": ["正方體", "長方體", "圓柱體", "圓錐體"],
           "explain": "它的每一個面都是一樣大的正方形，所以是正方體。",
-          "visual": { "solid": "cube" }
+          "visual": { "solid": "cube", "image": "images/math-games/solid-cube.png", "alt": "紫色與藍綠色的正方體" }
         },
         {
           "id": "solid-cuboid-01",
@@ -39,7 +39,25 @@
           "answer": "長方體",
           "options": ["正方體", "長方體", "球體", "圓柱體"],
           "explain": "這個盒子有長、寬、高，而且側面是長方形，所以是長方體。",
-          "visual": { "solid": "cuboid" }
+          "visual": { "solid": "cuboid", "image": "images/math-games/solid-cuboid.png", "alt": "紫色與藍綠色的長方體" }
+        },
+        {
+          "id": "solid-cylinder-01",
+          "type": "solid",
+          "stem": "這個立體圖形叫什麼？",
+          "answer": "圓柱體",
+          "options": ["圓柱體", "圓錐體", "正方體", "球體"],
+          "explain": "它有兩個一樣大的圓形底面，側面是彎曲的，所以是圓柱體。",
+          "visual": { "solid": "cylinder", "image": "images/math-games/solid-cylinder.png", "alt": "紫色與藍綠色的圓柱體" }
+        },
+        {
+          "id": "solid-cone-01",
+          "type": "solid",
+          "stem": "這個立體圖形叫什麼？",
+          "answer": "圓錐體",
+          "options": ["圓柱體", "圓錐體", "長方體", "球體"],
+          "explain": "它有一個圓形底面，往上逐漸變窄成一個頂點，所以是圓錐體。",
+          "visual": { "solid": "cone", "image": "images/math-games/solid-cone.png", "alt": "紫色與藍綠色的圓錐體" }
         },
         {
           "id": "blocks-06",
