@@ -723,11 +723,13 @@
           <button onClick="{{ goGacha }}" style="border:0;border-radius:18px;padding:13px 18px;background:#fff;color:#5b3fe0;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">🫧 去抽扭蛋</button>
         </section>
         <section style="display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-          <sc-for list="{{ gachaCharacters }}" as="c" hint-placeholder-count="9"><article style="border:1.5px solid #ece7ff;border-radius:20px;padding:10px;background:#fff"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div style="display:flex;align-items:center;gap:8px"><img src="{{ c.icon }}" alt="{{ c.character }}" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fafafa"><strong style="font-size:15px;font-weight:900">{{ c.character }}</strong></div><span style="font-size:11px;font-weight:900;color:{{ c.color }}">{{ c.owned }}/{{ c.total }}</span></div><div style="margin-top:7px;height:8px;border-radius:99px;background:#f0ecff;overflow:hidden"><div style="height:100%;width:{{ c.pct }}%;border-radius:99px;background:{{ c.color }}"></div></div></article></sc-for>
+          <sc-for list="{{ gachaCharacters }}" as="c" hint-placeholder-count="9"><button onClick="{{ c.go }}" style="border:1.5px solid #ece7ff;border-radius:20px;padding:10px;background:#fff;text-align:left;font-family:inherit;cursor:pointer"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div style="display:flex;align-items:center;gap:8px"><img src="{{ c.icon }}" alt="{{ c.character }}" style="width:34px;height:34px;object-fit:contain;border-radius:50%;background:#fafafa"><strong style="font-size:15px;font-weight:900">{{ c.character }}</strong></div><span style="font-size:11px;font-weight:900;color:{{ c.color }}">{{ c.owned }}/{{ c.total }}</span></div><div style="margin-top:7px;height:8px;border-radius:99px;background:#f0ecff;overflow:hidden"><div style="height:100%;width:{{ c.pct }}%;border-radius:99px;background:{{ c.color }}"></div></div></button></sc-for>
         </section>
+        <section style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><sc-for list="{{ collectionFilters }}" as="f" hint-placeholder-count="10"><button onClick="{{ f.go }}" style="display:flex;align-items:center;gap:6px;border:1.5px solid {{ f.border }};border-radius:99px;padding:7px 11px;background:{{ f.bg }};color:{{ f.fg }};font-family:inherit;font-size:12px;font-weight:900;cursor:pointer"><img src="{{ f.icon }}" alt="" style="width:23px;height:23px;object-fit:contain"><span>{{ f.character }}</span><span style="opacity:.65">{{ f.count }}</span></button></sc-for></section>
         <section style="display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
-          <sc-for list="{{ collectionItems }}" as="it" hint-placeholder-count="18"><article style="overflow:hidden;border:2px solid {{ it.cardBorder }};border-radius:24px;background:{{ it.cardBg }};box-shadow:0 10px 22px rgba(43,31,87,.05)"><div style="position:relative;height:154px;background:linear-gradient(145deg,#f8f6ff,#edfaff);display:grid;place-items:center"><img src="{{ it.asset }}" alt="{{ it.character }} {{ it.name }}" style="width:132px;height:132px;object-fit:contain;filter:{{ it.imageFilter }}"><span style="position:absolute;right:10px;top:10px;border-radius:99px;padding:4px 8px;background:#fff;color:{{ it.rarityColor }};font-size:10px;font-weight:900">{{ it.rarity }}</span></div><div style="padding:12px"><strong style="display:block;font-size:15px;font-weight:900">{{ it.character }}・{{ it.name }}</strong><span style="display:block;margin-top:3px;font-size:11px;font-weight:800;color:#9a90c8">{{ it.type }}・{{ it.state }}</span><a href="{{ it.sourceUrl }}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:11px;font-weight:900;color:#5b3fe0">查看原圖來源 ↗</a></div></article></sc-for>
+          <sc-for list="{{ collectionItems }}" as="it" hint-placeholder-count="48"><article style="overflow:hidden;border:2px solid {{ it.cardBorder }};border-radius:24px;background:{{ it.cardBg }};box-shadow:0 10px 22px rgba(43,31,87,.05)"><div style="position:relative;height:154px;background:linear-gradient(145deg,#f8f6ff,#edfaff);display:grid;place-items:center"><img src="{{ it.asset }}" alt="{{ it.character }} {{ it.name }}" style="width:132px;height:132px;object-fit:contain;filter:{{ it.imageFilter }}"><span style="position:absolute;right:10px;top:10px;border-radius:99px;padding:4px 8px;background:#fff;color:{{ it.rarityColor }};font-size:10px;font-weight:900">{{ it.rarity }}</span></div><div style="padding:12px"><strong style="display:block;font-size:15px;font-weight:900">{{ it.character }}・{{ it.name }}</strong><span style="display:block;margin-top:3px;font-size:11px;font-weight:800;color:#9a90c8">{{ it.type }}・{{ it.state }}</span></div></article></sc-for>
         </section>
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px"><button onClick="{{ collectionPrev }}" disabled="{{ collectionPrevDisabled }}" style="border:1px solid #ddd5ff;border-radius:14px;padding:10px 16px;background:#fff;color:#5b3fe0;font-family:inherit;font-weight:900;cursor:pointer">← 上一頁</button><strong style="font-size:13px;color:#7c74a8">{{ collectionPageLabel }}</strong><button onClick="{{ collectionNext }}" disabled="{{ collectionNextDisabled }}" style="border:1px solid #ddd5ff;border-radius:14px;padding:10px 16px;background:#fff;color:#5b3fe0;font-family:inherit;font-weight:900;cursor:pointer">下一頁 →</button></div>
       </div>
     </sc-if>
 
@@ -1226,6 +1228,10 @@ const AVATAR_CHOICES = [
 ];
 const AVATAR_STORE_KEY = "learning-planet.student-avatars.v1";
 const PROFILE_STORE_KEY = "learning-planet.student-profiles.v1";
+const GACHA_SOURCE_SHEETS = [
+  ["吉伊", "chiikawa"], ["小八", "hachiware"], ["兔兔", "usagi"], ["小桃", "momonga"], ["師傅", "rakko"], ["栗子", "kurimanju"], ["獅薩", "shisa"], ["古本", "furuhon"], ["其他角色", "other"],
+];
+const GACHA_SOURCE_SHEET_ID = "17gH9HZKvW_6fMCWYLyqnzMHj40rA7PiwWg6L0GvbFgQ";
 const SPEECH_MUTE_STORE_KEY = "learning-planet.question-speech-muted.v1";
 const AUTO_NEXT_STORE_KEY = "learning-planet.quiz-auto-next.v1";
 const WARDROBE_FIT_STORE_KEY = "learning-planet.wardrobe-fit.v1";
@@ -1417,7 +1423,7 @@ class Component extends DCLogic {
     shopMessage: "上衣與下身是獨立道具，可自由混搭；髮型與服裝依角色分流，帽子、鞋履與手持道具共用。",
     words: [], customWords: [],
     mathGameBank: MATH_GAME_FALLBACK,
-    gachaBank: { schemaVersion: 1, items: [] }, gachaStage: "idle", gachaResult: null,
+    gachaBank: { schemaVersion: 1, items: [] }, gachaStage: "idle", gachaResult: null, collectionCharacter: "全部", collectionPage: 0,
     libUnit: "全部", detailChar: null,
     newName: "", newSeat: "", newClass: "c301",
     editId: null, editName: "", editSeat: "", editClass: "c301",
@@ -1476,6 +1482,25 @@ class Component extends DCLogic {
     }).catch(() => {});
     fetch("gacha-collectibles.json").then((r) => r.json()).then((bank) => {
       if (bank && bank.schemaVersion === 1 && Array.isArray(bank.items)) this.setState({ gachaBank: bank });
+    }).catch(() => {});
+    Promise.all(GACHA_SOURCE_SHEETS.map(([character, slug]) => fetch("https://docs.google.com/spreadsheets/d/" + GACHA_SOURCE_SHEET_ID + "/gviz/tq?tqx=out:json&sheet=" + encodeURIComponent(character)).then((r) => r.text()).then((text) => {
+      const table = JSON.parse(text.match(/\{.*\}/s)[0]).table;
+      return (table.rows || []).slice(1).map((row, index) => {
+        const cells = row.c || [], value = (i) => cells[i] && cells[i].v ? String(cells[i].v) : "";
+        const code = value(2) || String(index + 1).padStart(4, "0");
+        return { id: slug + "-" + code, character, name: value(1) || "未命名", type: value(0) || "其他", rarity: "普通", weight: 1, asset: value(3), sourceUrl: value(4) };
+      }).filter((item) => item.asset);
+    })).then((groups) => {
+      const items = groups.flat(); if (!items.length) return;
+      this.setState((state) => {
+        const legacy = state.gachaBank.items || [], remap = {};
+        legacy.forEach((old) => { const replacement = items.find((item) => item.sourceUrl && item.sourceUrl === old.sourceUrl); if (replacement) remap[old.id] = replacement.id; });
+        const students = state.students.map((student) => {
+          const owned = Object.assign({}, student.profile.gachaOwned || {}); Object.keys(remap).forEach((oldId) => { if (owned[oldId]) { owned[remap[oldId]] = Number(owned[remap[oldId]] || 0) + Number(owned[oldId] || 0); delete owned[oldId]; } });
+          return Object.assign({}, student, { profile: Object.assign({}, student.profile, { gachaOwned: owned }) });
+        });
+        saveStudentProfiles(students); return { gachaBank: { schemaVersion: 1, items }, students };
+      });
     }).catch(() => {});
     this.timer = setInterval(() => {
       const s = this.state;
@@ -2407,12 +2432,17 @@ class Component extends DCLogic {
     const gachaOwned = p.gachaOwned && typeof p.gachaOwned === "object" ? p.gachaOwned : {};
     const gachaOwnedUnique = gachaItems.filter((item) => Number(gachaOwned[item.id] || 0) > 0).length;
     const gachaCopies = gachaItems.reduce((sum, item) => sum + Number(gachaOwned[item.id] || 0), 0);
+    const collectionPool = s.collectionCharacter === "全部" ? gachaItems : gachaItems.filter((item) => item.character === s.collectionCharacter);
+    const collectionPageSize = 48;
+    const collectionPages = Math.max(1, Math.ceil(collectionPool.length / collectionPageSize));
+    const collectionPage = Math.min(s.collectionPage, collectionPages - 1);
+    const collectionVisible = collectionPool.slice(collectionPage * collectionPageSize, (collectionPage + 1) * collectionPageSize);
     const gachaByCharacter = ["吉伊", "小八", "兔兔", "小桃", "師傅", "栗子", "獅薩", "古本", "其他角色"].map((character) => {
       const entries = gachaItems.filter((item) => item.character === character);
       const owned = entries.filter((item) => Number(gachaOwned[item.id] || 0) > 0).length;
       const palette = { "吉伊": "#d77485", "小八": "#6293b8", "兔兔": "#f9be3c", "小桃": "#838bc2", "師傅": "#ccafa5", "栗子": "#94c973", "獅薩": "#fbaa60", "古本": "#eb9e97", "其他角色": "#45818e" };
       const iconMap = { "吉伊": "chiikawa", "小八": "hachiware", "兔兔": "usagi", "小桃": "momonga", "師傅": "rakko", "栗子": "kurimanju", "獅薩": "shisa", "古本": "furuhon", "其他角色": "other" };
-      return { character, owned, total: entries.length, pct: entries.length ? Math.round(owned / entries.length * 100) : 0, color: palette[character] || "#7c5cff", icon: "images/gacha/categories/" + iconMap[character] + ".png" };
+      return { character, owned, total: entries.length, pct: entries.length ? Math.round(owned / entries.length * 100) : 0, color: palette[character] || "#7c5cff", icon: "images/gacha/categories/" + iconMap[character] + ".png", go: () => this.setState({ collectionCharacter: character, collectionPage: 0 }) };
     }).filter((entry) => entry.total);
     const rarityColors = { "普通": "#22aebc", "稀有": "#7c5cff", "傳說": "#d75c93" };
 
@@ -2533,10 +2563,14 @@ class Component extends DCLogic {
       gachaResultColor: s.gachaResult ? (rarityColors[s.gachaResult.rarity] || "#7c5cff") : "#7c5cff",
       gachaResultNote: s.gachaResult ? (s.gachaResult.duplicate ? "這一款已經在圖鑑裡了，重複收藏次數也會保留。" : "新收藏已加入你的圖鑑！") : "",
       gachaCharacters: gachaByCharacter,
-      collectionItems: gachaItems.map((item) => {
+      collectionItems: collectionVisible.map((item) => {
         const copies = Number(gachaOwned[item.id] || 0);
         return { character: item.character, name: item.name, type: item.type, rarity: item.rarity, rarityColor: rarityColors[item.rarity] || "#7c5cff", asset: item.asset, sourceUrl: item.sourceUrl, unlocked: copies > 0, copies, imageFilter: copies > 0 ? "none" : "grayscale(1) opacity(.13)", cardBg: copies > 0 ? "#fff" : "#fbfaff", cardBorder: copies > 0 ? (rarityColors[item.rarity] || "#c9bfff") : "#ece7ff", state: copies > 0 ? "已收藏 × " + copies : "尚未抽到" };
       }),
+      collectionFilters: [{ character: "全部", icon: "images/gacha/categories/chiikawa.png", count: gachaItems.length }].concat(gachaByCharacter.map((item) => ({ character: item.character, icon: item.icon, count: item.total }))).map((item) => ({ character: item.character, icon: item.icon, count: item.count, go: () => this.setState({ collectionCharacter: item.character, collectionPage: 0 }), bg: s.collectionCharacter === item.character ? "#2b1f57" : "#fff", fg: s.collectionCharacter === item.character ? "#fff" : "#5b3fe0", border: s.collectionCharacter === item.character ? "#2b1f57" : "#ddd5ff" })),
+      collectionPageLabel: (collectionPage + 1) + " / " + collectionPages + " 頁・顯示 " + collectionPool.length + " 款",
+      collectionPrevDisabled: collectionPage <= 0, collectionNextDisabled: collectionPage >= collectionPages - 1,
+      collectionPrev: () => this.setState({ collectionPage: Math.max(0, collectionPage - 1) }), collectionNext: () => this.setState({ collectionPage: Math.min(collectionPages - 1, collectionPage + 1) }),
 
       weeklyKey: weekKey(), weeklyTime: s.weeklyConfig.timeSeconds,
       weeklySections: weeklyUnits.map((entry) => ({ icon: entry.unit.icon, title: entry.unit.title, count: entry.count, stars: "⭐".repeat(Math.max(1, Math.min(3, entry.difficulty))) })),
