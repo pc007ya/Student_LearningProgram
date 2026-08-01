@@ -40,6 +40,13 @@
   @keyframes memoryCardReveal { 0% { transform:rotateY(86deg) scale(.9);opacity:.25 } 100% { transform:rotateY(0) scale(1);opacity:1 } }
   @keyframes memoryMatch { 0%,100% { transform:translateY(0) scale(1) } 45% { transform:translateY(-8px) scale(1.06) } }
   @media (max-width:540px) { .memory-card { min-height:104px !important; border-radius:18px !important; } .memory-card-number { font-size:38px !important; } }
+  @media (max-width:600px) {
+    .closet-layout { grid-template-columns:1fr !important; }
+    .closet-slots { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+    .closet-slots-left { grid-row:1; }
+    .closet-figure { grid-row:2; height:560px !important; }
+    .closet-slots-right { grid-row:3; }
+  }
   @media (orientation: landscape) and (max-height: 850px) {
     .app-shell { padding: 8px 14px 14px !important; }
     .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
@@ -723,8 +730,8 @@
             <span style="font-size:11px;font-weight:900;letter-spacing:.22em;color:rgba(255,255,255,.5)">PROFILE / {{ doll.code }}</span>
           </div>
         </div>
-        <div style="display:grid;gap:12px;grid-template-columns:104px minmax(220px,1fr) 104px;align-items:start">
-          <div style="display:grid;gap:10px">
+        <div className="closet-layout" style="display:grid;gap:12px;grid-template-columns:104px minmax(220px,1fr) 104px;align-items:start">
+          <div className="closet-slots closet-slots-left" style="display:grid;gap:10px">
             <sc-for list="{{ leftSlots }}" as="sl" hint-placeholder-count="4">
               <button onClick="{{ sl.go }}" title="{{ sl.name }}" style="width:100%;aspect-ratio:1;border-radius:18px;border:2px solid {{ sl.border }};background:{{ sl.bg }};display:grid;place-items:center;gap:2px;cursor:pointer;font-family:inherit">
                 <span style="font-size:26px;line-height:1">{{ sl.icon }}</span>
@@ -732,12 +739,12 @@
               </button>
             </sc-for>
           </div>
-          <figure style="position:relative;isolation:isolate;margin:0;width:100%;height:660px;border-radius:26px;overflow:hidden;background:radial-gradient(circle at 50% 26%, rgba(124,92,255,.32), rgba(0,0,0,0) 64%), rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.1)">
+          <figure className="closet-figure" style="position:relative;isolation:isolate;margin:0;width:100%;height:660px;border-radius:26px;overflow:hidden;background:radial-gradient(circle at 50% 26%, rgba(124,92,255,.32), rgba(0,0,0,0) 64%), rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.1)">
             <span style="position:absolute;left:50%;bottom:96px;transform:translateX(-50%);z-index:0;width:66%;height:40px;border-radius:50%;background:rgba(0,0,0,.5);filter:blur(24px)"></span>
             {{ dollImgBig }}
             {{ dollWearablesBig }}
           </figure>
-          <div style="display:grid;gap:10px">
+          <div className="closet-slots closet-slots-right" style="display:grid;gap:10px">
             <sc-for list="{{ rightSlots }}" as="sl" hint-placeholder-count="4">
               <button onClick="{{ sl.go }}" title="{{ sl.name }}" style="width:100%;aspect-ratio:1;border-radius:18px;border:2px solid {{ sl.border }};background:{{ sl.bg }};display:grid;place-items:center;gap:2px;cursor:pointer;font-family:inherit">
                 <span style="font-size:26px;line-height:1">{{ sl.icon }}</span>
@@ -1152,6 +1159,14 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900},&quot;showZhuyin&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;教學設定&quot;},&quot;questionCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:10,&quot;min&quot;:5,&quot;max&quot;:20,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;教學設定&quot;},&quot;timerSeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:30,&quot;min&quot;:10,&quot;max&quot;:90,&quot;unit&quot;:&quot;秒&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;教學設定&quot;}}">
 const CAT_LABELS = { hair: "髮型與髮色", top: "上衣", bottom: "下身", shoes: "鞋履", accessory: "帽子", hand: "手持" };
+const MODULAR_WARDROBE_ROOT = "rewards/wardrobe/modular-v3/modules/";
+const FEMALE_HEAD_MODULES_BY_VARIANT = {
+  0: MODULAR_WARDROBE_ROOT + "female-head-base.png",
+  1: MODULAR_WARDROBE_ROOT + "female-head-bob.png",
+  2: MODULAR_WARDROBE_ROOT + "female-head-ponytail.png",
+  3: MODULAR_WARDROBE_ROOT + "female-head-wavy-lob.png",
+  5: MODULAR_WARDROBE_ROOT + "female-head-twin-braids.png",
+};
 const RARITY = [
   { key: "普通", color: "#9a90c8" },
   { key: "稀有", color: "#22c8d8" },
@@ -1200,16 +1215,17 @@ function buildCatalog() {
   ];
   garments.forEach((it, index) => {
     const common = { preview: "◆", color: it.color, tint: it.color + "26", requiredLevel: it.level, unlockMode: "coin", rarity: it.rarity.key, rarityColor: it.rarity.color, collection: it.collection, variant: index + 1, assetFilter: "none", audience: it.audience, independent: true };
-    out.push(Object.assign({}, common, { id: "top-" + it.code, category: "top", name: it.topName, price: Math.ceil(it.price * .58), garmentPart: "top", asset: "rewards/items/modular-v2/top-" + it.code + ".png", wearTop: it.topFit[0], wearWidth: it.topFit[1], wearHeight: it.topFit[2] }));
-    out.push(Object.assign({}, common, { id: "bottom-" + it.code, category: "bottom", name: it.bottomName, price: Math.floor(it.price * .42), garmentPart: "bottom", asset: "rewards/items/modular-v2/bottom-" + it.code + ".png", wearTop: it.bottomFit[0], wearWidth: it.bottomFit[1], wearHeight: it.bottomFit[2] }));
+    const modularCode = it.audience === "girl" && ["g01", "g02", "g04"].includes(it.code) ? it.code : null;
+    out.push(Object.assign({}, common, { id: "top-" + it.code, category: "top", name: it.topName, price: Math.ceil(it.price * .58), garmentPart: "top", asset: "rewards/items/modular-v2/top-" + it.code + ".png", modularAsset: modularCode ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-upper.png" : null, wearTop: it.topFit[0], wearWidth: it.topFit[1], wearHeight: it.topFit[2] }));
+    out.push(Object.assign({}, common, { id: "bottom-" + it.code, category: "bottom", name: it.bottomName, price: Math.floor(it.price * .42), garmentPart: "bottom", asset: "rewards/items/modular-v2/bottom-" + it.code + ".png", modularAsset: modularCode ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-lower.png" : null, modularBareAsset: modularCode ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-lower-bare.png" : null, wearTop: it.bottomFit[0], wearWidth: it.bottomFit[1], wearHeight: it.bottomFit[2] }));
   });
   out.push({ id: "shoes-00", category: "shoes", name: "赤腳換裝底", preview: "—", color: "#9a90c8", tint: "#9a90c826", price: 0, requiredLevel: 1, unlockMode: "coin", rarity: "普通", rarityColor: "#9a90c8", collection: "BASIC", variant: 0, asset: null, audience: "system" });
   [
-    { id: "shoes-01", name: "白色薰衣草休閒鞋", color: "#e8e5ee", price: 34, level: 1, rarity: RARITY[0], collection: "DAILY", asset: "rewards/items/shoes-white-sneakers.png", scale: 1 },
-    { id: "shoes-02", name: "黑色金屬樂福鞋", color: "#17171a", price: 42, level: 2, rarity: RARITY[1], collection: "ACADEMY", asset: "rewards/items/shoes-black-loafers.png", scale: .94 },
+    { id: "shoes-01", name: "白色薰衣草休閒鞋", color: "#e8e5ee", price: 34, level: 1, rarity: RARITY[0], collection: "DAILY", asset: "rewards/items/shoes-white-sneakers.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g04-shoes.png", scale: 1 },
+    { id: "shoes-02", name: "黑色金屬樂福鞋", color: "#17171a", price: 42, level: 2, rarity: RARITY[1], collection: "ACADEMY", asset: "rewards/items/shoes-black-loafers.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g02-shoes.png", scale: .94 },
     { id: "shoes-03", name: "深棕俐落短靴", color: "#49372d", price: 50, level: 3, rarity: RARITY[1], collection: "WEEKEND", asset: "rewards/items/shoes-brown-boots.png", scale: .94 },
     { id: "shoes-04", name: "銀色舞台高筒鞋", color: "#d6d7dc", price: 66, level: 4, rarity: RARITY[2], collection: "STAGE", asset: "rewards/items/shoes-silver-stage.png", scale: 1 },
-  ].forEach((it, index) => out.push({ id: it.id, category: "shoes", name: it.name, preview: "▰", color: it.color, tint: it.color + "26", price: it.price, requiredLevel: it.level, unlockMode: "coin", rarity: it.rarity.key, rarityColor: it.rarity.color, collection: it.collection, variant: index + 1, asset: it.asset, assetScale: it.scale, assetFilter: "none", audience: "all" }));
+  ].forEach((it, index) => out.push({ id: it.id, category: "shoes", name: it.name, preview: "▰", color: it.color, tint: it.color + "26", price: it.price, requiredLevel: it.level, unlockMode: "coin", rarity: it.rarity.key, rarityColor: it.rarity.color, collection: it.collection, variant: index + 1, asset: it.asset, modularAsset: it.modularAsset || null, assetScale: it.scale, assetFilter: "none", audience: "all" }));
   out.push({ id: "hand-00", category: "hand", name: "空手", preview: "—", color: "#64748b", tint: "#64748b26", price: 0, requiredLevel: 1, unlockMode: "coin", rarity: "普通", rarityColor: "#9a90c8", collection: "BASIC", variant: 0, asset: null, audience: "system" });
   [
     { id: "hand-01", name: "黑色針織手套", color: "#17171a", price: 18, level: 1, rarity: RARITY[0], collection: "WINTER", asset: "rewards/items/modular-v2/hand-01.png", leftAsset: "rewards/items/modular-v2/hand-01-left.png", rightAsset: "rewards/items/modular-v2/hand-01-right.png", placement: "gloves", width: 7, top: 45 },
@@ -2801,6 +2817,8 @@ class Component extends DCLogic {
     const wardrobeTune = Object.assign({}, DEFAULT_WARDROBE_FIT, s.wardrobeFits[wardrobeFitKey] || {});
     const compatibleCatalog = CATALOG.filter((item) => isItemCompatible(item, p.avatar));
     const dollItem = (cat) => compatibleCatalog.find((c) => c.id === p.equipped[cat]) || compatibleCatalog.find((c) => c.category === cat);
+    const activeTop = dollItem("top"), activeBottom = dollItem("bottom"), activeShoes = dollItem("shoes");
+    const usesModularBody = p.avatar === "girl" && !!(activeTop.modularAsset && activeBottom.modularAsset);
     const makeWearables = () => {
       const hair = dollItem("hair"), top = dollItem("top"), bottom = dollItem("bottom"), shoes = dollItem("shoes"), hat = dollItem("accessory"), hand = dollItem("hand");
       const fits = {
@@ -2809,6 +2827,13 @@ class Component extends DCLogic {
       };
       const fit = fits[p.avatar] || fits.girl;
       const layers = [];
+      const moduleLayer = (key, src, zIndex, title) => React.createElement("img", {
+        key, src, alt: "", title,
+        style: {
+          position: "absolute", inset: 0, zIndex, width: "100%", height: "100%",
+          objectFit: "contain", objectPosition: "center bottom", pointerEvents: "none",
+        },
+      });
       const garmentLayers = (item, part, zIndex) => {
         if (!item.asset) return [];
         if (item.independent) {
@@ -2853,9 +2878,18 @@ class Component extends DCLogic {
         })];
         return result;
       };
-      garmentLayers(bottom, "bottom", 2).forEach((layer) => layers.push(layer));
-      garmentLayers(top, "top", 3).forEach((layer) => layers.push(layer));
-      if (shoes.asset) {
+      if (usesModularBody) {
+        const lowerAsset = shoes.asset ? bottom.modularAsset : (bottom.modularBareAsset || bottom.modularAsset);
+        const headAsset = FEMALE_HEAD_MODULES_BY_VARIANT[hair.variant] || FEMALE_HEAD_MODULES_BY_VARIANT[0];
+        layers.push(moduleLayer("module-lower", lowerAsset, 2, bottom.name));
+        layers.push(moduleLayer("module-upper", top.modularAsset, 3, top.name));
+        layers.push(moduleLayer("module-head", headAsset, 4, hair.name));
+        if (shoes.modularAsset) layers.push(moduleLayer("module-shoes", shoes.modularAsset, 5, shoes.name));
+      } else {
+        garmentLayers(bottom, "bottom", 2).forEach((layer) => layers.push(layer));
+        garmentLayers(top, "top", 3).forEach((layer) => layers.push(layer));
+      }
+      if (shoes.asset && (!usesModularBody || !shoes.modularAsset)) {
         const shoeScale = shoes.assetScale || 1;
         const shoeHalf = 6.2 * shoeScale;
         const shoeLayer = (side, x) => React.createElement("span", { key: "shoe-" + side, title: shoes.name, style: { position: "absolute", zIndex: 3, left: x + "%", bottom: fit.shoeBottom + "%", width: shoeHalf + "%", height: "10.8%", transform: "translateX(-50%)", overflow: "hidden", pointerEvents: "none" } },
@@ -2867,7 +2901,7 @@ class Component extends DCLogic {
       } else if (hand.asset) {
         layers.push(React.createElement("img", { key: "hand", src: hand.asset, alt: "", title: hand.name, style: { position: "absolute", zIndex: 4, left: "60.5%", top: hand.handTop + "%", width: hand.handWidth + "%", height: "22%", transform: "translateX(-50%)", objectFit: "contain", pointerEvents: "none", filter: "drop-shadow(0 8px 9px rgba(0,0,0,.35))" } }));
       }
-      if (hair.asset) layers.push(React.createElement("img", { key: "hair", src: hair.asset, alt: "", title: hair.name, style: { position: "absolute", zIndex: 5, left: fit.x + "%", top: fit.hairTop + "%", width: (fit.size * (hair.assetScale || 1)) + "%", transform: "translateX(-50%)", objectFit: "contain", filter: hair.assetFilter || "none", pointerEvents: "none" } }));
+      if (!usesModularBody && hair.asset) layers.push(React.createElement("img", { key: "hair", src: hair.asset, alt: "", title: hair.name, style: { position: "absolute", zIndex: 5, left: fit.x + "%", top: fit.hairTop + "%", width: (fit.size * (hair.assetScale || 1)) + "%", transform: "translateX(-50%)", objectFit: "contain", filter: hair.assetFilter || "none", pointerEvents: "none" } }));
       if (hat.asset) layers.push(React.createElement("img", { key: "hat", src: hat.asset, alt: "", title: hat.name, style: { position: "absolute", zIndex: 6, left: fit.x + "%", top: fit.hatTop + "%", width: (fit.hatSize * (hat.assetScale || 1)) + "%", transform: "translateX(-50%)", objectFit: "contain", pointerEvents: "none" } }));
       return React.createElement("div", { style: { position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none" }, "aria-hidden": "true" }, layers);
     };
@@ -3786,11 +3820,11 @@ class Component extends DCLogic {
     vals.leftSlots = ["hair", "top", "bottom"].map(slotBtn);
     vals.rightSlots = ["accessory", "hand", "shoes"].map(slotBtn);
     const hasBodyWear = !!(dollItem("top").asset || dollItem("bottom").asset || dollItem("shoes").asset || dollItem("hand").asset);
-    vals.dollImg = React.createElement("img", {
+    vals.dollImg = usesModularBody ? React.createElement("span", { "aria-hidden": "true" }) : React.createElement("img", {
       src: hasBodyWear ? AVATAR_WARDROBE_IMAGES[p.avatar][p.avatarStyle] : AVATAR_IMAGES[p.avatar][p.avatarStyle], alt: "",
       style: { position: "absolute", left: 0, right: 0, bottom: 0, top: 26, zIndex: 1, width: "100%", height: "calc(100% - 26px)", objectFit: "contain", objectPosition: "bottom", filter: "drop-shadow(0 26px 30px rgba(0,0,0,.45))" },
     });
-    vals.dollImgBig = React.createElement("img", {
+    vals.dollImgBig = usesModularBody ? React.createElement("span", { "aria-hidden": "true" }) : React.createElement("img", {
       src: AVATAR_WARDROBE_IMAGES[p.avatar][p.avatarStyle], alt: "",
       style: { position: "absolute", left: "50%", transform: "translateX(-50%)", bottom: 0, top: 26, zIndex: 1, width: "82%", height: "calc(100% - 26px)", objectFit: "contain", objectPosition: "bottom", filter: "drop-shadow(0 30px 34px rgba(0,0,0,.5))" },
     });
