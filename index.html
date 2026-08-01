@@ -1166,6 +1166,9 @@ const FEMALE_HEAD_MODULES_BY_VARIANT = {
   2: MODULAR_WARDROBE_ROOT + "female-head-ponytail.png",
   3: MODULAR_WARDROBE_ROOT + "female-head-wavy-lob.png",
   5: MODULAR_WARDROBE_ROOT + "female-head-twin-braids.png",
+  6: MODULAR_WARDROBE_ROOT + "female-head-atelier-v4.png",
+  7: MODULAR_WARDROBE_ROOT + "female-head-creative-v4.png",
+  8: MODULAR_WARDROBE_ROOT + "female-head-performance-v4.png",
 };
 const RARITY = [
   { key: "普通", color: "#9a90c8" },
@@ -1195,6 +1198,11 @@ function buildCatalog() {
     const rarity = index >= 8 ? RARITY[2] : index >= 4 ? RARITY[1] : RARITY[0];
     out.push({ id: "hair-" + String(index + 1).padStart(2, "0"), category: "hair", name: style.name + "・" + tone.name, preview: "✦", color: tone.color, tint: tone.color + "26", price: 24 + styleIndex * 10 + toneIndex * 6, requiredLevel: 1 + styleIndex, unlockMode: "coin", rarity: rarity.key, rarityColor: rarity.color, collection: style.name, variant: styleIndex, asset: style.asset, assetFilter: tone.filter, assetScale: style.scale, audience: style.audience });
   }));
+  [
+    { id: "hair-25", name: "Atelier・低髮髻", color: "#19171b", price: 58, level: 2, rarity: RARITY[1], collection: "ATELIER", variant: 6, asset: "female-hair-atelier-v4.png", scale: 1 },
+    { id: "hair-26", name: "Creative・自然中長髮", color: "#242124", price: 66, level: 3, rarity: RARITY[2], collection: "CREATIVE", variant: 7, asset: "female-hair-creative-v4.png", scale: 1.02 },
+    { id: "hair-27", name: "Performance・低馬尾", color: "#17171a", price: 78, level: 4, rarity: RARITY[2], collection: "PERFORMANCE", variant: 8, asset: "female-hair-performance-v4.png", scale: 1 },
+  ].forEach((it) => out.push({ id: it.id, category: "hair", name: it.name, preview: "✦", color: it.color, tint: it.color + "26", price: it.price, requiredLevel: it.level, unlockMode: "coin", rarity: it.rarity.key, rarityColor: it.rarity.color, collection: it.collection, variant: it.variant, asset: MODULAR_WARDROBE_ROOT + it.asset, assetFilter: "none", assetScale: it.scale, audience: "girl" }));
   out.push({ id: "accessory-00", category: "accessory", name: "不戴帽子", preview: "—", color: "#64748b", tint: "#64748b26", price: 0, requiredLevel: 1, unlockMode: "coin", rarity: "普通", rarityColor: "#9a90c8", collection: "BASIC", variant: 0, asset: null, assetFilter: "none" });
   out.push({ id: "accessory-01", category: "accessory", name: "黑色羊毛貝雷帽", preview: "●", color: "#17171a", tint: "#17171a26", price: 30, requiredLevel: 1, unlockMode: "coin", rarity: "稀有", rarityColor: "#22c8d8", collection: "ATELIER", variant: 1, asset: "rewards/items/beret-black.png", assetFilter: "none", assetScale: 1.15 });
   out.push({ id: "accessory-02", category: "accessory", name: "深藍俐落棒球帽", preview: "●", color: "#172554", tint: "#17255426", price: 36, requiredLevel: 1, unlockMode: "coin", rarity: "普通", rarityColor: "#9a90c8", collection: "CAMPUS", variant: 2, asset: "rewards/items/hat-baseball-navy.png", assetFilter: "none" });
@@ -1222,6 +1230,9 @@ function buildCatalog() {
     { code: "g08", topName: "櫻花漢服短襖", bottomName: "淡紫繡花長裙", color: "#eab8c5", price: 110, level: 4, rarity: RARITY[2], collection: "BLOSSOM", audience: "girl", topFit: [19, 29, 36], bottomFit: [33, 27, 45] },
     { code: "g09", topName: "象牙薰衣草針織上衣", bottomName: "薰衣草箱褶裙", color: "#b8a6d9", price: 90, level: 2, rarity: RARITY[1], collection: "LAVENDER", audience: "girl", topFit: [19, 29, 36], bottomFit: [33, 27, 45] },
     { code: "g10", topName: "苔綠森林針織上衣", bottomName: "暖米森林中長裙", color: "#667b3b", price: 96, level: 3, rarity: RARITY[2], collection: "WOODLAND", audience: "girl", topFit: [19, 29, 36], bottomFit: [33, 27, 45] },
+    { code: "g11", topName: "Atelier 黑色剪裁西裝", bottomName: "Atelier 深藍九分褲", color: "#202124", price: 98, level: 2, rarity: RARITY[1], collection: "ATELIER", audience: "girl", topFit: [19, 29, 36], bottomFit: [33, 27, 45] },
+    { code: "g12", topName: "Creative 短版外套上衣", bottomName: "Creative 黑色寬褲", color: "#34383d", price: 106, level: 3, rarity: RARITY[2], collection: "CREATIVE", audience: "girl", topFit: [19, 29, 36], bottomFit: [33, 27, 45] },
+    { code: "g13", topName: "Performance 不對稱舞台上衣", bottomName: "Performance 黑色直筒褲", color: "#17171a", price: 120, level: 4, rarity: RARITY[2], collection: "PERFORMANCE", audience: "girl", topFit: [19, 29, 36], bottomFit: [33, 27, 45] },
     { code: "b01", topName: "深藍演奏西裝外套", bottomName: "深藍西裝長褲", color: "#172554", price: 58, level: 1, rarity: RARITY[1], collection: "RECITAL", audience: "boy", topFit: [18.5, 30, 41], bottomFit: [41.5, 18, 53] },
     { code: "b02", topName: "炭灰針織上衣", bottomName: "黑色正裝長褲", color: "#34383d", price: 64, level: 2, rarity: RARITY[1], collection: "ACADEMY", audience: "boy", topFit: [18.5, 30, 41], bottomFit: [41.5, 18, 53] },
     { code: "b03", topName: "梅紫棒球外套", bottomName: "黑色直筒長褲", color: "#642650", price: 72, level: 3, rarity: RARITY[2], collection: "CAMPUS", audience: "boy", topFit: [18.5, 30, 41], bottomFit: [41.5, 18, 53] },
@@ -1229,7 +1240,7 @@ function buildCatalog() {
   ];
   garments.forEach((it, index) => {
     const common = { preview: "◆", color: it.color, tint: it.color + "26", requiredLevel: it.level, unlockMode: "coin", rarity: it.rarity.key, rarityColor: it.rarity.color, collection: it.collection, variant: index + 1, assetFilter: "none", audience: it.audience, independent: true };
-    const modularCode = it.audience === "girl" && ["g01", "g02", "g04", "g05", "g06", "g07", "g08", "g09", "g10"].includes(it.code) ? it.code : null;
+    const modularCode = it.audience === "girl" && ["g01", "g02", "g04", "g05", "g06", "g07", "g08", "g09", "g10", "g11", "g12", "g13"].includes(it.code) ? it.code : null;
     const additionalModular = modularCode && Number(modularCode.slice(1)) >= 5;
     out.push(Object.assign({}, common, { id: "top-" + it.code, category: "top", name: it.topName, price: Math.ceil(it.price * .58), garmentPart: "top", asset: additionalModular ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-upper-thumb.png" : "rewards/items/modular-v2/top-" + it.code + ".png", modularAsset: modularCode ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-upper.png" : null, wearTop: it.topFit[0], wearWidth: it.topFit[1], wearHeight: it.topFit[2] }));
     out.push(Object.assign({}, common, { id: "bottom-" + it.code, category: "bottom", name: it.bottomName, price: Math.floor(it.price * .42), garmentPart: "bottom", asset: additionalModular ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-lower-thumb.png" : "rewards/items/modular-v2/bottom-" + it.code + ".png", modularAsset: modularCode ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-lower.png" : null, modularBareAsset: modularCode ? MODULAR_WARDROBE_ROOT + "female-" + modularCode + "-lower-bare.png" : null, wearTop: it.bottomFit[0], wearWidth: it.bottomFit[1], wearHeight: it.bottomFit[2] }));
@@ -1246,6 +1257,9 @@ function buildCatalog() {
     { id: "shoes-08", name: "櫻花繡花淺口鞋", color: "#eab8c5", price: 64, level: 4, rarity: RARITY[2], collection: "BLOSSOM", asset: MODULAR_WARDROBE_ROOT + "female-g08-shoes-thumb.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g08-shoes.png", audience: "girl", scale: 1 },
     { id: "shoes-09", name: "象牙瑪莉珍鞋", color: "#eee1c6", price: 48, level: 2, rarity: RARITY[1], collection: "LAVENDER", asset: MODULAR_WARDROBE_ROOT + "female-g09-shoes-thumb.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g09-shoes.png", audience: "girl", scale: 1 },
     { id: "shoes-10", name: "深棕森林短靴", color: "#49372d", price: 56, level: 3, rarity: RARITY[2], collection: "WOODLAND", asset: MODULAR_WARDROBE_ROOT + "female-g10-shoes-thumb.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g10-shoes.png", audience: "girl", scale: 1 },
+    { id: "shoes-11", name: "Atelier 黑色皮革樂福鞋", color: "#17171a", price: 52, level: 2, rarity: RARITY[1], collection: "ATELIER", asset: MODULAR_WARDROBE_ROOT + "female-g11-shoes-thumb.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g11-shoes.png", audience: "girl", scale: 1 },
+    { id: "shoes-12", name: "Creative 白色休閒鞋", color: "#f4f4f1", price: 58, level: 3, rarity: RARITY[2], collection: "CREATIVE", asset: MODULAR_WARDROBE_ROOT + "female-g12-shoes-thumb.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g12-shoes.png", audience: "girl", scale: 1 },
+    { id: "shoes-13", name: "Performance 黑色尖頭鞋", color: "#17171a", price: 70, level: 4, rarity: RARITY[2], collection: "PERFORMANCE", asset: MODULAR_WARDROBE_ROOT + "female-g13-shoes-thumb.png", modularAsset: MODULAR_WARDROBE_ROOT + "female-g13-shoes.png", audience: "girl", scale: 1 },
   ].forEach((it, index) => out.push({ id: it.id, category: "shoes", name: it.name, preview: "▰", color: it.color, tint: it.color + "26", price: it.price, requiredLevel: it.level, unlockMode: "coin", rarity: it.rarity.key, rarityColor: it.rarity.color, collection: it.collection, variant: index + 1, asset: it.asset, modularAsset: it.modularAsset || null, assetScale: it.scale, assetFilter: "none", audience: it.audience || "all" }));
   out.push({ id: "hand-00", category: "hand", name: "空手", preview: "—", color: "#64748b", tint: "#64748b26", price: 0, requiredLevel: 1, unlockMode: "coin", rarity: "普通", rarityColor: "#9a90c8", collection: "BASIC", variant: 0, asset: null, audience: "system" });
   [
