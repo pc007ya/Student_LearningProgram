@@ -238,6 +238,267 @@
       ]
     },
     {
+      "id": "u33",
+      "title": "圖形觀察與拼圖",
+      "grade": 1,
+      "questions": [
+        {
+          "id": "g1-grid-l-rotate",
+          "type": "gridChoices",
+          "stem": "哪一個方格圖形和目標圖形相同，只是轉了方向？",
+          "speakText": "目標是由四個小方格連成的L形。請比較甲、乙、丙、丁。",
+          "answer": "乙",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "把目標圖形向右轉，方格的連接位置會和乙完全相同。",
+          "visual": { "target": ["100","100","110"], "choices": [{"label":"甲","cells":["111","010","000"]},{"label":"乙","cells":["111","100","000"]},{"label":"丙","cells":["110","011","000"]},{"label":"丁","cells":["101","111","000"]}], "alt": "一個目標L形和四個方格候選圖形" }
+        },
+        {
+          "id": "g1-grid-t-rotate",
+          "type": "gridChoices",
+          "stem": "把目標圖形轉一轉，哪一個會和它重合？",
+          "speakText": "目標是由四個方格組成的T形。甲、乙、丙、丁中只有一個相同。",
+          "answer": "丁",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "T形轉九十度後，會變成丁的樣子；連接關係沒有改變。",
+          "visual": { "target": ["111","010","000"], "choices": [{"label":"甲","cells":["110","110","000"]},{"label":"乙","cells":["100","110","010"]},{"label":"丙","cells":["110","011","000"]},{"label":"丁","cells":["100","110","100"]}], "alt": "一個目標T形和四個方格候選圖形" }
+        },
+        {
+          "id": "g1-grid-z-rotate",
+          "type": "gridChoices",
+          "stem": "哪一個圖形是目標圖形旋轉後的樣子？",
+          "speakText": "目標像橫放的閃電，由四個方格組成。請找出旋轉後仍相同的圖形。",
+          "answer": "甲",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "甲保留相同的彎折方向，只是把目標直立起來。",
+          "visual": { "target": ["110","011","000"], "choices": [{"label":"甲","cells":["010","110","100"]},{"label":"乙","cells":["100","110","010"]},{"label":"丙","cells":["111","010","000"]},{"label":"丁","cells":["110","110","000"]}], "alt": "閃電形目標與四個方格候選圖形" }
+        },
+        {
+          "id": "g1-grid-square-same",
+          "type": "gridChoices",
+          "stem": "哪一個候選圖形也能拼成完整的二乘二正方形？",
+          "speakText": "目標是四個小方格拼成的大正方形。請比較甲、乙、丙、丁。",
+          "answer": "丙",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "丙也是兩排、每排兩格，所以能拼成完整的二乘二正方形。",
+          "visual": { "target": ["11","11"], "choices": [{"label":"甲","cells":["111","100"]},{"label":"乙","cells":["1111","0000"]},{"label":"丙","cells":["11","11"]},{"label":"丁","cells":["110","011"]}], "alt": "完整二乘二正方形與四個候選圖形" }
+        },
+        {
+          "id": "g1-grid-mirror-different",
+          "type": "gridChoices",
+          "stem": "哪一個不是目標圖形旋轉後的樣子？",
+          "speakText": "目標是四格L形。三個選項只是旋轉，只有一個左右翻面。",
+          "answer": "丙",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "丙的短腳方向相反，是左右翻面，不是只靠旋轉得到的。",
+          "visual": { "target": ["100","100","110"], "choices": [{"label":"甲","cells":["111","100","000"]},{"label":"乙","cells":["110","010","010"]},{"label":"丙","cells":["001","001","011"]},{"label":"丁","cells":["001","111","000"]}], "alt": "四格L形與四個方向候選圖形" }
+        },
+        {
+          "id": "g1-grid-five-match",
+          "type": "gridChoices",
+          "stem": "哪一個圖形和目標圖形有一樣的方格數與連接方式？",
+          "speakText": "目標有五個方格，中間一排三格，上下各接一格。",
+          "answer": "甲",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "甲有同樣的五格連接方式，只是整個圖形轉了方向。",
+          "visual": { "target": ["010","111","010"], "choices": [{"label":"甲","cells":["010","111","010"]},{"label":"乙","cells":["111","110","000"]},{"label":"丙","cells":["110","011","010"]},{"label":"丁","cells":["101","111","000"]}], "alt": "五格十字目標與四個候選圖形" }
+        },
+        {
+          "id": "g1-grid-corner-match",
+          "type": "gridChoices",
+          "stem": "哪一個三格圖形和目標圖形相同？",
+          "speakText": "目標由三個方格在角落連成小L形。圖形可以旋轉，但不能拆開。",
+          "answer": "丁",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "丁也是三格L形，轉動後可以和目標完全重合。",
+          "visual": { "target": ["10","11"], "choices": [{"label":"甲","cells":["111","000"]},{"label":"乙","cells":["11","11"]},{"label":"丙","cells":["10","10"]},{"label":"丁","cells":["11","10"]}], "alt": "三格小L形與四個候選圖形" }
+        },
+        {
+          "id": "g1-grid-stairs-match",
+          "type": "gridChoices",
+          "stem": "哪一個階梯圖形和目標圖形相同？",
+          "speakText": "目標由六個方格排成三階。請找出旋轉後仍有相同連接方式的選項。",
+          "answer": "乙",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "乙的每一階長度與連接位置都相同，只是方向改變。",
+          "visual": { "target": ["100","110","111"], "choices": [{"label":"甲","cells":["110","110","110"]},{"label":"乙","cells":["111","011","001"]},{"label":"丙","cells":["101","111","010"]},{"label":"丁","cells":["111","100","100"]}], "alt": "六格階梯目標與四個候選圖形" }
+        }
+      ]
+    },
+    {
+      "id": "u34",
+      "title": "數一數與比多少",
+      "grade": 1,
+      "questions": [
+        {
+          "id": "g1-count-rabbits-5",
+          "type": "countItems",
+          "stem": "圖中有幾隻兔子？",
+          "speakText": "請只數兔子，不要把小鳥算進去。",
+          "answer": 5,
+          "options": [4, 5, 6, 7],
+          "explain": "先把兔子和小鳥分開，再逐一數兔子，共有 5 隻。",
+          "visual": { "items": ["🐰","🐦","🐰","🐰","🐦","🐰","🐦","🐰"], "skill": "分類後再數", "alt": "兔子與小鳥混合排列" }
+        },
+        {
+          "id": "g1-count-birds-6",
+          "type": "countItems",
+          "stem": "圖中一共有幾隻小鳥？",
+          "speakText": "小鳥分散在花朵之間，請從左到右數。",
+          "answer": 6,
+          "options": [5, 6, 7, 8],
+          "explain": "從左到右逐一做記號，小鳥共有 6 隻。",
+          "visual": { "items": ["🐦","🌼","🐦","🐦","🌼","🐦","🌼","🐦","🐦"], "skill": "從左到右做記號", "alt": "小鳥與花朵混合排列" }
+        },
+        {
+          "id": "g1-count-circles-6",
+          "type": "countItems",
+          "stem": "圖中共有幾個圓形？",
+          "speakText": "藍色圓形和紫色圓形都要算，三角形不要算。",
+          "answer": 6,
+          "options": [4, 5, 6, 7],
+          "explain": "不分顏色，只要是圓形都算，共有 6 個。",
+          "visual": { "items": ["🔵","🔺","🟣","🔵","🔺","🟣","🔵","🟣"], "skill": "忽略顏色，只看形狀", "alt": "圓形與三角形混合排列" }
+        },
+        {
+          "id": "g1-count-triangles-5",
+          "type": "countItems",
+          "stem": "圖中有幾個三角形？",
+          "speakText": "紅色與黃色三角形都要算，正方形不要算。",
+          "answer": 5,
+          "options": [3, 4, 5, 6],
+          "explain": "只看形狀，不看顏色，三角形共有 5 個。",
+          "visual": { "items": ["🔺","🟨","🔻","🔺","🟦","🔻","🔺","🟩"], "skill": "用形狀分類", "alt": "不同顏色的三角形與正方形" }
+        },
+        {
+          "id": "g1-compare-left-more",
+          "type": "countItems",
+          "stem": "哪一邊的水果比較多？",
+          "speakText": "左邊有六顆蘋果，右邊有四顆梨子。",
+          "answer": "左邊比較多",
+          "options": ["左邊比較多", "右邊比較多", "兩邊一樣多", "不能比較"],
+          "explain": "左邊 6 個，右邊 4 個，6 比 4 大，所以左邊比較多。",
+          "visual": { "groups": [{"label":"左邊","items":["🍎","🍎","🍎","🍎","🍎","🍎"]},{"label":"右邊","items":["🍐","🍐","🍐","🍐"]}], "skill": "先數兩邊，再比較", "alt": "左邊六顆蘋果與右邊四顆梨子" }
+        },
+        {
+          "id": "g1-compare-difference-2",
+          "type": "countItems",
+          "stem": "左邊比右邊多幾個？",
+          "speakText": "左邊有七顆星星，右邊有五個月亮。",
+          "answer": 2,
+          "options": [1, 2, 3, 4],
+          "explain": "把兩邊一一配對，左邊剩 2 個，所以多 2 個。",
+          "visual": { "groups": [{"label":"左邊","items":["⭐","⭐","⭐","⭐","⭐","⭐","⭐"]},{"label":"右邊","items":["🌙","🌙","🌙","🌙","🌙"]}], "skill": "一一配對找差數", "alt": "左邊七顆星星與右邊五個月亮" }
+        },
+        {
+          "id": "g1-compare-equal-5",
+          "type": "countItems",
+          "stem": "兩邊的數量關係是什麼？",
+          "speakText": "左邊有五朵花，右邊有五隻蝴蝶。",
+          "answer": "兩邊一樣多",
+          "options": ["左邊比較多", "右邊比較多", "兩邊一樣多", "相差 2 個"],
+          "explain": "左右各有 5 個，所以兩邊一樣多。",
+          "visual": { "groups": [{"label":"左邊","items":["🌼","🌼","🌼","🌼","🌼"]},{"label":"右邊","items":["🦋","🦋","🦋","🦋","🦋"]}], "skill": "一一配對", "alt": "左邊五朵花與右邊五隻蝴蝶" }
+        },
+        {
+          "id": "g1-estimate-items-12",
+          "type": "countItems",
+          "stem": "先不要一個一個數，這些球大約有幾個？",
+          "speakText": "球排成三小排，每排大約四個。",
+          "answer": "大約 10 個",
+          "options": ["大約 5 個", "大約 10 個", "大約 20 個", "大約 30 個"],
+          "explain": "三排、每排約 4 個，共 12 個，最接近大約 10 個。",
+          "visual": { "items": ["⚽","🏀","⚽","🏀","⚽","🏀","⚽","🏀","⚽","🏀","⚽","🏀"], "skill": "先分組再估計", "alt": "十二顆球分成幾小排" }
+        }
+      ]
+    },
+    {
+      "id": "u35",
+      "title": "順序與位置推理",
+      "grade": 1,
+      "questions": [
+        {
+          "id": "g1-sequence-meal-first",
+          "type": "sequenceCards",
+          "stem": "準備吃飯時，哪一件事應該最先做？",
+          "speakText": "甲是洗手，乙是擦乾，丙是坐好，丁是開始吃飯。",
+          "answer": "甲",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "吃飯前應先把手洗乾淨，所以甲最先。",
+          "visual": { "cards": [{"label":"甲","icon":"🧼","text":"洗手"},{"label":"乙","icon":"🧻","text":"擦乾"},{"label":"丙","icon":"🪑","text":"坐好"},{"label":"丁","icon":"🍚","text":"吃飯"}], "alt": "洗手、擦乾、坐好、吃飯四張圖卡" }
+        },
+        {
+          "id": "g1-sequence-plant",
+          "type": "sequenceCards",
+          "stem": "植物生長的正確順序是哪一個？",
+          "speakText": "甲是開花，乙是種子，丙是結果，丁是發芽。",
+          "answer": "乙→丁→甲→丙",
+          "options": ["乙→丁→甲→丙", "甲→乙→丁→丙", "丁→乙→丙→甲", "乙→甲→丁→丙"],
+          "explain": "先有種子，再發芽、開花，最後結果。",
+          "visual": { "cards": [{"label":"甲","icon":"🌼","text":"開花"},{"label":"乙","icon":"🌰","text":"種子"},{"label":"丙","icon":"🍎","text":"結果"},{"label":"丁","icon":"🌱","text":"發芽"}], "alt": "種子、發芽、開花、結果四張圖卡" }
+        },
+        {
+          "id": "g1-sequence-go-out",
+          "type": "sequenceCards",
+          "stem": "準備出門上學，合理的先後順序是哪一個？",
+          "speakText": "甲是穿鞋，乙是走出門，丙是背書包，丁是穿好衣服。",
+          "answer": "丁→丙→甲→乙",
+          "options": ["丁→丙→甲→乙", "甲→丁→乙→丙", "丙→乙→丁→甲", "乙→甲→丙→丁"],
+          "explain": "先穿衣服、背書包、穿鞋，最後才走出門。",
+          "visual": { "cards": [{"label":"甲","icon":"👟","text":"穿鞋"},{"label":"乙","icon":"🚪","text":"出門"},{"label":"丙","icon":"🎒","text":"背書包"},{"label":"丁","icon":"👕","text":"穿衣服"}], "alt": "穿衣服、背書包、穿鞋、出門四張圖卡" }
+        },
+        {
+          "id": "g1-sequence-rain",
+          "type": "sequenceCards",
+          "stem": "看到外面下雨後，接下來最適合做什麼？",
+          "speakText": "甲是看到雨，乙是拿雨傘，丙是打開雨傘，丁是走到戶外。",
+          "answer": "乙",
+          "options": ["甲", "乙", "丙", "丁"],
+          "explain": "看到下雨後，下一步先拿雨傘，再打開並走到戶外。",
+          "visual": { "cards": [{"label":"甲","icon":"🌧️","text":"看到雨"},{"label":"乙","icon":"🌂","text":"拿雨傘"},{"label":"丙","icon":"☂️","text":"打開傘"},{"label":"丁","icon":"🚶","text":"走出去"}], "alt": "看到雨、拿雨傘、打開傘、走出去四張圖卡" }
+        },
+        {
+          "id": "g1-wheel-opposite-cat",
+          "type": "logicWheel",
+          "stem": "摩天輪上，哪一隻動物坐在小貓的正對面？",
+          "speakText": "小貓在最上面，小熊在最下面。其他座位依順時針是小狗、小兔、小熊、小狐狸和青蛙。",
+          "answer": "小熊",
+          "options": ["小狗", "小兔", "小熊", "小狐狸"],
+          "explain": "圓形中相隔三個座位的位置互相正對，小貓的正對面是小熊。",
+          "visual": { "nodes": [{"position":0,"icon":"🐱"},{"position":1,"icon":"🐶"},{"position":2,"icon":"🐰"},{"position":3,"icon":"🐻"},{"position":4,"icon":"🦊"},{"position":5,"icon":"🐸"}], "center": "🎡", "alt": "六個動物座位的摩天輪位置圖" }
+        },
+        {
+          "id": "g1-wheel-next-dog",
+          "type": "logicWheel",
+          "stem": "從小狗的位置順時針走一格，會到哪一隻動物？",
+          "speakText": "座位從最上面開始，順時針依序是小貓、小狗、小兔、小熊、小狐狸、青蛙。",
+          "answer": "小兔",
+          "options": ["小貓", "小兔", "小熊", "青蛙"],
+          "explain": "順時針看，小狗的下一格是小兔。",
+          "visual": { "nodes": [{"position":0,"icon":"🐱"},{"position":1,"icon":"🐶"},{"position":2,"icon":"🐰"},{"position":3,"icon":"🐻"},{"position":4,"icon":"🦊"},{"position":5,"icon":"🐸"}], "center": "↻", "alt": "標示順時針方向的六個動物位置圖" }
+        },
+        {
+          "id": "g1-wheel-two-steps",
+          "type": "logicWheel",
+          "stem": "從小貓的位置順時針走兩格，會到哪裡？",
+          "speakText": "順時針第一格是小狗，第二格是小兔。",
+          "answer": "小兔",
+          "options": ["小狗", "小兔", "小熊", "青蛙"],
+          "explain": "從小貓出發，走一格到小狗，再走一格到小兔。",
+          "visual": { "nodes": [{"position":0,"icon":"🐱"},{"position":1,"icon":"🐶"},{"position":2,"icon":"🐰"},{"position":3,"icon":"🐻"},{"position":4,"icon":"🦊"},{"position":5,"icon":"🐸"}], "center": "2步", "alt": "六個動物座位的圓形位置圖" }
+        },
+        {
+          "id": "g1-position-third-left",
+          "type": "sequenceCards",
+          "stem": "從左邊開始數，第三個是誰？",
+          "speakText": "從左到右依序是小貓、小狗、小熊、小兔。",
+          "answer": "小熊",
+          "options": ["小貓", "小狗", "小熊", "小兔"],
+          "explain": "從左邊數：第一小貓、第二小狗、第三小熊。",
+          "visual": { "cards": [{"label":"1","icon":"🐱","text":"小貓"},{"label":"2","icon":"🐶","text":"小狗"},{"label":"3","icon":"🐻","text":"小熊"},{"label":"4","icon":"🐰","text":"小兔"}], "alt": "由左到右排列的小貓、小狗、小熊與小兔" }
+        }
+      ]
+    },
+    {
       "id": "u30",
       "title": "測量實驗室",
       "questions": [
