@@ -2030,13 +2030,22 @@ class Component extends DCLogic {
   buildGridPuzzleChallenge(count) {
     const shuffle = (items) => items.slice().sort(() => Math.random() - 0.5);
     const rotate = (grid) => grid[0].split("").map((_, col) => grid.map((row) => row[col]).reverse().join(""));
-    const flip = (grid) => grid.map((row) => row.split("").reverse().join(""));
-    const mutate = (grid) => {
-      const cells = grid.map((row) => row.split(""));
-      const y = Math.floor(Math.random() * cells.length), x = Math.floor(Math.random() * cells.length);
-      cells[y][x] = cells[y][x] === "1" ? "0" : "1";
-      return cells.map((row) => row.join(""));
+    const trim = (grid) => {
+      const rows = grid.map((row) => String(row));
+      const top = rows.findIndex((row) => row.indexOf("1") >= 0);
+      if (top < 0) return "";
+      const bottom = rows.length - 1 - rows.slice().reverse().findIndex((row) => row.indexOf("1") >= 0);
+      let left = rows[0].length - 1, right = 0;
+      rows.slice(top, bottom + 1).forEach((row) => row.split("").forEach((cell, index) => { if (cell === "1") { left = Math.min(left, index); right = Math.max(right, index); } }));
+      return rows.slice(top, bottom + 1).map((row) => row.slice(left, right + 1)).join("/");
     };
+    const rotationForms = (grid) => {
+      const forms = new Set();
+      let current = grid;
+      for (let turn = 0; turn < 4; turn += 1) { forms.add(trim(current)); current = rotate(current); }
+      return forms;
+    };
+    const cellCount = (grid) => grid.join("").split("").filter((cell) => cell === "1").length;
     const makeGrid = (size) => {
       const cells = Array.from({ length: size }, () => Array(size).fill("0"));
       let x = Math.floor(Math.random() * size), y = Math.floor(Math.random() * size);
@@ -2052,11 +2061,23 @@ class Component extends DCLogic {
     while (bank.length < 50) {
       const size = [3, 4, 5][bank.length % 3];
       const target = makeGrid(size);
+      const targetForms = rotationForms(target);
       const rotated = rotate(target);
-      const key = size + ":" + target.join("/");
-      if (used.has(key) || rotated.join("/") === target.join("/")) continue;
+      const key = size + ":" + Array.from(targetForms).sort()[0];
+      if (cellCount(target) < 4 || targetForms.size < 4 || used.has(key)) continue;
       used.add(key);
-      const decoys = [flip(target), mutate(target), mutate(rotated)];
+      const decoys = [], usedChoiceForms = new Set(targetForms);
+      let decoyAttempts = 0;
+      while (decoys.length < 3 && decoyAttempts < 160) {
+        decoyAttempts += 1;
+        const candidate = makeGrid(size);
+        if (cellCount(candidate) < 3) continue;
+        const candidateForms = rotationForms(candidate);
+        if (Array.from(candidateForms).some((form) => usedChoiceForms.has(form))) continue;
+        decoys.push(candidate);
+        candidateForms.forEach((form) => usedChoiceForms.add(form));
+      }
+      if (decoys.length < 3) { used.delete(key); continue; }
       const correctIndex = Math.floor(Math.random() * 4);
       const labels = ["甲", "乙", "丙", "丁"];
       const choices = labels.map((label, index) => ({ label, cells: index === correctIndex ? rotated : decoys[index < correctIndex ? index : index - 1] }));
