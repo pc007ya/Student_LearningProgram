@@ -1,0 +1,951 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "u36",
+      "title": "數數看有多少元",
+      "grade": 1,
+      "source": "Junyi h-m1b-c06",
+      "questions": [
+        {
+          "id": "money-recognize-01",
+          "type": "countItems",
+          "stem": "這是一枚 1 元 硬幣，面額是多少？",
+          "speakText": "請看硬幣上的數字，這是 1 元。",
+          "answer": "1 元",
+          "options": [
+            "1 元",
+            "5 元",
+            "10 元",
+            "50 元"
+          ],
+          "explain": "硬幣上的數字是 1，所以是 1 元。",
+          "visual": {
+            "items": [
+              "🪙 1"
+            ],
+            "skill": "先看硬幣上的數字"
+          }
+        },
+        {
+          "id": "money-recognize-02",
+          "type": "countItems",
+          "stem": "這是一枚 5 元 硬幣，面額是多少？",
+          "speakText": "請看硬幣上的數字，這是 5 元。",
+          "answer": "5 元",
+          "options": [
+            "5 元",
+            "1 元",
+            "10 元",
+            "50 元"
+          ],
+          "explain": "硬幣上的數字是 5，所以是 5 元。",
+          "visual": {
+            "items": [
+              "🪙 5"
+            ],
+            "skill": "先看硬幣上的數字"
+          }
+        },
+        {
+          "id": "money-recognize-03",
+          "type": "countItems",
+          "stem": "這是一枚 10 元 硬幣，面額是多少？",
+          "speakText": "請看硬幣上的數字，這是 10 元。",
+          "answer": "10 元",
+          "options": [
+            "10 元",
+            "1 元",
+            "5 元",
+            "50 元"
+          ],
+          "explain": "硬幣上的數字是 10，所以是 10 元。",
+          "visual": {
+            "items": [
+              "🪙 10"
+            ],
+            "skill": "先看硬幣上的數字"
+          }
+        },
+        {
+          "id": "money-recognize-04",
+          "type": "countItems",
+          "stem": "這是一枚 50 元 硬幣，面額是多少？",
+          "speakText": "請看硬幣上的數字，這是 50 元。",
+          "answer": "50 元",
+          "options": [
+            "50 元",
+            "1 元",
+            "5 元",
+            "10 元"
+          ],
+          "explain": "硬幣上的數字是 50，所以是 50 元。",
+          "visual": {
+            "items": [
+              "🪙 50"
+            ],
+            "skill": "先看硬幣上的數字"
+          }
+        },
+        {
+          "id": "money-recognize-05",
+          "type": "countItems",
+          "stem": "這是一枚 100 元 硬幣，面額是多少？",
+          "speakText": "請看硬幣上的數字，這是 100 元。",
+          "answer": "100 元",
+          "options": [
+            "100 元",
+            "1 元",
+            "5 元",
+            "10 元"
+          ],
+          "explain": "硬幣上的數字是 100，所以是 100 元。",
+          "visual": {
+            "items": [
+              "🪙 100"
+            ],
+            "skill": "先看硬幣上的數字"
+          }
+        },
+        {
+          "id": "money-total-two-01",
+          "type": "countItems",
+          "stem": "桌上有 1 元和 1 元，合起來有多少元？",
+          "answer": 2,
+          "options": [
+            2,
+            1,
+            3,
+            7
+          ],
+          "explain": "把 1 元和 1 元加起來，1＋1＝2 元。",
+          "visual": {
+            "items": [
+              "🪙 1",
+              "🪙 1"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-02",
+          "type": "countItems",
+          "stem": "桌上有 1 元和 5 元，合起來有多少元？",
+          "answer": 6,
+          "options": [
+            6,
+            5,
+            7,
+            11
+          ],
+          "explain": "把 1 元和 5 元加起來，1＋5＝6 元。",
+          "visual": {
+            "items": [
+              "🪙 1",
+              "🪙 5"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-03",
+          "type": "countItems",
+          "stem": "桌上有 5 元和 5 元，合起來有多少元？",
+          "answer": 10,
+          "options": [
+            10,
+            9,
+            11,
+            15
+          ],
+          "explain": "把 5 元和 5 元加起來，5＋5＝10 元。",
+          "visual": {
+            "items": [
+              "🪙 5",
+              "🪙 5"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-04",
+          "type": "countItems",
+          "stem": "桌上有 5 元和 10 元，合起來有多少元？",
+          "answer": 15,
+          "options": [
+            15,
+            14,
+            16,
+            20
+          ],
+          "explain": "把 5 元和 10 元加起來，5＋10＝15 元。",
+          "visual": {
+            "items": [
+              "🪙 5",
+              "🪙 10"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-05",
+          "type": "countItems",
+          "stem": "桌上有 10 元和 10 元，合起來有多少元？",
+          "answer": 20,
+          "options": [
+            20,
+            19,
+            21,
+            25
+          ],
+          "explain": "把 10 元和 10 元加起來，10＋10＝20 元。",
+          "visual": {
+            "items": [
+              "🪙 10",
+              "🪙 10"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-06",
+          "type": "countItems",
+          "stem": "桌上有 10 元和 50 元，合起來有多少元？",
+          "answer": 60,
+          "options": [
+            60,
+            59,
+            61,
+            65
+          ],
+          "explain": "把 10 元和 50 元加起來，10＋50＝60 元。",
+          "visual": {
+            "items": [
+              "🪙 10",
+              "🪙 50"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-07",
+          "type": "countItems",
+          "stem": "桌上有 50 元和 50 元，合起來有多少元？",
+          "answer": 100,
+          "options": [
+            100,
+            99,
+            101,
+            105
+          ],
+          "explain": "把 50 元和 50 元加起來，50＋50＝100 元。",
+          "visual": {
+            "items": [
+              "🪙 50",
+              "🪙 50"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-08",
+          "type": "countItems",
+          "stem": "桌上有 50 元和 100 元，合起來有多少元？",
+          "answer": 150,
+          "options": [
+            150,
+            149,
+            151,
+            155
+          ],
+          "explain": "把 50 元和 100 元加起來，50＋100＝150 元。",
+          "visual": {
+            "items": [
+              "🪙 50",
+              "🪙 100"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-09",
+          "type": "countItems",
+          "stem": "桌上有 100 元和 100 元，合起來有多少元？",
+          "answer": 200,
+          "options": [
+            200,
+            199,
+            201,
+            205
+          ],
+          "explain": "把 100 元和 100 元加起來，100＋100＝200 元。",
+          "visual": {
+            "items": [
+              "🪙 100",
+              "🪙 100"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-two-10",
+          "type": "countItems",
+          "stem": "桌上有 1 元和 10 元，合起來有多少元？",
+          "answer": 11,
+          "options": [
+            11,
+            10,
+            12,
+            16
+          ],
+          "explain": "把 1 元和 10 元加起來，1＋10＝11 元。",
+          "visual": {
+            "items": [
+              "🪙 1",
+              "🪙 10"
+            ],
+            "skill": "把每一枚硬幣的面額加起來"
+          }
+        },
+        {
+          "id": "money-total-three-01",
+          "type": "countItems",
+          "stem": "有 1 元、1 元、5 元硬幣，合起來有多少元？",
+          "answer": 7,
+          "options": [
+            7,
+            6,
+            8,
+            12
+          ],
+          "explain": "1＋1＋5＝7，所以共有 7 元。",
+          "visual": {
+            "items": [
+              "🪙 1",
+              "🪙 1",
+              "🪙 5"
+            ],
+            "skill": "一枚一枚加，不重複也不漏掉"
+          }
+        },
+        {
+          "id": "money-total-three-02",
+          "type": "countItems",
+          "stem": "有 1 元、5 元、10 元硬幣，合起來有多少元？",
+          "answer": 16,
+          "options": [
+            16,
+            15,
+            17,
+            21
+          ],
+          "explain": "1＋5＋10＝16，所以共有 16 元。",
+          "visual": {
+            "items": [
+              "🪙 1",
+              "🪙 5",
+              "🪙 10"
+            ],
+            "skill": "一枚一枚加，不重複也不漏掉"
+          }
+        },
+        {
+          "id": "money-total-three-03",
+          "type": "countItems",
+          "stem": "有 5 元、5 元、10 元硬幣，合起來有多少元？",
+          "answer": 20,
+          "options": [
+            20,
+            19,
+            21,
+            25
+          ],
+          "explain": "5＋5＋10＝20，所以共有 20 元。",
+          "visual": {
+            "items": [
+              "🪙 5",
+              "🪙 5",
+              "🪙 10"
+            ],
+            "skill": "一枚一枚加，不重複也不漏掉"
+          }
+        },
+        {
+          "id": "money-total-three-04",
+          "type": "countItems",
+          "stem": "有 10 元、10 元、5 元硬幣，合起來有多少元？",
+          "answer": 25,
+          "options": [
+            25,
+            24,
+            26,
+            30
+          ],
+          "explain": "10＋10＋5＝25，所以共有 25 元。",
+          "visual": {
+            "items": [
+              "🪙 10",
+              "🪙 10",
+              "🪙 5"
+            ],
+            "skill": "一枚一枚加，不重複也不漏掉"
+          }
+        },
+        {
+          "id": "money-total-three-05",
+          "type": "countItems",
+          "stem": "有 10 元、50 元、10 元硬幣，合起來有多少元？",
+          "answer": 70,
+          "options": [
+            70,
+            69,
+            71,
+            75
+          ],
+          "explain": "10＋50＋10＝70，所以共有 70 元。",
+          "visual": {
+            "items": [
+              "🪙 10",
+              "🪙 50",
+              "🪙 10"
+            ],
+            "skill": "一枚一枚加，不重複也不漏掉"
+          }
+        },
+        {
+          "id": "money-pay-exact-01",
+          "type": "countItems",
+          "stem": "買一樣東西要 6 元，哪一組硬幣剛好可以付錢？",
+          "answer": "1 元和5 元",
+          "options": [
+            "1 元和5 元",
+            "1 元和 4 元",
+            "1 元和 6 元",
+            "只有 5 元"
+          ],
+          "explain": "1＋5＝6，這一組剛好付 6 元。",
+          "visual": {
+            "items": [
+              "🪙 1",
+              "🪙 5"
+            ],
+            "skill": "先算每一組硬幣的總額，再找剛好的"
+          }
+        },
+        {
+          "id": "money-pay-exact-02",
+          "type": "countItems",
+          "stem": "買一樣東西要 15 元，哪一組硬幣剛好可以付錢？",
+          "answer": "5 元和10 元",
+          "options": [
+            "5 元和10 元",
+            "5 元和 9 元",
+            "5 元和 11 元",
+            "只有 10 元"
+          ],
+          "explain": "5＋10＝15，這一組剛好付 15 元。",
+          "visual": {
+            "items": [
+              "🪙 5",
+              "🪙 10"
+            ],
+            "skill": "先算每一組硬幣的總額，再找剛好的"
+          }
+        },
+        {
+          "id": "money-pay-exact-03",
+          "type": "countItems",
+          "stem": "買一樣東西要 20 元，哪一組硬幣剛好可以付錢？",
+          "answer": "10 元和10 元",
+          "options": [
+            "10 元和10 元",
+            "10 元和 9 元",
+            "10 元和 11 元",
+            "只有 10 元"
+          ],
+          "explain": "10＋10＝20，這一組剛好付 20 元。",
+          "visual": {
+            "items": [
+              "🪙 10",
+              "🪙 10"
+            ],
+            "skill": "先算每一組硬幣的總額，再找剛好的"
+          }
+        },
+        {
+          "id": "money-pay-exact-04",
+          "type": "countItems",
+          "stem": "買一樣東西要 55 元，哪一組硬幣剛好可以付錢？",
+          "answer": "50 元和5 元",
+          "options": [
+            "50 元和5 元",
+            "50 元和 4 元",
+            "50 元和 6 元",
+            "只有 5 元"
+          ],
+          "explain": "50＋5＝55，這一組剛好付 55 元。",
+          "visual": {
+            "items": [
+              "🪙 50",
+              "🪙 5"
+            ],
+            "skill": "先算每一組硬幣的總額，再找剛好的"
+          }
+        },
+        {
+          "id": "money-pay-exact-05",
+          "type": "countItems",
+          "stem": "買一樣東西要 60 元，哪一組硬幣剛好可以付錢？",
+          "answer": "50 元和10 元",
+          "options": [
+            "50 元和10 元",
+            "50 元和 9 元",
+            "50 元和 11 元",
+            "只有 10 元"
+          ],
+          "explain": "50＋10＝60，這一組剛好付 60 元。",
+          "visual": {
+            "items": [
+              "🪙 50",
+              "🪙 10"
+            ],
+            "skill": "先算每一組硬幣的總額，再找剛好的"
+          }
+        }
+      ]
+    },
+    {
+      "id": "u37",
+      "title": "二位數的加減",
+      "grade": 1,
+      "source": "Junyi k-m1b-c08",
+      "questions": [
+        {
+          "id": "add-no-carry-1",
+          "type": "arithmetic",
+          "stem": "23 顆星星加上 14 顆星星，一共有幾顆？",
+          "speakText": "23 顆星星加上 14 顆星星，一共有幾顆？",
+          "answer": 37,
+          "options": [
+            37,
+            36,
+            38,
+            47
+          ],
+          "explain": "個位 3＋4，再算十位，答案是 37。",
+          "visual": {
+            "kind": "不進位"
+          }
+        },
+        {
+          "id": "add-no-carry-2",
+          "type": "arithmetic",
+          "stem": "31 顆星星加上 26 顆星星，一共有幾顆？",
+          "speakText": "31 顆星星加上 26 顆星星，一共有幾顆？",
+          "answer": 57,
+          "options": [
+            57,
+            56,
+            58,
+            67
+          ],
+          "explain": "個位 1＋6，再算十位，答案是 57。",
+          "visual": {
+            "kind": "不進位"
+          }
+        },
+        {
+          "id": "add-no-carry-3",
+          "type": "arithmetic",
+          "stem": "42 顆星星加上 15 顆星星，一共有幾顆？",
+          "speakText": "42 顆星星加上 15 顆星星，一共有幾顆？",
+          "answer": 57,
+          "options": [
+            57,
+            56,
+            58,
+            67
+          ],
+          "explain": "個位 2＋5，再算十位，答案是 57。",
+          "visual": {
+            "kind": "不進位"
+          }
+        },
+        {
+          "id": "add-no-carry-4",
+          "type": "arithmetic",
+          "stem": "54 顆星星加上 23 顆星星，一共有幾顆？",
+          "speakText": "54 顆星星加上 23 顆星星，一共有幾顆？",
+          "answer": 77,
+          "options": [
+            77,
+            76,
+            78,
+            87
+          ],
+          "explain": "個位 4＋3，再算十位，答案是 77。",
+          "visual": {
+            "kind": "不進位"
+          }
+        },
+        {
+          "id": "add-no-carry-5",
+          "type": "arithmetic",
+          "stem": "61 顆星星加上 18 顆星星，一共有幾顆？",
+          "speakText": "61 顆星星加上 18 顆星星，一共有幾顆？",
+          "answer": 79,
+          "options": [
+            79,
+            78,
+            80,
+            89
+          ],
+          "explain": "個位 1＋8，再算十位，答案是 79。",
+          "visual": {
+            "kind": "不進位"
+          }
+        },
+        {
+          "id": "add-no-carry-6",
+          "type": "arithmetic",
+          "stem": "72 顆星星加上 16 顆星星，一共有幾顆？",
+          "speakText": "72 顆星星加上 16 顆星星，一共有幾顆？",
+          "answer": 88,
+          "options": [
+            88,
+            87,
+            89,
+            98
+          ],
+          "explain": "個位 2＋6，再算十位，答案是 88。",
+          "visual": {
+            "kind": "不進位"
+          }
+        },
+        {
+          "id": "add-carry-1",
+          "type": "arithmetic",
+          "stem": "18 本故事書又買了 17 本，一共有幾本？",
+          "speakText": "18 本故事書又買了 17 本，一共有幾本？",
+          "answer": 35,
+          "options": [
+            35,
+            34,
+            36,
+            45
+          ],
+          "explain": "個位 8＋7，再算十位，答案是 35。",
+          "visual": {
+            "kind": "進位"
+          }
+        },
+        {
+          "id": "add-carry-2",
+          "type": "arithmetic",
+          "stem": "27 本故事書又買了 16 本，一共有幾本？",
+          "speakText": "27 本故事書又買了 16 本，一共有幾本？",
+          "answer": 43,
+          "options": [
+            43,
+            42,
+            44,
+            53
+          ],
+          "explain": "個位 7＋6，再算十位，答案是 43。",
+          "visual": {
+            "kind": "進位"
+          }
+        },
+        {
+          "id": "add-carry-3",
+          "type": "arithmetic",
+          "stem": "36 本故事書又買了 28 本，一共有幾本？",
+          "speakText": "36 本故事書又買了 28 本，一共有幾本？",
+          "answer": 64,
+          "options": [
+            64,
+            63,
+            65,
+            74
+          ],
+          "explain": "個位 6＋8，再算十位，答案是 64。",
+          "visual": {
+            "kind": "進位"
+          }
+        },
+        {
+          "id": "add-carry-4",
+          "type": "arithmetic",
+          "stem": "45 本故事書又買了 19 本，一共有幾本？",
+          "speakText": "45 本故事書又買了 19 本，一共有幾本？",
+          "answer": 64,
+          "options": [
+            64,
+            63,
+            65,
+            74
+          ],
+          "explain": "個位 5＋9，再算十位，答案是 64。",
+          "visual": {
+            "kind": "進位"
+          }
+        },
+        {
+          "id": "add-carry-5",
+          "type": "arithmetic",
+          "stem": "58 本故事書又買了 24 本，一共有幾本？",
+          "speakText": "58 本故事書又買了 24 本，一共有幾本？",
+          "answer": 82,
+          "options": [
+            82,
+            81,
+            83,
+            92
+          ],
+          "explain": "個位 8＋4，再算十位，答案是 82。",
+          "visual": {
+            "kind": "進位"
+          }
+        },
+        {
+          "id": "add-carry-6",
+          "type": "arithmetic",
+          "stem": "67 本故事書又買了 18 本，一共有幾本？",
+          "speakText": "67 本故事書又買了 18 本，一共有幾本？",
+          "answer": 85,
+          "options": [
+            85,
+            84,
+            86,
+            95
+          ],
+          "explain": "個位 7＋8，再算十位，答案是 85。",
+          "visual": {
+            "kind": "進位"
+          }
+        },
+        {
+          "id": "sub-no-borrow-1",
+          "type": "arithmetic",
+          "stem": "46 顆糖果送出 13 顆，還剩幾顆？",
+          "speakText": "46 顆糖果送出 13 顆，還剩幾顆？",
+          "answer": 33,
+          "options": [
+            33,
+            32,
+            34,
+            23
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；46－13＝33。",
+          "visual": {
+            "kind": "不退位"
+          }
+        },
+        {
+          "id": "sub-no-borrow-2",
+          "type": "arithmetic",
+          "stem": "57 顆糖果送出 24 顆，還剩幾顆？",
+          "speakText": "57 顆糖果送出 24 顆，還剩幾顆？",
+          "answer": 33,
+          "options": [
+            33,
+            32,
+            34,
+            23
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；57－24＝33。",
+          "visual": {
+            "kind": "不退位"
+          }
+        },
+        {
+          "id": "sub-no-borrow-3",
+          "type": "arithmetic",
+          "stem": "68 顆糖果送出 25 顆，還剩幾顆？",
+          "speakText": "68 顆糖果送出 25 顆，還剩幾顆？",
+          "answer": 43,
+          "options": [
+            43,
+            42,
+            44,
+            33
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；68－25＝43。",
+          "visual": {
+            "kind": "不退位"
+          }
+        },
+        {
+          "id": "sub-no-borrow-4",
+          "type": "arithmetic",
+          "stem": "79 顆糖果送出 36 顆，還剩幾顆？",
+          "speakText": "79 顆糖果送出 36 顆，還剩幾顆？",
+          "answer": 43,
+          "options": [
+            43,
+            42,
+            44,
+            33
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；79－36＝43。",
+          "visual": {
+            "kind": "不退位"
+          }
+        },
+        {
+          "id": "sub-no-borrow-5",
+          "type": "arithmetic",
+          "stem": "85 顆糖果送出 42 顆，還剩幾顆？",
+          "speakText": "85 顆糖果送出 42 顆，還剩幾顆？",
+          "answer": 43,
+          "options": [
+            43,
+            42,
+            44,
+            33
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；85－42＝43。",
+          "visual": {
+            "kind": "不退位"
+          }
+        },
+        {
+          "id": "sub-no-borrow-6",
+          "type": "arithmetic",
+          "stem": "94 顆糖果送出 31 顆，還剩幾顆？",
+          "speakText": "94 顆糖果送出 31 顆，還剩幾顆？",
+          "answer": 63,
+          "options": [
+            63,
+            62,
+            64,
+            53
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；94－31＝63。",
+          "visual": {
+            "kind": "不退位"
+          }
+        },
+        {
+          "id": "sub-borrow-1",
+          "type": "arithmetic",
+          "stem": "42 張貼紙用掉 17 張，還剩幾張？",
+          "speakText": "42 張貼紙用掉 17 張，還剩幾張？",
+          "answer": 25,
+          "options": [
+            25,
+            24,
+            26,
+            15
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；42－17＝25。",
+          "visual": {
+            "kind": "退位"
+          }
+        },
+        {
+          "id": "sub-borrow-2",
+          "type": "arithmetic",
+          "stem": "51 張貼紙用掉 26 張，還剩幾張？",
+          "speakText": "51 張貼紙用掉 26 張，還剩幾張？",
+          "answer": 25,
+          "options": [
+            25,
+            24,
+            26,
+            15
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；51－26＝25。",
+          "visual": {
+            "kind": "退位"
+          }
+        },
+        {
+          "id": "sub-borrow-3",
+          "type": "arithmetic",
+          "stem": "63 張貼紙用掉 28 張，還剩幾張？",
+          "speakText": "63 張貼紙用掉 28 張，還剩幾張？",
+          "answer": 35,
+          "options": [
+            35,
+            34,
+            36,
+            25
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；63－28＝35。",
+          "visual": {
+            "kind": "退位"
+          }
+        },
+        {
+          "id": "sub-borrow-4",
+          "type": "arithmetic",
+          "stem": "70 張貼紙用掉 35 張，還剩幾張？",
+          "speakText": "70 張貼紙用掉 35 張，還剩幾張？",
+          "answer": 35,
+          "options": [
+            35,
+            34,
+            36,
+            25
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；70－35＝35。",
+          "visual": {
+            "kind": "退位"
+          }
+        },
+        {
+          "id": "sub-borrow-5",
+          "type": "arithmetic",
+          "stem": "82 張貼紙用掉 47 張，還剩幾張？",
+          "speakText": "82 張貼紙用掉 47 張，還剩幾張？",
+          "answer": 35,
+          "options": [
+            35,
+            34,
+            36,
+            25
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；82－47＝35。",
+          "visual": {
+            "kind": "退位"
+          }
+        },
+        {
+          "id": "sub-borrow-6",
+          "type": "arithmetic",
+          "stem": "91 張貼紙用掉 56 張，還剩幾張？",
+          "speakText": "91 張貼紙用掉 56 張，還剩幾張？",
+          "answer": 35,
+          "options": [
+            35,
+            34,
+            36,
+            25
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；91－56＝35。",
+          "visual": {
+            "kind": "退位"
+          }
+        },
+        {
+          "id": "sub-borrow-7",
+          "type": "arithmetic",
+          "stem": "64 張貼紙用掉 19 張，還剩幾張？",
+          "speakText": "64 張貼紙用掉 19 張，還剩幾張？",
+          "answer": 45,
+          "options": [
+            45,
+            44,
+            46,
+            35
+          ],
+          "explain": "個位不夠減時，向十位借 1 個十；64－19＝45。",
+          "visual": {
+            "kind": "退位"
+          }
+        }
+      ]
+    }
+  ]
+}
