@@ -402,7 +402,7 @@
 
         <section class="quiz-card" style="background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:26px;box-shadow:0 18px 38px rgba(43,31,87,.08)">
           <div style="display:flex;align-items:flex-start;gap:12px">
-            <h2 class="quiz-heading" style="margin:0;flex:1;font-size:26px;font-weight:900;line-height:1.7">{{ qStem }}</h2>
+            <h2 class="quiz-heading" style="margin:0;flex:1;font-size:26px;font-weight:900;line-height:1.7"><sc-for list="{{ qStemChars }}" as="char" hint-placeholder-count="18"><span style="display:inline-grid;place-items:center;min-width:1.38em;height:1.38em;vertical-align:middle;border-radius:50%;background:{{ char.bg }};box-shadow:{{ char.shadow }};transition:background .12s ease,box-shadow .12s ease">{{ char.text }}</span></sc-for></h2>
             <button onClick="{{ speak }}" style="border:1px solid #d9f4f8;background:#eafbfd;border-radius:18px;padding:11px 15px;font-size:14px;font-weight:900;color:#0e7d8c;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="background:#d6f6fa">🔊 聽題目</button>
           </div>
 
@@ -576,14 +576,14 @@
         <section style="overflow:hidden;border:1px solid #e6dcff;border-radius:32px;background:linear-gradient(135deg,#fff8e7,#f1edff);box-shadow:0 18px 38px rgba(43,31,87,.08)">
           <div style="padding:28px 28px 22px;background:linear-gradient(100deg,#5b3fe0,#8a72f4);color:#fff">
             <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#dffaff">學習小教室</p>
-            <h2 style="margin:8px 0 5px;font-size:30px;font-weight:900">{{ lessonIcon }} {{ lessonTitle }}</h2>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><h2 style="margin:8px 0 5px;font-size:30px;font-weight:900">{{ lessonIcon }} {{ lessonTitle }}</h2><button onClick="{{ speakLesson }}" style="border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:9px 12px;background:rgba(255,255,255,.16);color:#fff;font-family:inherit;font-size:13px;font-weight:900;cursor:pointer">🔊 {{ lessonSpeakLabel }}</button></div>
             <p style="margin:0;font-size:14px;font-weight:800;color:rgba(255,255,255,.82)">{{ lessonSub }}</p>
           </div>
           <div style="padding:24px 28px 28px">
-            <p style="margin:0;font-size:17px;font-weight:900;line-height:1.75;color:#2b1f57">{{ lessonLead }}</p>
+            <p style="margin:0;font-size:17px;font-weight:900;line-height:1.75;color:#2b1f57"><sc-for list="{{ lessonLeadChars }}" as="char" hint-placeholder-count="12"><span style="display:inline-grid;place-items:center;min-width:1.38em;height:1.38em;vertical-align:middle;border-radius:50%;background:{{ char.bg }};box-shadow:{{ char.shadow }};transition:background .12s ease,box-shadow .12s ease">{{ char.text }}</span></sc-for></p>
             <div style="display:grid;gap:10px;margin-top:18px">
               <sc-for list="{{ lessonSteps }}" as="step" hint-placeholder-count="3">
-                <div style="display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border-radius:18px;background:#fff;border:1px solid #ece7ff"><span style="width:28px;height:28px;flex:none;display:grid;place-items:center;border-radius:50%;background:#fff0cc;color:#a06400;font-size:13px;font-weight:900">{{ step.no }}</span><span style="font-size:14px;font-weight:800;line-height:1.55;color:#4a3d7a">{{ step.text }}</span></div>
+                <div style="display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border-radius:18px;background:#fff;border:1px solid #ece7ff"><span style="width:28px;height:28px;flex:none;display:grid;place-items:center;border-radius:50%;background:#fff0cc;color:#a06400;font-size:13px;font-weight:900">{{ step.no }}</span><span style="font-size:14px;font-weight:800;line-height:1.55;color:#4a3d7a"><sc-for list="{{ step.chars }}" as="char" hint-placeholder-count="18"><span style="display:inline-grid;place-items:center;min-width:1.34em;height:1.34em;vertical-align:middle;border-radius:50%;background:{{ char.bg }};box-shadow:{{ char.shadow }};transition:background .12s ease,box-shadow .12s ease">{{ char.text }}</span></sc-for></span></div>
               </sc-for>
             </div>
             <p style="margin:18px 0 0;border-radius:16px;padding:11px 14px;background:#eafbfd;color:#0e7d8c;font-size:13px;font-weight:900">🎁 完成這次 10 題挑戰，可獲得 10 顆星星幣，剛好抽一次扭蛋。</p>
@@ -1450,7 +1450,7 @@ class Component extends DCLogic {
     subject: "math",
     grade: 1,
     unit: null, quizSubject: "math",
-    qs: [], qi: 0, picked: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, quizRunId: "", feedbackTitle: "", resultMastery: 0, resultNote: "",
+    qs: [], qi: 0, picked: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, quizRunId: "", feedbackTitle: "", resultMastery: 0, resultNote: "", lessonSpeechIndex: -1, speechHighlightIndex: -1,
     gain: { xp: 0, coins: 0 },
     assigned: "u2", weeklyConfig: readWeeklyConfig(), weeklyTeacherGrade: 1,
     examQs: [], examIndex: 0, examAnswers: [], examStartedAt: 0, examReview: [], examScore: 0,
@@ -1515,7 +1515,11 @@ class Component extends DCLogic {
       this.setState({ words, vUnit: words.length ? words[0].u : "" });
     }).catch(() => {});
     fetch("math-games.json").then((r) => r.json()).then((bank) => {
-      if (bank && bank.schemaVersion === 1 && Array.isArray(bank.modules)) this.setState({ mathGameBank: bank });
+      if (!bank || bank.schemaVersion !== 1 || !Array.isArray(bank.modules)) return;
+      this.setState((state) => {
+        const existing = (state.mathGameBank.modules || []).filter((module) => !bank.modules.some((incoming) => incoming.id === module.id));
+        return { mathGameBank: Object.assign({}, state.mathGameBank, bank, { modules: existing.concat(bank.modules) }) };
+      });
     }).catch(() => {});
     fetch("junyi-challenges.json").then((r) => r.json()).then((bank) => {
       if (!bank || bank.schemaVersion !== 1 || !Array.isArray(bank.modules)) return;
@@ -1587,6 +1591,8 @@ class Component extends DCLogic {
   componentWillUnmount() {
     clearInterval(this.timer);
     clearTimeout(this.autoNextTimer);
+    clearInterval(this.questionSpeechTimer);
+    clearInterval(this.lessonSpeechTimer);
     if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
   }
 
@@ -1966,7 +1972,7 @@ class Component extends DCLogic {
     if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
     const unit = MATH_UNITS.find((entry) => entry.id === id);
-    if (unit && unit.lesson) { this.setState({ screen: "lessonIntro", unit: id }); return; }
+    if (unit && unit.lesson) { this.setState({ screen: "lessonIntro", unit: id, lessonSpeechIndex: -1 }, () => this.speakLessonNarration()); return; }
     this.launchUnitQuiz(id);
   }
 
@@ -1979,7 +1985,48 @@ class Component extends DCLogic {
     this.setState({ screen: "quiz", unit: id, quizSubject: chinese ? "chinese" : "math", qs, qi: 0, picked: null, locked: false, correct: 0, quizRound: round, quizRunId: "quiz:" + this.state.currentId + ":" + id + ":" + Date.now(), timeLeft: this.roundSeconds(round), feedbackTitle: "", resultNote: "" }, () => this.speakQuestion(qs[0]));
   }
 
-  skipLesson() { this.launchUnitQuiz(this.state.unit); }
+  stopLessonNarration() {
+    clearInterval(this.lessonSpeechTimer);
+    this.lessonSpeechTimer = null;
+    if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
+    if (this.state.screen === "lessonIntro") this.setState({ lessonSpeechIndex: -1 });
+  }
+
+  speakLessonNarration() {
+    const unit = MATH_UNITS.find((entry) => entry.id === this.state.unit);
+    if (!unit || !unit.lesson || this.state.speechMuted || typeof speechSynthesis === "undefined") return;
+    const text = [unit.lesson.lead].concat(unit.lesson.steps || []).join("。");
+    this.stopLessonNarration();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "zh-TW";
+    utterance.rate = .84;
+    let fallbackIndex = 0, lastBoundary = 0;
+    utterance.onstart = () => {
+      this.setState({ lessonSpeechIndex: 0 });
+      this.lessonSpeechTimer = setInterval(() => {
+        if (this.state.screen !== "lessonIntro") return this.stopLessonNarration();
+        if (Date.now() - lastBoundary < 520) return;
+        fallbackIndex = Math.min(text.length - 1, fallbackIndex + 1);
+        this.setState({ lessonSpeechIndex: fallbackIndex });
+      }, 210);
+    };
+    utterance.onboundary = (event) => {
+      if (typeof event.charIndex !== "number") return;
+      lastBoundary = Date.now();
+      fallbackIndex = event.charIndex;
+      this.setState({ lessonSpeechIndex: event.charIndex });
+    };
+    const done = () => {
+      clearInterval(this.lessonSpeechTimer);
+      this.lessonSpeechTimer = null;
+      if (this.state.screen === "lessonIntro") this.setState({ lessonSpeechIndex: -1 });
+    };
+    utterance.onend = done;
+    utterance.onerror = done;
+    speechSynthesis.speak(utterance);
+  }
+
+  skipLesson() { this.stopLessonNarration(); this.launchUnitQuiz(this.state.unit); }
 
   pick(index) {
     if (this.state.locked) return;
@@ -2325,21 +2372,50 @@ class Component extends DCLogic {
 
   speakText(text) {
     if (!text || typeof speechSynthesis === "undefined") return;
+    this.clearQuestionHighlight();
     const u = new SpeechSynthesisUtterance(String(text).replace(/＋/g, "加").replace(/－/g, "減").replace(/×/g, "乘以").replace(/÷/g, "除以").replace(/＝/g, "等於"));
     u.lang = "zh-TW"; u.rate = 0.8;
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   }
 
+  clearQuestionHighlight() {
+    clearInterval(this.questionSpeechTimer);
+    this.questionSpeechTimer = null;
+    if (this.state.speechHighlightIndex !== -1) this.setState({ speechHighlightIndex: -1 });
+  }
+
   speakQuestion(question) {
     if (!question || this.state.speechMuted) return;
     const text = question.speakText ? question.stem + "。" + question.speakText : question.stem;
-    this.speakText(text);
+    this.clearQuestionHighlight();
+    if (typeof speechSynthesis === "undefined") return;
+    const u = new SpeechSynthesisUtterance(String(text).replace(/＋/g, "加").replace(/－/g, "減").replace(/×/g, "乘以").replace(/÷/g, "除以").replace(/＝/g, "等於"));
+    u.lang = "zh-TW"; u.rate = .8;
+    let fallbackIndex = 0, lastBoundary = 0;
+    u.onstart = () => {
+      this.setState({ speechHighlightIndex: 0 });
+      this.questionSpeechTimer = setInterval(() => {
+        if (this.state.screen !== "quiz" && this.state.screen !== "weeklyQuiz") return this.clearQuestionHighlight();
+        if (Date.now() - lastBoundary < 520) return;
+        fallbackIndex = Math.min(question.stem.length - 1, fallbackIndex + 1);
+        this.setState({ speechHighlightIndex: fallbackIndex });
+      }, 210);
+    };
+    u.onboundary = (event) => {
+      if (typeof event.charIndex !== "number") return;
+      lastBoundary = Date.now();
+      fallbackIndex = event.charIndex;
+      this.setState({ speechHighlightIndex: event.charIndex });
+    };
+    const done = () => this.clearQuestionHighlight();
+    u.onend = done; u.onerror = done;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
   }
 
   toggleSpeechMute() {
     const muted = !this.state.speechMuted;
     saveSpeechMuted(muted);
-    if (muted && typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
+    if (muted) { this.clearQuestionHighlight(); this.stopLessonNarration(); }
     this.setState({ speechMuted: muted });
   }
 
@@ -2581,6 +2657,24 @@ class Component extends DCLogic {
     // Keeping one active visual question prevents fraction/clock/number-line
     // prompts from losing the diagram that is required to answer them.
     const q = s.screen === "weeklyQuiz" ? s.examQs[s.examIndex] : s.qs[s.qi];
+    const lesson = unit.lesson || { lead: "先看解說，再開始挑戰。", steps: [] };
+    let lessonOffset = 0;
+    const lessonCharacters = (text) => Array.from(text).map((char, index) => {
+      const absoluteIndex = lessonOffset + index;
+      const active = s.lessonSpeechIndex === absoluteIndex;
+      return { text: char, bg: active ? "rgba(255,104,170,.36)" : "transparent", shadow: active ? "0 0 0 3px rgba(255,104,170,.16)" : "none" };
+    });
+    const lessonLeadChars = lessonCharacters(lesson.lead);
+    lessonOffset += Array.from(lesson.lead).length + 1;
+    const lessonSteps = (lesson.steps || []).map((text, index) => {
+      const chars = lessonCharacters(text);
+      lessonOffset += Array.from(text).length + 1;
+      return { no: index + 1, chars };
+    });
+    const qStemChars = Array.from(q && q.stem ? q.stem : "").map((char, index) => {
+      const active = s.speechHighlightIndex === index;
+      return { text: char, bg: active ? "rgba(255,104,170,.36)" : "transparent", shadow: active ? "0 0 0 3px rgba(255,104,170,.16)" : "none" };
+    });
     const className = (id) => (s.classes.find((c) => c.id === id) || { name: "未分班" }).name;
     const myClass = me ? me.classId : s.loginClass;
     const classmates = s.students.filter((st) => st.classId === myClass);
@@ -2878,10 +2972,12 @@ class Component extends DCLogic {
       lessonIcon: unit.icon || "📘",
       lessonTitle: unit.title || "數學挑戰",
       lessonSub: unit.sub || "一年級數學",
-      lessonLead: unit.lesson ? unit.lesson.lead : "先看解說，再開始挑戰。",
-      lessonSteps: unit.lesson ? unit.lesson.steps.map((text, index) => ({ no: index + 1, text })) : [],
+      lessonLeadChars,
+      lessonSteps,
       skipLesson: () => this.skipLesson(),
       startLessonChallenge: () => this.skipLesson(),
+      speakLesson: () => this.speakLessonNarration(),
+      lessonSpeakLabel: s.lessonSpeechIndex >= 0 ? "朗讀中" : "聽解說",
 
       quizUnitTitle: unit.title,
       qNo: s.qi + 1, qTotal: s.qs.length || this.total(),
@@ -2903,8 +2999,8 @@ class Component extends DCLogic {
           if (enabled && this.state.locked) this.autoNextTimer = setTimeout(() => this.next(), 3000);
         });
       },
-      qStem: q ? q.stem : "",
-      speak: () => this.speakText(q ? (q.speakText ? q.stem + "。" + q.speakText : q.stem) : ""),
+      qStemChars,
+      speak: () => this.speakQuestion(q),
       locked: s.locked,
       quitQuiz: () => {
         clearTimeout(this.autoNextTimer);
