@@ -94,6 +94,16 @@ def rebuild_g05_lower() -> None:
     module.save(MODULES / "female-g05-lower-bare.png", optimize=True)
 
 
+def rebuild_g05_upper() -> None:
+    """Match the direct model's shoulder and hand-span coordinates."""
+    source = visible_crop(
+        Image.open(SOURCE / "female-g05-upper-rig-v1.png").convert("RGBA")
+    )
+    fitted = source.resize((185, source.height), Image.Resampling.LANCZOS)
+    upper = centered_canvas(fitted, CANVAS, 180)
+    upper.save(MODULES / "female-g05-upper.png", optimize=True)
+
+
 def rebuild_g05_shoes() -> None:
     """Align the loafers with the corrected sock-and-foot lower-body module."""
     source = Image.open(SOURCE / "female-g05-shoes-rig-v1.png").convert("RGBA")
@@ -119,6 +129,7 @@ def rebuild_bottom_product_art() -> None:
 
 
 if __name__ == "__main__":
+    rebuild_g05_upper()
     rebuild_g05_lower()
     rebuild_g05_shoes()
     rebuild_bottom_product_art()
