@@ -1193,7 +1193,10 @@ const MATH_GAME_FALLBACK = {
   modules: [
     { id: "u29", questions: [
       { id: "shape-triangle-demo", type: "shape-count", stem: "圖中一共有幾個三角形？", answer: 4, options: [3, 4, 5, 6], explain: "逐一指出三角形，共有 4 個。", visual: { items: ["triangle", "circle", "triangle", "square", "triangle", "rectangle", "triangle"] } },
-      { id: "solid-cube-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "正方體", options: ["正方體", "長方體", "圓柱體", "圓錐體"], explain: "每一面都是一樣大的正方形，所以是正方體。", visual: { solid: "cube" } },
+      { id: "solid-cube-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "正方體", options: ["正方體", "長方體", "圓柱體", "圓錐體"], explain: "每一面都是一樣大的正方形，所以是正方體。", visual: { solid: "cube", image: "images/math-games/solid-cube.png", alt: "紫色與藍綠色的正方體" } },
+      { id: "solid-cuboid-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "長方體", options: ["正方體", "長方體", "圓柱體", "圓錐體"], explain: "它有長、寬、高，側面是長方形，所以是長方體。", visual: { solid: "cuboid", image: "images/math-games/solid-cuboid.png", alt: "紫色與藍綠色的長方體" } },
+      { id: "solid-cylinder-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "圓柱體", options: ["圓柱體", "圓錐體", "正方體", "球體"], explain: "它有兩個一樣大的圓形底面，所以是圓柱體。", visual: { solid: "cylinder", image: "images/math-games/solid-cylinder.png", alt: "紫色與藍綠色的圓柱體" } },
+      { id: "solid-cone-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "圓錐體", options: ["圓柱體", "圓錐體", "長方體", "球體"], explain: "它有一個圓形底面和一個頂點，所以是圓錐體。", visual: { solid: "cone", image: "images/math-games/solid-cone.png", alt: "紫色與藍綠色的圓錐體" } },
       { id: "blocks-demo", type: "block-count", stem: "這座積木一共用了幾個小正方體？", answer: 6, options: [4, 5, 6, 7], explain: "3＋2＋1＝6，共有 6 個。", visual: { columns: [3, 2, 1] } }
     ] },
     { id: "u30", questions: [
@@ -1760,7 +1763,7 @@ class Component extends DCLogic {
         : question.fig === "line" ? "圖示：數線上的三角形位於 " + question.figData.t + "。"
         : question.fig === "clock" ? "圖示：時鐘顯示 " + question.figData.h + " 點 " + String(question.figData.m).padStart(2, "0") + " 分。"
         : question.fig === "shapeCount" ? "圖示：混合排列的三角形、圓形、正方形與長方形。"
-        : question.fig === "solid" ? "圖示：" + (question.figData.solid === "cuboid" ? "長方體" : "正方體") + "。"
+        : question.fig === "solid" ? "圖示：" + ({ cube: "正方體", cuboid: "長方體", cylinder: "圓柱體", cone: "圓錐體" }[question.figData.solid] || "立體圖形") + "。"
         : question.fig === "blocks" ? "圖示：積木柱高度為 " + question.figData.columns.join("、") + "。"
         : question.fig === "weight" ? "圖示：天平左側是「" + question.figData.left.label + "」，右側是「" + question.figData.right.label + "」。"
         : question.fig === "protractor" ? "圖示：量角器上的射線通過 " + question.figData.angle + "°。"
@@ -2150,12 +2153,16 @@ class Component extends DCLogic {
         return React.createElement("div", { role: "img", "aria-label": "平面形狀數量題", style: shell }, (data.items || []).map((type, index) => React.createElement("span", { key: index, style: Object.assign({ display: "block", width: 58, height: 58, filter: "drop-shadow(0 7px 7px rgba(43,31,87,.13))" }, shapeStyles[type] || shapeStyles.square) })));
       }
       if (question.fig === "solid") {
-        const cuboid = data.solid === "cuboid";
-        return React.createElement("div", { role: "img", "aria-label": cuboid ? "長方體圖形" : "正方體圖形", style: shell },
-          React.createElement("div", { style: { position: "relative", width: cuboid ? 190 : 140, height: 120 } },
-            React.createElement("span", { style: { position: "absolute", left: 20, top: 28, width: cuboid ? 145 : 95, height: 82, borderRadius: 10, background: "linear-gradient(135deg,#8f6bff,#5b3fe0)", border: "4px solid #2b1f57" } }),
-            React.createElement("span", { style: { position: "absolute", left: 38, top: 10, width: cuboid ? 145 : 95, height: 82, borderRadius: 10, border: "4px solid #2b1f57", transform: "skewY(-20deg)", background: "rgba(124,92,255,.24)" } }),
-            React.createElement("span", { style: { position: "absolute", left: 20, top: 28, width: 22, height: 82, background: "#22c8d8", clipPath: "polygon(0 0,100% 0,100% 78%,0 100%)" } })));
+        const solidNames = { cube: "正方體", cuboid: "長方體", cylinder: "圓柱體", cone: "圓錐體" };
+        const solidFiles = { cube: "solid-cube.png", cuboid: "solid-cuboid.png", cylinder: "solid-cylinder.png", cone: "solid-cone.png" };
+        const name = solidNames[data.solid] || "立體圖形";
+        const src = data.image || (solidFiles[data.solid] ? "images/math-games/" + solidFiles[data.solid] : "");
+        return React.createElement("div", { style: Object.assign({}, shell, { minHeight: 240 }) },
+          src ? React.createElement("img", {
+            src,
+            alt: data.alt || name,
+            style: { display: "block", width: "min(300px,82vw)", height: 210, objectFit: "contain" }
+          }) : React.createElement("span", { role: "status", style: { color: "#7c74a8", fontWeight: 900 } }, "立體圖形圖片載入中"));
       }
       if (question.fig === "blocks") {
         return React.createElement("div", { role: "img", "aria-label": "小正方體積木堆疊", style: shell }, (data.columns || []).map((height, column) => React.createElement("span", { key: column, style: { alignSelf: "flex-end", display: "flex", flexDirection: "column-reverse", gap: 3, transform: "translateY(" + (column % 2 ? 8 : 0) + "px)" } }, Array.from({ length: height }, (_, index) => React.createElement("span", { key: index, style: { width: 48, height: 48, display: "grid", placeItems: "center", borderRadius: 9, color: "#fff", fontSize: 23, fontWeight: 900, background: "linear-gradient(135deg,#22c8d8 0 50%,#178ca0 51%)", border: "3px solid #2b1f57", boxShadow: "inset 7px 7px rgba(255,255,255,.22)" } }, "◇")))));
