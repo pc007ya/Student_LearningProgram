@@ -352,7 +352,7 @@
 
         <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(124px,1fr))">
           <sc-for list="{{ libWords }}" as="w" hint-placeholder-count="12">
-            <button onClick="{{ w.open }}" style="background:#fff;border:2px solid {{ w.border }};border-radius:22px;padding:14px 8px;display:grid;justify-items:center;gap:4px;cursor:pointer;font-family:inherit;box-shadow:0 10px 22px rgba(43,31,87,.05)" style-hover="transform:translateY(-3px)">
+            <button onClick="{{ w.open }}" style="background:{{ w.bg }};border:2px solid {{ w.border }};border-radius:22px;padding:14px 8px;display:grid;justify-items:center;gap:4px;cursor:pointer;font-family:inherit;box-shadow:0 10px 22px rgba(43,31,87,.05)" style-hover="transform:translateY(-3px)">
               <span style="font-size:24px">{{ w.pic }}</span>
               <strong style="font-size:34px;font-weight:900;color:#2b1f57;line-height:1.1">{{ w.char }}</strong>
               <span style="font-size:12px;font-weight:900;color:#a06400">{{ w.zhuyin }}</span>
@@ -369,10 +369,12 @@
           <button onClick="{{ goMap }}" style="border:1px solid #ece7ff;background:#fff;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;font-family:inherit;color:#7c74a8">←</button>
           <div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">HANDWRITING</p><h2 style="margin:4px 0 0;font-size:24px;font-weight:900">✍️ 寫字練習辨識</h2></div>
         </div>
-        <section style="background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:24px;box-shadow:0 18px 38px rgba(43,31,87,.08)">
+        <section style="position:relative;background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:24px;box-shadow:0 18px 38px rgba(43,31,87,.08)">
+          <div style="position:absolute;right:18px;top:18px;display:flex;gap:7px;font-size:12px;font-weight:900" aria-label="本字練習紀錄"><span style="padding:7px 10px;border-radius:99px;background:#e6f7ee;color:#1d7a55">✓ {{ writingCorrectCount }}</span><span style="padding:7px 10px;border-radius:99px;background:#ffeef2;color:#d94a79">✕ {{ writingWrongCount }}</span></div>
           <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:16px">
             <span style="font-size:52px">{{ writingPicture }}</span>
             <span><strong style="display:block;font-size:28px;font-weight:900;color:#2b1f57">{{ writingWord }}</strong><span style="font-size:17px;font-weight:900;color:#a06400">{{ writingZhuyin }}</span></span>
+            <button onClick="{{ speakWritingWord }}" aria-label="聽字詞讀音" style="border:0;border-radius:99px;width:42px;height:42px;background:#fff0f6;color:#d94a79;font-size:19px;cursor:pointer">🔊</button>
           </div>
           <div style="position:relative;width:min(100%,340px);aspect-ratio:1;margin:0 auto;border:3px solid #ddd5ff;border-radius:24px;overflow:hidden;background:#fbfaff">
             <span style="position:absolute;inset:0;display:grid;place-items:center;font-family:serif;font-size:230px;line-height:1;color:rgba(124,92,255,.16);user-select:none">{{ writingChar }}</span>
@@ -381,8 +383,8 @@
           </div>
           <p style="margin:16px auto 0;max-width:520px;padding:12px 16px;border-radius:16px;text-align:center;font-size:14px;font-weight:900;line-height:1.6;color:{{ writingFeedbackFg }};background:{{ writingFeedbackBg }}">{{ writingFeedback }}</p>
           <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-            <button onClick="{{ clearWriting }}" style="border:1.5px solid #ddd5ff;border-radius:16px;padding:12px 20px;background:#fff;color:#7c74a8;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">清除重寫</button>
-            <button onClick="{{ recognizeWriting }}" style="border:0;border-radius:16px;padding:12px 24px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">辨識寫字</button>
+            <button onClick="{{ clearWriting }}" style="border:1.5px solid #ddd5ff;border-radius:16px;padding:12px 20px;background:#fff;color:#7c74a8;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">🧽 清除重寫</button>
+            <button onClick="{{ recognizeWriting }}" style="border:0;border-radius:16px;padding:12px 24px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">🔍 辨識寫字</button>
             <button onClick="{{ nextWriting }}" style="border:1.5px solid #ffd98a;border-radius:16px;padding:12px 20px;background:#fffaf0;color:#a06400;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">換下一個字 →</button>
           </div>
         </section>
@@ -1441,7 +1443,7 @@ function makeProfile() {
     avatar: "girl", avatarStyle: "atelier", avatarSelected: false,
     favorites: [], log: [],
     dailyMastery: { date: localDateKey(), units: {} },
-    masteryHistory: {}, xpLedger: [], rewardedRuns: [], weeklyExam: null,
+    masteryHistory: {}, writingStats: {}, xpLedger: [], rewardedRuns: [], weeklyExam: null,
     gachaOwned: {}, gachaHistory: [], gachaDraws: 0,
   };
 }
@@ -1508,6 +1510,7 @@ class Component extends DCLogic {
         profile.equipped = Object.assign({}, BASE_EQUIP, storedEquipped);
         profile.dailyMastery = normalizeDailyMastery(profile.dailyMastery);
         profile.masteryHistory = profile.masteryHistory && typeof profile.masteryHistory === "object" ? profile.masteryHistory : {};
+        profile.writingStats = profile.writingStats && typeof profile.writingStats === "object" ? profile.writingStats : {};
         profile.xpLedger = Array.isArray(profile.xpLedger) ? profile.xpLedger : [];
         profile.rewardedRuns = Array.isArray(profile.rewardedRuns) ? profile.rewardedRuns : [];
         profile.weeklyExam = profile.weeklyExam && typeof profile.weeklyExam === "object" ? profile.weeklyExam : null;
@@ -1692,7 +1695,8 @@ class Component extends DCLogic {
     const pool = this.gradeWords(grade);
     if (!pool.length) { this.flash("字彙還在載入中，請稍等一下"); return; }
     const word = pool[Math.floor(Math.random() * pool.length)];
-    this.setState({ screen: "writing", grade, writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => this.clearWriting());
+    clearTimeout(this.writingClearTimer);
+    this.setState({ screen: "writing", grade, writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => { this.clearWriting(); this.speakWritingWord(); });
   }
   writingPosition(event) {
     const canvas = document.getElementById("writing-pad");
@@ -1721,11 +1725,16 @@ class Component extends DCLogic {
     this.writingPoints = (this.writingPoints || 0) + 1;
   }
   endWriting() { this.writingActive = false; }
-  clearWriting() {
+  clearWriting(keepFeedback) {
     const canvas = document.getElementById("writing-pad");
     if (canvas) canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     this.writingPoints = 0;
-    if (this.state.screen === "writing") this.setState({ writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false });
+    if (!keepFeedback && this.state.screen === "writing") this.setState({ writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false });
+  }
+  speakWritingWord() {
+    const word = this.state.writingWord;
+    if (!word || this.state.speechMuted) return;
+    this.speakText("跟著念，「" + word.c + "」。語詞是「" + word.w + "」。");
   }
   recognizeWriting() {
     const canvas = document.getElementById("writing-pad");
@@ -1741,14 +1750,18 @@ class Component extends DCLogic {
     for (let i = 3; i < ink.length; i += 4) if (ink[i] > 20) { drawn += 1; if (mask[i] > 5) overlap += 1; }
     const precision = drawn ? overlap / drawn : 0;
     const good = drawn > 650 && (this.writingPoints || 0) > 8 && precision > .22;
-    if (good) {
-      const rewardId = "writing:" + localDateKey() + ":" + word.c;
-      this.patch((p) => {
-        if (p.rewardedRuns.indexOf(rewardId) >= 0) return {};
-        return { xp: p.xp + 5, rewardedRuns: p.rewardedRuns.concat(rewardId).slice(-300), xpLedger: [{ id: rewardId, date: localDateKey(), amount: 5, source: "寫字練習", detail: "描寫「" + word.c + "」" }].concat(p.xpLedger).slice(0, 500) };
-      });
-    }
-    this.setState({ writingFeedbackGood: good, writingFeedback: good ? "✓ 描寫位置很接近！認得是「" + word.c + "」。" : "再沿著淡色筆畫寫一次，注意字要寫在方格中央。" });
+    const rewardId = "writing:" + localDateKey() + ":" + word.c;
+    this.patch((p) => {
+      const writingStats = Object.assign({}, p.writingStats || {});
+      const stat = Object.assign({ correct: 0, wrong: 0 }, writingStats[word.c] || {});
+      stat[good ? "correct" : "wrong"] += 1;
+      writingStats[word.c] = stat;
+      if (!good || p.rewardedRuns.indexOf(rewardId) >= 0) return { writingStats };
+      return { writingStats, xp: p.xp + 5, rewardedRuns: p.rewardedRuns.concat(rewardId).slice(-300), xpLedger: [{ id: rewardId, date: localDateKey(), amount: 5, source: "寫字練習", detail: "描寫「" + word.c + "」" }].concat(p.xpLedger).slice(0, 500) };
+    });
+    clearTimeout(this.writingClearTimer);
+    this.setState({ writingFeedbackGood: good, writingFeedback: good ? "✓ 描寫位置很接近！認得是「" + word.c + "」。" : "這次還不太像，2 秒後會清除，請再沿著淡色筆畫慢慢寫。" });
+    if (!good) this.writingClearTimer = setTimeout(() => this.clearWriting(true), 2000);
     if (!this.state.speechMuted) this.speakText(good ? "寫得很好，這是" + word.c : "再試一次，沿著淡色筆畫慢慢寫");
   }
   nextWriting() {
@@ -1756,7 +1769,8 @@ class Component extends DCLogic {
     const current = this.state.writingWord;
     const candidates = pool.filter((word) => !current || word.c !== current.c);
     const word = (candidates.length ? candidates : pool)[Math.floor(Math.random() * (candidates.length || pool.length))];
-    this.setState({ writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => this.clearWriting());
+    clearTimeout(this.writingClearTimer);
+    this.setState({ writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => { this.clearWriting(); this.speakWritingWord(); });
   }
 
   buildMoneyChallenge(count) {
@@ -3176,11 +3190,18 @@ class Component extends DCLogic {
         fg: s.libUnit === u ? "#fff" : "#7c74a8",
         border: s.libUnit === u ? "#35c98a" : "#ece7ff",
       })),
-      libWords: libFiltered.map((w) => ({
-        char: w.c, zhuyin: w.z, word: w.w, pic: w.i,
-        border: p.favorites.indexOf(w.c) >= 0 ? "#ffb020" : "#f0ecff",
-        open: () => this.setState({ detailChar: w.c }),
-      })),
+      libWords: libFiltered.map((w) => {
+        const stat = (p.writingStats && p.writingStats[w.c]) || {};
+        const correct = Number(stat.correct) || 0, wrong = Number(stat.wrong) || 0;
+        const needsPractice = wrong >= 2 && wrong > correct;
+        const confident = correct >= 2 && correct >= wrong;
+        return {
+          char: w.c, zhuyin: w.z, word: w.w, pic: w.i,
+          bg: needsPractice ? "#ffeef2" : confident ? "#e6f7ee" : "#fff",
+          border: p.favorites.indexOf(w.c) >= 0 ? "#ffb020" : needsPractice ? "#ffc7da" : confident ? "#9fe3c4" : "#f0ecff",
+          open: () => this.setState({ detailChar: w.c }),
+        };
+      }),
       hasWordDetail: !!detail,
       detail: detail ? {
         char: detail.c, zhuyin: detail.z, word: detail.w, radical: detail.r, unit: detail.u, pic: detail.i,
@@ -3197,8 +3218,10 @@ class Component extends DCLogic {
       writingFeedback: s.writingFeedback,
       writingFeedbackFg: s.writingFeedbackGood ? "#1d7a55" : "#7c74a8",
       writingFeedbackBg: s.writingFeedbackGood ? "#e6f7ee" : "#f3f0ff",
+      writingCorrectCount: s.writingWord && p.writingStats && p.writingStats[s.writingWord.c] ? (Number(p.writingStats[s.writingWord.c].correct) || 0) : 0,
+      writingWrongCount: s.writingWord && p.writingStats && p.writingStats[s.writingWord.c] ? (Number(p.writingStats[s.writingWord.c].wrong) || 0) : 0,
       writingStart: (e) => this.beginWriting(e), writingMove: (e) => this.moveWriting(e), writingEnd: () => this.endWriting(),
-      clearWriting: () => this.clearWriting(), recognizeWriting: () => this.recognizeWriting(), nextWriting: () => this.nextWriting(),
+      clearWriting: () => this.clearWriting(), recognizeWriting: () => this.recognizeWriting(), nextWriting: () => this.nextWriting(), speakWritingWord: () => this.speakWritingWord(),
 
       lessonIcon: unit.icon || "📘",
       lessonTitle: unit.title || "數學挑戰",
