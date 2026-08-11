@@ -1,0 +1,48 @@
+{
+  "id": "generated-denim-rust",
+  "code": "g27",
+  "title": "DENIM RUST",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "top": {
+      "canvas": "top.png",
+      "shop": "shop-top.png",
+      "name": "靛藍短版丹寧外套"
+    },
+    "bot": {
+      "canvas": "bot.png",
+      "shop": "shop-bottom.png",
+      "name": "赤陶工裝及膝裙"
+    }
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "bot",
+    "top"
+  ],
+  "bodyGrid": {
+    "topBox": [
+      220,
+      340,
+      804,
+      990
+    ],
+    "bottomBox": [
+      280,
+      710,
+      720,
+      1140
+    ]
+  },
+  "sourceGap": [
+    629,
+    740
+  ],
+  "source": "imagegen chroma wardrobe sheet; body-free top/bottom"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "generated-navy-ivory",
+  "code": "g25",
+  "title": "NAVY IVORY",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "top": {
+      "canvas": "top.png",
+      "shop": "shop-top.png",
+      "name": "深藍現代水手針織上衣"
+    },
+    "bot": {
+      "canvas": "bot.png",
+      "shop": "shop-bottom.png",
+      "name": "象牙百褶中長裙"
+    }
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "bot",
+    "top"
+  ],
+  "bodyGrid": {
+    "topBox": [
+      220,
+      340,
+      804,
+      990
+    ],
+    "bottomBox": [
+      260,
+      710,
+      740,
+      1380
+    ]
+  },
+  "sourceGap": [
+    647,
+    659
+  ],
+  "source": "imagegen chroma wardrobe sheet; body-free top/bottom"
+}

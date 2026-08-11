@@ -1,0 +1,48 @@
+{
+  "id": "generated-lavender-check",
+  "code": "g26",
+  "title": "LAVENDER CHECK",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "top": {
+      "canvas": "top.png",
+      "shop": "shop-top.png",
+      "name": "薰衣草羅紋高領上衣"
+    },
+    "bot": {
+      "canvas": "bot.png",
+      "shop": "shop-bottom.png",
+      "name": "炭灰薰衣草格紋中長裙"
+    }
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "bot",
+    "top"
+  ],
+  "bodyGrid": {
+    "topBox": [
+      220,
+      340,
+      804,
+      990
+    ],
+    "bottomBox": [
+      260,
+      710,
+      740,
+      1380
+    ]
+  },
+  "sourceGap": [
+    618,
+    622
+  ],
+  "source": "imagegen chroma wardrobe sheet; body-free top/bottom"
+}

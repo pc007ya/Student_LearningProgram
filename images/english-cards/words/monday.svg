@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="300" viewBox="0 0 360 300">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="hsl(216 90% 94%)"/><stop offset="1" stop-color="hsl(258 85% 82%)"/></linearGradient></defs>
+<rect width="360" height="300" rx="34" fill="url(#g)"/><circle cx="52" cy="48" r="18" fill="#fff" opacity=".65"/><circle cx="314" cy="55" r="12" fill="#fff" opacity=".55"/><path d="M28 244 Q180 205 332 244" fill="none" stroke="#fff" stroke-width="12" opacity=".45"/>
+<text x="180" y="168" text-anchor="middle" font-size="112">🔤</text><text x="180" y="251" text-anchor="middle" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="34" font-weight="700" fill="#2b1f57">monday</text></svg>

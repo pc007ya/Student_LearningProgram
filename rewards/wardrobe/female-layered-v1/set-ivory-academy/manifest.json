@@ -1,0 +1,22 @@
+{
+  "id": "set-ivory-academy",
+  "title": "象牙針織學院套裝",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "set": {
+      "canvas": "set.png",
+      "shop": "shop-set.png"
+    }
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "set"
+  ],
+  "source": "green-screen three-column outfit sheet"
+}
