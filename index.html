@@ -1182,7 +1182,7 @@
         <section style="border-radius:28px;padding:22px;background:linear-gradient(135deg,#241a4d,#44337a);color:#fff;box-shadow:0 18px 38px rgba(43,31,87,.2)">
           <p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.22em;color:#9eeaf1">REWARD ARCHIVE</p>
           <h2 style="margin:8px 0 4px;font-size:28px;font-weight:900">角色造型商城</h2>
-          <p style="margin:0;font-size:13px;font-weight:700;color:rgba(255,255,255,.72)">目前角色可使用 {{ catalogCount }} 件已上架造型商品；髮型、帽子、上衣、套裝、下身與鞋履正在整理新素材，暫時下架。</p>
+          <p style="margin:0;font-size:13px;font-weight:700;color:rgba(255,255,255,.72)">目前角色可使用 {{ catalogCount }} 件已上架造型商品；女性髮型已更新為 1000×1900 定位素材，其餘服裝分類持續整理中。</p>
         </section>
         <section style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border:1.5px solid #bde8ee;border-radius:24px;padding:16px 18px;background:linear-gradient(120deg,#eafbfd,#f5f0ff)">
           <span style="width:56px;height:56px;border-radius:20px;display:grid;place-items:center;background:#fff;font-size:29px;box-shadow:0 8px 16px rgba(34,200,216,.14)">🫧</span>
@@ -1518,7 +1518,7 @@ const CAT_LABELS = { hair: "髮型", set: "套裝", top: "上衣", handRight: "�
 // These categories are intentionally delisted while their replacement asset
 // folders are being prepared. Keep their source files and zero-cost system
 // defaults so saved profiles can fall back safely without showing old goods.
-const DELISTED_WARDROBE_CATEGORIES = new Set(["hair", "set", "top", "bottom", "accessory", "shoes"]);
+const DELISTED_WARDROBE_CATEGORIES = new Set(["set", "top", "bottom", "accessory", "shoes"]);
 // Shop tabs keep the single hand catalogue (items can be equipped in either
 // hand), while the closet exposes separate left/right hand slots.
 const SHOP_CAT_LABELS = { set: "套裝", hair: "髮型與髮色", top: "上衣", bottom: "下身", background: "背景", shoes: "鞋履", accessory: "帽子", neck: "脖子", hand: "手持", pet: "寵物" };
@@ -1541,6 +1541,7 @@ const MODULAR_WARDROBE_ROOT = "rewards/wardrobe/modular-v3/modules/";
 const FEMALE_LAYERED_OUTFIT_ROOT = "rewards/wardrobe/female-layered-v1/";
 const FEMALE_LAYERED_SPORTS_ROOT = FEMALE_LAYERED_OUTFIT_ROOT + "sports-bra-cargo-shorts/";
 const GRID_ALIGNED_ACCESSORY_ROOT = "rewards/wardrobe/grid-aligned-v1/";
+const FEMALE_HAIR_V2_ROOT = "rewards/wardrobe/hair-v2/";
 const FEMALE_HEAD_MODULES_BY_VARIANT = {
   0: MODULAR_WARDROBE_ROOT + "female-head-base.png",
   1: MODULAR_WARDROBE_ROOT + "female-head-bob.png",
@@ -1613,6 +1614,25 @@ function buildCatalog() {
     { id: "hair-29", name: "Creative・自然中長髮", collection: "CREATIVE SHEET", root: FEMALE_LAYERED_OUTFIT_ROOT + "sheet-creative/", color: "#242124" },
     { id: "hair-30", name: "Performance・低馬尾", collection: "PERFORMANCE SHEET", root: FEMALE_LAYERED_OUTFIT_ROOT + "sheet-performance/", color: "#17171a" },
   ].forEach((it, index) => out.push({ id: it.id, category: "hair", name: it.name, preview: "✦", color: it.color, tint: it.color + "26", price: 68 + index * 8, requiredLevel: 2 + index, unlockMode: "coin", rarity: index === 0 ? RARITY[1].key : RARITY[2].key, rarityColor: index === 0 ? RARITY[1].color : RARITY[2].color, collection: it.collection, variant: 9 + index, asset: it.root + "shop-hair.png", shopAsset: it.root + "shop-hair.png", canvasAsset: it.root + "hair.png", femaleLayeredBaseAsset: it.root + "base.png", hairFaceShopAsset: FEMALE_HAIR_FACE_SHOP_BY_VARIANT[6 + index], assetFilter: "none", audience: "girl" }));
+  [
+    [1, "柔順中分長髮"], [2, "俐落高束馬尾"], [3, "自然蓬鬆長髮"], [4, "輕盈側分長髮"],
+    [5, "柔霧短鮑伯"], [6, "優雅低束髮"], [7, "清新層次中髮"], [8, "浪漫長捲髮"],
+    [9, "活力雙束髮"], [10, "學院自然長髮"], [11, "微捲中長髮"],
+  ].forEach(([number, name], index) => {
+    const folder = "Hair_" + number + "_processed/";
+    const rarity = index >= 8 ? RARITY[2] : index >= 4 ? RARITY[1] : RARITY[0];
+    out.push({
+      id: "hair-" + String(31 + index).padStart(2, "0"), category: "hair", name,
+      preview: "✦", color: "#211b21", tint: "#211b2126", price: 28 + index * 6,
+      requiredLevel: 1 + Math.floor(index / 3), unlockMode: "coin", rarity: rarity.key,
+      rarityColor: rarity.color, collection: "女性髮型 V2", variant: 31 + index,
+      asset: FEMALE_HAIR_V2_ROOT + folder + "shop/Hair_" + number + "_shop.png",
+      shopAsset: FEMALE_HAIR_V2_ROOT + folder + "shop/Hair_" + number + "_shop.png",
+      hairFaceShopAsset: FEMALE_HAIR_V2_ROOT + folder + "shop/Hair_" + number + "_shop.png",
+      canvasAsset: FEMALE_HAIR_V2_ROOT + folder + "pure_hair_only_1000x1900.png",
+      assetFilter: "none", audience: "girl", replacementAsset: true,
+    });
+  });
   out.push({ id: "accessory-00", category: "accessory", name: "不戴帽子", preview: "—", color: "#64748b", tint: "#64748b26", price: 0, requiredLevel: 1, unlockMode: "coin", rarity: "普通", rarityColor: "#9a90c8", collection: "BASIC", variant: 0, asset: null, assetFilter: "none" });
   out.push({ id: "accessory-01", category: "accessory", name: "黑色羊毛貝雷帽", preview: "●", color: "#17171a", tint: "#17171a26", price: 30, requiredLevel: 1, unlockMode: "coin", rarity: "稀有", rarityColor: "#22c8d8", collection: "ATELIER", variant: 1, asset: "rewards/items/beret-black.png", canvasAsset: GRID_ALIGNED_ACCESSORY_ROOT + "hats/accessory-01.png", assetFilter: "none", assetScale: 1.15 });
   out.push({ id: "accessory-02", category: "accessory", name: "深藍俐落棒球帽", preview: "●", color: "#172554", tint: "#17255426", price: 36, requiredLevel: 1, unlockMode: "coin", rarity: "普通", rarityColor: "#9a90c8", collection: "CAMPUS", variant: 2, asset: "rewards/items/hat-baseball-navy.png", canvasAsset: GRID_ALIGNED_ACCESSORY_ROOT + "hats/accessory-02.png", assetFilter: "none" });
@@ -1765,7 +1785,10 @@ function buildCatalog() {
   ].forEach(([id, name, visual, color, assetKey], index) => out.push({ id, category: "pet", name, preview: visual, petVisual: visual, petColor: color, petKey: assetKey, petActions: PET_ACTIONS_BY_KEY[assetKey], color, tint: color + "30", price: 42 + index * 6, requiredLevel: 1 + Math.floor(index / 3), unlockMode: "coin", rarity: index > 7 ? "超稀有" : index > 4 ? "稀有" : "普通", rarityColor: index > 7 ? RARITY[2].color : index > 4 ? RARITY[1].color : RARITY[0].color, collection: "REALISTIC COMPANIONS", variant: index + 1, asset: "rewards/pets/" + assetKey + "-shop.png", shopAsset: "rewards/pets/" + assetKey + "-shop.png", canvasAsset: "rewards/pets/" + assetKey + "-1000x1900.png", audience: "all" }));
   return out;
 }
-const CATALOG = buildCatalog().filter((item) => !DELISTED_WARDROBE_CATEGORIES.has(item.category) || /-00$/.test(item.id));
+const CATALOG = buildCatalog().filter((item) => {
+  if (item.category === "hair") return /-00$/.test(item.id) || item.replacementAsset;
+  return !DELISTED_WARDROBE_CATEGORIES.has(item.category) || /-00$/.test(item.id);
+});
 const SLOTS = Object.keys(CAT_LABELS).filter((slot) => !DELISTED_WARDROBE_CATEGORIES.has(slot));
 const BASE_EQUIP = { set: "set-00", hair: "hair-00", top: "top-00", bottom: "bottom-00", background: "background-00", shoes: "shoes-00", accessory: "accessory-00", hand: "hand-00", handRight: "hand-00", handLeft: "hand-00", neck: "neck-00", pet: "pet-00" };
 const BASE_OWNED = ["set-00", "hair-00", "top-00", "bottom-00", "background-00", "shoes-00", "accessory-00", "hand-00", "neck-00", "pet-00"];
@@ -2328,7 +2351,7 @@ class Component extends DCLogic {
     memoryDeck: [], memoryFlipped: [], memoryMatched: [], memoryMoves: 0, memoryLocked: false, memoryStatus: "", memoryNote: "",
     selectedDate: localDateKey(),
     shopCat: "hair", slot: "hair", shopQuery: "", shopOwnedOnly: false,
-    shopMessage: "髮型、帽子、上衣、套裝、下身與鞋履的舊商品已下架，分類入口保留，等待匯入新的素材路徑。",
+    shopMessage: "女性髮型已更新為 11 款 1000×1900 疊圖；帽子、上衣、套裝、下身與鞋履分類入口保留，等待匯入新版素材。",
     words: [], customWords: [],
     englishWords: { 1: [], 2: [] }, englishCategory: "全部", englishPage: 0,
     englishCurrent: null, englishTiles: [], englishPlaced: [], englishFeedback: "拖曳或點一下字母，依序完成單字。", englishFeedbackGood: false,
