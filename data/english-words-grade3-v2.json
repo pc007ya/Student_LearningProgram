@@ -1,0 +1,5008 @@
+{
+  "schemaVersion": 2,
+  "grade": 3,
+  "count": 500,
+  "source": "Third-grade extension bank; shared vocabulary metadata with independently rendered generated art.",
+  "words": [
+    {
+      "id": "en-g3-001",
+      "grade": 3,
+      "word": "near",
+      "meaning": "近的",
+      "phonetic": "niә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-002",
+      "grade": 3,
+      "word": "page",
+      "meaning": "页",
+      "phonetic": "peidʒ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-003",
+      "grade": 3,
+      "word": "poor",
+      "meaning": "贫穷的",
+      "phonetic": "puә. pɒ:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-004",
+      "grade": 3,
+      "word": "race",
+      "meaning": "種族",
+      "phonetic": "reis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-005",
+      "grade": 3,
+      "word": "rise",
+      "meaning": "上升",
+      "phonetic": "raiz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-006",
+      "grade": 3,
+      "word": "east",
+      "meaning": "東方",
+      "phonetic": "i:st",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-007",
+      "grade": 3,
+      "word": "save",
+      "meaning": "救球",
+      "phonetic": "seiv",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-008",
+      "grade": 3,
+      "word": "size",
+      "meaning": "大小",
+      "phonetic": "saiz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-009",
+      "grade": 3,
+      "word": "list",
+      "meaning": "目录",
+      "phonetic": "list",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-010",
+      "grade": 3,
+      "word": "fail",
+      "meaning": "失败",
+      "phonetic": "feil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-011",
+      "grade": 3,
+      "word": "miss",
+      "meaning": "失误",
+      "phonetic": "mis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-012",
+      "grade": 3,
+      "word": "sort",
+      "meaning": "種类",
+      "phonetic": "sɒ:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-013",
+      "grade": 3,
+      "word": "hang",
+      "meaning": "悬挂",
+      "phonetic": "hæŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-014",
+      "grade": 3,
+      "word": "rock",
+      "meaning": "岩石",
+      "phonetic": "rɒk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-015",
+      "grade": 3,
+      "word": "main",
+      "meaning": "主要部分",
+      "phonetic": "mein",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-016",
+      "grade": 3,
+      "word": "card",
+      "meaning": "卡片",
+      "phonetic": "kɑ:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-017",
+      "grade": 3,
+      "word": "seat",
+      "meaning": "座",
+      "phonetic": "si:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-018",
+      "grade": 3,
+      "word": "huge",
+      "meaning": "极大的",
+      "phonetic": "hju:dʒ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-019",
+      "grade": 3,
+      "word": "wide",
+      "meaning": "宽的",
+      "phonetic": "waid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-020",
+      "grade": 3,
+      "word": "trip",
+      "meaning": "旅行",
+      "phonetic": "trip",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-021",
+      "grade": 3,
+      "word": "unit",
+      "meaning": "單位",
+      "phonetic": "'ju:nit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-022",
+      "grade": 3,
+      "word": "deep",
+      "meaning": "深的",
+      "phonetic": "di:p",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-023",
+      "grade": 3,
+      "word": "edge",
+      "meaning": "邊缘",
+      "phonetic": "edʒ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-024",
+      "grade": 3,
+      "word": "fear",
+      "meaning": "恐怖",
+      "phonetic": "fiә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-025",
+      "grade": 3,
+      "word": "heat",
+      "meaning": "热",
+      "phonetic": "hi:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-026",
+      "grade": 3,
+      "word": "whom",
+      "meaning": "谁",
+      "phonetic": "hu:m",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-027",
+      "grade": 3,
+      "word": "yard",
+      "meaning": "码",
+      "phonetic": "jɑ:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-028",
+      "grade": 3,
+      "word": "beat",
+      "meaning": "心跳(声)",
+      "phonetic": "bi:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-029",
+      "grade": 3,
+      "word": "task",
+      "meaning": "工作",
+      "phonetic": "tɑ:sk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-030",
+      "grade": 3,
+      "word": "wish",
+      "meaning": "希望",
+      "phonetic": "wiʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-031",
+      "grade": 3,
+      "word": "safe",
+      "meaning": "保险箱",
+      "phonetic": "seif",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-032",
+      "grade": 3,
+      "word": "rich",
+      "meaning": "富裕的",
+      "phonetic": "ri:tʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-033",
+      "grade": 3,
+      "word": "none",
+      "meaning": "一點也不",
+      "phonetic": "nʌn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-034",
+      "grade": 3,
+      "word": "born",
+      "meaning": "天生的",
+      "phonetic": "bɒ:n",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-035",
+      "grade": 3,
+      "word": "wind",
+      "meaning": "風",
+      "phonetic": "wind",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-036",
+      "grade": 3,
+      "word": "hurt",
+      "meaning": "伤害",
+      "phonetic": "hә:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-037",
+      "grade": 3,
+      "word": "camp",
+      "meaning": "露营",
+      "phonetic": "kæmp",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-038",
+      "grade": 3,
+      "word": "date",
+      "meaning": "日期",
+      "phonetic": "deit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-039",
+      "grade": 3,
+      "word": "hole",
+      "meaning": "孔",
+      "phonetic": "hәul",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-040",
+      "grade": 3,
+      "word": "ship",
+      "meaning": "船",
+      "phonetic": "ʃip",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-041",
+      "grade": 3,
+      "word": "wood",
+      "meaning": "木材",
+      "phonetic": "wud",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-042",
+      "grade": 3,
+      "word": "hide",
+      "meaning": "兽皮",
+      "phonetic": "haid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-043",
+      "grade": 3,
+      "word": "gold",
+      "meaning": "黄金",
+      "phonetic": "gәuld",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-044",
+      "grade": 3,
+      "word": "club",
+      "meaning": "俱樂部",
+      "phonetic": "klʌb",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-045",
+      "grade": 3,
+      "word": "ride",
+      "meaning": "骑馬",
+      "phonetic": "raid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-046",
+      "grade": 3,
+      "word": "text",
+      "meaning": "文本",
+      "phonetic": "tekst",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-047",
+      "grade": 3,
+      "word": "tool",
+      "meaning": "工具",
+      "phonetic": "tu:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-048",
+      "grade": 3,
+      "word": "tiny",
+      "meaning": "很少的",
+      "phonetic": "'taini",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-049",
+      "grade": 3,
+      "word": "feed",
+      "meaning": "饲料",
+      "phonetic": "fi:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-050",
+      "grade": 3,
+      "word": "path",
+      "meaning": "路径",
+      "phonetic": "pɑ:θ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-051",
+      "grade": 3,
+      "word": "shop",
+      "meaning": "商店",
+      "phonetic": "ʃɒp",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-052",
+      "grade": 3,
+      "word": "lift",
+      "meaning": "举起",
+      "phonetic": "lift",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-053",
+      "grade": 3,
+      "word": "warm",
+      "meaning": "暖和的",
+      "phonetic": "wɒ:m",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-054",
+      "grade": 3,
+      "word": "soft",
+      "meaning": "软的",
+      "phonetic": "sɒft",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-055",
+      "grade": 3,
+      "word": "gift",
+      "meaning": "礼物",
+      "phonetic": "gift",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-056",
+      "grade": 3,
+      "word": "blow",
+      "meaning": "吹",
+      "phonetic": "blәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-057",
+      "grade": 3,
+      "word": "burn",
+      "meaning": "烧",
+      "phonetic": "bә:n",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-058",
+      "grade": 3,
+      "word": "wine",
+      "meaning": "葡萄酒",
+      "phonetic": "wain",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-059",
+      "grade": 3,
+      "word": "cool",
+      "meaning": "凉爽",
+      "phonetic": "ku:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-060",
+      "grade": 3,
+      "word": "tour",
+      "meaning": "旅游",
+      "phonetic": "tuә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-061",
+      "grade": 3,
+      "word": "fair",
+      "meaning": "展览會",
+      "phonetic": "fєә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-062",
+      "grade": 3,
+      "word": "pair",
+      "meaning": "一双",
+      "phonetic": "pєә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-063",
+      "grade": 3,
+      "word": "knee",
+      "meaning": "膝",
+      "phonetic": "ni:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-064",
+      "grade": 3,
+      "word": "tape",
+      "meaning": "帶子",
+      "phonetic": "teip",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-065",
+      "grade": 3,
+      "word": "lady",
+      "meaning": "淑女",
+      "phonetic": "'leidi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-066",
+      "grade": 3,
+      "word": "neck",
+      "meaning": "脖子",
+      "phonetic": "nek",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-067",
+      "grade": 3,
+      "word": "shut",
+      "meaning": "關闭",
+      "phonetic": "ʃʌʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-068",
+      "grade": 3,
+      "word": "leaf",
+      "meaning": "葉",
+      "phonetic": "li:f",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-069",
+      "grade": 3,
+      "word": "pool",
+      "meaning": "池",
+      "phonetic": "pu:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-070",
+      "grade": 3,
+      "word": "salt",
+      "meaning": "盐",
+      "phonetic": "sɒ:lt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-071",
+      "grade": 3,
+      "word": "thin",
+      "meaning": "薄的",
+      "phonetic": "θin",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-072",
+      "grade": 3,
+      "word": "ring",
+      "meaning": "环",
+      "phonetic": "riŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-073",
+      "grade": 3,
+      "word": "mark",
+      "meaning": "标志",
+      "phonetic": "mɑ:k",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-074",
+      "grade": 3,
+      "word": "meal",
+      "meaning": "一餐",
+      "phonetic": "mi:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-075",
+      "grade": 3,
+      "word": "sick",
+      "meaning": "病人",
+      "phonetic": "sik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-076",
+      "grade": 3,
+      "word": "duty",
+      "meaning": "责任",
+      "phonetic": "'dju:ti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-077",
+      "grade": 3,
+      "word": "wake",
+      "meaning": "叫醒",
+      "phonetic": "weik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-078",
+      "grade": 3,
+      "word": "warn",
+      "meaning": "警告",
+      "phonetic": "wɒ:n",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-079",
+      "grade": 3,
+      "word": "meat",
+      "meaning": "肉",
+      "phonetic": "mi:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-080",
+      "grade": 3,
+      "word": "hill",
+      "meaning": "小山",
+      "phonetic": "hil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-081",
+      "grade": 3,
+      "word": "kick",
+      "meaning": "踢",
+      "phonetic": "kik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-082",
+      "grade": 3,
+      "word": "used",
+      "meaning": "使用過的",
+      "phonetic": "'ju:st",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-083",
+      "grade": 3,
+      "word": "bowl",
+      "meaning": "碗",
+      "phonetic": "bәul",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-084",
+      "grade": 3,
+      "word": "hall",
+      "meaning": "門厅",
+      "phonetic": "hɒ:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-085",
+      "grade": 3,
+      "word": "wing",
+      "meaning": "翅膀",
+      "phonetic": "wiŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-086",
+      "grade": 3,
+      "word": "hero",
+      "meaning": "英雄",
+      "phonetic": "'hiәrәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-087",
+      "grade": 3,
+      "word": "busy",
+      "meaning": "忙碌的",
+      "phonetic": "'bizi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-088",
+      "grade": 3,
+      "word": "copy",
+      "meaning": "副本",
+      "phonetic": "'kɒpi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-089",
+      "grade": 3,
+      "word": "dish",
+      "meaning": "盘子",
+      "phonetic": "diʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-090",
+      "grade": 3,
+      "word": "lake",
+      "meaning": "湖",
+      "phonetic": "leik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-091",
+      "grade": 3,
+      "word": "rush",
+      "meaning": "匆促",
+      "phonetic": "rʌʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-092",
+      "grade": 3,
+      "word": "gate",
+      "meaning": "門",
+      "phonetic": "geit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-093",
+      "grade": 3,
+      "word": "weak",
+      "meaning": "不牢固的",
+      "phonetic": "wi:k",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-094",
+      "grade": 3,
+      "word": "king",
+      "meaning": "國王",
+      "phonetic": "kiŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-095",
+      "grade": 3,
+      "word": "post",
+      "meaning": "柱",
+      "phonetic": "pәust",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-096",
+      "grade": 3,
+      "word": "sand",
+      "meaning": "沙",
+      "phonetic": "sænd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-097",
+      "grade": 3,
+      "word": "lock",
+      "meaning": "锁",
+      "phonetic": "lɒk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-098",
+      "grade": 3,
+      "word": "sale",
+      "meaning": "出售",
+      "phonetic": "seil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-099",
+      "grade": 3,
+      "word": "tale",
+      "meaning": "故事",
+      "phonetic": "teil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-100",
+      "grade": 3,
+      "word": "joke",
+      "meaning": "笑話",
+      "phonetic": "dʒәuk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-101",
+      "grade": 3,
+      "word": "glad",
+      "meaning": "高兴的",
+      "phonetic": "glæd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-102",
+      "grade": 3,
+      "word": "iron",
+      "meaning": "铁",
+      "phonetic": "'aiәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-103",
+      "grade": 3,
+      "word": "kiss",
+      "meaning": "吻",
+      "phonetic": "kis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-104",
+      "grade": 3,
+      "word": "boss",
+      "meaning": "老板",
+      "phonetic": "bɒs",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-105",
+      "grade": 3,
+      "word": "luck",
+      "meaning": "运气",
+      "phonetic": "lʌk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-106",
+      "grade": 3,
+      "word": "flag",
+      "meaning": "标志",
+      "phonetic": "flæg",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-107",
+      "grade": 3,
+      "word": "poem",
+      "meaning": "诗",
+      "phonetic": "'pәuim",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-108",
+      "grade": 3,
+      "word": "mail",
+      "meaning": "邮件",
+      "phonetic": "meil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-109",
+      "grade": 3,
+      "word": "flat",
+      "meaning": "平坦的",
+      "phonetic": "flæt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-110",
+      "grade": 3,
+      "word": "bell",
+      "meaning": "铃",
+      "phonetic": "bel",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-111",
+      "grade": 3,
+      "word": "pale",
+      "meaning": "栅栏",
+      "phonetic": "peil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-112",
+      "grade": 3,
+      "word": "math",
+      "meaning": "數學",
+      "phonetic": "mæθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-113",
+      "grade": 3,
+      "word": "tail",
+      "meaning": "尾部",
+      "phonetic": "teil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-114",
+      "grade": 3,
+      "word": "soup",
+      "meaning": "汤",
+      "phonetic": "su:p",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-115",
+      "grade": 3,
+      "word": "tent",
+      "meaning": "帐篷",
+      "phonetic": "tent",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-116",
+      "grade": 3,
+      "word": "menu",
+      "meaning": "菜單",
+      "phonetic": "'menju:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-117",
+      "grade": 3,
+      "word": "loud",
+      "meaning": "大声的",
+      "phonetic": "laud",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-118",
+      "grade": 3,
+      "word": "wise",
+      "meaning": "明智的",
+      "phonetic": "waiz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-119",
+      "grade": 3,
+      "word": "ugly",
+      "meaning": "丑陋的",
+      "phonetic": "'ʌgli",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-120",
+      "grade": 3,
+      "word": "rope",
+      "meaning": "绳",
+      "phonetic": "rәup",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-121",
+      "grade": 3,
+      "word": "coal",
+      "meaning": "煤",
+      "phonetic": "kәul",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-122",
+      "grade": 3,
+      "word": "dear",
+      "meaning": "亲愛的人",
+      "phonetic": "'diә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-123",
+      "grade": 3,
+      "word": "dare",
+      "meaning": "挑战",
+      "phonetic": "dєә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-124",
+      "grade": 3,
+      "word": "beef",
+      "meaning": "牛肉",
+      "phonetic": "bi:f",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-125",
+      "grade": 3,
+      "word": "lend",
+      "meaning": "借",
+      "phonetic": "lend",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-126",
+      "grade": 3,
+      "word": "pond",
+      "meaning": "池塘",
+      "phonetic": "pɒnd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-127",
+      "grade": 3,
+      "word": "fork",
+      "meaning": "叉子",
+      "phonetic": "fɒ:k",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-128",
+      "grade": 3,
+      "word": "noon",
+      "meaning": "正午",
+      "phonetic": "nu:n",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-129",
+      "grade": 3,
+      "word": "hers",
+      "meaning": "她的",
+      "phonetic": "hә:z",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-130",
+      "grade": 3,
+      "word": "lamp",
+      "meaning": "燈",
+      "phonetic": "læmp",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-131",
+      "grade": 3,
+      "word": "silk",
+      "meaning": "丝",
+      "phonetic": "silk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-132",
+      "grade": 3,
+      "word": "ours",
+      "meaning": "我們的",
+      "phonetic": "'auәz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-133",
+      "grade": 3,
+      "word": "drum",
+      "meaning": "鼓",
+      "phonetic": "drʌm",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-134",
+      "grade": 3,
+      "word": "sail",
+      "meaning": "帆",
+      "phonetic": "seil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-135",
+      "grade": 3,
+      "word": "wolf",
+      "meaning": "狼",
+      "phonetic": "wulf",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-136",
+      "grade": 3,
+      "word": "aunt",
+      "meaning": "阿姨",
+      "phonetic": "ɑ:nt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-137",
+      "grade": 3,
+      "word": "exam",
+      "meaning": "考试",
+      "phonetic": "ig'zæm",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-138",
+      "grade": 3,
+      "word": "pork",
+      "meaning": "猪肉",
+      "phonetic": "pɒ:k",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-139",
+      "grade": 3,
+      "word": "soap",
+      "meaning": "肥皂",
+      "phonetic": "sәup",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-140",
+      "grade": 3,
+      "word": "coin",
+      "meaning": "硬币",
+      "phonetic": "kɒin",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-141",
+      "grade": 3,
+      "word": "sofa",
+      "meaning": "沙發",
+      "phonetic": "'sәufә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-142",
+      "grade": 3,
+      "word": "zero",
+      "meaning": "零",
+      "phonetic": "'ziәrәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-143",
+      "grade": 3,
+      "word": "till",
+      "meaning": "直到",
+      "phonetic": "til",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-144",
+      "grade": 3,
+      "word": "taxi",
+      "meaning": "出租車",
+      "phonetic": "'tæksi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-145",
+      "grade": 3,
+      "word": "sour",
+      "meaning": "酸的",
+      "phonetic": "'sauә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-146",
+      "grade": 3,
+      "word": "lamb",
+      "meaning": "小羊",
+      "phonetic": "læm",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-147",
+      "grade": 3,
+      "word": "lazy",
+      "meaning": "懒惰的",
+      "phonetic": "'leizi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-148",
+      "grade": 3,
+      "word": "clap",
+      "meaning": "拍手",
+      "phonetic": "klæp",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-149",
+      "grade": 3,
+      "word": "deaf",
+      "meaning": "聋的",
+      "phonetic": "def",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-150",
+      "grade": 3,
+      "word": "pity",
+      "meaning": "遗憾",
+      "phonetic": "'piti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-151",
+      "grade": 3,
+      "word": "ache",
+      "meaning": "疼痛",
+      "phonetic": "eik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-152",
+      "grade": 3,
+      "word": "bill",
+      "meaning": "帐單",
+      "phonetic": "bil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-153",
+      "grade": 3,
+      "word": "inch",
+      "meaning": "英寸",
+      "phonetic": "intʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-154",
+      "grade": 3,
+      "word": "tidy",
+      "meaning": "椅子的背罩",
+      "phonetic": "'taidi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-155",
+      "grade": 3,
+      "word": "mend",
+      "meaning": "改進",
+      "phonetic": "mend",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-156",
+      "grade": 3,
+      "word": "coke",
+      "meaning": "可口可樂",
+      "phonetic": "kәuk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-157",
+      "grade": 3,
+      "word": "rose",
+      "meaning": "玫瑰",
+      "phonetic": "rәuz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-158",
+      "grade": 3,
+      "word": "june",
+      "meaning": "六月",
+      "phonetic": "dʒu:n",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-159",
+      "grade": 3,
+      "word": "mile",
+      "meaning": "英裡",
+      "phonetic": "mail",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-160",
+      "grade": 3,
+      "word": "july",
+      "meaning": "七月",
+      "phonetic": "dʒu:'lai",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-161",
+      "grade": 3,
+      "word": "asia",
+      "meaning": "亚洲",
+      "phonetic": "'eiʒә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-162",
+      "grade": 3,
+      "word": "cent",
+      "meaning": "分",
+      "phonetic": "sent",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-163",
+      "grade": 3,
+      "word": "kilo",
+      "meaning": "千",
+      "phonetic": "'kilәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-164",
+      "grade": 3,
+      "word": "their",
+      "meaning": "他們的",
+      "phonetic": "ðєә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-165",
+      "grade": 3,
+      "word": "would",
+      "meaning": "aux. 将",
+      "phonetic": "wud",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-166",
+      "grade": 3,
+      "word": "about",
+      "meaning": "在...周围",
+      "phonetic": "ә'baut",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-167",
+      "grade": 3,
+      "word": "there",
+      "meaning": "在那裡",
+      "phonetic": "ðєә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-168",
+      "grade": 3,
+      "word": "which",
+      "meaning": "哪一個",
+      "phonetic": "hwitʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-169",
+      "grade": 3,
+      "word": "could",
+      "meaning": "aux. 可以",
+      "phonetic": "kud",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-170",
+      "grade": 3,
+      "word": "other",
+      "meaning": "其他的",
+      "phonetic": "'ʌðә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-171",
+      "grade": 3,
+      "word": "these",
+      "meaning": "這些",
+      "phonetic": "ði:z",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-172",
+      "grade": 3,
+      "word": "those",
+      "meaning": "那些",
+      "phonetic": "ðәuz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-173",
+      "grade": 3,
+      "word": "woman",
+      "meaning": "女人",
+      "phonetic": "'wumәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-174",
+      "grade": 3,
+      "word": "world",
+      "meaning": "世界",
+      "phonetic": "wә:ld",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-175",
+      "grade": 3,
+      "word": "still",
+      "meaning": "蒸馏室",
+      "phonetic": "stil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-176",
+      "grade": 3,
+      "word": "three",
+      "meaning": "三",
+      "phonetic": "θri:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-177",
+      "grade": 3,
+      "word": "state",
+      "meaning": "州",
+      "phonetic": "steit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-178",
+      "grade": 3,
+      "word": "never",
+      "meaning": "從不",
+      "phonetic": "'nevә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-179",
+      "grade": 3,
+      "word": "leave",
+      "meaning": "许可",
+      "phonetic": "li:v",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-180",
+      "grade": 3,
+      "word": "while",
+      "meaning": "一會儿",
+      "phonetic": "hwail",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-181",
+      "grade": 3,
+      "word": "group",
+      "meaning": "团体",
+      "phonetic": "gru:p",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-182",
+      "grade": 3,
+      "word": "begin",
+      "meaning": "開始",
+      "phonetic": "bi'gin",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-183",
+      "grade": 3,
+      "word": "start",
+      "meaning": "惊起",
+      "phonetic": "stɑ:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-184",
+      "grade": 3,
+      "word": "might",
+      "meaning": "力量",
+      "phonetic": "mait",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-185",
+      "grade": 3,
+      "word": "place",
+      "meaning": "地方",
+      "phonetic": "pleis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-186",
+      "grade": 3,
+      "word": "point",
+      "meaning": "點",
+      "phonetic": "pɒint",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-187",
+      "grade": 3,
+      "word": "bring",
+      "meaning": "帶來",
+      "phonetic": "briŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-188",
+      "grade": 3,
+      "word": "large",
+      "meaning": "大的",
+      "phonetic": "lɑ:dʒ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-189",
+      "grade": 3,
+      "word": "money",
+      "meaning": "金钱",
+      "phonetic": "'mʌni",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-190",
+      "grade": 3,
+      "word": "month",
+      "meaning": "月",
+      "phonetic": "mʌnθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-191",
+      "grade": 3,
+      "word": "since",
+      "meaning": "自...以後",
+      "phonetic": "sins",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-192",
+      "grade": 3,
+      "word": "until",
+      "meaning": "直到",
+      "phonetic": "әn'til",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-193",
+      "grade": 3,
+      "word": "often",
+      "meaning": "時常",
+      "phonetic": "'ɒ:fn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-194",
+      "grade": 3,
+      "word": "among",
+      "meaning": "在...之中",
+      "phonetic": "ә'mʌŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-195",
+      "grade": 3,
+      "word": "least",
+      "meaning": "最少",
+      "phonetic": "li:st",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-196",
+      "grade": 3,
+      "word": "level",
+      "meaning": "水平",
+      "phonetic": "'levl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-197",
+      "grade": 3,
+      "word": "allow",
+      "meaning": "允许",
+      "phonetic": "ә'lau",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-198",
+      "grade": 3,
+      "word": "spend",
+      "meaning": "花费",
+      "phonetic": "spend",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-199",
+      "grade": 3,
+      "word": "early",
+      "meaning": "早的",
+      "phonetic": "'ә:li",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-200",
+      "grade": 3,
+      "word": "force",
+      "meaning": "力量",
+      "phonetic": "fɒ:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-201",
+      "grade": 3,
+      "word": "offer",
+      "meaning": "給予(物)",
+      "phonetic": "'ɒfә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-202",
+      "grade": 3,
+      "word": "maybe",
+      "meaning": "也许",
+      "phonetic": "'meibi:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-203",
+      "grade": 3,
+      "word": "human",
+      "meaning": "人",
+      "phonetic": "'hju:mәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-204",
+      "grade": 3,
+      "word": "serve",
+      "meaning": "可作...用",
+      "phonetic": "sә:v",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-205",
+      "grade": 3,
+      "word": "sense",
+      "meaning": "感应",
+      "phonetic": "sens",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-206",
+      "grade": 3,
+      "word": "build",
+      "meaning": "建立",
+      "phonetic": "bild",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-207",
+      "grade": 3,
+      "word": "reach",
+      "meaning": "伸出",
+      "phonetic": "ri:tʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-208",
+      "grade": 3,
+      "word": "raise",
+      "meaning": "上升",
+      "phonetic": "reiz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-209",
+      "grade": 3,
+      "word": "field",
+      "meaning": "领域",
+      "phonetic": "fi:ld",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-210",
+      "grade": 3,
+      "word": "along",
+      "meaning": "平行地",
+      "phonetic": "ә'lɒŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-211",
+      "grade": 3,
+      "word": "heart",
+      "meaning": "心",
+      "phonetic": "hɑ:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-212",
+      "grade": 3,
+      "word": "light",
+      "meaning": "光",
+      "phonetic": "lait",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-213",
+      "grade": 3,
+      "word": "voice",
+      "meaning": "声音",
+      "phonetic": "vɒis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-214",
+      "grade": 3,
+      "word": "whole",
+      "meaning": "全部",
+      "phonetic": "hәul",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-215",
+      "grade": 3,
+      "word": "price",
+      "meaning": "价格",
+      "phonetic": "prais",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-216",
+      "grade": 3,
+      "word": "drive",
+      "meaning": "驾車",
+      "phonetic": "draiv",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-217",
+      "grade": 3,
+      "word": "break",
+      "meaning": "休息",
+      "phonetic": "breik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-218",
+      "grade": 3,
+      "word": "value",
+      "meaning": "价值",
+      "phonetic": "'vælju:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-219",
+      "grade": 3,
+      "word": "model",
+      "meaning": "模型",
+      "phonetic": "'mɒdәl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-220",
+      "grade": 3,
+      "word": "agree",
+      "meaning": "同意",
+      "phonetic": "ә'gri:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-221",
+      "grade": 3,
+      "word": "space",
+      "meaning": "位置",
+      "phonetic": "speis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-222",
+      "grade": 3,
+      "word": "whose",
+      "meaning": "谁的",
+      "phonetic": "hu:z",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-223",
+      "grade": 3,
+      "word": "teach",
+      "meaning": "教",
+      "phonetic": "ti:tʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-224",
+      "grade": 3,
+      "word": "phone",
+      "meaning": "電話",
+      "phonetic": "fәun",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-225",
+      "grade": 3,
+      "word": "cover",
+      "meaning": "盖子",
+      "phonetic": "'kʌvә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-226",
+      "grade": 3,
+      "word": "quite",
+      "meaning": "相当",
+      "phonetic": "kwait",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-227",
+      "grade": 3,
+      "word": "clear",
+      "meaning": "清楚的",
+      "phonetic": "kliә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-228",
+      "grade": 3,
+      "word": "piece",
+      "meaning": "块",
+      "phonetic": "pi:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-229",
+      "grade": 3,
+      "word": "movie",
+      "meaning": "電影",
+      "phonetic": "'mu:vi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-230",
+      "grade": 3,
+      "word": "north",
+      "meaning": "北方",
+      "phonetic": "nɒ:θ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-231",
+      "grade": 3,
+      "word": "third",
+      "meaning": "第三",
+      "phonetic": "θә:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-232",
+      "grade": 3,
+      "word": "catch",
+      "meaning": "捕捉",
+      "phonetic": "kætʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-233",
+      "grade": 3,
+      "word": "cause",
+      "meaning": "原因",
+      "phonetic": "kɒ:z",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-234",
+      "grade": 3,
+      "word": "south",
+      "meaning": "南方",
+      "phonetic": "sauθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-235",
+      "grade": 3,
+      "word": "wrong",
+      "meaning": "错误的",
+      "phonetic": "rɒŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-236",
+      "grade": 3,
+      "word": "sport",
+      "meaning": "运動",
+      "phonetic": "spɒ:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-237",
+      "grade": 3,
+      "word": "board",
+      "meaning": "木板",
+      "phonetic": "bɒ:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-238",
+      "grade": 3,
+      "word": "throw",
+      "meaning": "投",
+      "phonetic": "θrәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-239",
+      "grade": 3,
+      "word": "order",
+      "meaning": "次序",
+      "phonetic": "'ɒ:dә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-240",
+      "grade": 3,
+      "word": "store",
+      "meaning": "商店",
+      "phonetic": "stɒ:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-241",
+      "grade": 3,
+      "word": "sound",
+      "meaning": "声音",
+      "phonetic": "saund",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-242",
+      "grade": 3,
+      "word": "enter",
+      "meaning": "進入",
+      "phonetic": "'entә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-243",
+      "grade": 3,
+      "word": "share",
+      "meaning": "部分",
+      "phonetic": "ʃєә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-244",
+      "grade": 3,
+      "word": "ready",
+      "meaning": "预备好的状态",
+      "phonetic": "'redi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-245",
+      "grade": 3,
+      "word": "trade",
+      "meaning": "贸易",
+      "phonetic": "treid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-246",
+      "grade": 3,
+      "word": "skill",
+      "meaning": "技术",
+      "phonetic": "'skil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-247",
+      "grade": 3,
+      "word": "truth",
+      "meaning": "事實",
+      "phonetic": "tru:θ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-248",
+      "grade": 3,
+      "word": "check",
+      "meaning": "检查",
+      "phonetic": "tʃek",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-249",
+      "grade": 3,
+      "word": "guess",
+      "meaning": "猜测",
+      "phonetic": "ges",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-250",
+      "grade": 3,
+      "word": "prove",
+      "meaning": "证明",
+      "phonetic": "pru:v",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-251",
+      "grade": 3,
+      "word": "enjoy",
+      "meaning": "享受",
+      "phonetic": "in'dʒɒi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-252",
+      "grade": 3,
+      "word": "final",
+      "meaning": "期末考试",
+      "phonetic": "'fainl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-253",
+      "grade": 3,
+      "word": "above",
+      "meaning": "在上方",
+      "phonetic": "ә'bʌv",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-254",
+      "grade": 3,
+      "word": "radio",
+      "meaning": "无线電",
+      "phonetic": "'reidiәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-255",
+      "grade": 3,
+      "word": "visit",
+      "meaning": "拜访",
+      "phonetic": "'vizit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-256",
+      "grade": 3,
+      "word": "avoid",
+      "meaning": "避免",
+      "phonetic": "ә'vɒid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-257",
+      "grade": 3,
+      "word": "peace",
+      "meaning": "和平",
+      "phonetic": "pi:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-258",
+      "grade": 3,
+      "word": "shake",
+      "meaning": "摇動",
+      "phonetic": "ʃeik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-259",
+      "grade": 3,
+      "word": "worry",
+      "meaning": "担心",
+      "phonetic": "'wʌri",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-260",
+      "grade": 3,
+      "word": "dream",
+      "meaning": "梦",
+      "phonetic": "dri:m",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-261",
+      "grade": 3,
+      "word": "hotel",
+      "meaning": "旅馆",
+      "phonetic": "hәu'tel",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-262",
+      "grade": 3,
+      "word": "heavy",
+      "meaning": "重的",
+      "phonetic": "'hevi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-263",
+      "grade": 3,
+      "word": "owner",
+      "meaning": "拥有者",
+      "phonetic": "'әunә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-264",
+      "grade": 3,
+      "word": "coach",
+      "meaning": "四轮大馬車",
+      "phonetic": "kәutʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-265",
+      "grade": 3,
+      "word": "total",
+      "meaning": "全体的",
+      "phonetic": "'tәutl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-266",
+      "grade": 3,
+      "word": "score",
+      "meaning": "得分",
+      "phonetic": "skɒ:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-267",
+      "grade": 3,
+      "word": "front",
+      "meaning": "前面",
+      "phonetic": "frʌnt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-268",
+      "grade": 3,
+      "word": "alone",
+      "meaning": "孤独的",
+      "phonetic": "ә'lәun",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-269",
+      "grade": 3,
+      "word": "fresh",
+      "meaning": "新鲜的",
+      "phonetic": "freʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-270",
+      "grade": 3,
+      "word": "video",
+      "meaning": "影像",
+      "phonetic": "'vidiәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-271",
+      "grade": 3,
+      "word": "basic",
+      "meaning": "基本原理",
+      "phonetic": "'beisik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-272",
+      "grade": 3,
+      "word": "touch",
+      "meaning": "触觉",
+      "phonetic": "tʌtʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-273",
+      "grade": 3,
+      "word": "brain",
+      "meaning": "脑",
+      "phonetic": "brein",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-274",
+      "grade": 3,
+      "word": "dozen",
+      "meaning": "打",
+      "phonetic": "'dʌzn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-275",
+      "grade": 3,
+      "word": "sorry",
+      "meaning": "难過的",
+      "phonetic": "'sɒri",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-276",
+      "grade": 3,
+      "word": "stick",
+      "meaning": "棍",
+      "phonetic": "stik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-277",
+      "grade": 3,
+      "word": "stone",
+      "meaning": "石頭",
+      "phonetic": "stәun",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-278",
+      "grade": 3,
+      "word": "truck",
+      "meaning": "卡車",
+      "phonetic": "trʌk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-279",
+      "grade": 3,
+      "word": "shape",
+      "meaning": "形状",
+      "phonetic": "ʃeip",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-280",
+      "grade": 3,
+      "word": "guard",
+      "meaning": "守卫者",
+      "phonetic": "gɑ:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-281",
+      "grade": 3,
+      "word": "quick",
+      "meaning": "快的",
+      "phonetic": "kwik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-282",
+      "grade": 3,
+      "word": "pound",
+      "meaning": "磅",
+      "phonetic": "paund",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-283",
+      "grade": 3,
+      "word": "guest",
+      "meaning": "客人",
+      "phonetic": "gest",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-284",
+      "grade": 3,
+      "word": "photo",
+      "meaning": "相片",
+      "phonetic": "'fәutәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-285",
+      "grade": 3,
+      "word": "count",
+      "meaning": "计算",
+      "phonetic": "kaunt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-286",
+      "grade": 3,
+      "word": "marry",
+      "meaning": "與...结婚",
+      "phonetic": "'mæri",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-287",
+      "grade": 3,
+      "word": "worth",
+      "meaning": "价值",
+      "phonetic": "wә:θ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-288",
+      "grade": 3,
+      "word": "speed",
+      "meaning": "速率",
+      "phonetic": "spi:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-289",
+      "grade": 3,
+      "word": "cross",
+      "meaning": "十字架",
+      "phonetic": "krɒs",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-290",
+      "grade": 3,
+      "word": "twice",
+      "meaning": "兩次",
+      "phonetic": "twais",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-291",
+      "grade": 3,
+      "word": "grade",
+      "meaning": "等级",
+      "phonetic": "greid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-292",
+      "grade": 3,
+      "word": "quiet",
+      "meaning": "安静",
+      "phonetic": "'kwaiәt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-293",
+      "grade": 3,
+      "word": "dress",
+      "meaning": "服装",
+      "phonetic": "dres",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-294",
+      "grade": 3,
+      "word": "below",
+      "meaning": "在下面",
+      "phonetic": "bi'lәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-295",
+      "grade": 3,
+      "word": "daily",
+      "meaning": "每日的",
+      "phonetic": "'deili",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-296",
+      "grade": 3,
+      "word": "birth",
+      "meaning": "出生",
+      "phonetic": "bә:θ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-297",
+      "grade": 3,
+      "word": "plate",
+      "meaning": "碟",
+      "phonetic": "pleit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-298",
+      "grade": 3,
+      "word": "alive",
+      "meaning": "活着的",
+      "phonetic": "ә'laiv",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-299",
+      "grade": 3,
+      "word": "earth",
+      "meaning": "地球",
+      "phonetic": "ә:θ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-300",
+      "grade": 3,
+      "word": "paint",
+      "meaning": "油漆",
+      "phonetic": "peint",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-301",
+      "grade": 3,
+      "word": "climb",
+      "meaning": "攀登",
+      "phonetic": "klaim",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-302",
+      "grade": 3,
+      "word": "sweet",
+      "meaning": "甜蜜",
+      "phonetic": "swi:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-303",
+      "grade": 3,
+      "word": "metal",
+      "meaning": "金属",
+      "phonetic": "'metәl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-304",
+      "grade": 3,
+      "word": "sugar",
+      "meaning": "糖",
+      "phonetic": "'ʃugә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-305",
+      "grade": 3,
+      "word": "enemy",
+      "meaning": "敌人",
+      "phonetic": "'enimi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-306",
+      "grade": 3,
+      "word": "sight",
+      "meaning": "景观",
+      "phonetic": "sait",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-307",
+      "grade": 3,
+      "word": "empty",
+      "meaning": "空的",
+      "phonetic": "'empti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-308",
+      "grade": 3,
+      "word": "storm",
+      "meaning": "暴風雨",
+      "phonetic": "stɒ:m",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-309",
+      "grade": 3,
+      "word": "angry",
+      "meaning": "生气的",
+      "phonetic": "'æŋgri",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-310",
+      "grade": 3,
+      "word": "chest",
+      "meaning": "胸",
+      "phonetic": "tʃest",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-311",
+      "grade": 3,
+      "word": "thick",
+      "meaning": "厚的",
+      "phonetic": "θik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-312",
+      "grade": 3,
+      "word": "shirt",
+      "meaning": "衬衫",
+      "phonetic": "ʃә:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-313",
+      "grade": 3,
+      "word": "pilot",
+      "meaning": "飞行员",
+      "phonetic": "'pailәt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-314",
+      "grade": 3,
+      "word": "steal",
+      "meaning": "剽窃",
+      "phonetic": "sti:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-315",
+      "grade": 3,
+      "word": "crazy",
+      "meaning": "發狂的",
+      "phonetic": "'kreizi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-316",
+      "grade": 3,
+      "word": "trust",
+      "meaning": "信任",
+      "phonetic": "trʌst",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-317",
+      "grade": 3,
+      "word": "ocean",
+      "meaning": "海洋",
+      "phonetic": "'әuʃәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-318",
+      "grade": 3,
+      "word": "tooth",
+      "meaning": "牙齿",
+      "phonetic": "tu:θ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-319",
+      "grade": 3,
+      "word": "smart",
+      "meaning": "聪明的",
+      "phonetic": "smɑ:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-320",
+      "grade": 3,
+      "word": "nurse",
+      "meaning": "护士",
+      "phonetic": "nә:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-321",
+      "grade": 3,
+      "word": "doubt",
+      "meaning": "怀疑",
+      "phonetic": "daut",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-322",
+      "grade": 3,
+      "word": "cheap",
+      "meaning": "便宜的",
+      "phonetic": "tʃi:p",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-323",
+      "grade": 3,
+      "word": "beach",
+      "meaning": "海滩",
+      "phonetic": "bi:tʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-324",
+      "grade": 3,
+      "word": "tired",
+      "meaning": "疲累的",
+      "phonetic": "taiәd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-325",
+      "grade": 3,
+      "word": "match",
+      "meaning": "比赛",
+      "phonetic": "mætʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-326",
+      "grade": 3,
+      "word": "proud",
+      "meaning": "骄傲的",
+      "phonetic": "praud",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-327",
+      "grade": 3,
+      "word": "waste",
+      "meaning": "浪费",
+      "phonetic": "weist",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-328",
+      "grade": 3,
+      "word": "wheel",
+      "meaning": "轮子",
+      "phonetic": "hwi:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-329",
+      "grade": 3,
+      "word": "solid",
+      "meaning": "固体",
+      "phonetic": "'sɒlid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-330",
+      "grade": 3,
+      "word": "noise",
+      "meaning": "噪音",
+      "phonetic": "nɒiz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-331",
+      "grade": 3,
+      "word": "taste",
+      "meaning": "味道",
+      "phonetic": "teist",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-332",
+      "grade": 3,
+      "word": "knock",
+      "meaning": "敲",
+      "phonetic": "nɒk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-333",
+      "grade": 3,
+      "word": "lucky",
+      "meaning": "幸运的",
+      "phonetic": "'lʌki",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-334",
+      "grade": 3,
+      "word": "steel",
+      "meaning": "钢",
+      "phonetic": "sti:l",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-335",
+      "grade": 3,
+      "word": "shout",
+      "meaning": "呼喊",
+      "phonetic": "ʃaut",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-336",
+      "grade": 3,
+      "word": "shall",
+      "meaning": "aux. 将",
+      "phonetic": "ʃæl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-337",
+      "grade": 3,
+      "word": "print",
+      "meaning": "打印",
+      "phonetic": "print",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-338",
+      "grade": 3,
+      "word": "reply",
+      "meaning": "答复",
+      "phonetic": "ri'plai",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-339",
+      "grade": 3,
+      "word": "knife",
+      "meaning": "小刀",
+      "phonetic": "naif",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-340",
+      "grade": 3,
+      "word": "habit",
+      "meaning": "習惯",
+      "phonetic": "'hæbit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-341",
+      "grade": 3,
+      "word": "asian",
+      "meaning": "亚洲人",
+      "phonetic": "'eiʃәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-342",
+      "grade": 3,
+      "word": "usual",
+      "meaning": "平常的",
+      "phonetic": "'ju:ʒuәl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-343",
+      "grade": 3,
+      "word": "round",
+      "meaning": "圆",
+      "phonetic": "raund",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-344",
+      "grade": 3,
+      "word": "smell",
+      "meaning": "味道",
+      "phonetic": "smel",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-345",
+      "grade": 3,
+      "word": "tower",
+      "meaning": "塔",
+      "phonetic": "'tauә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-346",
+      "grade": 3,
+      "word": "smoke",
+      "meaning": "烟",
+      "phonetic": "smәuk",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-347",
+      "grade": 3,
+      "word": "coast",
+      "meaning": "海岸",
+      "phonetic": "kәust",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-348",
+      "grade": 3,
+      "word": "swing",
+      "meaning": "摇摆",
+      "phonetic": "swiŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-349",
+      "grade": 3,
+      "word": "fifth",
+      "meaning": "第五",
+      "phonetic": "fifθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-350",
+      "grade": 3,
+      "word": "weigh",
+      "meaning": "称...重量",
+      "phonetic": "wei",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-351",
+      "grade": 3,
+      "word": "sweep",
+      "meaning": "扫除",
+      "phonetic": "swi:p",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-352",
+      "grade": 3,
+      "word": "blind",
+      "meaning": "蒙蔽物",
+      "phonetic": "blaind",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-353",
+      "grade": 3,
+      "word": "salad",
+      "meaning": "色拉",
+      "phonetic": "'sælәd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-354",
+      "grade": 3,
+      "word": "pride",
+      "meaning": "骄傲",
+      "phonetic": "praid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-355",
+      "grade": 3,
+      "word": "relax",
+      "meaning": "放松",
+      "phonetic": "ri'læks",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-356",
+      "grade": 3,
+      "word": "dirty",
+      "meaning": "肮脏的",
+      "phonetic": "'dә:ti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-357",
+      "grade": 3,
+      "word": "shelf",
+      "meaning": "架子",
+      "phonetic": "ʃelf",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-358",
+      "grade": 3,
+      "word": "rapid",
+      "meaning": "迅速的",
+      "phonetic": "'ræpid",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-359",
+      "grade": 3,
+      "word": "fifty",
+      "meaning": "五十",
+      "phonetic": "'fifti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-360",
+      "grade": 3,
+      "word": "glove",
+      "meaning": "手套",
+      "phonetic": "glʌv",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-361",
+      "grade": 3,
+      "word": "yours",
+      "meaning": "你的(東西)",
+      "phonetic": "juәz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-362",
+      "grade": 3,
+      "word": "wound",
+      "meaning": "创伤",
+      "phonetic": "wu:nd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-363",
+      "grade": 3,
+      "word": "brush",
+      "meaning": "刷子",
+      "phonetic": "brʌʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-364",
+      "grade": 3,
+      "word": "piano",
+      "meaning": "钢琴",
+      "phonetic": "pi'ɑ:nәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-365",
+      "grade": 3,
+      "word": "uncle",
+      "meaning": "叔父",
+      "phonetic": "ʌŋkl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-366",
+      "grade": 3,
+      "word": "shine",
+      "meaning": "光泽",
+      "phonetic": "ʃain",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-367",
+      "grade": 3,
+      "word": "magic",
+      "meaning": "魔术",
+      "phonetic": "'mædʒik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-368",
+      "grade": 3,
+      "word": "jeans",
+      "meaning": "工装裤",
+      "phonetic": "dʒi:nz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-369",
+      "grade": 3,
+      "word": "march",
+      "meaning": "三月",
+      "phonetic": "mɑ:tʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-370",
+      "grade": 3,
+      "word": "sixth",
+      "meaning": "第六",
+      "phonetic": "siksθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-371",
+      "grade": 3,
+      "word": "plain",
+      "meaning": "平原",
+      "phonetic": "plein",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-372",
+      "grade": 3,
+      "word": "hurry",
+      "meaning": "匆忙",
+      "phonetic": "'hʌri",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-373",
+      "grade": 3,
+      "word": "skirt",
+      "meaning": "裙子",
+      "phonetic": "skә:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-374",
+      "grade": 3,
+      "word": "towel",
+      "meaning": "手巾",
+      "phonetic": "'tauәl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-375",
+      "grade": 3,
+      "word": "prize",
+      "meaning": "奖赏",
+      "phonetic": "praiz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-376",
+      "grade": 3,
+      "word": "forty",
+      "meaning": "四十",
+      "phonetic": "'fɒ:ti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-377",
+      "grade": 3,
+      "word": "shame",
+      "meaning": "羞耻",
+      "phonetic": "ʃeim",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-378",
+      "grade": 3,
+      "word": "silly",
+      "meaning": "愚蠢的",
+      "phonetic": "'sili",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-379",
+      "grade": 3,
+      "word": "elder",
+      "meaning": "年長者",
+      "phonetic": "'eldә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-380",
+      "grade": 3,
+      "word": "whale",
+      "meaning": "鲸",
+      "phonetic": "hweil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-381",
+      "grade": 3,
+      "word": "diary",
+      "meaning": "日記",
+      "phonetic": "'daiәri",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-382",
+      "grade": 3,
+      "word": "purse",
+      "meaning": "钱包",
+      "phonetic": "pә:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-383",
+      "grade": 3,
+      "word": "cheat",
+      "meaning": "欺骗",
+      "phonetic": "tʃi:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-384",
+      "grade": 3,
+      "word": "fever",
+      "meaning": "發烧",
+      "phonetic": "'fi:vә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-385",
+      "grade": 3,
+      "word": "wheat",
+      "meaning": "小麦",
+      "phonetic": "hwi:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-386",
+      "grade": 3,
+      "word": "spare",
+      "meaning": "剩余",
+      "phonetic": "spєә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-387",
+      "grade": 3,
+      "word": "cheer",
+      "meaning": "愉快",
+      "phonetic": "tʃiә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-388",
+      "grade": 3,
+      "word": "awake",
+      "meaning": "醒着的",
+      "phonetic": "ә'weik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-389",
+      "grade": 3,
+      "word": "cruel",
+      "meaning": "残酷的",
+      "phonetic": "'kru:әl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-390",
+      "grade": 3,
+      "word": "brave",
+      "meaning": "勇敢的",
+      "phonetic": "breiv",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-391",
+      "grade": 3,
+      "word": "sunny",
+      "meaning": "阳光充足的",
+      "phonetic": "'sʌni",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-392",
+      "grade": 3,
+      "word": "pupil",
+      "meaning": "學生",
+      "phonetic": "'pju:pl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-393",
+      "grade": 3,
+      "word": "ninth",
+      "meaning": "第九",
+      "phonetic": "nainθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-394",
+      "grade": 3,
+      "word": "stamp",
+      "meaning": "印",
+      "phonetic": "stæmp",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-395",
+      "grade": 3,
+      "word": "goose",
+      "meaning": "鹅",
+      "phonetic": "gu:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-396",
+      "grade": 3,
+      "word": "sixty",
+      "meaning": "六十",
+      "phonetic": "'siksti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-397",
+      "grade": 3,
+      "word": "aloud",
+      "meaning": "出声地",
+      "phonetic": "ә'laud",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-398",
+      "grade": 3,
+      "word": "skate",
+      "meaning": "溜冰",
+      "phonetic": "skeit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-399",
+      "grade": 3,
+      "word": "scarf",
+      "meaning": "围巾",
+      "phonetic": "skɑ:f",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-400",
+      "grade": 3,
+      "word": "cough",
+      "meaning": "咳嗽",
+      "phonetic": "kɒf",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-401",
+      "grade": 3,
+      "word": "hobby",
+      "meaning": "嗜好",
+      "phonetic": "'hɒbi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-402",
+      "grade": 3,
+      "word": "fetch",
+      "meaning": "取得",
+      "phonetic": "fetʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-403",
+      "grade": 3,
+      "word": "chant",
+      "meaning": "圣歌",
+      "phonetic": "tʃænt. tʃɑ:nt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-404",
+      "grade": 3,
+      "word": "chess",
+      "meaning": "國际象棋",
+      "phonetic": "tʃes",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-405",
+      "grade": 3,
+      "word": "camel",
+      "meaning": "骆驼",
+      "phonetic": "'kæml",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-406",
+      "grade": 3,
+      "word": "rainy",
+      "meaning": "下雨的",
+      "phonetic": "'reini",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-407",
+      "grade": 3,
+      "word": "tenth",
+      "meaning": "第十",
+      "phonetic": "tenθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-408",
+      "grade": 3,
+      "word": "china",
+      "meaning": "中國",
+      "phonetic": "'tʃainә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-409",
+      "grade": 3,
+      "word": "windy",
+      "meaning": "多風的",
+      "phonetic": "'windi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-410",
+      "grade": 3,
+      "word": "clone",
+      "meaning": "无性系",
+      "phonetic": "klәun",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-411",
+      "grade": 3,
+      "word": "chalk",
+      "meaning": "粉笔",
+      "phonetic": "tʃɒ:k",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-412",
+      "grade": 3,
+      "word": "snowy",
+      "meaning": "多雪的",
+      "phonetic": "'snәui",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-413",
+      "grade": 3,
+      "word": "zebra",
+      "meaning": "斑馬",
+      "phonetic": "'zi:brә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-414",
+      "grade": 3,
+      "word": "madam",
+      "meaning": "女士",
+      "phonetic": "'mædәm",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-415",
+      "grade": 3,
+      "word": "april",
+      "meaning": "四月",
+      "phonetic": "'eiprәl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-416",
+      "grade": 3,
+      "word": "japan",
+      "meaning": "日本",
+      "phonetic": "dʒә'pæn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-417",
+      "grade": 3,
+      "word": "india",
+      "meaning": "印度",
+      "phonetic": "'indjә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-418",
+      "grade": 3,
+      "word": "metre",
+      "meaning": "公尺",
+      "phonetic": "'mi:tә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-419",
+      "grade": 3,
+      "word": "penny",
+      "meaning": "便士",
+      "phonetic": "'peni",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-420",
+      "grade": 3,
+      "word": "pence",
+      "meaning": "pl. (非正式)copper便士",
+      "phonetic": "pens",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-421",
+      "grade": 3,
+      "word": "email",
+      "meaning": "電子信函",
+      "phonetic": "'i:'meil",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-422",
+      "grade": 3,
+      "word": "socks",
+      "meaning": "短袜",
+      "phonetic": "",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-423",
+      "grade": 3,
+      "word": "should",
+      "meaning": "aux. 应该",
+      "phonetic": "ʃud",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-424",
+      "grade": 3,
+      "word": "become",
+      "meaning": "变成",
+      "phonetic": "bi'kʌm",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-425",
+      "grade": 3,
+      "word": "really",
+      "meaning": "實际上",
+      "phonetic": "'riәli",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-426",
+      "grade": 3,
+      "word": "during",
+      "meaning": "在...的時候",
+      "phonetic": "'djuәriŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-427",
+      "grade": 3,
+      "word": "always",
+      "meaning": "總是",
+      "phonetic": "'ɒ:lweiz",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-428",
+      "grade": 3,
+      "word": "happen",
+      "meaning": "發生",
+      "phonetic": "'hæpәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-429",
+      "grade": 3,
+      "word": "though",
+      "meaning": "然而",
+      "phonetic": "ðәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-430",
+      "grade": 3,
+      "word": "around",
+      "meaning": "包围",
+      "phonetic": "ә'raund",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-431",
+      "grade": 3,
+      "word": "member",
+      "meaning": "成员",
+      "phonetic": "'membә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-432",
+      "grade": 3,
+      "word": "almost",
+      "meaning": "几乎",
+      "phonetic": "'ɒ:lmәust",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-433",
+      "grade": 3,
+      "word": "change",
+      "meaning": "变化",
+      "phonetic": "tʃeindʒ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-434",
+      "grade": 3,
+      "word": "minute",
+      "meaning": "分",
+      "phonetic": "'minit. mai'nju:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-435",
+      "grade": 3,
+      "word": "social",
+      "meaning": "社會的",
+      "phonetic": "'sәuʃәl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-436",
+      "grade": 3,
+      "word": "follow",
+      "meaning": "跟随",
+      "phonetic": "'fɒlәu",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-437",
+      "grade": 3,
+      "word": "parent",
+      "meaning": "父母",
+      "phonetic": "'perәnt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-438",
+      "grade": 3,
+      "word": "create",
+      "meaning": "创造",
+      "phonetic": "kri:'eit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-439",
+      "grade": 3,
+      "word": "public",
+      "meaning": "公众",
+      "phonetic": "'pʌblik",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-440",
+      "grade": 3,
+      "word": "office",
+      "meaning": "办公室",
+      "phonetic": "'ɒfis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-441",
+      "grade": 3,
+      "word": "health",
+      "meaning": "健康",
+      "phonetic": "'helθ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-442",
+      "grade": 3,
+      "word": "person",
+      "meaning": "人",
+      "phonetic": "'pә:sn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-443",
+      "grade": 3,
+      "word": "result",
+      "meaning": "结果",
+      "phonetic": "ri'zʌlt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-444",
+      "grade": 3,
+      "word": "reason",
+      "meaning": "理由",
+      "phonetic": "'ri:zn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-445",
+      "grade": 3,
+      "word": "moment",
+      "meaning": "片刻",
+      "phonetic": "'mәumәnt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-446",
+      "grade": 3,
+      "word": "enough",
+      "meaning": "充足",
+      "phonetic": "i'nʌf",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-447",
+      "grade": 3,
+      "word": "across",
+      "meaning": "越過",
+      "phonetic": "ә'krɒs",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-448",
+      "grade": 3,
+      "word": "second",
+      "meaning": "秒",
+      "phonetic": "'sekәnd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-449",
+      "grade": 3,
+      "word": "toward",
+      "meaning": "向",
+      "phonetic": "tә'wɒ:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-450",
+      "grade": 3,
+      "word": "policy",
+      "meaning": "政策",
+      "phonetic": "'pɒlisi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-451",
+      "grade": 3,
+      "word": "appear",
+      "meaning": "出現",
+      "phonetic": "ә'piә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-452",
+      "grade": 3,
+      "word": "market",
+      "meaning": "市场",
+      "phonetic": "'mɑ:kit",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-453",
+      "grade": 3,
+      "word": "expect",
+      "meaning": "预期",
+      "phonetic": "iks'pekt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-454",
+      "grade": 3,
+      "word": "course",
+      "meaning": "课程",
+      "phonetic": "kɒ:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-455",
+      "grade": 3,
+      "word": "behind",
+      "meaning": "在後地",
+      "phonetic": "bi'haind",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-456",
+      "grade": 3,
+      "word": "remain",
+      "meaning": "保持",
+      "phonetic": "ri'mein",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-457",
+      "grade": 3,
+      "word": "report",
+      "meaning": "报告",
+      "phonetic": "ri'pɒ:t",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-458",
+      "grade": 3,
+      "word": "effort",
+      "meaning": "努力",
+      "phonetic": "'efәt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-459",
+      "grade": 3,
+      "word": "decide",
+      "meaning": "决定",
+      "phonetic": "di'said",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-460",
+      "grade": 3,
+      "word": "strong",
+      "meaning": "强壮的",
+      "phonetic": "strɒŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-461",
+      "grade": 3,
+      "word": "leader",
+      "meaning": "领导者",
+      "phonetic": "'li:dә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-462",
+      "grade": 3,
+      "word": "police",
+      "meaning": "警察",
+      "phonetic": "pә'li:s",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-463",
+      "grade": 3,
+      "word": "return",
+      "meaning": "回來",
+      "phonetic": "ri'tә:n",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-464",
+      "grade": 3,
+      "word": "action",
+      "meaning": "行動",
+      "phonetic": "'ækʃәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-465",
+      "grade": 3,
+      "word": "season",
+      "meaning": "季节",
+      "phonetic": "'si:zn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-466",
+      "grade": 3,
+      "word": "record",
+      "meaning": "記录",
+      "phonetic": "ri'kɒ:d",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-467",
+      "grade": 3,
+      "word": "ground",
+      "meaning": "土地",
+      "phonetic": "graund",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-468",
+      "grade": 3,
+      "word": "couple",
+      "meaning": "對",
+      "phonetic": "'kʌpl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-469",
+      "grade": 3,
+      "word": "itself",
+      "meaning": "它本身",
+      "phonetic": "it'self",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-470",
+      "grade": 3,
+      "word": "either",
+      "meaning": "(兩者之中)任一的",
+      "phonetic": "'i:ðә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-471",
+      "grade": 3,
+      "word": "recent",
+      "meaning": "最近的",
+      "phonetic": "'ri:snt",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-472",
+      "grade": 3,
+      "word": "doctor",
+      "meaning": "医生",
+      "phonetic": "'dɒktә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-473",
+      "grade": 3,
+      "word": "worker",
+      "meaning": "工人",
+      "phonetic": "'wә:kә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-474",
+      "grade": 3,
+      "word": "nearly",
+      "meaning": "几乎",
+      "phonetic": "'niәli",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-475",
+      "grade": 3,
+      "word": "choose",
+      "meaning": "选择",
+      "phonetic": "tʃu:z",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-476",
+      "grade": 3,
+      "word": "chance",
+      "meaning": "机會",
+      "phonetic": "tʃæns. tʃɑ:ns",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-477",
+      "grade": 3,
+      "word": "energy",
+      "meaning": "精力",
+      "phonetic": "'enәdʒi",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-478",
+      "grade": 3,
+      "word": "period",
+      "meaning": "時期",
+      "phonetic": "'piәriәd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-479",
+      "grade": 3,
+      "word": "summer",
+      "meaning": "夏季",
+      "phonetic": "'sʌmә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-480",
+      "grade": 3,
+      "word": "letter",
+      "meaning": "信",
+      "phonetic": "'letә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-481",
+      "grade": 3,
+      "word": "choice",
+      "meaning": "选择",
+      "phonetic": "tʃɒis",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-482",
+      "grade": 3,
+      "word": "single",
+      "meaning": "單身的",
+      "phonetic": "'siŋgl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-483",
+      "grade": 3,
+      "word": "church",
+      "meaning": "教堂",
+      "phonetic": "tʃә:tʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-484",
+      "grade": 3,
+      "word": "future",
+      "meaning": "未來",
+      "phonetic": "'fju:tʃә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-485",
+      "grade": 3,
+      "word": "anyone",
+      "meaning": "任何人",
+      "phonetic": "'eniwʌn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-486",
+      "grade": 3,
+      "word": "myself",
+      "meaning": "我自己",
+      "phonetic": "mai'self",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-487",
+      "grade": 3,
+      "word": "nature",
+      "meaning": "自然",
+      "phonetic": "'neitʃә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-488",
+      "grade": 3,
+      "word": "common",
+      "meaning": "通常的",
+      "phonetic": "'kɒmәn",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-489",
+      "grade": 3,
+      "word": "beyond",
+      "meaning": "超過",
+      "phonetic": "bi'jɒnd",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-490",
+      "grade": 3,
+      "word": "simple",
+      "meaning": "簡單的",
+      "phonetic": "'simpl",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-491",
+      "grade": 3,
+      "word": "accept",
+      "meaning": "接受",
+      "phonetic": "әk'sept",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-492",
+      "grade": 3,
+      "word": "degree",
+      "meaning": "程度",
+      "phonetic": "di'gri:",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-493",
+      "grade": 3,
+      "word": "wonder",
+      "meaning": "奇迹",
+      "phonetic": "'wʌndә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-494",
+      "grade": 3,
+      "word": "pretty",
+      "meaning": "漂亮的",
+      "phonetic": "'priti",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-495",
+      "grade": 3,
+      "word": "arrive",
+      "meaning": "到达",
+      "phonetic": "ә'raiv",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-496",
+      "grade": 3,
+      "word": "rather",
+      "meaning": "宁可",
+      "phonetic": "'ræðә",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-497",
+      "grade": 3,
+      "word": "forget",
+      "meaning": "忘記",
+      "phonetic": "fә'get",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-498",
+      "grade": 3,
+      "word": "memory",
+      "meaning": "記忆",
+      "phonetic": "'memәri",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-499",
+      "grade": 3,
+      "word": "spring",
+      "meaning": "春天",
+      "phonetic": "spriŋ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    },
+    {
+      "id": "en-g3-500",
+      "grade": 3,
+      "word": "finish",
+      "meaning": "完成",
+      "phonetic": "'finiʃ",
+      "category": "生活",
+      "emoji": "",
+      "image": "images/english-generated-v2/atlas-01.webp"
+    }
+  ]
+}
