@@ -1,0 +1,13 @@
+{
+  "id": "sports-bra-cargo-shorts",
+  "audience": "girl",
+  "canvas": { "width": 1000, "height": 1900 },
+  "base": "base.png",
+  "parts": {
+    "top": { "canvas": "top.png", "shop": "shop-top.png" },
+    "bot": { "canvas": "bot.png", "shop": "shop-bottom.png" },
+    "set": { "canvas": "set.png" }
+  },
+  "coordinates": "coordinates.json",
+  "renderOrder": ["base", "bot", "top", "shoe", "hand", "hair", "hat"]
+}

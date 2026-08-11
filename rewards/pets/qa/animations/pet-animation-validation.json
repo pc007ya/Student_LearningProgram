@@ -1,0 +1,2334 @@
+{
+  "ok": true,
+  "pet_count": 10,
+  "action_count": 20,
+  "frame_count": 120,
+  "priority_edge_check": {
+    "ok": true,
+    "sequence_count": 8,
+    "frame_count": 48,
+    "minimum_edge_margin": 20
+  },
+  "pets": [
+    {
+      "pet": "british-cat",
+      "source": "rewards/pets/animation-source/british-cat-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "yawn": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1548,
+            0.1239,
+            0.1272,
+            0.1496,
+            0.0616
+          ],
+          "max_motion_ratio": 0.1548,
+          "edge_margins": [
+            [
+              70,
+              20,
+              70,
+              20
+            ],
+            [
+              69,
+              20,
+              69,
+              20
+            ],
+            [
+              69,
+              20,
+              70,
+              20
+            ],
+            [
+              69,
+              20,
+              69,
+              20
+            ],
+            [
+              69,
+              20,
+              70,
+              20
+            ],
+            [
+              69,
+              20,
+              70,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                24,
+                99,
+                229,
+                481
+              ],
+              "source_area": 55152,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                272,
+                99,
+                481,
+                481
+              ],
+              "source_area": 55590,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                518,
+                99,
+                725,
+                481
+              ],
+              "source_area": 55310,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                772,
+                99,
+                981,
+                481
+              ],
+              "source_area": 55968,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1020,
+                99,
+                1227,
+                481
+              ],
+              "source_area": 55437,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1271,
+                99,
+                1478,
+                481
+              ],
+              "source_area": 55328,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "scratch": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.256,
+            0.1984,
+            0.1987,
+            0.2272,
+            0.2672
+          ],
+          "max_motion_ratio": 0.2672,
+          "edge_margins": [
+            [
+              69,
+              21,
+              69,
+              20
+            ],
+            [
+              64,
+              27,
+              64,
+              20
+            ],
+            [
+              64,
+              31,
+              64,
+              20
+            ],
+            [
+              60,
+              39,
+              61,
+              20
+            ],
+            [
+              61,
+              39,
+              61,
+              20
+            ],
+            [
+              69,
+              20,
+              70,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                22,
+                556,
+                225,
+                927
+              ],
+              "source_area": 53274,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                276,
+                563,
+                497,
+                923
+              ],
+              "source_area": 56300,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                523,
+                571,
+                743,
+                924
+              ],
+              "source_area": 55968,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                767,
+                584,
+                1000,
+                923
+              ],
+              "source_area": 53879,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1022,
+                584,
+                1252,
+                924
+              ],
+              "source_area": 55397,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1276,
+                556,
+                1478,
+                928
+              ],
+              "source_area": 53172,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "shiba",
+      "source": "rewards/pets/animation-source/shiba-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "yawn": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.0776,
+            0.0539,
+            0.0668,
+            0.0556,
+            0.1368
+          ],
+          "max_motion_ratio": 0.1368,
+          "edge_margins": [
+            [
+              76,
+              20,
+              77,
+              20
+            ],
+            [
+              76,
+              20,
+              77,
+              20
+            ],
+            [
+              76,
+              20,
+              77,
+              20
+            ],
+            [
+              75,
+              21,
+              76,
+              20
+            ],
+            [
+              75,
+              20,
+              76,
+              20
+            ],
+            [
+              76,
+              21,
+              77,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                44,
+                74,
+                235,
+                476
+              ],
+              "source_area": 54371,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                290,
+                74,
+                481,
+                476
+              ],
+              "source_area": 54246,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                537,
+                74,
+                729,
+                476
+              ],
+              "source_area": 54320,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                784,
+                75,
+                979,
+                476
+              ],
+              "source_area": 54603,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1032,
+                74,
+                1227,
+                476
+              ],
+              "source_area": 54903,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1274,
+                76,
+                1466,
+                476
+              ],
+              "source_area": 54164,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "scratch": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.26,
+            0.1787,
+            0.1719,
+            0.2366,
+            0.1412
+          ],
+          "max_motion_ratio": 0.26,
+          "edge_margins": [
+            [
+              76,
+              20,
+              77,
+              20
+            ],
+            [
+              72,
+              22,
+              73,
+              20
+            ],
+            [
+              73,
+              25,
+              74,
+              20
+            ],
+            [
+              71,
+              31,
+              72,
+              20
+            ],
+            [
+              73,
+              23,
+              73,
+              20
+            ],
+            [
+              76,
+              20,
+              76,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                45,
+                552,
+                234,
+                948
+              ],
+              "source_area": 53630,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                300,
+                556,
+                503,
+                948
+              ],
+              "source_area": 55282,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                540,
+                561,
+                740,
+                947
+              ],
+              "source_area": 55567,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                785,
+                572,
+                992,
+                948
+              ],
+              "source_area": 54382,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1030,
+                557,
+                1231,
+                948
+              ],
+              "source_area": 54096,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1281,
+                553,
+                1471,
+                949
+              ],
+              "source_area": 53703,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "papillon",
+      "source": "rewards/pets/animation-source/papillon-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "blink": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.0747,
+            0.0755,
+            0.0824,
+            0.1688,
+            0.1651
+          ],
+          "max_motion_ratio": 0.1688,
+          "edge_margins": [
+            [
+              65,
+              41,
+              65,
+              20
+            ],
+            [
+              65,
+              40,
+              66,
+              20
+            ],
+            [
+              65,
+              41,
+              66,
+              20
+            ],
+            [
+              66,
+              42,
+              66,
+              20
+            ],
+            [
+              62,
+              20,
+              63,
+              20
+            ],
+            [
+              67,
+              41,
+              67,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                71,
+                130,
+                306,
+                493
+              ],
+              "source_area": 55775,
+              "slot_overlap_ratio": 0.9506
+            },
+            {
+              "source_bbox": [
+                318,
+                128,
+                551,
+                493
+              ],
+              "source_area": 55995,
+              "slot_overlap_ratio": 0.9974
+            },
+            {
+              "source_bbox": [
+                565,
+                130,
+                798,
+                493
+              ],
+              "source_area": 55774,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                806,
+                132,
+                1037,
+                493
+              ],
+              "source_area": 54597,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1037,
+                91,
+                1280,
+                493
+              ],
+              "source_area": 57626,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1299,
+                131,
+                1526,
+                493
+              ],
+              "source_area": 55239,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "scratch": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.2431,
+            0.1698,
+            0.2072,
+            0.2347,
+            0.1661
+          ],
+          "max_motion_ratio": 0.2431,
+          "edge_margins": [
+            [
+              57,
+              20,
+              58,
+              20
+            ],
+            [
+              58,
+              21,
+              59,
+              20
+            ],
+            [
+              62,
+              35,
+              63,
+              20
+            ],
+            [
+              62,
+              44,
+              62,
+              20
+            ],
+            [
+              60,
+              33,
+              60,
+              20
+            ],
+            [
+              59,
+              25,
+              59,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                70,
+                585,
+                292,
+                924
+              ],
+              "source_area": 48917,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                320,
+                586,
+                538,
+                923
+              ],
+              "source_area": 50804,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                570,
+                607,
+                776,
+                923
+              ],
+              "source_area": 46313,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                812,
+                622,
+                1019,
+                924
+              ],
+              "source_area": 40403,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1057,
+                606,
+                1270,
+                924
+              ],
+              "source_area": 45504,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1290,
+                593,
+                1507,
+                924
+              ],
+              "source_area": 47473,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "pony",
+      "source": "rewards/pets/animation-source/pony-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "nod": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1961,
+            0.1609,
+            0.2095,
+            0.2299,
+            0.1323
+          ],
+          "max_motion_ratio": 0.2299,
+          "edge_margins": [
+            [
+              55,
+              20,
+              56,
+              20
+            ],
+            [
+              57,
+              58,
+              57,
+              20
+            ],
+            [
+              55,
+              68,
+              56,
+              20
+            ],
+            [
+              59,
+              82,
+              59,
+              20
+            ],
+            [
+              58,
+              25,
+              58,
+              20
+            ],
+            [
+              58,
+              23,
+              59,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                44,
+                99,
+                267,
+                432
+              ],
+              "source_area": 47086,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                303,
+                157,
+                522,
+                431
+              ],
+              "source_area": 41158,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                552,
+                172,
+                775,
+                431
+              ],
+              "source_area": 40737,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                814,
+                195,
+                1027,
+                432
+              ],
+              "source_area": 37885,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1064,
+                106,
+                1280,
+                432
+              ],
+              "source_area": 44853,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1317,
+                102,
+                1531,
+                431
+              ],
+              "source_area": 45372,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "paw": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1856,
+            0.1319,
+            0.2395,
+            0.2509,
+            0.163
+          ],
+          "max_motion_ratio": 0.2509,
+          "edge_margins": [
+            [
+              55,
+              20,
+              55,
+              20
+            ],
+            [
+              57,
+              29,
+              58,
+              20
+            ],
+            [
+              57,
+              31,
+              57,
+              20
+            ],
+            [
+              50,
+              38,
+              50,
+              20
+            ],
+            [
+              56,
+              25,
+              56,
+              20
+            ],
+            [
+              58,
+              22,
+              58,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                44,
+                556,
+                265,
+                884
+              ],
+              "source_area": 46258,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                305,
+                569,
+                519,
+                884
+              ],
+              "source_area": 43049,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                554,
+                573,
+                769,
+                884
+              ],
+              "source_area": 42967,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                781,
+                583,
+                1018,
+                883
+              ],
+              "source_area": 42120,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1058,
+                564,
+                1277,
+                884
+              ],
+              "source_area": 44710,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1313,
+                559,
+                1526,
+                884
+              ],
+              "source_area": 44280,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "golden-retriever",
+      "source": "rewards/pets/animation-source/golden-retriever-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "yawn": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1094,
+            0.0613,
+            0.1065,
+            0.0756,
+            0.0704
+          ],
+          "max_motion_ratio": 0.1094,
+          "edge_margins": [
+            [
+              74,
+              20,
+              74,
+              20
+            ],
+            [
+              75,
+              20,
+              75,
+              20
+            ],
+            [
+              74,
+              20,
+              75,
+              20
+            ],
+            [
+              75,
+              20,
+              75,
+              20
+            ],
+            [
+              75,
+              21,
+              75,
+              20
+            ],
+            [
+              74,
+              21,
+              75,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                56,
+                80,
+                252,
+                471
+              ],
+              "source_area": 56098,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                320,
+                80,
+                511,
+                471
+              ],
+              "source_area": 55220,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                572,
+                80,
+                765,
+                471
+              ],
+              "source_area": 55324,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                817,
+                80,
+                1009,
+                471
+              ],
+              "source_area": 55627,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1066,
+                81,
+                1258,
+                471
+              ],
+              "source_area": 55275,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1305,
+                81,
+                1498,
+                471
+              ],
+              "source_area": 55361,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "tail": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.3002,
+            0.2614,
+            0.3486,
+            0.2409,
+            0.2806
+          ],
+          "max_motion_ratio": 0.3486,
+          "edge_margins": [
+            [
+              55,
+              20,
+              56,
+              20
+            ],
+            [
+              76,
+              20,
+              76,
+              20
+            ],
+            [
+              63,
+              20,
+              64,
+              20
+            ],
+            [
+              51,
+              20,
+              51,
+              20
+            ],
+            [
+              59,
+              21,
+              59,
+              20
+            ],
+            [
+              76,
+              21,
+              76,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                42,
+                537,
+                303,
+                925
+              ],
+              "source_area": 58556,
+              "slot_overlap_ratio": 0.967
+            },
+            {
+              "source_bbox": [
+                307,
+                537,
+                494,
+                925
+              ],
+              "source_area": 53749,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                500,
+                537,
+                732,
+                925
+              ],
+              "source_area": 56996,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                761,
+                537,
+                1037,
+                925
+              ],
+              "source_area": 59260,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1038,
+                540,
+                1285,
+                927
+              ],
+              "source_area": 56994,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1292,
+                539,
+                1479,
+                926
+              ],
+              "source_area": 53466,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "owl",
+      "source": "rewards/pets/animation-source/owl-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "blink": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.2185,
+            0.1813,
+            0.1994,
+            0.2371,
+            0.2202
+          ],
+          "max_motion_ratio": 0.2371,
+          "edge_margins": [
+            [
+              70,
+              24,
+              71,
+              20
+            ],
+            [
+              69,
+              21,
+              69,
+              20
+            ],
+            [
+              69,
+              21,
+              69,
+              20
+            ],
+            [
+              70,
+              21,
+              71,
+              20
+            ],
+            [
+              67,
+              20,
+              68,
+              20
+            ],
+            [
+              68,
+              21,
+              69,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                57,
+                152,
+                220,
+                452
+              ],
+              "source_area": 39024,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                299,
+                152,
+                466,
+                456
+              ],
+              "source_area": 40337,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                547,
+                152,
+                714,
+                456
+              ],
+              "source_area": 40013,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                798,
+                152,
+                961,
+                456
+              ],
+              "source_area": 39580,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1040,
+                150,
+                1212,
+                456
+              ],
+              "source_area": 39970,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1295,
+                152,
+                1463,
+                457
+              ],
+              "source_area": 40035,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "wings": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1721,
+            0.226,
+            0.2629,
+            0.248,
+            0.2018
+          ],
+          "max_motion_ratio": 0.2629,
+          "edge_margins": [
+            [
+              86,
+              71,
+              87,
+              20
+            ],
+            [
+              72,
+              70,
+              73,
+              20
+            ],
+            [
+              41,
+              70,
+              41,
+              20
+            ],
+            [
+              20,
+              61,
+              20,
+              20
+            ],
+            [
+              47,
+              72,
+              47,
+              20
+            ],
+            [
+              86,
+              71,
+              87,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                25,
+                594,
+                173,
+                887
+              ],
+              "source_area": 34395,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                230,
+                594,
+                427,
+                888
+              ],
+              "source_area": 42822,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                431,
+                594,
+                740,
+                888
+              ],
+              "source_area": 55935,
+              "slot_overlap_ratio": 0.8621
+            },
+            {
+              "source_bbox": [
+                698,
+                579,
+                1081,
+                889
+              ],
+              "source_area": 62022,
+              "slot_overlap_ratio": 0.8689
+            },
+            {
+              "source_bbox": [
+                1036,
+                597,
+                1324,
+                888
+              ],
+              "source_area": 53875,
+              "slot_overlap_ratio": 0.9806
+            },
+            {
+              "source_bbox": [
+                1349,
+                594,
+                1497,
+                887
+              ],
+              "source_area": 34442,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "ferret",
+      "source": "rewards/pets/animation-source/ferret-alpha.png",
+      "source_size": [
+        2172,
+        724
+      ],
+      "actions": {
+        "yawn": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1231,
+            0.1078,
+            0.0909,
+            0.1098,
+            0.099
+          ],
+          "max_motion_ratio": 0.1231,
+          "edge_margins": [
+            [
+              20,
+              55,
+              20,
+              20
+            ],
+            [
+              20,
+              53,
+              20,
+              20
+            ],
+            [
+              22,
+              53,
+              22,
+              20
+            ],
+            [
+              22,
+              52,
+              23,
+              20
+            ],
+            [
+              21,
+              53,
+              22,
+              20
+            ],
+            [
+              23,
+              54,
+              24,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                86,
+                79,
+                416,
+                356
+              ],
+              "source_area": 57451,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                439,
+                76,
+                769,
+                356
+              ],
+              "source_area": 57488,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                794,
+                76,
+                1118,
+                356
+              ],
+              "source_area": 56723,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1147,
+                76,
+                1470,
+                357
+              ],
+              "source_area": 56685,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1497,
+                76,
+                1822,
+                356
+              ],
+              "source_area": 57233,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1845,
+                79,
+                2164,
+                357
+              ],
+              "source_area": 55933,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "groom": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1056,
+            0.1106,
+            0.1057,
+            0.1265,
+            0.1172
+          ],
+          "max_motion_ratio": 0.1265,
+          "edge_margins": [
+            [
+              21,
+              53,
+              22,
+              20
+            ],
+            [
+              20,
+              52,
+              20,
+              20
+            ],
+            [
+              23,
+              53,
+              24,
+              20
+            ],
+            [
+              23,
+              51,
+              23,
+              20
+            ],
+            [
+              21,
+              53,
+              21,
+              20
+            ],
+            [
+              23,
+              53,
+              24,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                87,
+                399,
+                413,
+                678
+              ],
+              "source_area": 57494,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                439,
+                397,
+                769,
+                678
+              ],
+              "source_area": 54193,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                797,
+                398,
+                1117,
+                678
+              ],
+              "source_area": 52663,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1151,
+                397,
+                1472,
+                679
+              ],
+              "source_area": 52544,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1494,
+                399,
+                1821,
+                678
+              ],
+              "source_area": 55274,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1845,
+                399,
+                2164,
+                679
+              ],
+              "source_area": 55952,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "fox",
+      "source": "rewards/pets/animation-source/fox-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "yawn": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1202,
+            0.0833,
+            0.1253,
+            0.115,
+            0.0785
+          ],
+          "max_motion_ratio": 0.1253,
+          "edge_margins": [
+            [
+              55,
+              20,
+              55,
+              20
+            ],
+            [
+              56,
+              20,
+              56,
+              20
+            ],
+            [
+              56,
+              21,
+              56,
+              20
+            ],
+            [
+              56,
+              21,
+              57,
+              20
+            ],
+            [
+              56,
+              21,
+              57,
+              20
+            ],
+            [
+              57,
+              21,
+              57,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                61,
+                104,
+                289,
+                442
+              ],
+              "source_area": 48426,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                313,
+                104,
+                539,
+                442
+              ],
+              "source_area": 48043,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                566,
+                104,
+                791,
+                441
+              ],
+              "source_area": 47933,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                827,
+                104,
+                1050,
+                441
+              ],
+              "source_area": 47463,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1063,
+                104,
+                1286,
+                441
+              ],
+              "source_area": 46781,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1298,
+                104,
+                1520,
+                441
+              ],
+              "source_area": 47267,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "scratch": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.2111,
+            0.1803,
+            0.2034,
+            0.2356,
+            0.1915
+          ],
+          "max_motion_ratio": 0.2356,
+          "edge_margins": [
+            [
+              54,
+              20,
+              55,
+              20
+            ],
+            [
+              55,
+              26,
+              56,
+              20
+            ],
+            [
+              55,
+              24,
+              56,
+              20
+            ],
+            [
+              57,
+              32,
+              58,
+              20
+            ],
+            [
+              54,
+              28,
+              54,
+              20
+            ],
+            [
+              56,
+              21,
+              57,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                61,
+                559,
+                289,
+                895
+              ],
+              "source_area": 48334,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                309,
+                568,
+                535,
+                894
+              ],
+              "source_area": 46409,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                558,
+                563,
+                783,
+                893
+              ],
+              "source_area": 47697,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                809,
+                576,
+                1028,
+                893
+              ],
+              "source_area": 44304,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1042,
+                570,
+                1273,
+                893
+              ],
+              "source_area": 46647,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1298,
+                559,
+                1521,
+                894
+              ],
+              "source_area": 46826,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "parrot",
+      "source": "rewards/pets/animation-source/parrot-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "blink": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.0604,
+            0.0694,
+            0.0855,
+            0.1083,
+            0.1307
+          ],
+          "max_motion_ratio": 0.1307,
+          "edge_margins": [
+            [
+              40,
+              22,
+              40,
+              20
+            ],
+            [
+              40,
+              22,
+              41,
+              20
+            ],
+            [
+              41,
+              21,
+              42,
+              20
+            ],
+            [
+              41,
+              22,
+              41,
+              20
+            ],
+            [
+              41,
+              20,
+              41,
+              20
+            ],
+            [
+              41,
+              22,
+              41,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                58,
+                161,
+                286,
+                439
+              ],
+              "source_area": 30990,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                307,
+                161,
+                534,
+                439
+              ],
+              "source_area": 31056,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                561,
+                160,
+                785,
+                439
+              ],
+              "source_area": 30865,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                814,
+                161,
+                1040,
+                439
+              ],
+              "source_area": 30777,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1058,
+                159,
+                1283,
+                439
+              ],
+              "source_area": 30900,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1294,
+                161,
+                1520,
+                439
+              ],
+              "source_area": 30789,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "wings": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.1318,
+            0.1836,
+            0.1801,
+            0.224,
+            0.1629
+          ],
+          "max_motion_ratio": 0.224,
+          "edge_margins": [
+            [
+              59,
+              54,
+              60,
+              20
+            ],
+            [
+              57,
+              54,
+              58,
+              20
+            ],
+            [
+              51,
+              54,
+              52,
+              20
+            ],
+            [
+              20,
+              56,
+              20,
+              20
+            ],
+            [
+              59,
+              55,
+              60,
+              20
+            ],
+            [
+              59,
+              54,
+              59,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                32,
+                579,
+                240,
+                854
+              ],
+              "source_area": 28716,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                253,
+                579,
+                467,
+                854
+              ],
+              "source_area": 32950,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                479,
+                579,
+                710,
+                854
+              ],
+              "source_area": 39449,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                721,
+                580,
+                1048,
+                852
+              ],
+              "source_area": 45593,
+              "slot_overlap_ratio": 0.9737
+            },
+            {
+              "source_bbox": [
+                1071,
+                580,
+                1278,
+                854
+              ],
+              "source_area": 35257,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1322,
+                579,
+                1531,
+                854
+              ],
+              "source_area": 28618,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pet": "rabbit",
+      "source": "rewards/pets/animation-source/rabbit-alpha.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "actions": {
+        "blink": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.0589,
+            0.0643,
+            0.1157,
+            0.1245,
+            0.1056
+          ],
+          "max_motion_ratio": 0.1245,
+          "edge_margins": [
+            [
+              57,
+              20,
+              58,
+              20
+            ],
+            [
+              57,
+              21,
+              58,
+              20
+            ],
+            [
+              57,
+              22,
+              57,
+              20
+            ],
+            [
+              60,
+              21,
+              60,
+              20
+            ],
+            [
+              57,
+              20,
+              58,
+              20
+            ],
+            [
+              57,
+              21,
+              58,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                62,
+                117,
+                279,
+                449
+              ],
+              "source_area": 46141,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                312,
+                118,
+                529,
+                449
+              ],
+              "source_area": 46216,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                561,
+                119,
+                779,
+                448
+              ],
+              "source_area": 45845,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                824,
+                118,
+                1033,
+                448
+              ],
+              "source_area": 44714,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1061,
+                117,
+                1277,
+                449
+              ],
+              "source_area": 44351,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1315,
+                117,
+                1531,
+                448
+              ],
+              "source_area": 45525,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        },
+        "groom": {
+          "frame_count": 6,
+          "motion_ratios": [
+            0.197,
+            0.1723,
+            0.1294,
+            0.1569,
+            0.1793
+          ],
+          "max_motion_ratio": 0.197,
+          "edge_margins": [
+            [
+              58,
+              20,
+              59,
+              20
+            ],
+            [
+              57,
+              28,
+              57,
+              20
+            ],
+            [
+              57,
+              44,
+              58,
+              20
+            ],
+            [
+              57,
+              31,
+              57,
+              20
+            ],
+            [
+              55,
+              27,
+              56,
+              20
+            ],
+            [
+              57,
+              21,
+              58,
+              20
+            ]
+          ],
+          "source_poses": [
+            {
+              "source_bbox": [
+                61,
+                558,
+                273,
+                888
+              ],
+              "source_area": 45083,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                312,
+                566,
+                529,
+                884
+              ],
+              "source_area": 43857,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                561,
+                591,
+                776,
+                884
+              ],
+              "source_area": 41871,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                807,
+                571,
+                1024,
+                884
+              ],
+              "source_area": 43822,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1052,
+                565,
+                1273,
+                884
+              ],
+              "source_area": 44972,
+              "slot_overlap_ratio": 1.0
+            },
+            {
+              "source_bbox": [
+                1317,
+                559,
+                1532,
+                888
+              ],
+              "source_area": 45566,
+              "slot_overlap_ratio": 1.0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

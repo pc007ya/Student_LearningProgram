@@ -1,0 +1,48 @@
+{
+  "id": "generated-rose-charcoal",
+  "code": "g22",
+  "title": "ROSE CHARCOAL",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "top": {
+      "canvas": "top.png",
+      "shop": "shop-top.png",
+      "name": "煙粉蝴蝶結真絲上衣"
+    },
+    "bot": {
+      "canvas": "bot.png",
+      "shop": "shop-bottom.png",
+      "name": "炭灰高腰寬褲"
+    }
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "bot",
+    "top"
+  ],
+  "bodyGrid": {
+    "topBox": [
+      220,
+      340,
+      804,
+      990
+    ],
+    "bottomBox": [
+      260,
+      710,
+      740,
+      1600
+    ]
+  },
+  "sourceGap": [
+    0,
+    0
+  ],
+  "source": "imagegen chroma wardrobe sheet; body-free top/bottom"
+}

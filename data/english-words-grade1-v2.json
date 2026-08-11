@@ -1,0 +1,5007 @@
+{
+  "schemaVersion": 2,
+  "grade": 1,
+  "count": 500,
+  "words": [
+    {
+      "id": "en-g1-001",
+      "grade": 1,
+      "word": "apple",
+      "meaning": "苹果",
+      "phonetic": "'æpl",
+      "category": "食物",
+      "emoji": "🍎",
+      "image": "images/english-generated-v1/apple.webp"
+    },
+    {
+      "id": "en-g1-002",
+      "grade": 1,
+      "word": "ant",
+      "meaning": "蚂蚁",
+      "phonetic": "ænt",
+      "category": "動物",
+      "emoji": "🐜",
+      "image": "images/english-generated-v1/ant.webp"
+    },
+    {
+      "id": "en-g1-003",
+      "grade": 1,
+      "word": "animal",
+      "meaning": "動物",
+      "phonetic": "'ænimәl",
+      "category": "動物",
+      "emoji": "🐾",
+      "image": "images/english-cards/words-v2/animal.svg"
+    },
+    {
+      "id": "en-g1-004",
+      "grade": 1,
+      "word": "arm",
+      "meaning": "手臂",
+      "phonetic": "ɑ:m",
+      "category": "生活",
+      "emoji": "🤳",
+      "image": "images/english-cards/words-v2/arm.svg"
+    },
+    {
+      "id": "en-g1-005",
+      "grade": 1,
+      "word": "baby",
+      "meaning": "婴孩",
+      "phonetic": "'beibi",
+      "category": "人物",
+      "emoji": "👶",
+      "image": "images/english-cards/words-v2/baby.svg"
+    },
+    {
+      "id": "en-g1-006",
+      "grade": 1,
+      "word": "bag",
+      "meaning": "袋子",
+      "phonetic": "bæg",
+      "category": "用品",
+      "emoji": "🎒",
+      "image": "images/english-cards/words-v2/bag.svg"
+    },
+    {
+      "id": "en-g1-007",
+      "grade": 1,
+      "word": "ball",
+      "meaning": "球",
+      "phonetic": "bɒ:l",
+      "category": "用品",
+      "emoji": "⚽",
+      "image": "images/english-generated-v1/ball.webp"
+    },
+    {
+      "id": "en-g1-008",
+      "grade": 1,
+      "word": "banana",
+      "meaning": "香蕉",
+      "phonetic": "bә'nɑ:nә",
+      "category": "食物",
+      "emoji": "🍌",
+      "image": "images/english-generated-v1/banana.webp"
+    },
+    {
+      "id": "en-g1-009",
+      "grade": 1,
+      "word": "bear",
+      "meaning": "熊",
+      "phonetic": "bєә",
+      "category": "動物",
+      "emoji": "🐻",
+      "image": "images/english-generated-v1/bear.webp"
+    },
+    {
+      "id": "en-g1-010",
+      "grade": 1,
+      "word": "bed",
+      "meaning": "床",
+      "phonetic": "bed",
+      "category": "用品",
+      "emoji": "🛏️",
+      "image": "images/english-generated-v1/bed.webp"
+    },
+    {
+      "id": "en-g1-011",
+      "grade": 1,
+      "word": "bee",
+      "meaning": "蜜蜂",
+      "phonetic": "bi:",
+      "category": "動物",
+      "emoji": "🐝",
+      "image": "images/english-generated-v1/bee.webp"
+    },
+    {
+      "id": "en-g1-012",
+      "grade": 1,
+      "word": "bird",
+      "meaning": "鳥",
+      "phonetic": "bә:d",
+      "category": "動物",
+      "emoji": "🐦",
+      "image": "images/english-generated-v1/bird.webp"
+    },
+    {
+      "id": "en-g1-013",
+      "grade": 1,
+      "word": "black",
+      "meaning": "黑色",
+      "phonetic": "blæk",
+      "category": "生活",
+      "emoji": "❤️",
+      "image": "images/english-cards/words-v2/black.svg"
+    },
+    {
+      "id": "en-g1-014",
+      "grade": 1,
+      "word": "blue",
+      "meaning": "蓝色",
+      "phonetic": "blu:",
+      "category": "生活",
+      "emoji": "🥶",
+      "image": "images/english-cards/words-v2/blue.svg"
+    },
+    {
+      "id": "en-g1-015",
+      "grade": 1,
+      "word": "boat",
+      "meaning": "船",
+      "phonetic": "bәut",
+      "category": "交通",
+      "emoji": "⛵",
+      "image": "images/english-generated-v1/boat.webp"
+    },
+    {
+      "id": "en-g1-016",
+      "grade": 1,
+      "word": "body",
+      "meaning": "身体",
+      "phonetic": "'bɒdi",
+      "category": "生活",
+      "emoji": "💀",
+      "image": "images/english-cards/words-v2/body.svg"
+    },
+    {
+      "id": "en-g1-017",
+      "grade": 1,
+      "word": "book",
+      "meaning": "書",
+      "phonetic": "buk",
+      "category": "學校",
+      "emoji": "📘",
+      "image": "images/english-generated-v1/book.webp"
+    },
+    {
+      "id": "en-g1-018",
+      "grade": 1,
+      "word": "box",
+      "meaning": "盒子",
+      "phonetic": "bɒks",
+      "category": "用品",
+      "emoji": "📦",
+      "image": "images/english-generated-v1/box.webp"
+    },
+    {
+      "id": "en-g1-019",
+      "grade": 1,
+      "word": "boy",
+      "meaning": "男孩",
+      "phonetic": "bɒi",
+      "category": "人物",
+      "emoji": "👦",
+      "image": "images/english-cards/words-v2/boy.svg"
+    },
+    {
+      "id": "en-g1-020",
+      "grade": 1,
+      "word": "bread",
+      "meaning": "面包",
+      "phonetic": "bred",
+      "category": "食物",
+      "emoji": "🍞",
+      "image": "images/english-generated-v1/bread.webp"
+    },
+    {
+      "id": "en-g1-021",
+      "grade": 1,
+      "word": "brother",
+      "meaning": "兄弟",
+      "phonetic": "'brʌðә",
+      "category": "人物",
+      "emoji": "👦",
+      "image": "images/english-cards/words-v2/brother.svg"
+    },
+    {
+      "id": "en-g1-022",
+      "grade": 1,
+      "word": "brown",
+      "meaning": "褐色",
+      "phonetic": "braun",
+      "category": "生活",
+      "emoji": "🐴",
+      "image": "images/english-cards/words-v2/brown.svg"
+    },
+    {
+      "id": "en-g1-023",
+      "grade": 1,
+      "word": "bus",
+      "meaning": "公共汽車",
+      "phonetic": "bʌs",
+      "category": "交通",
+      "emoji": "🚌",
+      "image": "images/english-generated-v1/bus.webp"
+    },
+    {
+      "id": "en-g1-024",
+      "grade": 1,
+      "word": "cake",
+      "meaning": "蛋糕",
+      "phonetic": "keik",
+      "category": "食物",
+      "emoji": "🍰",
+      "image": "images/english-generated-v1/cake.webp"
+    },
+    {
+      "id": "en-g1-025",
+      "grade": 1,
+      "word": "car",
+      "meaning": "汽車",
+      "phonetic": "kɑ:",
+      "category": "交通",
+      "emoji": "🚗",
+      "image": "images/english-generated-v1/car.webp"
+    },
+    {
+      "id": "en-g1-026",
+      "grade": 1,
+      "word": "cat",
+      "meaning": "貓",
+      "phonetic": "kæt",
+      "category": "動物",
+      "emoji": "🐱",
+      "image": "images/english-generated-v1/cat.webp"
+    },
+    {
+      "id": "en-g1-027",
+      "grade": 1,
+      "word": "chair",
+      "meaning": "椅子",
+      "phonetic": "tʃєә",
+      "category": "用品",
+      "emoji": "🪑",
+      "image": "images/english-generated-v1/chair.webp"
+    },
+    {
+      "id": "en-g1-028",
+      "grade": 1,
+      "word": "chicken",
+      "meaning": "小雞",
+      "phonetic": "'tʃikin",
+      "category": "動物",
+      "emoji": "🐔",
+      "image": "images/english-generated-v1/chicken.webp"
+    },
+    {
+      "id": "en-g1-029",
+      "grade": 1,
+      "word": "child",
+      "meaning": "孩子",
+      "phonetic": "tʃaild",
+      "category": "人物",
+      "emoji": "👶",
+      "image": "images/english-cards/words-v2/child.svg"
+    },
+    {
+      "id": "en-g1-030",
+      "grade": 1,
+      "word": "circle",
+      "meaning": "圆周",
+      "phonetic": "'sә:kl",
+      "category": "生活",
+      "emoji": "💫",
+      "image": "images/english-cards/words-v2/circle.svg"
+    },
+    {
+      "id": "en-g1-031",
+      "grade": 1,
+      "word": "class",
+      "meaning": "班级",
+      "phonetic": "klɑ:s",
+      "category": "學校",
+      "emoji": "🧑‍🏫",
+      "image": "images/english-cards/words-v2/class.svg"
+    },
+    {
+      "id": "en-g1-032",
+      "grade": 1,
+      "word": "clock",
+      "meaning": "時鐘",
+      "phonetic": "klɒk",
+      "category": "用品",
+      "emoji": "🕐",
+      "image": "images/english-generated-v1/clock.webp"
+    },
+    {
+      "id": "en-g1-033",
+      "grade": 1,
+      "word": "cloud",
+      "meaning": "雲",
+      "phonetic": "klaud",
+      "category": "自然",
+      "emoji": "☁️",
+      "image": "images/english-generated-v1/cloud.webp"
+    },
+    {
+      "id": "en-g1-034",
+      "grade": 1,
+      "word": "coat",
+      "meaning": "外套",
+      "phonetic": "kәut",
+      "category": "用品",
+      "emoji": "🧥",
+      "image": "images/english-generated-v1/coat.webp"
+    },
+    {
+      "id": "en-g1-035",
+      "grade": 1,
+      "word": "color",
+      "meaning": "顏色",
+      "phonetic": "'kʌlә",
+      "category": "生活",
+      "emoji": "🎨",
+      "image": "images/english-cards/words-v2/color.svg"
+    },
+    {
+      "id": "en-g1-036",
+      "grade": 1,
+      "word": "cow",
+      "meaning": "母牛",
+      "phonetic": "kau",
+      "category": "動物",
+      "emoji": "🐄",
+      "image": "images/english-generated-v1/cow.webp"
+    },
+    {
+      "id": "en-g1-037",
+      "grade": 1,
+      "word": "cup",
+      "meaning": "杯子",
+      "phonetic": "kʌp",
+      "category": "用品",
+      "emoji": "🥤",
+      "image": "images/english-generated-v1/cup.webp"
+    },
+    {
+      "id": "en-g1-038",
+      "grade": 1,
+      "word": "dad",
+      "meaning": "爸爸",
+      "phonetic": "dæd",
+      "category": "人物",
+      "emoji": "👨",
+      "image": "images/english-cards/words-v2/dad.svg"
+    },
+    {
+      "id": "en-g1-039",
+      "grade": 1,
+      "word": "day",
+      "meaning": "天",
+      "phonetic": "dei",
+      "category": "生活",
+      "emoji": "📅",
+      "image": "images/english-cards/words-v2/day.svg"
+    },
+    {
+      "id": "en-g1-040",
+      "grade": 1,
+      "word": "desk",
+      "meaning": "書桌",
+      "phonetic": "desk",
+      "category": "學校",
+      "emoji": "💁",
+      "image": "images/english-generated-v1/desk.webp"
+    },
+    {
+      "id": "en-g1-041",
+      "grade": 1,
+      "word": "dog",
+      "meaning": "狗",
+      "phonetic": "dɒg",
+      "category": "動物",
+      "emoji": "🐶",
+      "image": "images/english-generated-v1/dog.webp"
+    },
+    {
+      "id": "en-g1-042",
+      "grade": 1,
+      "word": "doll",
+      "meaning": "洋娃娃",
+      "phonetic": "dɒl",
+      "category": "生活",
+      "emoji": "🎎",
+      "image": "images/english-generated-v1/doll.webp"
+    },
+    {
+      "id": "en-g1-043",
+      "grade": 1,
+      "word": "door",
+      "meaning": "門",
+      "phonetic": "dɒ:",
+      "category": "用品",
+      "emoji": "🚪",
+      "image": "images/english-generated-v1/door.webp"
+    },
+    {
+      "id": "en-g1-044",
+      "grade": 1,
+      "word": "duck",
+      "meaning": "鴨子",
+      "phonetic": "dʌk",
+      "category": "動物",
+      "emoji": "🦆",
+      "image": "images/english-generated-v1/duck.webp"
+    },
+    {
+      "id": "en-g1-045",
+      "grade": 1,
+      "word": "ear",
+      "meaning": "耳朵",
+      "phonetic": "iә",
+      "category": "生活",
+      "emoji": "👂",
+      "image": "images/english-cards/words-v2/ear.svg"
+    },
+    {
+      "id": "en-g1-046",
+      "grade": 1,
+      "word": "egg",
+      "meaning": "蛋",
+      "phonetic": "eg",
+      "category": "食物",
+      "emoji": "🥚",
+      "image": "images/english-generated-v1/egg.webp"
+    },
+    {
+      "id": "en-g1-047",
+      "grade": 1,
+      "word": "eight",
+      "meaning": "八",
+      "phonetic": "eit",
+      "category": "生活",
+      "emoji": "🎱",
+      "image": "images/english-cards/words-v2/eight.svg"
+    },
+    {
+      "id": "en-g1-048",
+      "grade": 1,
+      "word": "elephant",
+      "meaning": "象",
+      "phonetic": "'elifәnt",
+      "category": "動物",
+      "emoji": "🐘",
+      "image": "images/english-generated-v1/elephant.webp"
+    },
+    {
+      "id": "en-g1-049",
+      "grade": 1,
+      "word": "eye",
+      "meaning": "眼睛",
+      "phonetic": "ai",
+      "category": "生活",
+      "emoji": "👁️",
+      "image": "images/english-cards/words-v2/eye.svg"
+    },
+    {
+      "id": "en-g1-050",
+      "grade": 1,
+      "word": "face",
+      "meaning": "脸",
+      "phonetic": "feis",
+      "category": "生活",
+      "emoji": "😀",
+      "image": "images/english-cards/words-v2/face.svg"
+    },
+    {
+      "id": "en-g1-051",
+      "grade": 1,
+      "word": "family",
+      "meaning": "家庭",
+      "phonetic": "'fæmәli",
+      "category": "人物",
+      "emoji": "👪",
+      "image": "images/english-cards/words-v2/family.svg"
+    },
+    {
+      "id": "en-g1-052",
+      "grade": 1,
+      "word": "farm",
+      "meaning": "农场",
+      "phonetic": "fɑ:m",
+      "category": "自然",
+      "emoji": "🧑‍🌾",
+      "image": "images/english-cards/words-v2/farm.svg"
+    },
+    {
+      "id": "en-g1-053",
+      "grade": 1,
+      "word": "father",
+      "meaning": "父亲",
+      "phonetic": "'fɑ:ðә",
+      "category": "人物",
+      "emoji": "👨",
+      "image": "images/english-cards/words-v2/father.svg"
+    },
+    {
+      "id": "en-g1-054",
+      "grade": 1,
+      "word": "fish",
+      "meaning": "魚",
+      "phonetic": "fiʃ",
+      "category": "動物",
+      "emoji": "🐟",
+      "image": "images/english-generated-v1/fish.webp"
+    },
+    {
+      "id": "en-g1-055",
+      "grade": 1,
+      "word": "five",
+      "meaning": "五",
+      "phonetic": "faiv",
+      "category": "生活",
+      "emoji": "🖐️",
+      "image": "images/english-cards/words-v2/five.svg"
+    },
+    {
+      "id": "en-g1-056",
+      "grade": 1,
+      "word": "flower",
+      "meaning": "花",
+      "phonetic": "'flauә",
+      "category": "自然",
+      "emoji": "🌼",
+      "image": "images/english-generated-v1/flower.webp"
+    },
+    {
+      "id": "en-g1-057",
+      "grade": 1,
+      "word": "food",
+      "meaning": "食物",
+      "phonetic": "fu:d",
+      "category": "食物",
+      "emoji": "🧑‍🍳",
+      "image": "images/english-cards/words-v2/food.svg"
+    },
+    {
+      "id": "en-g1-058",
+      "grade": 1,
+      "word": "foot",
+      "meaning": "脚",
+      "phonetic": "fut",
+      "category": "生活",
+      "emoji": "🦶",
+      "image": "images/english-cards/words-v2/foot.svg"
+    },
+    {
+      "id": "en-g1-059",
+      "grade": 1,
+      "word": "four",
+      "meaning": "四",
+      "phonetic": "fɒ:",
+      "category": "生活",
+      "emoji": "4️⃣",
+      "image": "images/english-cards/words-v2/four.svg"
+    },
+    {
+      "id": "en-g1-060",
+      "grade": 1,
+      "word": "fox",
+      "meaning": "狐狸",
+      "phonetic": "fɒks",
+      "category": "動物",
+      "emoji": "🦊",
+      "image": "images/english-generated-v1/fox.webp"
+    },
+    {
+      "id": "en-g1-061",
+      "grade": 1,
+      "word": "friend",
+      "meaning": "朋友",
+      "phonetic": "frend",
+      "category": "人物",
+      "emoji": "🐶",
+      "image": "images/english-cards/words-v2/friend.svg"
+    },
+    {
+      "id": "en-g1-062",
+      "grade": 1,
+      "word": "frog",
+      "meaning": "青蛙",
+      "phonetic": "frɒg",
+      "category": "動物",
+      "emoji": "🐸",
+      "image": "images/english-generated-v1/frog.webp"
+    },
+    {
+      "id": "en-g1-063",
+      "grade": 1,
+      "word": "fruit",
+      "meaning": "水果",
+      "phonetic": "fru:t",
+      "category": "食物",
+      "emoji": "🍇",
+      "image": "images/english-cards/words-v2/fruit.svg"
+    },
+    {
+      "id": "en-g1-064",
+      "grade": 1,
+      "word": "game",
+      "meaning": "比赛",
+      "phonetic": "geim",
+      "category": "生活",
+      "emoji": "👾",
+      "image": "images/english-cards/words-v2/game.svg"
+    },
+    {
+      "id": "en-g1-065",
+      "grade": 1,
+      "word": "garden",
+      "meaning": "花园",
+      "phonetic": "'gɑ:dn",
+      "category": "自然",
+      "emoji": "🐌",
+      "image": "images/english-generated-v1/garden.webp"
+    },
+    {
+      "id": "en-g1-066",
+      "grade": 1,
+      "word": "girl",
+      "meaning": "女孩",
+      "phonetic": "gә:l",
+      "category": "人物",
+      "emoji": "👶",
+      "image": "images/english-cards/words-v2/girl.svg"
+    },
+    {
+      "id": "en-g1-067",
+      "grade": 1,
+      "word": "goat",
+      "meaning": "山羊",
+      "phonetic": "gәut",
+      "category": "動物",
+      "emoji": "🐐",
+      "image": "images/english-generated-v1/goat.webp"
+    },
+    {
+      "id": "en-g1-068",
+      "grade": 1,
+      "word": "good",
+      "meaning": "善行",
+      "phonetic": "gud",
+      "category": "生活",
+      "emoji": "🤞",
+      "image": "images/english-cards/words-v2/good.svg"
+    },
+    {
+      "id": "en-g1-069",
+      "grade": 1,
+      "word": "grape",
+      "meaning": "葡萄",
+      "phonetic": "greip",
+      "category": "食物",
+      "emoji": "🍇",
+      "image": "images/english-generated-v1/grape.webp"
+    },
+    {
+      "id": "en-g1-070",
+      "grade": 1,
+      "word": "grass",
+      "meaning": "草",
+      "phonetic": "græs",
+      "category": "生活",
+      "emoji": "🌱",
+      "image": "images/english-cards/words-v2/grass.svg"
+    },
+    {
+      "id": "en-g1-071",
+      "grade": 1,
+      "word": "green",
+      "meaning": "绿色",
+      "phonetic": "gri:n",
+      "category": "生活",
+      "emoji": "🤢",
+      "image": "images/english-cards/words-v2/green.svg"
+    },
+    {
+      "id": "en-g1-072",
+      "grade": 1,
+      "word": "hand",
+      "meaning": "手",
+      "phonetic": "hænd",
+      "category": "生活",
+      "emoji": "🖐️",
+      "image": "images/english-cards/words-v2/hand.svg"
+    },
+    {
+      "id": "en-g1-073",
+      "grade": 1,
+      "word": "happy",
+      "meaning": "快樂的",
+      "phonetic": "'hæpi",
+      "category": "生活",
+      "emoji": "😀",
+      "image": "images/english-cards/words-v2/happy.svg"
+    },
+    {
+      "id": "en-g1-074",
+      "grade": 1,
+      "word": "hat",
+      "meaning": "帽子",
+      "phonetic": "hæt",
+      "category": "用品",
+      "emoji": "🎩",
+      "image": "images/english-generated-v1/hat.webp"
+    },
+    {
+      "id": "en-g1-075",
+      "grade": 1,
+      "word": "head",
+      "meaning": "頭",
+      "phonetic": "hed",
+      "category": "生活",
+      "emoji": "🙆",
+      "image": "images/english-cards/words-v2/head.svg"
+    },
+    {
+      "id": "en-g1-076",
+      "grade": 1,
+      "word": "hello",
+      "meaning": "喂",
+      "phonetic": "hә'lәu",
+      "category": "生活",
+      "emoji": "👋",
+      "image": "images/english-cards/words-v2/hello.svg"
+    },
+    {
+      "id": "en-g1-077",
+      "grade": 1,
+      "word": "hen",
+      "meaning": "母雞",
+      "phonetic": "hen",
+      "category": "動物",
+      "emoji": "🐔",
+      "image": "images/english-cards/words-v2/hen.svg"
+    },
+    {
+      "id": "en-g1-078",
+      "grade": 1,
+      "word": "home",
+      "meaning": "家",
+      "phonetic": "hәum",
+      "category": "生活",
+      "emoji": "😱",
+      "image": "images/english-cards/words-v2/home.svg"
+    },
+    {
+      "id": "en-g1-079",
+      "grade": 1,
+      "word": "horse",
+      "meaning": "馬",
+      "phonetic": "hɒ:s",
+      "category": "動物",
+      "emoji": "🐴",
+      "image": "images/english-generated-v1/horse.webp"
+    },
+    {
+      "id": "en-g1-080",
+      "grade": 1,
+      "word": "house",
+      "meaning": "房子",
+      "phonetic": "haus",
+      "category": "用品",
+      "emoji": "🏠",
+      "image": "images/english-generated-v1/house.webp"
+    },
+    {
+      "id": "en-g1-081",
+      "grade": 1,
+      "word": "ice",
+      "meaning": "冰",
+      "phonetic": "ais",
+      "category": "自然",
+      "emoji": "🧊",
+      "image": "images/english-generated-v1/ice.webp"
+    },
+    {
+      "id": "en-g1-082",
+      "grade": 1,
+      "word": "jacket",
+      "meaning": "夹克",
+      "phonetic": "'dʒækit",
+      "category": "用品",
+      "emoji": "🧥",
+      "image": "images/english-cards/words-v2/jacket.svg"
+    },
+    {
+      "id": "en-g1-083",
+      "grade": 1,
+      "word": "juice",
+      "meaning": "汁",
+      "phonetic": "dʒu:s",
+      "category": "食物",
+      "emoji": "🧃",
+      "image": "images/english-generated-v1/juice.webp"
+    },
+    {
+      "id": "en-g1-084",
+      "grade": 1,
+      "word": "jump",
+      "meaning": "跳跃",
+      "phonetic": "dʒʌmp",
+      "category": "生活",
+      "emoji": "🕴️",
+      "image": "images/english-cards/words-v2/jump.svg"
+    },
+    {
+      "id": "en-g1-085",
+      "grade": 1,
+      "word": "key",
+      "meaning": "钥匙",
+      "phonetic": "ki:",
+      "category": "用品",
+      "emoji": "🔑",
+      "image": "images/english-cards/words-v2/key.svg"
+    },
+    {
+      "id": "en-g1-086",
+      "grade": 1,
+      "word": "kite",
+      "meaning": "風筝",
+      "phonetic": "kait",
+      "category": "用品",
+      "emoji": "🪁",
+      "image": "images/english-generated-v1/kite.webp"
+    },
+    {
+      "id": "en-g1-087",
+      "grade": 1,
+      "word": "leg",
+      "meaning": "腿",
+      "phonetic": "leg",
+      "category": "生活",
+      "emoji": "🦵",
+      "image": "images/english-cards/words-v2/leg.svg"
+    },
+    {
+      "id": "en-g1-088",
+      "grade": 1,
+      "word": "lemon",
+      "meaning": "柠檬",
+      "phonetic": "'lemәn",
+      "category": "食物",
+      "emoji": "🍋",
+      "image": "images/english-cards/words-v2/lemon.svg"
+    },
+    {
+      "id": "en-g1-089",
+      "grade": 1,
+      "word": "lion",
+      "meaning": "狮子",
+      "phonetic": "'laiәn",
+      "category": "動物",
+      "emoji": "🦁",
+      "image": "images/english-generated-v1/lion.webp"
+    },
+    {
+      "id": "en-g1-090",
+      "grade": 1,
+      "word": "little",
+      "meaning": "一點點",
+      "phonetic": "'litl",
+      "category": "生活",
+      "emoji": "🤏",
+      "image": "images/english-cards/words-v2/little.svg"
+    },
+    {
+      "id": "en-g1-091",
+      "grade": 1,
+      "word": "long",
+      "meaning": "長的",
+      "phonetic": "lɒŋ",
+      "category": "生活",
+      "emoji": "🤥",
+      "image": "images/english-cards/words-v2/long.svg"
+    },
+    {
+      "id": "en-g1-092",
+      "grade": 1,
+      "word": "mango",
+      "meaning": "芒果",
+      "phonetic": "'mæŋgәu",
+      "category": "食物",
+      "emoji": "🥭",
+      "image": "images/english-cards/words-v2/mango.svg"
+    },
+    {
+      "id": "en-g1-093",
+      "grade": 1,
+      "word": "map",
+      "meaning": "地图",
+      "phonetic": "mæp",
+      "category": "學校",
+      "emoji": "📍",
+      "image": "images/english-cards/words-v2/map.svg"
+    },
+    {
+      "id": "en-g1-094",
+      "grade": 1,
+      "word": "milk",
+      "meaning": "奶",
+      "phonetic": "milk",
+      "category": "食物",
+      "emoji": "🥛",
+      "image": "images/english-cards/words-v2/milk.svg"
+    },
+    {
+      "id": "en-g1-095",
+      "grade": 1,
+      "word": "mom",
+      "meaning": "妈妈",
+      "phonetic": "mʌm",
+      "category": "人物",
+      "emoji": "👪",
+      "image": "images/english-cards/words-v2/mom.svg"
+    },
+    {
+      "id": "en-g1-096",
+      "grade": 1,
+      "word": "monkey",
+      "meaning": "猴子",
+      "phonetic": "'mʌŋki",
+      "category": "動物",
+      "emoji": "🐒",
+      "image": "images/english-cards/words-v2/monkey.svg"
+    },
+    {
+      "id": "en-g1-097",
+      "grade": 1,
+      "word": "moon",
+      "meaning": "月亮",
+      "phonetic": "mu:n",
+      "category": "自然",
+      "emoji": "🌙",
+      "image": "images/english-generated-v1/moon.webp"
+    },
+    {
+      "id": "en-g1-098",
+      "grade": 1,
+      "word": "morning",
+      "meaning": "早晨",
+      "phonetic": "'mɒ:niŋ",
+      "category": "生活",
+      "emoji": "🌄",
+      "image": "images/english-cards/words-v2/morning.svg"
+    },
+    {
+      "id": "en-g1-099",
+      "grade": 1,
+      "word": "mother",
+      "meaning": "母亲",
+      "phonetic": "'mʌðә",
+      "category": "人物",
+      "emoji": "🤱",
+      "image": "images/english-cards/words-v2/mother.svg"
+    },
+    {
+      "id": "en-g1-100",
+      "grade": 1,
+      "word": "mouse",
+      "meaning": "老鼠",
+      "phonetic": "maus",
+      "category": "動物",
+      "emoji": "🐭",
+      "image": "images/english-generated-v1/mouse.webp"
+    },
+    {
+      "id": "en-g1-101",
+      "grade": 1,
+      "word": "mouth",
+      "meaning": "嘴",
+      "phonetic": "mauθ",
+      "category": "生活",
+      "emoji": "😃",
+      "image": "images/english-cards/words-v2/mouth.svg"
+    },
+    {
+      "id": "en-g1-102",
+      "grade": 1,
+      "word": "name",
+      "meaning": "名字",
+      "phonetic": "neim",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/name.svg"
+    },
+    {
+      "id": "en-g1-103",
+      "grade": 1,
+      "word": "nest",
+      "meaning": "巢",
+      "phonetic": "nest",
+      "category": "生活",
+      "emoji": "🪺",
+      "image": "images/english-cards/words-v2/nest.svg"
+    },
+    {
+      "id": "en-g1-104",
+      "grade": 1,
+      "word": "night",
+      "meaning": "夜",
+      "phonetic": "nait",
+      "category": "生活",
+      "emoji": "😴",
+      "image": "images/english-cards/words-v2/night.svg"
+    },
+    {
+      "id": "en-g1-105",
+      "grade": 1,
+      "word": "nine",
+      "meaning": "九",
+      "phonetic": "nain",
+      "category": "生活",
+      "emoji": "🕎",
+      "image": "images/english-cards/words-v2/nine.svg"
+    },
+    {
+      "id": "en-g1-106",
+      "grade": 1,
+      "word": "nose",
+      "meaning": "鼻子",
+      "phonetic": "nәuz",
+      "category": "生活",
+      "emoji": "🤥",
+      "image": "images/english-cards/words-v2/nose.svg"
+    },
+    {
+      "id": "en-g1-107",
+      "grade": 1,
+      "word": "number",
+      "meaning": "數",
+      "phonetic": "'nʌmbә",
+      "category": "學校",
+      "emoji": "🔂",
+      "image": "images/english-cards/words-v2/number.svg"
+    },
+    {
+      "id": "en-g1-108",
+      "grade": 1,
+      "word": "one",
+      "meaning": "一(個)",
+      "phonetic": "wʌn",
+      "category": "生活",
+      "emoji": "🤪",
+      "image": "images/english-cards/words-v2/one.svg"
+    },
+    {
+      "id": "en-g1-109",
+      "grade": 1,
+      "word": "orange",
+      "meaning": "柑橘",
+      "phonetic": "'ɒ:rindʒ",
+      "category": "食物",
+      "emoji": "🍊",
+      "image": "images/english-generated-v1/orange.webp"
+    },
+    {
+      "id": "en-g1-110",
+      "grade": 1,
+      "word": "owl",
+      "meaning": "貓頭鹰",
+      "phonetic": "aul",
+      "category": "動物",
+      "emoji": "🦉",
+      "image": "images/english-generated-v1/owl.webp"
+    },
+    {
+      "id": "en-g1-111",
+      "grade": 1,
+      "word": "panda",
+      "meaning": "大熊貓",
+      "phonetic": "'pændә",
+      "category": "動物",
+      "emoji": "🐼",
+      "image": "images/english-generated-v1/panda.webp"
+    },
+    {
+      "id": "en-g1-112",
+      "grade": 1,
+      "word": "park",
+      "meaning": "公园",
+      "phonetic": "pɑ:k",
+      "category": "自然",
+      "emoji": "🌳",
+      "image": "images/english-cards/words-v2/park.svg"
+    },
+    {
+      "id": "en-g1-113",
+      "grade": 1,
+      "word": "pear",
+      "meaning": "梨子",
+      "phonetic": "pєә",
+      "category": "食物",
+      "emoji": "🍐",
+      "image": "images/english-cards/words-v2/pear.svg"
+    },
+    {
+      "id": "en-g1-114",
+      "grade": 1,
+      "word": "pen",
+      "meaning": "钢笔",
+      "phonetic": "pen",
+      "category": "學校",
+      "emoji": "🖊️",
+      "image": "images/english-generated-v1/pen.webp"
+    },
+    {
+      "id": "en-g1-115",
+      "grade": 1,
+      "word": "pencil",
+      "meaning": "铅笔",
+      "phonetic": "'pensl",
+      "category": "學校",
+      "emoji": "✏️",
+      "image": "images/english-generated-v1/pencil.webp"
+    },
+    {
+      "id": "en-g1-116",
+      "grade": 1,
+      "word": "pig",
+      "meaning": "猪",
+      "phonetic": "pig",
+      "category": "動物",
+      "emoji": "🐷",
+      "image": "images/english-generated-v1/pig.webp"
+    },
+    {
+      "id": "en-g1-117",
+      "grade": 1,
+      "word": "pink",
+      "meaning": "粉红色",
+      "phonetic": "piŋk",
+      "category": "生活",
+      "emoji": "💗",
+      "image": "images/english-cards/words-v2/pink.svg"
+    },
+    {
+      "id": "en-g1-118",
+      "grade": 1,
+      "word": "pizza",
+      "meaning": "比萨饼",
+      "phonetic": "'pi:tsә",
+      "category": "食物",
+      "emoji": "🍕",
+      "image": "images/english-generated-v1/pizza.webp"
+    },
+    {
+      "id": "en-g1-119",
+      "grade": 1,
+      "word": "plane",
+      "meaning": "平面",
+      "phonetic": "plein",
+      "category": "交通",
+      "emoji": "✈️",
+      "image": "images/english-generated-v1/plane.webp"
+    },
+    {
+      "id": "en-g1-120",
+      "grade": 1,
+      "word": "plant",
+      "meaning": "植物",
+      "phonetic": "plænt. plɑ:nt",
+      "category": "自然",
+      "emoji": "🌱",
+      "image": "images/english-cards/words-v2/plant.svg"
+    },
+    {
+      "id": "en-g1-121",
+      "grade": 1,
+      "word": "play",
+      "meaning": "游戏",
+      "phonetic": "plei",
+      "category": "生活",
+      "emoji": "👾",
+      "image": "images/english-cards/words-v2/play.svg"
+    },
+    {
+      "id": "en-g1-122",
+      "grade": 1,
+      "word": "purple",
+      "meaning": "紫色",
+      "phonetic": "'pә:pl",
+      "category": "生活",
+      "emoji": "😈",
+      "image": "images/english-cards/words-v2/purple.svg"
+    },
+    {
+      "id": "en-g1-123",
+      "grade": 1,
+      "word": "queen",
+      "meaning": "王後",
+      "phonetic": "'kwi:n",
+      "category": "人物",
+      "emoji": "👑",
+      "image": "images/english-cards/words-v2/queen.svg"
+    },
+    {
+      "id": "en-g1-124",
+      "grade": 1,
+      "word": "rabbit",
+      "meaning": "兔子",
+      "phonetic": "'ræbit",
+      "category": "動物",
+      "emoji": "🐰",
+      "image": "images/english-generated-v1/rabbit.webp"
+    },
+    {
+      "id": "en-g1-125",
+      "grade": 1,
+      "word": "rain",
+      "meaning": "雨",
+      "phonetic": "rein",
+      "category": "自然",
+      "emoji": "🌧️",
+      "image": "images/english-generated-v1/rain.webp"
+    },
+    {
+      "id": "en-g1-126",
+      "grade": 1,
+      "word": "red",
+      "meaning": "红的",
+      "phonetic": "red",
+      "category": "生活",
+      "emoji": "🥵",
+      "image": "images/english-cards/words-v2/red.svg"
+    },
+    {
+      "id": "en-g1-127",
+      "grade": 1,
+      "word": "rice",
+      "meaning": "米",
+      "phonetic": "rais",
+      "category": "食物",
+      "emoji": "🍚",
+      "image": "images/english-cards/words-v2/rice.svg"
+    },
+    {
+      "id": "en-g1-128",
+      "grade": 1,
+      "word": "robot",
+      "meaning": "机械人",
+      "phonetic": "'rәubәt",
+      "category": "用品",
+      "emoji": "🤖",
+      "image": "images/english-cards/words-v2/robot.svg"
+    },
+    {
+      "id": "en-g1-129",
+      "grade": 1,
+      "word": "room",
+      "meaning": "房間",
+      "phonetic": "ru:m",
+      "category": "生活",
+      "emoji": "🏥",
+      "image": "images/english-cards/words-v2/room.svg"
+    },
+    {
+      "id": "en-g1-130",
+      "grade": 1,
+      "word": "ruler",
+      "meaning": "统治者",
+      "phonetic": "'ru:lә",
+      "category": "學校",
+      "emoji": "📏",
+      "image": "images/english-cards/words-v2/ruler.svg"
+    },
+    {
+      "id": "en-g1-131",
+      "grade": 1,
+      "word": "run",
+      "meaning": "跑",
+      "phonetic": "rʌn",
+      "category": "生活",
+      "emoji": "🏃",
+      "image": "images/english-cards/words-v2/run.svg"
+    },
+    {
+      "id": "en-g1-132",
+      "grade": 1,
+      "word": "school",
+      "meaning": "學校",
+      "phonetic": "sku:l",
+      "category": "學校",
+      "emoji": "🏫",
+      "image": "images/english-generated-v1/school.webp"
+    },
+    {
+      "id": "en-g1-133",
+      "grade": 1,
+      "word": "seven",
+      "meaning": "七",
+      "phonetic": "'sevn",
+      "category": "生活",
+      "emoji": "7️⃣",
+      "image": "images/english-cards/words-v2/seven.svg"
+    },
+    {
+      "id": "en-g1-134",
+      "grade": 1,
+      "word": "sheep",
+      "meaning": "羊",
+      "phonetic": "ʃi:p",
+      "category": "動物",
+      "emoji": "🐑",
+      "image": "images/english-generated-v1/sheep.webp"
+    },
+    {
+      "id": "en-g1-135",
+      "grade": 1,
+      "word": "shoe",
+      "meaning": "鞋",
+      "phonetic": "ʃu:",
+      "category": "用品",
+      "emoji": "👟",
+      "image": "images/english-generated-v1/shoe.webp"
+    },
+    {
+      "id": "en-g1-136",
+      "grade": 1,
+      "word": "short",
+      "meaning": "短的",
+      "phonetic": "ʃɒ:t",
+      "category": "生活",
+      "emoji": "📏",
+      "image": "images/english-cards/words-v2/short.svg"
+    },
+    {
+      "id": "en-g1-137",
+      "grade": 1,
+      "word": "sister",
+      "meaning": "姐妹",
+      "phonetic": "'sistә",
+      "category": "人物",
+      "emoji": "👧",
+      "image": "images/english-cards/words-v2/sister.svg"
+    },
+    {
+      "id": "en-g1-138",
+      "grade": 1,
+      "word": "six",
+      "meaning": "六",
+      "phonetic": "siks",
+      "category": "生活",
+      "emoji": "6️⃣",
+      "image": "images/english-cards/words-v2/six.svg"
+    },
+    {
+      "id": "en-g1-139",
+      "grade": 1,
+      "word": "sky",
+      "meaning": "天空",
+      "phonetic": "skai",
+      "category": "自然",
+      "emoji": "🌆",
+      "image": "images/english-cards/words-v2/sky.svg"
+    },
+    {
+      "id": "en-g1-140",
+      "grade": 1,
+      "word": "small",
+      "meaning": "小的",
+      "phonetic": "smɒ:l",
+      "category": "生活",
+      "emoji": "🤪",
+      "image": "images/english-cards/words-v2/small.svg"
+    },
+    {
+      "id": "en-g1-141",
+      "grade": 1,
+      "word": "snake",
+      "meaning": "蛇",
+      "phonetic": "sneik",
+      "category": "動物",
+      "emoji": "🐍",
+      "image": "images/english-cards/words-v2/snake.svg"
+    },
+    {
+      "id": "en-g1-142",
+      "grade": 1,
+      "word": "sock",
+      "meaning": "短袜",
+      "phonetic": "sɒk",
+      "category": "用品",
+      "emoji": "🧦",
+      "image": "images/english-cards/words-v2/sock.svg"
+    },
+    {
+      "id": "en-g1-143",
+      "grade": 1,
+      "word": "spoon",
+      "meaning": "匙",
+      "phonetic": "spu:n",
+      "category": "用品",
+      "emoji": "🥄",
+      "image": "images/english-cards/words-v2/spoon.svg"
+    },
+    {
+      "id": "en-g1-144",
+      "grade": 1,
+      "word": "star",
+      "meaning": "星",
+      "phonetic": "stɑ:",
+      "category": "自然",
+      "emoji": "⭐",
+      "image": "images/english-cards/words-v2/star.svg"
+    },
+    {
+      "id": "en-g1-145",
+      "grade": 1,
+      "word": "sun",
+      "meaning": "太阳",
+      "phonetic": "sʌn",
+      "category": "自然",
+      "emoji": "☀️",
+      "image": "images/english-cards/words-v2/sun.svg"
+    },
+    {
+      "id": "en-g1-146",
+      "grade": 1,
+      "word": "table",
+      "meaning": "桌子",
+      "phonetic": "'teibl",
+      "category": "用品",
+      "emoji": "🪑",
+      "image": "images/english-cards/words-v2/table.svg"
+    },
+    {
+      "id": "en-g1-147",
+      "grade": 1,
+      "word": "teacher",
+      "meaning": "教师",
+      "phonetic": "'ti:tʃә",
+      "category": "學校",
+      "emoji": "🧑‍🏫",
+      "image": "images/english-cards/words-v2/teacher.svg"
+    },
+    {
+      "id": "en-g1-148",
+      "grade": 1,
+      "word": "ten",
+      "meaning": "十",
+      "phonetic": "ten",
+      "category": "生活",
+      "emoji": "🎳",
+      "image": "images/english-cards/words-v2/ten.svg"
+    },
+    {
+      "id": "en-g1-149",
+      "grade": 1,
+      "word": "tiger",
+      "meaning": "老虎",
+      "phonetic": "'taigә",
+      "category": "動物",
+      "emoji": "🐯",
+      "image": "images/english-cards/words-v2/tiger.svg"
+    },
+    {
+      "id": "en-g1-150",
+      "grade": 1,
+      "word": "toy",
+      "meaning": "玩具",
+      "phonetic": "tɒi",
+      "category": "用品",
+      "emoji": "🧸",
+      "image": "images/english-cards/words-v2/toy.svg"
+    },
+    {
+      "id": "en-g1-151",
+      "grade": 1,
+      "word": "train",
+      "meaning": "火車",
+      "phonetic": "trein",
+      "category": "交通",
+      "emoji": "🚆",
+      "image": "images/english-generated-v1/train.webp"
+    },
+    {
+      "id": "en-g1-152",
+      "grade": 1,
+      "word": "tree",
+      "meaning": "树",
+      "phonetic": "tri:",
+      "category": "自然",
+      "emoji": "🌳",
+      "image": "images/english-cards/words-v2/tree.svg"
+    },
+    {
+      "id": "en-g1-153",
+      "grade": 1,
+      "word": "two",
+      "meaning": "二",
+      "phonetic": "tu:",
+      "category": "生活",
+      "emoji": "💞",
+      "image": "images/english-cards/words-v2/two.svg"
+    },
+    {
+      "id": "en-g1-154",
+      "grade": 1,
+      "word": "umbrella",
+      "meaning": "伞",
+      "phonetic": "ʌm'brelә",
+      "category": "用品",
+      "emoji": "☂️",
+      "image": "images/english-cards/words-v2/umbrella.svg"
+    },
+    {
+      "id": "en-g1-155",
+      "grade": 1,
+      "word": "van",
+      "meaning": "货車",
+      "phonetic": "væn",
+      "category": "交通",
+      "emoji": "🚐",
+      "image": "images/english-cards/words-v2/van.svg"
+    },
+    {
+      "id": "en-g1-156",
+      "grade": 1,
+      "word": "water",
+      "meaning": "水",
+      "phonetic": "'wɒ:tә",
+      "category": "食物",
+      "emoji": "💧",
+      "image": "images/english-cards/words-v2/water.svg"
+    },
+    {
+      "id": "en-g1-157",
+      "grade": 1,
+      "word": "white",
+      "meaning": "白色",
+      "phonetic": "hwait",
+      "category": "生活",
+      "emoji": "☺️",
+      "image": "images/english-cards/words-v2/white.svg"
+    },
+    {
+      "id": "en-g1-158",
+      "grade": 1,
+      "word": "window",
+      "meaning": "窗户",
+      "phonetic": "'windәu",
+      "category": "用品",
+      "emoji": "🪟",
+      "image": "images/english-cards/words-v2/window.svg"
+    },
+    {
+      "id": "en-g1-159",
+      "grade": 1,
+      "word": "yellow",
+      "meaning": "黄色",
+      "phonetic": "'jelәu",
+      "category": "生活",
+      "emoji": "👩",
+      "image": "images/english-cards/words-v2/yellow.svg"
+    },
+    {
+      "id": "en-g1-160",
+      "grade": 1,
+      "word": "zoo",
+      "meaning": "動物园",
+      "phonetic": "zu:",
+      "category": "生活",
+      "emoji": "🦒",
+      "image": "images/english-cards/words-v2/zoo.svg"
+    },
+    {
+      "id": "en-g1-161",
+      "grade": 1,
+      "word": "after",
+      "meaning": "在...之後",
+      "phonetic": "'ɑ:ftә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/after.svg"
+    },
+    {
+      "id": "en-g1-162",
+      "grade": 1,
+      "word": "again",
+      "meaning": "再一次",
+      "phonetic": "ә'gein",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/again.svg"
+    },
+    {
+      "id": "en-g1-163",
+      "grade": 1,
+      "word": "air",
+      "meaning": "空气",
+      "phonetic": "єә",
+      "category": "自然",
+      "emoji": "💨",
+      "image": "images/english-cards/words-v2/air.svg"
+    },
+    {
+      "id": "en-g1-164",
+      "grade": 1,
+      "word": "answer",
+      "meaning": "答案",
+      "phonetic": "'ɑ:nsә",
+      "category": "學校",
+      "emoji": "✅",
+      "image": "images/english-cards/words-v2/answer.svg"
+    },
+    {
+      "id": "en-g1-165",
+      "grade": 1,
+      "word": "ask",
+      "meaning": "问",
+      "phonetic": "ɑ:sk",
+      "category": "生活",
+      "emoji": "🙏",
+      "image": "images/english-cards/words-v2/ask.svg"
+    },
+    {
+      "id": "en-g1-166",
+      "grade": 1,
+      "word": "away",
+      "meaning": "离去",
+      "phonetic": "ә'wei",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/away.svg"
+    },
+    {
+      "id": "en-g1-167",
+      "grade": 1,
+      "word": "back",
+      "meaning": "後面的",
+      "phonetic": "bæk",
+      "category": "生活",
+      "emoji": "⬅️",
+      "image": "images/english-cards/words-v2/back.svg"
+    },
+    {
+      "id": "en-g1-168",
+      "grade": 1,
+      "word": "beautiful",
+      "meaning": "美丽的",
+      "phonetic": "'bju:tiful",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/beautiful.svg"
+    },
+    {
+      "id": "en-g1-169",
+      "grade": 1,
+      "word": "because",
+      "meaning": "因為",
+      "phonetic": "bi'kɒ:z",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/because.svg"
+    },
+    {
+      "id": "en-g1-170",
+      "grade": 1,
+      "word": "before",
+      "meaning": "在...之前",
+      "phonetic": "bi'fɒ:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/before.svg"
+    },
+    {
+      "id": "en-g1-171",
+      "grade": 1,
+      "word": "big",
+      "meaning": "大的",
+      "phonetic": "big",
+      "category": "生活",
+      "emoji": "😆",
+      "image": "images/english-cards/words-v2/big.svg"
+    },
+    {
+      "id": "en-g1-172",
+      "grade": 1,
+      "word": "bike",
+      "meaning": "自行車",
+      "phonetic": "baik",
+      "category": "交通",
+      "emoji": "🚴",
+      "image": "images/english-cards/words-v2/bike.svg"
+    },
+    {
+      "id": "en-g1-173",
+      "grade": 1,
+      "word": "birthday",
+      "meaning": "生日",
+      "phonetic": "'bә:θdei",
+      "category": "生活",
+      "emoji": "🥳",
+      "image": "images/english-cards/words-v2/birthday.svg"
+    },
+    {
+      "id": "en-g1-174",
+      "grade": 1,
+      "word": "blackboard",
+      "meaning": "黑板",
+      "phonetic": "'blækbɒ:d",
+      "category": "生活",
+      "emoji": "🟩",
+      "image": "images/english-cards/words-v2/blackboard.svg"
+    },
+    {
+      "id": "en-g1-175",
+      "grade": 1,
+      "word": "buy",
+      "meaning": "買",
+      "phonetic": "bai",
+      "category": "生活",
+      "emoji": "🛍️",
+      "image": "images/english-cards/words-v2/buy.svg"
+    },
+    {
+      "id": "en-g1-176",
+      "grade": 1,
+      "word": "call",
+      "meaning": "呼叫",
+      "phonetic": "kɒ:l",
+      "category": "生活",
+      "emoji": "📲",
+      "image": "images/english-cards/words-v2/call.svg"
+    },
+    {
+      "id": "en-g1-177",
+      "grade": 1,
+      "word": "candy",
+      "meaning": "糖果",
+      "phonetic": "'kændi",
+      "category": "食物",
+      "emoji": "🍫",
+      "image": "images/english-cards/words-v2/candy.svg"
+    },
+    {
+      "id": "en-g1-178",
+      "grade": 1,
+      "word": "carry",
+      "meaning": "進位",
+      "phonetic": "'kæri",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/carry.svg"
+    },
+    {
+      "id": "en-g1-179",
+      "grade": 1,
+      "word": "clean",
+      "meaning": "干净的",
+      "phonetic": "kli:n",
+      "category": "生活",
+      "emoji": "🛀",
+      "image": "images/english-cards/words-v2/clean.svg"
+    },
+    {
+      "id": "en-g1-180",
+      "grade": 1,
+      "word": "close",
+      "meaning": "结束",
+      "phonetic": "klәuz",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/close.svg"
+    },
+    {
+      "id": "en-g1-181",
+      "grade": 1,
+      "word": "cold",
+      "meaning": "感冒",
+      "phonetic": "kәuld",
+      "category": "生活",
+      "emoji": "😅",
+      "image": "images/english-cards/words-v2/cold.svg"
+    },
+    {
+      "id": "en-g1-182",
+      "grade": 1,
+      "word": "come",
+      "meaning": "過來",
+      "phonetic": "kʌm",
+      "category": "生活",
+      "emoji": "🫴",
+      "image": "images/english-cards/words-v2/come.svg"
+    },
+    {
+      "id": "en-g1-183",
+      "grade": 1,
+      "word": "cook",
+      "meaning": "厨子",
+      "phonetic": "kuk",
+      "category": "生活",
+      "emoji": "🧑‍🍳",
+      "image": "images/english-cards/words-v2/cook.svg"
+    },
+    {
+      "id": "en-g1-184",
+      "grade": 1,
+      "word": "dance",
+      "meaning": "跳舞",
+      "phonetic": "dæns. dɑ:ns",
+      "category": "生活",
+      "emoji": "💃",
+      "image": "images/english-cards/words-v2/dance.svg"
+    },
+    {
+      "id": "en-g1-185",
+      "grade": 1,
+      "word": "dark",
+      "meaning": "黑暗",
+      "phonetic": "dɑ:k",
+      "category": "生活",
+      "emoji": "🖤",
+      "image": "images/english-cards/words-v2/dark.svg"
+    },
+    {
+      "id": "en-g1-186",
+      "grade": 1,
+      "word": "dinner",
+      "meaning": "晚餐",
+      "phonetic": "'dinә",
+      "category": "生活",
+      "emoji": "🍽️",
+      "image": "images/english-cards/words-v2/dinner.svg"
+    },
+    {
+      "id": "en-g1-187",
+      "grade": 1,
+      "word": "draw",
+      "meaning": "拉",
+      "phonetic": "drɒ:",
+      "category": "學校",
+      "emoji": "🧑‍🎨",
+      "image": "images/english-cards/words-v2/draw.svg"
+    },
+    {
+      "id": "en-g1-188",
+      "grade": 1,
+      "word": "drink",
+      "meaning": "饮料",
+      "phonetic": "driŋk",
+      "category": "生活",
+      "emoji": "🍼",
+      "image": "images/english-cards/words-v2/drink.svg"
+    },
+    {
+      "id": "en-g1-189",
+      "grade": 1,
+      "word": "easy",
+      "meaning": "容易的",
+      "phonetic": "'i:zi",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/easy.svg"
+    },
+    {
+      "id": "en-g1-190",
+      "grade": 1,
+      "word": "eat",
+      "meaning": "吃",
+      "phonetic": "i:t",
+      "category": "生活",
+      "emoji": "🍽️",
+      "image": "images/english-cards/words-v2/eat.svg"
+    },
+    {
+      "id": "en-g1-191",
+      "grade": 1,
+      "word": "evening",
+      "meaning": "傍晚",
+      "phonetic": "'i:vniŋ",
+      "category": "生活",
+      "emoji": "🌃",
+      "image": "images/english-cards/words-v2/evening.svg"
+    },
+    {
+      "id": "en-g1-192",
+      "grade": 1,
+      "word": "every",
+      "meaning": "每一",
+      "phonetic": "'evri",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/every.svg"
+    },
+    {
+      "id": "en-g1-193",
+      "grade": 1,
+      "word": "fast",
+      "meaning": "快速的",
+      "phonetic": "fɑ:st",
+      "category": "生活",
+      "emoji": "💨",
+      "image": "images/english-cards/words-v2/fast.svg"
+    },
+    {
+      "id": "en-g1-194",
+      "grade": 1,
+      "word": "find",
+      "meaning": "發現",
+      "phonetic": "faind",
+      "category": "生活",
+      "emoji": "🔍",
+      "image": "images/english-cards/words-v2/find.svg"
+    },
+    {
+      "id": "en-g1-195",
+      "grade": 1,
+      "word": "first",
+      "meaning": "首先",
+      "phonetic": "fә:st",
+      "category": "生活",
+      "emoji": "🥇",
+      "image": "images/english-cards/words-v2/first.svg"
+    },
+    {
+      "id": "en-g1-196",
+      "grade": 1,
+      "word": "floor",
+      "meaning": "地板",
+      "phonetic": "flɒ:",
+      "category": "生活",
+      "emoji": "🤣",
+      "image": "images/english-cards/words-v2/floor.svg"
+    },
+    {
+      "id": "en-g1-197",
+      "grade": 1,
+      "word": "fly",
+      "meaning": "苍蝇",
+      "phonetic": "flai",
+      "category": "生活",
+      "emoji": "🧑‍✈️",
+      "image": "images/english-cards/words-v2/fly.svg"
+    },
+    {
+      "id": "en-g1-198",
+      "grade": 1,
+      "word": "funny",
+      "meaning": "好笑的",
+      "phonetic": "'fʌni",
+      "category": "生活",
+      "emoji": "😃",
+      "image": "images/english-cards/words-v2/funny.svg"
+    },
+    {
+      "id": "en-g1-199",
+      "grade": 1,
+      "word": "get",
+      "meaning": "得到",
+      "phonetic": "get",
+      "category": "生活",
+      "emoji": "🉐",
+      "image": "images/english-cards/words-v2/get.svg"
+    },
+    {
+      "id": "en-g1-200",
+      "grade": 1,
+      "word": "give",
+      "meaning": "弹性",
+      "phonetic": "giv",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/give.svg"
+    },
+    {
+      "id": "en-g1-201",
+      "grade": 1,
+      "word": "glass",
+      "meaning": "玻璃",
+      "phonetic": "glɑ:s",
+      "category": "用品",
+      "emoji": "🥂",
+      "image": "images/english-cards/words-v2/glass.svg"
+    },
+    {
+      "id": "en-g1-202",
+      "grade": 1,
+      "word": "go",
+      "meaning": "去",
+      "phonetic": "gou",
+      "category": "生活",
+      "emoji": "🥤",
+      "image": "images/english-cards/words-v2/go.svg"
+    },
+    {
+      "id": "en-g1-203",
+      "grade": 1,
+      "word": "great",
+      "meaning": "大的",
+      "phonetic": "greit",
+      "category": "生活",
+      "emoji": "🦈",
+      "image": "images/english-cards/words-v2/great.svg"
+    },
+    {
+      "id": "en-g1-204",
+      "grade": 1,
+      "word": "hair",
+      "meaning": "頭發",
+      "phonetic": "hєә",
+      "category": "生活",
+      "emoji": "👨‍🦲",
+      "image": "images/english-cards/words-v2/hair.svg"
+    },
+    {
+      "id": "en-g1-205",
+      "grade": 1,
+      "word": "help",
+      "meaning": "帮忙",
+      "phonetic": "help",
+      "category": "生活",
+      "emoji": "💁",
+      "image": "images/english-cards/words-v2/help.svg"
+    },
+    {
+      "id": "en-g1-206",
+      "grade": 1,
+      "word": "here",
+      "meaning": "在這裡",
+      "phonetic": "hiә",
+      "category": "生活",
+      "emoji": "📌",
+      "image": "images/english-cards/words-v2/here.svg"
+    },
+    {
+      "id": "en-g1-207",
+      "grade": 1,
+      "word": "hot",
+      "meaning": "热的",
+      "phonetic": "hɒt",
+      "category": "生活",
+      "emoji": "😅",
+      "image": "images/english-cards/words-v2/hot.svg"
+    },
+    {
+      "id": "en-g1-208",
+      "grade": 1,
+      "word": "hour",
+      "meaning": "小時",
+      "phonetic": "auә",
+      "category": "生活",
+      "emoji": "🏪",
+      "image": "images/english-cards/words-v2/hour.svg"
+    },
+    {
+      "id": "en-g1-209",
+      "grade": 1,
+      "word": "how",
+      "meaning": "如何",
+      "phonetic": "hau",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/how.svg"
+    },
+    {
+      "id": "en-g1-210",
+      "grade": 1,
+      "word": "idea",
+      "meaning": "主意",
+      "phonetic": "ai'diә",
+      "category": "生活",
+      "emoji": "💡",
+      "image": "images/english-cards/words-v2/idea.svg"
+    },
+    {
+      "id": "en-g1-211",
+      "grade": 1,
+      "word": "keep",
+      "meaning": "生计",
+      "phonetic": "ki:p",
+      "category": "生活",
+      "emoji": "💯",
+      "image": "images/english-cards/words-v2/keep.svg"
+    },
+    {
+      "id": "en-g1-212",
+      "grade": 1,
+      "word": "kind",
+      "meaning": "種类",
+      "phonetic": "kaind",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/kind.svg"
+    },
+    {
+      "id": "en-g1-213",
+      "grade": 1,
+      "word": "know",
+      "meaning": "知道",
+      "phonetic": "nәu",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/know.svg"
+    },
+    {
+      "id": "en-g1-214",
+      "grade": 1,
+      "word": "laugh",
+      "meaning": "笑",
+      "phonetic": "lɑ:f",
+      "category": "生活",
+      "emoji": "😄",
+      "image": "images/english-cards/words-v2/laugh.svg"
+    },
+    {
+      "id": "en-g1-215",
+      "grade": 1,
+      "word": "learn",
+      "meaning": "學習",
+      "phonetic": "lә:n",
+      "category": "學校",
+      "emoji": "🧑‍🎓",
+      "image": "images/english-cards/words-v2/learn.svg"
+    },
+    {
+      "id": "en-g1-216",
+      "grade": 1,
+      "word": "left",
+      "meaning": "左邊的",
+      "phonetic": "left",
+      "category": "生活",
+      "emoji": "👈",
+      "image": "images/english-cards/words-v2/left.svg"
+    },
+    {
+      "id": "en-g1-217",
+      "grade": 1,
+      "word": "like",
+      "meaning": "相似的",
+      "phonetic": "laik",
+      "category": "生活",
+      "emoji": "😄",
+      "image": "images/english-cards/words-v2/like.svg"
+    },
+    {
+      "id": "en-g1-218",
+      "grade": 1,
+      "word": "line",
+      "meaning": "列",
+      "phonetic": "lain",
+      "category": "生活",
+      "emoji": "〰️",
+      "image": "images/english-cards/words-v2/line.svg"
+    },
+    {
+      "id": "en-g1-219",
+      "grade": 1,
+      "word": "listen",
+      "meaning": "聽",
+      "phonetic": "'lisn",
+      "category": "學校",
+      "emoji": "👂",
+      "image": "images/english-cards/words-v2/listen.svg"
+    },
+    {
+      "id": "en-g1-220",
+      "grade": 1,
+      "word": "live",
+      "meaning": "活的",
+      "phonetic": "liv.laiv",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/live.svg"
+    },
+    {
+      "id": "en-g1-221",
+      "grade": 1,
+      "word": "look",
+      "meaning": "一看",
+      "phonetic": "luk",
+      "category": "生活",
+      "emoji": "😤",
+      "image": "images/english-cards/words-v2/look.svg"
+    },
+    {
+      "id": "en-g1-222",
+      "grade": 1,
+      "word": "lunch",
+      "meaning": "午餐",
+      "phonetic": "lʌntʃ",
+      "category": "生活",
+      "emoji": "🥪",
+      "image": "images/english-cards/words-v2/lunch.svg"
+    },
+    {
+      "id": "en-g1-223",
+      "grade": 1,
+      "word": "make",
+      "meaning": "制造",
+      "phonetic": "meik",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/make.svg"
+    },
+    {
+      "id": "en-g1-224",
+      "grade": 1,
+      "word": "many",
+      "meaning": "多數",
+      "phonetic": "'meni",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/many.svg"
+    },
+    {
+      "id": "en-g1-225",
+      "grade": 1,
+      "word": "music",
+      "meaning": "音樂",
+      "phonetic": "'mju:zik",
+      "category": "學校",
+      "emoji": "🧑‍🎤",
+      "image": "images/english-cards/words-v2/music.svg"
+    },
+    {
+      "id": "en-g1-226",
+      "grade": 1,
+      "word": "new",
+      "meaning": "新的",
+      "phonetic": "nju:",
+      "category": "生活",
+      "emoji": "🗽",
+      "image": "images/english-cards/words-v2/new.svg"
+    },
+    {
+      "id": "en-g1-227",
+      "grade": 1,
+      "word": "next",
+      "meaning": "下一個",
+      "phonetic": "'nekst",
+      "category": "生活",
+      "emoji": "➡️",
+      "image": "images/english-cards/words-v2/next.svg"
+    },
+    {
+      "id": "en-g1-228",
+      "grade": 1,
+      "word": "nice",
+      "meaning": "美好的",
+      "phonetic": "nais",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/nice.svg"
+    },
+    {
+      "id": "en-g1-229",
+      "grade": 1,
+      "word": "old",
+      "meaning": "以前",
+      "phonetic": "әuld",
+      "category": "生活",
+      "emoji": "👨‍🦳",
+      "image": "images/english-cards/words-v2/old.svg"
+    },
+    {
+      "id": "en-g1-230",
+      "grade": 1,
+      "word": "open",
+      "meaning": "公開",
+      "phonetic": "'әupәn",
+      "category": "生活",
+      "emoji": "😃",
+      "image": "images/english-cards/words-v2/open.svg"
+    },
+    {
+      "id": "en-g1-231",
+      "grade": 1,
+      "word": "paper",
+      "meaning": "纸",
+      "phonetic": "'peipә",
+      "category": "學校",
+      "emoji": "💮",
+      "image": "images/english-cards/words-v2/paper.svg"
+    },
+    {
+      "id": "en-g1-232",
+      "grade": 1,
+      "word": "party",
+      "meaning": "宴會",
+      "phonetic": "'pɑ:ti",
+      "category": "生活",
+      "emoji": "🥳",
+      "image": "images/english-cards/words-v2/party.svg"
+    },
+    {
+      "id": "en-g1-233",
+      "grade": 1,
+      "word": "people",
+      "meaning": "人",
+      "phonetic": "'pi:pl",
+      "category": "生活",
+      "emoji": "👯‍♀️",
+      "image": "images/english-cards/words-v2/people.svg"
+    },
+    {
+      "id": "en-g1-234",
+      "grade": 1,
+      "word": "picture",
+      "meaning": "图畫",
+      "phonetic": "'piktʃә",
+      "category": "學校",
+      "emoji": "🖼️",
+      "image": "images/english-cards/words-v2/picture.svg"
+    },
+    {
+      "id": "en-g1-235",
+      "grade": 1,
+      "word": "please",
+      "meaning": "请",
+      "phonetic": "pli:z",
+      "category": "生活",
+      "emoji": "🙏",
+      "image": "images/english-cards/words-v2/please.svg"
+    },
+    {
+      "id": "en-g1-236",
+      "grade": 1,
+      "word": "read",
+      "meaning": "讀",
+      "phonetic": "ri:d",
+      "category": "學校",
+      "emoji": "📕",
+      "image": "images/english-cards/words-v2/read.svg"
+    },
+    {
+      "id": "en-g1-237",
+      "grade": 1,
+      "word": "right",
+      "meaning": "权利",
+      "phonetic": "rait",
+      "category": "生活",
+      "emoji": "👉",
+      "image": "images/english-cards/words-v2/right.svg"
+    },
+    {
+      "id": "en-g1-238",
+      "grade": 1,
+      "word": "river",
+      "meaning": "河",
+      "phonetic": "'rivә",
+      "category": "自然",
+      "emoji": "🏞️",
+      "image": "images/english-cards/words-v2/river.svg"
+    },
+    {
+      "id": "en-g1-239",
+      "grade": 1,
+      "word": "road",
+      "meaning": "路",
+      "phonetic": "rәud",
+      "category": "交通",
+      "emoji": "🛣️",
+      "image": "images/english-cards/words-v2/road.svg"
+    },
+    {
+      "id": "en-g1-240",
+      "grade": 1,
+      "word": "sad",
+      "meaning": "忧愁的",
+      "phonetic": "sæd",
+      "category": "生活",
+      "emoji": "😔",
+      "image": "images/english-cards/words-v2/sad.svg"
+    },
+    {
+      "id": "en-g1-241",
+      "grade": 1,
+      "word": "say",
+      "meaning": "說",
+      "phonetic": "sei",
+      "category": "生活",
+      "emoji": "🗣️",
+      "image": "images/english-cards/words-v2/say.svg"
+    },
+    {
+      "id": "en-g1-242",
+      "grade": 1,
+      "word": "see",
+      "meaning": "看見",
+      "phonetic": "si:",
+      "category": "生活",
+      "emoji": "👀",
+      "image": "images/english-cards/words-v2/see.svg"
+    },
+    {
+      "id": "en-g1-243",
+      "grade": 1,
+      "word": "sing",
+      "meaning": "唱",
+      "phonetic": "siŋ",
+      "category": "生活",
+      "emoji": "🗣️",
+      "image": "images/english-cards/words-v2/sing.svg"
+    },
+    {
+      "id": "en-g1-244",
+      "grade": 1,
+      "word": "sit",
+      "meaning": "坐",
+      "phonetic": "sit",
+      "category": "生活",
+      "emoji": "💺",
+      "image": "images/english-cards/words-v2/sit.svg"
+    },
+    {
+      "id": "en-g1-245",
+      "grade": 1,
+      "word": "sleep",
+      "meaning": "睡眠",
+      "phonetic": "sli:p",
+      "category": "生活",
+      "emoji": "😪",
+      "image": "images/english-cards/words-v2/sleep.svg"
+    },
+    {
+      "id": "en-g1-246",
+      "grade": 1,
+      "word": "slow",
+      "meaning": "慢的",
+      "phonetic": "slәu",
+      "category": "生活",
+      "emoji": "🦥",
+      "image": "images/english-cards/words-v2/slow.svg"
+    },
+    {
+      "id": "en-g1-247",
+      "grade": 1,
+      "word": "smile",
+      "meaning": "微笑",
+      "phonetic": "smail",
+      "category": "生活",
+      "emoji": "😀",
+      "image": "images/english-cards/words-v2/smile.svg"
+    },
+    {
+      "id": "en-g1-248",
+      "grade": 1,
+      "word": "snow",
+      "meaning": "雪",
+      "phonetic": "snәu",
+      "category": "自然",
+      "emoji": "⛷️",
+      "image": "images/english-cards/words-v2/snow.svg"
+    },
+    {
+      "id": "en-g1-249",
+      "grade": 1,
+      "word": "song",
+      "meaning": "歌",
+      "phonetic": "sɒŋ",
+      "category": "生活",
+      "emoji": "🧑‍🎤",
+      "image": "images/english-cards/words-v2/song.svg"
+    },
+    {
+      "id": "en-g1-250",
+      "grade": 1,
+      "word": "speak",
+      "meaning": "說",
+      "phonetic": "spi:k",
+      "category": "學校",
+      "emoji": "🗣️",
+      "image": "images/english-cards/words-v2/speak.svg"
+    },
+    {
+      "id": "en-g1-251",
+      "grade": 1,
+      "word": "spell",
+      "meaning": "符咒",
+      "phonetic": "spel",
+      "category": "學校",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/spell.svg"
+    },
+    {
+      "id": "en-g1-252",
+      "grade": 1,
+      "word": "stand",
+      "meaning": "站立",
+      "phonetic": "stænd",
+      "category": "生活",
+      "emoji": "🧍",
+      "image": "images/english-cards/words-v2/stand.svg"
+    },
+    {
+      "id": "en-g1-253",
+      "grade": 1,
+      "word": "stop",
+      "meaning": "停止",
+      "phonetic": "stɒp",
+      "category": "生活",
+      "emoji": "✋",
+      "image": "images/english-cards/words-v2/stop.svg"
+    },
+    {
+      "id": "en-g1-254",
+      "grade": 1,
+      "word": "story",
+      "meaning": "故事",
+      "phonetic": "'stɒ:ri",
+      "category": "學校",
+      "emoji": "📖",
+      "image": "images/english-cards/words-v2/story.svg"
+    },
+    {
+      "id": "en-g1-255",
+      "grade": 1,
+      "word": "street",
+      "meaning": "街道",
+      "phonetic": "stri:t",
+      "category": "交通",
+      "emoji": "🛣️",
+      "image": "images/english-cards/words-v2/street.svg"
+    },
+    {
+      "id": "en-g1-256",
+      "grade": 1,
+      "word": "study",
+      "meaning": "學習",
+      "phonetic": "'stʌdi",
+      "category": "學校",
+      "emoji": "📔",
+      "image": "images/english-cards/words-v2/study.svg"
+    },
+    {
+      "id": "en-g1-257",
+      "grade": 1,
+      "word": "swim",
+      "meaning": "游泳",
+      "phonetic": "swim",
+      "category": "生活",
+      "emoji": "🏊",
+      "image": "images/english-cards/words-v2/swim.svg"
+    },
+    {
+      "id": "en-g1-258",
+      "grade": 1,
+      "word": "take",
+      "meaning": "拿",
+      "phonetic": "teik",
+      "category": "生活",
+      "emoji": "🥡",
+      "image": "images/english-cards/words-v2/take.svg"
+    },
+    {
+      "id": "en-g1-259",
+      "grade": 1,
+      "word": "talk",
+      "meaning": "谈話",
+      "phonetic": "tɒ:k",
+      "category": "生活",
+      "emoji": "💬",
+      "image": "images/english-cards/words-v2/talk.svg"
+    },
+    {
+      "id": "en-g1-260",
+      "grade": 1,
+      "word": "tall",
+      "meaning": "高的",
+      "phonetic": "tɒ:l",
+      "category": "生活",
+      "emoji": "📏",
+      "image": "images/english-cards/words-v2/tall.svg"
+    },
+    {
+      "id": "en-g1-261",
+      "grade": 1,
+      "word": "thank",
+      "meaning": "谢意",
+      "phonetic": "θæŋk",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/thank.svg"
+    },
+    {
+      "id": "en-g1-262",
+      "grade": 1,
+      "word": "thing",
+      "meaning": "事物",
+      "phonetic": "θiŋ",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/thing.svg"
+    },
+    {
+      "id": "en-g1-263",
+      "grade": 1,
+      "word": "think",
+      "meaning": "想",
+      "phonetic": "θiŋk",
+      "category": "生活",
+      "emoji": "🤔",
+      "image": "images/english-cards/words-v2/think.svg"
+    },
+    {
+      "id": "en-g1-264",
+      "grade": 1,
+      "word": "today",
+      "meaning": "今天",
+      "phonetic": "tә'dei",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/today.svg"
+    },
+    {
+      "id": "en-g1-265",
+      "grade": 1,
+      "word": "together",
+      "meaning": "一起",
+      "phonetic": "tә'geðә",
+      "category": "生活",
+      "emoji": "🙏",
+      "image": "images/english-cards/words-v2/together.svg"
+    },
+    {
+      "id": "en-g1-266",
+      "grade": 1,
+      "word": "under",
+      "meaning": "在...之下",
+      "phonetic": "'ʌndә",
+      "category": "生活",
+      "emoji": "🌁",
+      "image": "images/english-cards/words-v2/under.svg"
+    },
+    {
+      "id": "en-g1-267",
+      "grade": 1,
+      "word": "up",
+      "meaning": "向上的",
+      "phonetic": "ʌp",
+      "category": "生活",
+      "emoji": "🤮",
+      "image": "images/english-cards/words-v2/up.svg"
+    },
+    {
+      "id": "en-g1-268",
+      "grade": 1,
+      "word": "very",
+      "meaning": "真正的",
+      "phonetic": "'veri",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/very.svg"
+    },
+    {
+      "id": "en-g1-269",
+      "grade": 1,
+      "word": "walk",
+      "meaning": "走",
+      "phonetic": "wɒ:k",
+      "category": "生活",
+      "emoji": "🚶",
+      "image": "images/english-cards/words-v2/walk.svg"
+    },
+    {
+      "id": "en-g1-270",
+      "grade": 1,
+      "word": "want",
+      "meaning": "需要的東西",
+      "phonetic": "wɒnt",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/want.svg"
+    },
+    {
+      "id": "en-g1-271",
+      "grade": 1,
+      "word": "wash",
+      "meaning": "洗",
+      "phonetic": "wɒʃ",
+      "category": "生活",
+      "emoji": "🧼",
+      "image": "images/english-cards/words-v2/wash.svg"
+    },
+    {
+      "id": "en-g1-272",
+      "grade": 1,
+      "word": "watch",
+      "meaning": "观察",
+      "phonetic": "wɒtʃ",
+      "category": "生活",
+      "emoji": "👀",
+      "image": "images/english-cards/words-v2/watch.svg"
+    },
+    {
+      "id": "en-g1-273",
+      "grade": 1,
+      "word": "week",
+      "meaning": "星期",
+      "phonetic": "wi:k",
+      "category": "生活",
+      "emoji": "🗓️",
+      "image": "images/english-cards/words-v2/week.svg"
+    },
+    {
+      "id": "en-g1-274",
+      "grade": 1,
+      "word": "well",
+      "meaning": "井",
+      "phonetic": "wel",
+      "category": "生活",
+      "emoji": "💮",
+      "image": "images/english-cards/words-v2/well.svg"
+    },
+    {
+      "id": "en-g1-275",
+      "grade": 1,
+      "word": "what",
+      "meaning": "什么",
+      "phonetic": "hwɒt",
+      "category": "生活",
+      "emoji": "😦",
+      "image": "images/english-cards/words-v2/what.svg"
+    },
+    {
+      "id": "en-g1-276",
+      "grade": 1,
+      "word": "where",
+      "meaning": "在哪裡",
+      "phonetic": "hwєә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/where.svg"
+    },
+    {
+      "id": "en-g1-277",
+      "grade": 1,
+      "word": "who",
+      "meaning": "谁",
+      "phonetic": "hu:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/who.svg"
+    },
+    {
+      "id": "en-g1-278",
+      "grade": 1,
+      "word": "why",
+      "meaning": "為什么",
+      "phonetic": "hwai",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/why.svg"
+    },
+    {
+      "id": "en-g1-279",
+      "grade": 1,
+      "word": "write",
+      "meaning": "書寫",
+      "phonetic": "rait",
+      "category": "學校",
+      "emoji": "✍️",
+      "image": "images/english-cards/words-v2/write.svg"
+    },
+    {
+      "id": "en-g1-280",
+      "grade": 1,
+      "word": "year",
+      "meaning": "年",
+      "phonetic": "jiә",
+      "category": "生活",
+      "emoji": "🎍",
+      "image": "images/english-cards/words-v2/year.svg"
+    },
+    {
+      "id": "en-g1-281",
+      "grade": 1,
+      "word": "young",
+      "meaning": "年轻的",
+      "phonetic": "jʌŋ",
+      "category": "生活",
+      "emoji": "👶",
+      "image": "images/english-cards/words-v2/young.svg"
+    },
+    {
+      "id": "en-g1-282",
+      "grade": 1,
+      "word": "be",
+      "meaning": "是",
+      "phonetic": "bi:",
+      "category": "生活",
+      "emoji": "🇧🇪",
+      "image": "images/english-cards/words-v2/be.svg"
+    },
+    {
+      "id": "en-g1-283",
+      "grade": 1,
+      "word": "of",
+      "meaning": "的",
+      "phonetic": "ɒv",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/of.svg"
+    },
+    {
+      "id": "en-g1-284",
+      "grade": 1,
+      "word": "in",
+      "meaning": "在...期間",
+      "phonetic": "in",
+      "category": "生活",
+      "emoji": "🇮🇳",
+      "image": "images/english-cards/words-v2/in.svg"
+    },
+    {
+      "id": "en-g1-285",
+      "grade": 1,
+      "word": "to",
+      "meaning": "到",
+      "phonetic": "tu:",
+      "category": "生活",
+      "emoji": "🇹🇴",
+      "image": "images/english-cards/words-v2/to.svg"
+    },
+    {
+      "id": "en-g1-286",
+      "grade": 1,
+      "word": "it",
+      "meaning": "它",
+      "phonetic": "it",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/it.svg"
+    },
+    {
+      "id": "en-g1-287",
+      "grade": 1,
+      "word": "he",
+      "meaning": "他",
+      "phonetic": "hi:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/he.svg"
+    },
+    {
+      "id": "en-g1-288",
+      "grade": 1,
+      "word": "on",
+      "meaning": "在...之上",
+      "phonetic": "ɒn",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/on.svg"
+    },
+    {
+      "id": "en-g1-289",
+      "grade": 1,
+      "word": "do",
+      "meaning": "做",
+      "phonetic": "du:",
+      "category": "生活",
+      "emoji": "🚯",
+      "image": "images/english-cards/words-v2/do.svg"
+    },
+    {
+      "id": "en-g1-290",
+      "grade": 1,
+      "word": "at",
+      "meaning": "在",
+      "phonetic": "æt",
+      "category": "生活",
+      "emoji": "🇦🇹",
+      "image": "images/english-cards/words-v2/at.svg"
+    },
+    {
+      "id": "en-g1-291",
+      "grade": 1,
+      "word": "we",
+      "meaning": "我們",
+      "phonetic": "wi:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/we.svg"
+    },
+    {
+      "id": "en-g1-292",
+      "grade": 1,
+      "word": "by",
+      "meaning": "被",
+      "phonetic": "bai",
+      "category": "生活",
+      "emoji": "🇧🇾",
+      "image": "images/english-cards/words-v2/by.svg"
+    },
+    {
+      "id": "en-g1-293",
+      "grade": 1,
+      "word": "or",
+      "meaning": "或",
+      "phonetic": "ɒ:",
+      "category": "生活",
+      "emoji": "🕵️",
+      "image": "images/english-cards/words-v2/or.svg"
+    },
+    {
+      "id": "en-g1-294",
+      "grade": 1,
+      "word": "as",
+      "meaning": "同樣地",
+      "phonetic": "æz",
+      "category": "生活",
+      "emoji": "❣️",
+      "image": "images/english-cards/words-v2/as.svg"
+    },
+    {
+      "id": "en-g1-295",
+      "grade": 1,
+      "word": "if",
+      "meaning": "如果",
+      "phonetic": "if",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/if.svg"
+    },
+    {
+      "id": "en-g1-296",
+      "grade": 1,
+      "word": "my",
+      "meaning": "我的",
+      "phonetic": "mai",
+      "category": "生活",
+      "emoji": "🇲🇾",
+      "image": "images/english-cards/words-v2/my.svg"
+    },
+    {
+      "id": "en-g1-297",
+      "grade": 1,
+      "word": "so",
+      "meaning": "如此",
+      "phonetic": "sәu",
+      "category": "生活",
+      "emoji": "🇸🇴",
+      "image": "images/english-cards/words-v2/so.svg"
+    },
+    {
+      "id": "en-g1-298",
+      "grade": 1,
+      "word": "me",
+      "meaning": "我",
+      "phonetic": "mi:",
+      "category": "生活",
+      "emoji": "🇲🇪",
+      "image": "images/english-cards/words-v2/me.svg"
+    },
+    {
+      "id": "en-g1-299",
+      "grade": 1,
+      "word": "no",
+      "meaning": "不",
+      "phonetic": "nәu",
+      "category": "生活",
+      "emoji": "😶",
+      "image": "images/english-cards/words-v2/no.svg"
+    },
+    {
+      "id": "en-g1-300",
+      "grade": 1,
+      "word": "us",
+      "meaning": "我們",
+      "phonetic": "ʌs",
+      "category": "生活",
+      "emoji": "🇺🇲",
+      "image": "images/english-cards/words-v2/us.svg"
+    },
+    {
+      "id": "en-g1-301",
+      "grade": 1,
+      "word": "tv",
+      "meaning": "電视",
+      "phonetic": "'ti:'vi:",
+      "category": "生活",
+      "emoji": "📺",
+      "image": "images/english-cards/words-v2/tv.svg"
+    },
+    {
+      "id": "en-g1-302",
+      "grade": 1,
+      "word": "ok",
+      "meaning": "好",
+      "phonetic": "'әu'kei",
+      "category": "生活",
+      "emoji": "👌",
+      "image": "images/english-cards/words-v2/ok.svg"
+    },
+    {
+      "id": "en-g1-303",
+      "grade": 1,
+      "word": "cd",
+      "meaning": "镭射碟",
+      "phonetic": "",
+      "category": "生活",
+      "emoji": "💿",
+      "image": "images/english-cards/words-v2/cd.svg"
+    },
+    {
+      "id": "en-g1-304",
+      "grade": 1,
+      "word": "the",
+      "meaning": "那",
+      "phonetic": "ðә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/the.svg"
+    },
+    {
+      "id": "en-g1-305",
+      "grade": 1,
+      "word": "and",
+      "meaning": "和",
+      "phonetic": "ænd",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/and.svg"
+    },
+    {
+      "id": "en-g1-306",
+      "grade": 1,
+      "word": "for",
+      "meaning": "為",
+      "phonetic": "fɒ:",
+      "category": "生活",
+      "emoji": "⏹️",
+      "image": "images/english-cards/words-v2/for.svg"
+    },
+    {
+      "id": "en-g1-307",
+      "grade": 1,
+      "word": "you",
+      "meaning": "你",
+      "phonetic": "ju:",
+      "category": "生活",
+      "emoji": "🌠",
+      "image": "images/english-cards/words-v2/you.svg"
+    },
+    {
+      "id": "en-g1-308",
+      "grade": 1,
+      "word": "but",
+      "meaning": "除了",
+      "phonetic": "bʌt",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/but.svg"
+    },
+    {
+      "id": "en-g1-309",
+      "grade": 1,
+      "word": "his",
+      "meaning": "他的",
+      "phonetic": "hiz",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/his.svg"
+    },
+    {
+      "id": "en-g1-310",
+      "grade": 1,
+      "word": "not",
+      "meaning": "不",
+      "phonetic": "nɒt",
+      "category": "生活",
+      "emoji": "🙈",
+      "image": "images/english-cards/words-v2/not.svg"
+    },
+    {
+      "id": "en-g1-311",
+      "grade": 1,
+      "word": "she",
+      "meaning": "她",
+      "phonetic": "ʃi:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/she.svg"
+    },
+    {
+      "id": "en-g1-312",
+      "grade": 1,
+      "word": "can",
+      "meaning": "装罐",
+      "phonetic": "kæn",
+      "category": "生活",
+      "emoji": "🥫",
+      "image": "images/english-cards/words-v2/can.svg"
+    },
+    {
+      "id": "en-g1-313",
+      "grade": 1,
+      "word": "her",
+      "meaning": "她的",
+      "phonetic": "hә:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/her.svg"
+    },
+    {
+      "id": "en-g1-314",
+      "grade": 1,
+      "word": "all",
+      "meaning": "所有的",
+      "phonetic": "ɒ:l",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/all.svg"
+    },
+    {
+      "id": "en-g1-315",
+      "grade": 1,
+      "word": "out",
+      "meaning": "外面的",
+      "phonetic": "aut",
+      "category": "生活",
+      "emoji": "😛",
+      "image": "images/english-cards/words-v2/out.svg"
+    },
+    {
+      "id": "en-g1-316",
+      "grade": 1,
+      "word": "him",
+      "meaning": "他",
+      "phonetic": "him",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/him.svg"
+    },
+    {
+      "id": "en-g1-317",
+      "grade": 1,
+      "word": "now",
+      "meaning": "現在",
+      "phonetic": "nau",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/now.svg"
+    },
+    {
+      "id": "en-g1-318",
+      "grade": 1,
+      "word": "its",
+      "meaning": "它的",
+      "phonetic": "its",
+      "category": "生活",
+      "emoji": "🚮",
+      "image": "images/english-cards/words-v2/its.svg"
+    },
+    {
+      "id": "en-g1-319",
+      "grade": 1,
+      "word": "our",
+      "meaning": "我們的",
+      "phonetic": "'auә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/our.svg"
+    },
+    {
+      "id": "en-g1-320",
+      "grade": 1,
+      "word": "way",
+      "meaning": "路",
+      "phonetic": "wei",
+      "category": "生活",
+      "emoji": "↕️",
+      "image": "images/english-cards/words-v2/way.svg"
+    },
+    {
+      "id": "en-g1-321",
+      "grade": 1,
+      "word": "use",
+      "meaning": "使用",
+      "phonetic": "ju:s",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/use.svg"
+    },
+    {
+      "id": "en-g1-322",
+      "grade": 1,
+      "word": "man",
+      "meaning": "男人",
+      "phonetic": "mæn",
+      "category": "生活",
+      "emoji": "👦",
+      "image": "images/english-cards/words-v2/man.svg"
+    },
+    {
+      "id": "en-g1-323",
+      "grade": 1,
+      "word": "any",
+      "meaning": "任何的",
+      "phonetic": "'eni",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/any.svg"
+    },
+    {
+      "id": "en-g1-324",
+      "grade": 1,
+      "word": "may",
+      "meaning": "五月",
+      "phonetic": "mei",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/may.svg"
+    },
+    {
+      "id": "en-g1-325",
+      "grade": 1,
+      "word": "try",
+      "meaning": "尝试",
+      "phonetic": "trai",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/try.svg"
+    },
+    {
+      "id": "en-g1-326",
+      "grade": 1,
+      "word": "too",
+      "meaning": "也",
+      "phonetic": "tu:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/too.svg"
+    },
+    {
+      "id": "en-g1-327",
+      "grade": 1,
+      "word": "own",
+      "meaning": "自己的",
+      "phonetic": "әun",
+      "category": "生活",
+      "emoji": "🈶",
+      "image": "images/english-cards/words-v2/own.svg"
+    },
+    {
+      "id": "en-g1-328",
+      "grade": 1,
+      "word": "put",
+      "meaning": "放",
+      "phonetic": "put",
+      "category": "生活",
+      "emoji": "🚮",
+      "image": "images/english-cards/words-v2/put.svg"
+    },
+    {
+      "id": "en-g1-329",
+      "grade": 1,
+      "word": "let",
+      "meaning": "讓",
+      "phonetic": "let",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/let.svg"
+    },
+    {
+      "id": "en-g1-330",
+      "grade": 1,
+      "word": "few",
+      "meaning": "很少的",
+      "phonetic": "fju:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/few.svg"
+    },
+    {
+      "id": "en-g1-331",
+      "grade": 1,
+      "word": "off",
+      "meaning": "關着的",
+      "phonetic": "ɒf",
+      "category": "生活",
+      "emoji": "🛫",
+      "image": "images/english-cards/words-v2/off.svg"
+    },
+    {
+      "id": "en-g1-332",
+      "grade": 1,
+      "word": "lot",
+      "meaning": "运气",
+      "phonetic": "lɒt",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/lot.svg"
+    },
+    {
+      "id": "en-g1-333",
+      "grade": 1,
+      "word": "job",
+      "meaning": "工作",
+      "phonetic": "dʒɒb",
+      "category": "生活",
+      "emoji": "💼",
+      "image": "images/english-cards/words-v2/job.svg"
+    },
+    {
+      "id": "en-g1-334",
+      "grade": 1,
+      "word": "far",
+      "meaning": "遠的",
+      "phonetic": "fɑ:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/far.svg"
+    },
+    {
+      "id": "en-g1-335",
+      "grade": 1,
+      "word": "yes",
+      "meaning": "是",
+      "phonetic": "jes",
+      "category": "生活",
+      "emoji": "👍",
+      "image": "images/english-cards/words-v2/yes.svg"
+    },
+    {
+      "id": "en-g1-336",
+      "grade": 1,
+      "word": "yet",
+      "meaning": "還",
+      "phonetic": "jet",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/yet.svg"
+    },
+    {
+      "id": "en-g1-337",
+      "grade": 1,
+      "word": "end",
+      "meaning": "结束",
+      "phonetic": "end",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/end.svg"
+    },
+    {
+      "id": "en-g1-338",
+      "grade": 1,
+      "word": "bad",
+      "meaning": "坏的",
+      "phonetic": "bæd",
+      "category": "生活",
+      "emoji": "💩",
+      "image": "images/english-cards/words-v2/bad.svg"
+    },
+    {
+      "id": "en-g1-339",
+      "grade": 1,
+      "word": "pay",
+      "meaning": "薪资",
+      "phonetic": "pei",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/pay.svg"
+    },
+    {
+      "id": "en-g1-340",
+      "grade": 1,
+      "word": "law",
+      "meaning": "法律",
+      "phonetic": "lɒ:",
+      "category": "生活",
+      "emoji": "🧑‍⚖️",
+      "image": "images/english-cards/words-v2/law.svg"
+    },
+    {
+      "id": "en-g1-341",
+      "grade": 1,
+      "word": "set",
+      "meaning": "日落",
+      "phonetic": "set",
+      "category": "生活",
+      "emoji": "📐",
+      "image": "images/english-cards/words-v2/set.svg"
+    },
+    {
+      "id": "en-g1-342",
+      "grade": 1,
+      "word": "kid",
+      "meaning": "小山羊",
+      "phonetic": "kid",
+      "category": "生活",
+      "emoji": "🧑‍🧑‍🧒",
+      "image": "images/english-cards/words-v2/kid.svg"
+    },
+    {
+      "id": "en-g1-343",
+      "grade": 1,
+      "word": "ago",
+      "meaning": "以前",
+      "phonetic": "ә'gәu",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/ago.svg"
+    },
+    {
+      "id": "en-g1-344",
+      "grade": 1,
+      "word": "add",
+      "meaning": "增加",
+      "phonetic": "æd",
+      "category": "生活",
+      "emoji": "➕",
+      "image": "images/english-cards/words-v2/add.svg"
+    },
+    {
+      "id": "en-g1-345",
+      "grade": 1,
+      "word": "art",
+      "meaning": "艺术",
+      "phonetic": "ɑ:t",
+      "category": "生活",
+      "emoji": "🎨",
+      "image": "images/english-cards/words-v2/art.svg"
+    },
+    {
+      "id": "en-g1-346",
+      "grade": 1,
+      "word": "low",
+      "meaning": "低點",
+      "phonetic": "lәu",
+      "category": "生活",
+      "emoji": "🔉",
+      "image": "images/english-cards/words-v2/low.svg"
+    },
+    {
+      "id": "en-g1-347",
+      "grade": 1,
+      "word": "win",
+      "meaning": "赢得",
+      "phonetic": "win",
+      "category": "生活",
+      "emoji": "🏆",
+      "image": "images/english-cards/words-v2/win.svg"
+    },
+    {
+      "id": "en-g1-348",
+      "grade": 1,
+      "word": "age",
+      "meaning": "年龄",
+      "phonetic": "eidʒ",
+      "category": "生活",
+      "emoji": "🔞",
+      "image": "images/english-cards/words-v2/age.svg"
+    },
+    {
+      "id": "en-g1-349",
+      "grade": 1,
+      "word": "cut",
+      "meaning": "切口",
+      "phonetic": "kʌt",
+      "category": "生活",
+      "emoji": "🥩",
+      "image": "images/english-cards/words-v2/cut.svg"
+    },
+    {
+      "id": "en-g1-350",
+      "grade": 1,
+      "word": "son",
+      "meaning": "儿子",
+      "phonetic": "sʌn",
+      "category": "生活",
+      "emoji": "👦",
+      "image": "images/english-cards/words-v2/son.svg"
+    },
+    {
+      "id": "en-g1-351",
+      "grade": 1,
+      "word": "hit",
+      "meaning": "打击",
+      "phonetic": "hit",
+      "category": "生活",
+      "emoji": "👊",
+      "image": "images/english-cards/words-v2/hit.svg"
+    },
+    {
+      "id": "en-g1-352",
+      "grade": 1,
+      "word": "oil",
+      "meaning": "油",
+      "phonetic": "ɒil",
+      "category": "生活",
+      "emoji": "🪔",
+      "image": "images/english-cards/words-v2/oil.svg"
+    },
+    {
+      "id": "en-g1-353",
+      "grade": 1,
+      "word": "top",
+      "meaning": "顶部",
+      "phonetic": "tɒp",
+      "category": "生活",
+      "emoji": "🎪",
+      "image": "images/english-cards/words-v2/top.svg"
+    },
+    {
+      "id": "en-g1-354",
+      "grade": 1,
+      "word": "lie",
+      "meaning": "谎言",
+      "phonetic": "lai",
+      "category": "生活",
+      "emoji": "🤥",
+      "image": "images/english-cards/words-v2/lie.svg"
+    },
+    {
+      "id": "en-g1-355",
+      "grade": 1,
+      "word": "lay",
+      "meaning": "放置",
+      "phonetic": "lei",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/lay.svg"
+    },
+    {
+      "id": "en-g1-356",
+      "grade": 1,
+      "word": "act",
+      "meaning": "行動",
+      "phonetic": "ækt",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/act.svg"
+    },
+    {
+      "id": "en-g1-357",
+      "grade": 1,
+      "word": "gun",
+      "meaning": "枪",
+      "phonetic": "gʌn",
+      "category": "生活",
+      "emoji": "🔫",
+      "image": "images/english-cards/words-v2/gun.svg"
+    },
+    {
+      "id": "en-g1-358",
+      "grade": 1,
+      "word": "bit",
+      "meaning": "少量",
+      "phonetic": "bit",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/bit.svg"
+    },
+    {
+      "id": "en-g1-359",
+      "grade": 1,
+      "word": "sea",
+      "meaning": "海",
+      "phonetic": "si:",
+      "category": "生活",
+      "emoji": "🧜",
+      "image": "images/english-cards/words-v2/sea.svg"
+    },
+    {
+      "id": "en-g1-360",
+      "grade": 1,
+      "word": "nor",
+      "meaning": "也不",
+      "phonetic": "nɒ:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/nor.svg"
+    },
+    {
+      "id": "en-g1-361",
+      "grade": 1,
+      "word": "fan",
+      "meaning": "風扇",
+      "phonetic": "fæn",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/fan.svg"
+    },
+    {
+      "id": "en-g1-362",
+      "grade": 1,
+      "word": "fit",
+      "meaning": "适宜",
+      "phonetic": "fit",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/fit.svg"
+    },
+    {
+      "id": "en-g1-363",
+      "grade": 1,
+      "word": "cry",
+      "meaning": "叫声",
+      "phonetic": "krai",
+      "category": "生活",
+      "emoji": "😂",
+      "image": "images/english-cards/words-v2/cry.svg"
+    },
+    {
+      "id": "en-g1-364",
+      "grade": 1,
+      "word": "tie",
+      "meaning": "帶子",
+      "phonetic": "tai",
+      "category": "生活",
+      "emoji": "👔",
+      "image": "images/english-cards/words-v2/tie.svg"
+    },
+    {
+      "id": "en-g1-365",
+      "grade": 1,
+      "word": "nod",
+      "meaning": "點頭",
+      "phonetic": "nɒd",
+      "category": "生活",
+      "emoji": "🙂‍↕️",
+      "image": "images/english-cards/words-v2/nod.svg"
+    },
+    {
+      "id": "en-g1-366",
+      "grade": 1,
+      "word": "dry",
+      "meaning": "干的",
+      "phonetic": "drai",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/dry.svg"
+    },
+    {
+      "id": "en-g1-367",
+      "grade": 1,
+      "word": "fat",
+      "meaning": "脂肪",
+      "phonetic": "fæt",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/fat.svg"
+    },
+    {
+      "id": "en-g1-368",
+      "grade": 1,
+      "word": "row",
+      "meaning": "排",
+      "phonetic": "rәu. rau",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/row.svg"
+    },
+    {
+      "id": "en-g1-369",
+      "grade": 1,
+      "word": "fix",
+      "meaning": "使固定",
+      "phonetic": "fiks",
+      "category": "生活",
+      "emoji": "🔧",
+      "image": "images/english-cards/words-v2/fix.svg"
+    },
+    {
+      "id": "en-g1-370",
+      "grade": 1,
+      "word": "fun",
+      "meaning": "樂趣",
+      "phonetic": "fʌn",
+      "category": "生活",
+      "emoji": "💃",
+      "image": "images/english-cards/words-v2/fun.svg"
+    },
+    {
+      "id": "en-g1-371",
+      "grade": 1,
+      "word": "lab",
+      "meaning": "實验室",
+      "phonetic": "læb",
+      "category": "生活",
+      "emoji": "🧑‍🔬",
+      "image": "images/english-cards/words-v2/lab.svg"
+    },
+    {
+      "id": "en-g1-372",
+      "grade": 1,
+      "word": "sir",
+      "meaning": "先生",
+      "phonetic": "sә:",
+      "category": "生活",
+      "emoji": "👨",
+      "image": "images/english-cards/words-v2/sir.svg"
+    },
+    {
+      "id": "en-g1-373",
+      "grade": 1,
+      "word": "tea",
+      "meaning": "茶",
+      "phonetic": "ti:",
+      "category": "生活",
+      "emoji": "☕",
+      "image": "images/english-cards/words-v2/tea.svg"
+    },
+    {
+      "id": "en-g1-374",
+      "grade": 1,
+      "word": "cap",
+      "meaning": "盖子",
+      "phonetic": "kæp",
+      "category": "生活",
+      "emoji": "👲",
+      "image": "images/english-cards/words-v2/cap.svg"
+    },
+    {
+      "id": "en-g1-375",
+      "grade": 1,
+      "word": "dig",
+      "meaning": "挖",
+      "phonetic": "dig",
+      "category": "生活",
+      "emoji": "⛏️",
+      "image": "images/english-cards/words-v2/dig.svg"
+    },
+    {
+      "id": "en-g1-376",
+      "grade": 1,
+      "word": "wet",
+      "meaning": "湿气",
+      "phonetic": "wet",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/wet.svg"
+    },
+    {
+      "id": "en-g1-377",
+      "grade": 1,
+      "word": "pop",
+      "meaning": "砰然声",
+      "phonetic": "pɒp",
+      "category": "生活",
+      "emoji": "💢",
+      "image": "images/english-cards/words-v2/pop.svg"
+    },
+    {
+      "id": "en-g1-378",
+      "grade": 1,
+      "word": "mad",
+      "meaning": "疯狂的",
+      "phonetic": "mæd",
+      "category": "生活",
+      "emoji": "🤯",
+      "image": "images/english-cards/words-v2/mad.svg"
+    },
+    {
+      "id": "en-g1-379",
+      "grade": 1,
+      "word": "god",
+      "meaning": "上帝",
+      "phonetic": "^ɔd",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/god.svg"
+    },
+    {
+      "id": "en-g1-380",
+      "grade": 1,
+      "word": "joy",
+      "meaning": "欢喜",
+      "phonetic": "dʒɒi",
+      "category": "生活",
+      "emoji": "😀",
+      "image": "images/english-cards/words-v2/joy.svg"
+    },
+    {
+      "id": "en-g1-381",
+      "grade": 1,
+      "word": "ill",
+      "meaning": "疾病",
+      "phonetic": "il",
+      "category": "生活",
+      "emoji": "😷",
+      "image": "images/english-cards/words-v2/ill.svg"
+    },
+    {
+      "id": "en-g1-382",
+      "grade": 1,
+      "word": "pet",
+      "meaning": "宠物",
+      "phonetic": "pet",
+      "category": "生活",
+      "emoji": "🐶",
+      "image": "images/english-cards/words-v2/pet.svg"
+    },
+    {
+      "id": "en-g1-383",
+      "grade": 1,
+      "word": "pie",
+      "meaning": "馅饼",
+      "phonetic": "pai",
+      "category": "生活",
+      "emoji": "🥧",
+      "image": "images/english-cards/words-v2/pie.svg"
+    },
+    {
+      "id": "en-g1-384",
+      "grade": 1,
+      "word": "rat",
+      "meaning": "鼠",
+      "phonetic": "ræt",
+      "category": "生活",
+      "emoji": "🐀",
+      "image": "images/english-cards/words-v2/rat.svg"
+    },
+    {
+      "id": "en-g1-385",
+      "grade": 1,
+      "word": "gym",
+      "meaning": "+体育馆",
+      "phonetic": "dʒim",
+      "category": "生活",
+      "emoji": "🏋️",
+      "image": "images/english-cards/words-v2/gym.svg"
+    },
+    {
+      "id": "en-g1-386",
+      "grade": 1,
+      "word": "shy",
+      "meaning": "惊跳",
+      "phonetic": "ʃai",
+      "category": "生活",
+      "emoji": "😊",
+      "image": "images/english-cards/words-v2/shy.svg"
+    },
+    {
+      "id": "en-g1-387",
+      "grade": 1,
+      "word": "ink",
+      "meaning": "墨水",
+      "phonetic": "iŋk",
+      "category": "生活",
+      "emoji": "🖨️",
+      "image": "images/english-cards/words-v2/ink.svg"
+    },
+    {
+      "id": "en-g1-388",
+      "grade": 1,
+      "word": "flu",
+      "meaning": "流感",
+      "phonetic": "flu:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/flu.svg"
+    },
+    {
+      "id": "en-g1-389",
+      "grade": 1,
+      "word": "ham",
+      "meaning": "火腿",
+      "phonetic": "hæm",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/ham.svg"
+    },
+    {
+      "id": "en-g1-390",
+      "grade": 1,
+      "word": "bye",
+      "meaning": "再會",
+      "phonetic": "bai",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/bye.svg"
+    },
+    {
+      "id": "en-g1-391",
+      "grade": 1,
+      "word": "ton",
+      "meaning": "吨",
+      "phonetic": "tʌn",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/ton.svg"
+    },
+    {
+      "id": "en-g1-392",
+      "grade": 1,
+      "word": "dvd",
+      "meaning": "abbr. 數字化视频光盘（Digital Video Disk）",
+      "phonetic": "",
+      "category": "生活",
+      "emoji": "💿",
+      "image": "images/english-cards/words-v2/dvd.svg"
+    },
+    {
+      "id": "en-g1-393",
+      "grade": 1,
+      "word": "vcd",
+      "meaning": "可变電容二极体的簡寫",
+      "phonetic": "",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/vcd.svg"
+    },
+    {
+      "id": "en-g1-394",
+      "grade": 1,
+      "word": "have",
+      "meaning": "有",
+      "phonetic": "hæv",
+      "category": "生活",
+      "emoji": "🈶",
+      "image": "images/english-cards/words-v2/have.svg"
+    },
+    {
+      "id": "en-g1-395",
+      "grade": 1,
+      "word": "that",
+      "meaning": "那",
+      "phonetic": "ðæt",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/that.svg"
+    },
+    {
+      "id": "en-g1-396",
+      "grade": 1,
+      "word": "with",
+      "meaning": "和...在一起",
+      "phonetic": "wið",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/with.svg"
+    },
+    {
+      "id": "en-g1-397",
+      "grade": 1,
+      "word": "this",
+      "meaning": "這",
+      "phonetic": "θis",
+      "category": "生活",
+      "emoji": "🙂",
+      "image": "images/english-cards/words-v2/this.svg"
+    },
+    {
+      "id": "en-g1-398",
+      "grade": 1,
+      "word": "they",
+      "meaning": "他們",
+      "phonetic": "ðei",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/they.svg"
+    },
+    {
+      "id": "en-g1-399",
+      "grade": 1,
+      "word": "from",
+      "meaning": "從",
+      "phonetic": "frɒm",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/from.svg"
+    },
+    {
+      "id": "en-g1-400",
+      "grade": 1,
+      "word": "will",
+      "meaning": "意志",
+      "phonetic": "wil",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/will.svg"
+    },
+    {
+      "id": "en-g1-401",
+      "grade": 1,
+      "word": "time",
+      "meaning": "時間",
+      "phonetic": "taim",
+      "category": "生活",
+      "emoji": "⌛",
+      "image": "images/english-cards/words-v2/time.svg"
+    },
+    {
+      "id": "en-g1-402",
+      "grade": 1,
+      "word": "when",
+      "meaning": "当...的時候",
+      "phonetic": "hwen",
+      "category": "生活",
+      "emoji": "🌠",
+      "image": "images/english-cards/words-v2/when.svg"
+    },
+    {
+      "id": "en-g1-403",
+      "grade": 1,
+      "word": "them",
+      "meaning": "他們",
+      "phonetic": "ðem",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/them.svg"
+    },
+    {
+      "id": "en-g1-404",
+      "grade": 1,
+      "word": "some",
+      "meaning": "一些",
+      "phonetic": "sʌm",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/some.svg"
+    },
+    {
+      "id": "en-g1-405",
+      "grade": 1,
+      "word": "into",
+      "meaning": "進入...之內",
+      "phonetic": "'intu:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/into.svg"
+    },
+    {
+      "id": "en-g1-406",
+      "grade": 1,
+      "word": "just",
+      "meaning": "正直的",
+      "phonetic": "dʒʌst",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/just.svg"
+    },
+    {
+      "id": "en-g1-407",
+      "grade": 1,
+      "word": "your",
+      "meaning": "你的",
+      "phonetic": "juә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/your.svg"
+    },
+    {
+      "id": "en-g1-408",
+      "grade": 1,
+      "word": "than",
+      "meaning": "比",
+      "phonetic": "ðæn",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/than.svg"
+    },
+    {
+      "id": "en-g1-409",
+      "grade": 1,
+      "word": "then",
+      "meaning": "然後",
+      "phonetic": "ðen",
+      "category": "生活",
+      "emoji": "⤴️",
+      "image": "images/english-cards/words-v2/then.svg"
+    },
+    {
+      "id": "en-g1-410",
+      "grade": 1,
+      "word": "more",
+      "meaning": "更多",
+      "phonetic": "mɒ:",
+      "category": "生活",
+      "emoji": "➕",
+      "image": "images/english-cards/words-v2/more.svg"
+    },
+    {
+      "id": "en-g1-411",
+      "grade": 1,
+      "word": "also",
+      "meaning": "也",
+      "phonetic": "'ɒ:lsәu",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/also.svg"
+    },
+    {
+      "id": "en-g1-412",
+      "grade": 1,
+      "word": "only",
+      "meaning": "唯一的",
+      "phonetic": "'әunli",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/only.svg"
+    },
+    {
+      "id": "en-g1-413",
+      "grade": 1,
+      "word": "tell",
+      "meaning": "告诉",
+      "phonetic": "tel",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/tell.svg"
+    },
+    {
+      "id": "en-g1-414",
+      "grade": 1,
+      "word": "even",
+      "meaning": "平坦的",
+      "phonetic": "'i:vәn",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/even.svg"
+    },
+    {
+      "id": "en-g1-415",
+      "grade": 1,
+      "word": "life",
+      "meaning": "生活",
+      "phonetic": "laif",
+      "category": "生活",
+      "emoji": "🧬",
+      "image": "images/english-cards/words-v2/life.svg"
+    },
+    {
+      "id": "en-g1-416",
+      "grade": 1,
+      "word": "work",
+      "meaning": "工作",
+      "phonetic": "wә:k",
+      "category": "生活",
+      "emoji": "😓",
+      "image": "images/english-cards/words-v2/work.svg"
+    },
+    {
+      "id": "en-g1-417",
+      "grade": 1,
+      "word": "down",
+      "meaning": "向下的",
+      "phonetic": "daun",
+      "category": "生活",
+      "emoji": "👇",
+      "image": "images/english-cards/words-v2/down.svg"
+    },
+    {
+      "id": "en-g1-418",
+      "grade": 1,
+      "word": "over",
+      "meaning": "结束",
+      "phonetic": "'әuvә",
+      "category": "生活",
+      "emoji": "🤬",
+      "image": "images/english-cards/words-v2/over.svg"
+    },
+    {
+      "id": "en-g1-419",
+      "grade": 1,
+      "word": "need",
+      "meaning": "需要",
+      "phonetic": "ni:d",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/need.svg"
+    },
+    {
+      "id": "en-g1-420",
+      "grade": 1,
+      "word": "feel",
+      "meaning": "感觉",
+      "phonetic": "fi:l",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/feel.svg"
+    },
+    {
+      "id": "en-g1-421",
+      "grade": 1,
+      "word": "high",
+      "meaning": "高度",
+      "phonetic": "hai",
+      "category": "生活",
+      "emoji": "✋",
+      "image": "images/english-cards/words-v2/high.svg"
+    },
+    {
+      "id": "en-g1-422",
+      "grade": 1,
+      "word": "most",
+      "meaning": "最多",
+      "phonetic": "mәust",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/most.svg"
+    },
+    {
+      "id": "en-g1-423",
+      "grade": 1,
+      "word": "much",
+      "meaning": "大量",
+      "phonetic": "mʌtʃ",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/much.svg"
+    },
+    {
+      "id": "en-g1-424",
+      "grade": 1,
+      "word": "mean",
+      "meaning": "低劣的",
+      "phonetic": "mi:n",
+      "category": "生活",
+      "emoji": "😏",
+      "image": "images/english-cards/words-v2/mean.svg"
+    },
+    {
+      "id": "en-g1-425",
+      "grade": 1,
+      "word": "same",
+      "meaning": "相同的",
+      "phonetic": "seim",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/same.svg"
+    },
+    {
+      "id": "en-g1-426",
+      "grade": 1,
+      "word": "seem",
+      "meaning": "象是",
+      "phonetic": "si:m",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/seem.svg"
+    },
+    {
+      "id": "en-g1-427",
+      "grade": 1,
+      "word": "turn",
+      "meaning": "转弯",
+      "phonetic": "tә:n",
+      "category": "生活",
+      "emoji": "🛞",
+      "image": "images/english-cards/words-v2/turn.svg"
+    },
+    {
+      "id": "en-g1-428",
+      "grade": 1,
+      "word": "show",
+      "meaning": "显示",
+      "phonetic": "ʃәu",
+      "category": "生活",
+      "emoji": "📺",
+      "image": "images/english-cards/words-v2/show.svg"
+    },
+    {
+      "id": "en-g1-429",
+      "grade": 1,
+      "word": "part",
+      "meaning": "部分",
+      "phonetic": "pɑ:t",
+      "category": "生活",
+      "emoji": "🖖",
+      "image": "images/english-cards/words-v2/part.svg"
+    },
+    {
+      "id": "en-g1-430",
+      "grade": 1,
+      "word": "such",
+      "meaning": "如此的",
+      "phonetic": "sʌtʃ",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/such.svg"
+    },
+    {
+      "id": "en-g1-431",
+      "grade": 1,
+      "word": "each",
+      "meaning": "每個",
+      "phonetic": "i:tʃ",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/each.svg"
+    },
+    {
+      "id": "en-g1-432",
+      "grade": 1,
+      "word": "hear",
+      "meaning": "聽到",
+      "phonetic": "hiә",
+      "category": "生活",
+      "emoji": "👂",
+      "image": "images/english-cards/words-v2/hear.svg"
+    },
+    {
+      "id": "en-g1-433",
+      "grade": 1,
+      "word": "move",
+      "meaning": "移動",
+      "phonetic": "mu:v",
+      "category": "生活",
+      "emoji": "🚶",
+      "image": "images/english-cards/words-v2/move.svg"
+    },
+    {
+      "id": "en-g1-434",
+      "grade": 1,
+      "word": "hold",
+      "meaning": "把握",
+      "phonetic": "hәuld",
+      "category": "生活",
+      "emoji": "🧑‍🤝‍🧑",
+      "image": "images/english-cards/words-v2/hold.svg"
+    },
+    {
+      "id": "en-g1-435",
+      "grade": 1,
+      "word": "must",
+      "meaning": "必须",
+      "phonetic": "mʌst",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/must.svg"
+    },
+    {
+      "id": "en-g1-436",
+      "grade": 1,
+      "word": "area",
+      "meaning": "区域",
+      "phonetic": "'єәriә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/area.svg"
+    },
+    {
+      "id": "en-g1-437",
+      "grade": 1,
+      "word": "fact",
+      "meaning": "事實",
+      "phonetic": "fækt",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/fact.svg"
+    },
+    {
+      "id": "en-g1-438",
+      "grade": 1,
+      "word": "word",
+      "meaning": "話",
+      "phonetic": "wә:d",
+      "category": "生活",
+      "emoji": "🈁",
+      "image": "images/english-cards/words-v2/word.svg"
+    },
+    {
+      "id": "en-g1-439",
+      "grade": 1,
+      "word": "side",
+      "meaning": "旁邊",
+      "phonetic": "said",
+      "category": "生活",
+      "emoji": "😪",
+      "image": "images/english-cards/words-v2/side.svg"
+    },
+    {
+      "id": "en-g1-440",
+      "grade": 1,
+      "word": "both",
+      "meaning": "兩者的",
+      "phonetic": "bәuθ",
+      "category": "生活",
+      "emoji": "🙌",
+      "image": "images/english-cards/words-v2/both.svg"
+    },
+    {
+      "id": "en-g1-441",
+      "grade": 1,
+      "word": "ever",
+      "meaning": "曾經",
+      "phonetic": "'evә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/ever.svg"
+    },
+    {
+      "id": "en-g1-442",
+      "grade": 1,
+      "word": "lose",
+      "meaning": "遗失",
+      "phonetic": "lu:z",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/lose.svg"
+    },
+    {
+      "id": "en-g1-443",
+      "grade": 1,
+      "word": "meet",
+      "meaning": "會",
+      "phonetic": "mi:t",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/meet.svg"
+    },
+    {
+      "id": "en-g1-444",
+      "grade": 1,
+      "word": "city",
+      "meaning": "城市",
+      "phonetic": "'siti",
+      "category": "生活",
+      "emoji": "🏙️",
+      "image": "images/english-cards/words-v2/city.svg"
+    },
+    {
+      "id": "en-g1-445",
+      "grade": 1,
+      "word": "once",
+      "meaning": "一次",
+      "phonetic": "wʌns",
+      "category": "生活",
+      "emoji": "🔂",
+      "image": "images/english-cards/words-v2/once.svg"
+    },
+    {
+      "id": "en-g1-446",
+      "grade": 1,
+      "word": "real",
+      "meaning": "真的",
+      "phonetic": "'riәl",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/real.svg"
+    },
+    {
+      "id": "en-g1-447",
+      "grade": 1,
+      "word": "team",
+      "meaning": "队",
+      "phonetic": "ti:m",
+      "category": "生活",
+      "emoji": "👥",
+      "image": "images/english-cards/words-v2/team.svg"
+    },
+    {
+      "id": "en-g1-448",
+      "grade": 1,
+      "word": "lead",
+      "meaning": "铅",
+      "phonetic": "li:d. led",
+      "category": "生活",
+      "emoji": "✏️",
+      "image": "images/english-cards/words-v2/lead.svg"
+    },
+    {
+      "id": "en-g1-449",
+      "grade": 1,
+      "word": "sure",
+      "meaning": "确信",
+      "phonetic": "ʃuә",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/sure.svg"
+    },
+    {
+      "id": "en-g1-450",
+      "grade": 1,
+      "word": "grow",
+      "meaning": "種植",
+      "phonetic": "grәu",
+      "category": "生活",
+      "emoji": "🪴",
+      "image": "images/english-cards/words-v2/grow.svg"
+    },
+    {
+      "id": "en-g1-451",
+      "grade": 1,
+      "word": "able",
+      "meaning": "能干的",
+      "phonetic": "'eibl",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/able.svg"
+    },
+    {
+      "id": "en-g1-452",
+      "grade": 1,
+      "word": "love",
+      "meaning": "愛",
+      "phonetic": "lʌv",
+      "category": "生活",
+      "emoji": "🥰",
+      "image": "images/english-cards/words-v2/love.svg"
+    },
+    {
+      "id": "en-g1-453",
+      "grade": 1,
+      "word": "wait",
+      "meaning": "等待",
+      "phonetic": "weit",
+      "category": "生活",
+      "emoji": "🚏",
+      "image": "images/english-cards/words-v2/wait.svg"
+    },
+    {
+      "id": "en-g1-454",
+      "grade": 1,
+      "word": "send",
+      "meaning": "發送",
+      "phonetic": "send",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/send.svg"
+    },
+    {
+      "id": "en-g1-455",
+      "grade": 1,
+      "word": "stay",
+      "meaning": "停留",
+      "phonetic": "stei",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/stay.svg"
+    },
+    {
+      "id": "en-g1-456",
+      "grade": 1,
+      "word": "fall",
+      "meaning": "落下",
+      "phonetic": "fɒ:l",
+      "category": "生活",
+      "emoji": "🌻",
+      "image": "images/english-cards/words-v2/fall.svg"
+    },
+    {
+      "id": "en-g1-457",
+      "grade": 1,
+      "word": "plan",
+      "meaning": "计划",
+      "phonetic": "plæn",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/plan.svg"
+    },
+    {
+      "id": "en-g1-458",
+      "grade": 1,
+      "word": "care",
+      "meaning": "小心",
+      "phonetic": "kєә",
+      "category": "生活",
+      "emoji": "⚕️",
+      "image": "images/english-cards/words-v2/care.svg"
+    },
+    {
+      "id": "en-g1-459",
+      "grade": 1,
+      "word": "late",
+      "meaning": "迟的",
+      "phonetic": "leit",
+      "category": "生活",
+      "emoji": "🕛",
+      "image": "images/english-cards/words-v2/late.svg"
+    },
+    {
+      "id": "en-g1-460",
+      "grade": 1,
+      "word": "hard",
+      "meaning": "坚硬的",
+      "phonetic": "hɑ:d",
+      "category": "生活",
+      "emoji": "😓",
+      "image": "images/english-cards/words-v2/hard.svg"
+    },
+    {
+      "id": "en-g1-461",
+      "grade": 1,
+      "word": "else",
+      "meaning": "别的",
+      "phonetic": "els",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/else.svg"
+    },
+    {
+      "id": "en-g1-462",
+      "grade": 1,
+      "word": "pass",
+      "meaning": "經過",
+      "phonetic": "pæs",
+      "category": "生活",
+      "emoji": "💯",
+      "image": "images/english-cards/words-v2/pass.svg"
+    },
+    {
+      "id": "en-g1-463",
+      "grade": 1,
+      "word": "sell",
+      "meaning": "賣",
+      "phonetic": "sel",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/sell.svg"
+    },
+    {
+      "id": "en-g1-464",
+      "grade": 1,
+      "word": "role",
+      "meaning": "角色",
+      "phonetic": "rәul",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/role.svg"
+    },
+    {
+      "id": "en-g1-465",
+      "grade": 1,
+      "word": "wife",
+      "meaning": "妻子",
+      "phonetic": "waif",
+      "category": "生活",
+      "emoji": "👩",
+      "image": "images/english-cards/words-v2/wife.svg"
+    },
+    {
+      "id": "en-g1-466",
+      "grade": 1,
+      "word": "mind",
+      "meaning": "思想",
+      "phonetic": "maind",
+      "category": "生活",
+      "emoji": "🤯",
+      "image": "images/english-cards/words-v2/mind.svg"
+    },
+    {
+      "id": "en-g1-467",
+      "grade": 1,
+      "word": "pull",
+      "meaning": "拉",
+      "phonetic": "pul",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/pull.svg"
+    },
+    {
+      "id": "en-g1-468",
+      "grade": 1,
+      "word": "free",
+      "meaning": "自由的",
+      "phonetic": "fri:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/free.svg"
+    },
+    {
+      "id": "en-g1-469",
+      "grade": 1,
+      "word": "hope",
+      "meaning": "希望",
+      "phonetic": "hәup",
+      "category": "生活",
+      "emoji": "🙏",
+      "image": "images/english-cards/words-v2/hope.svg"
+    },
+    {
+      "id": "en-g1-470",
+      "grade": 1,
+      "word": "town",
+      "meaning": "城镇",
+      "phonetic": "taun",
+      "category": "生活",
+      "emoji": "🏘️",
+      "image": "images/english-cards/words-v2/town.svg"
+    },
+    {
+      "id": "en-g1-471",
+      "grade": 1,
+      "word": "true",
+      "meaning": "真實的",
+      "phonetic": "tru:",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/true.svg"
+    },
+    {
+      "id": "en-g1-472",
+      "grade": 1,
+      "word": "full",
+      "meaning": "全部",
+      "phonetic": "ful",
+      "category": "生活",
+      "emoji": "💯",
+      "image": "images/english-cards/words-v2/full.svg"
+    },
+    {
+      "id": "en-g1-473",
+      "grade": 1,
+      "word": "join",
+      "meaning": "参加",
+      "phonetic": "dʒɒin",
+      "category": "生活",
+      "emoji": "🈴",
+      "image": "images/english-cards/words-v2/join.svg"
+    },
+    {
+      "id": "en-g1-474",
+      "grade": 1,
+      "word": "pick",
+      "meaning": "精选",
+      "phonetic": "pik",
+      "category": "生活",
+      "emoji": "⛏️",
+      "image": "images/english-cards/words-v2/pick.svg"
+    },
+    {
+      "id": "en-g1-475",
+      "grade": 1,
+      "word": "wear",
+      "meaning": "穿着",
+      "phonetic": "wєә",
+      "category": "生活",
+      "emoji": "🎩",
+      "image": "images/english-cards/words-v2/wear.svg"
+    },
+    {
+      "id": "en-g1-476",
+      "grade": 1,
+      "word": "form",
+      "meaning": "形状",
+      "phonetic": "fɒ:m",
+      "category": "生活",
+      "emoji": "🈸",
+      "image": "images/english-cards/words-v2/form.svg"
+    },
+    {
+      "id": "en-g1-477",
+      "grade": 1,
+      "word": "half",
+      "meaning": "一半",
+      "phonetic": "hɑ:f",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/half.svg"
+    },
+    {
+      "id": "en-g1-478",
+      "grade": 1,
+      "word": "cost",
+      "meaning": "代价",
+      "phonetic": "kɒst",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/cost.svg"
+    },
+    {
+      "id": "en-g1-479",
+      "grade": 1,
+      "word": "land",
+      "meaning": "陆地",
+      "phonetic": "lænd",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/land.svg"
+    },
+    {
+      "id": "en-g1-480",
+      "grade": 1,
+      "word": "wall",
+      "meaning": "墙",
+      "phonetic": "wɒ:l",
+      "category": "生活",
+      "emoji": "🧱",
+      "image": "images/english-cards/words-v2/wall.svg"
+    },
+    {
+      "id": "en-g1-481",
+      "grade": 1,
+      "word": "news",
+      "meaning": "新闻",
+      "phonetic": "nju:z",
+      "category": "生活",
+      "emoji": "📰",
+      "image": "images/english-cards/words-v2/news.svg"
+    },
+    {
+      "id": "en-g1-482",
+      "grade": 1,
+      "word": "test",
+      "meaning": "测试",
+      "phonetic": "test",
+      "category": "生活",
+      "emoji": "💯",
+      "image": "images/english-cards/words-v2/test.svg"
+    },
+    {
+      "id": "en-g1-483",
+      "grade": 1,
+      "word": "step",
+      "meaning": "步骤",
+      "phonetic": "step",
+      "category": "生活",
+      "emoji": "🪜",
+      "image": "images/english-cards/words-v2/step.svg"
+    },
+    {
+      "id": "en-g1-484",
+      "grade": 1,
+      "word": "film",
+      "meaning": "软片",
+      "phonetic": "film",
+      "category": "生活",
+      "emoji": "🎥",
+      "image": "images/english-cards/words-v2/film.svg"
+    },
+    {
+      "id": "en-g1-485",
+      "grade": 1,
+      "word": "soon",
+      "meaning": "不久",
+      "phonetic": "su:n",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/soon.svg"
+    },
+    {
+      "id": "en-g1-486",
+      "grade": 1,
+      "word": "term",
+      "meaning": "术语",
+      "phonetic": "tә:m",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/term.svg"
+    },
+    {
+      "id": "en-g1-487",
+      "grade": 1,
+      "word": "rule",
+      "meaning": "规则",
+      "phonetic": "ru:l",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/rule.svg"
+    },
+    {
+      "id": "en-g1-488",
+      "grade": 1,
+      "word": "risk",
+      "meaning": "冒险",
+      "phonetic": "risk",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/risk.svg"
+    },
+    {
+      "id": "en-g1-489",
+      "grade": 1,
+      "word": "fire",
+      "meaning": "火",
+      "phonetic": "'faiә",
+      "category": "生活",
+      "emoji": "🔥",
+      "image": "images/english-cards/words-v2/fire.svg"
+    },
+    {
+      "id": "en-g1-490",
+      "grade": 1,
+      "word": "bank",
+      "meaning": "银行",
+      "phonetic": "bæŋk",
+      "category": "生活",
+      "emoji": "🏦",
+      "image": "images/english-cards/words-v2/bank.svg"
+    },
+    {
+      "id": "en-g1-491",
+      "grade": 1,
+      "word": "west",
+      "meaning": "西方",
+      "phonetic": "west",
+      "category": "生活",
+      "emoji": "↙️",
+      "image": "images/english-cards/words-v2/west.svg"
+    },
+    {
+      "id": "en-g1-492",
+      "grade": 1,
+      "word": "rest",
+      "meaning": "休息",
+      "phonetic": "rest",
+      "category": "生活",
+      "emoji": "😪",
+      "image": "images/english-cards/words-v2/rest.svg"
+    },
+    {
+      "id": "en-g1-493",
+      "grade": 1,
+      "word": "deal",
+      "meaning": "交易",
+      "phonetic": "di:l",
+      "category": "生活",
+      "emoji": "🤝",
+      "image": "images/english-cards/words-v2/deal.svg"
+    },
+    {
+      "id": "en-g1-494",
+      "grade": 1,
+      "word": "past",
+      "meaning": "過去",
+      "phonetic": "pɑ:st",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/past.svg"
+    },
+    {
+      "id": "en-g1-495",
+      "grade": 1,
+      "word": "fill",
+      "meaning": "装满",
+      "phonetic": "fil",
+      "category": "生活",
+      "emoji": "🔤",
+      "image": "images/english-cards/words-v2/fill.svg"
+    },
+    {
+      "id": "en-g1-496",
+      "grade": 1,
+      "word": "drop",
+      "meaning": "滴",
+      "phonetic": "drɒp",
+      "category": "生活",
+      "emoji": "☔",
+      "image": "images/english-cards/words-v2/drop.svg"
+    },
+    {
+      "id": "en-g1-497",
+      "grade": 1,
+      "word": "upon",
+      "meaning": "在...之上",
+      "phonetic": "ә'pɒn",
+      "category": "生活",
+      "emoji": "🌠",
+      "image": "images/english-cards/words-v2/upon.svg"
+    },
+    {
+      "id": "en-g1-498",
+      "grade": 1,
+      "word": "push",
+      "meaning": "推",
+      "phonetic": "puʃ",
+      "category": "生活",
+      "emoji": "🚲",
+      "image": "images/english-cards/words-v2/push.svg"
+    },
+    {
+      "id": "en-g1-499",
+      "grade": 1,
+      "word": "note",
+      "meaning": "笔記",
+      "phonetic": "nәut",
+      "category": "生活",
+      "emoji": "💌",
+      "image": "images/english-cards/words-v2/note.svg"
+    },
+    {
+      "id": "en-g1-500",
+      "grade": 1,
+      "word": "fine",
+      "meaning": "罚款",
+      "phonetic": "fain",
+      "category": "生活",
+      "emoji": "🙂",
+      "image": "images/english-cards/words-v2/fine.svg"
+    }
+  ]
+}

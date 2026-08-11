@@ -1,0 +1,48 @@
+{
+  "id": "generated-burgundy-noir",
+  "code": "g24",
+  "title": "BURGUNDY NOIR",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "top": {
+      "canvas": "top.png",
+      "shop": "shop-top.png",
+      "name": "酒紅短版西裝上衣"
+    },
+    "bot": {
+      "canvas": "bot.png",
+      "shop": "shop-bottom.png",
+      "name": "黑色箱褶及膝裙"
+    }
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "bot",
+    "top"
+  ],
+  "bodyGrid": {
+    "topBox": [
+      220,
+      340,
+      804,
+      990
+    ],
+    "bottomBox": [
+      290,
+      710,
+      710,
+      1120
+    ]
+  },
+  "sourceGap": [
+    674,
+    715
+  ],
+  "source": "imagegen chroma wardrobe sheet; body-free top/bottom"
+}

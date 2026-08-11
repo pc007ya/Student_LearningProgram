@@ -1,0 +1,48 @@
+{
+  "id": "generated-sky-sport",
+  "code": "g30",
+  "title": "SKY SPORT",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "top": {
+      "canvas": "top.png",
+      "shop": "shop-top.png",
+      "name": "白藍機能拉鍊外套"
+    },
+    "bot": {
+      "canvas": "bot.png",
+      "shop": "shop-bottom.png",
+      "name": "深藍直筒運動長褲"
+    }
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "bot",
+    "top"
+  ],
+  "bodyGrid": {
+    "topBox": [
+      220,
+      340,
+      804,
+      990
+    ],
+    "bottomBox": [
+      315,
+      710,
+      710,
+      1580
+    ]
+  },
+  "sourceGap": [
+    0,
+    0
+  ],
+  "source": "imagegen chroma wardrobe sheet; body-free top/bottom"
+}

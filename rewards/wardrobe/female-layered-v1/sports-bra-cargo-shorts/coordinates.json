@@ -1,0 +1,40 @@
+{
+  "outfit_name": "sports_bra_cargo_shorts_outfit_set",
+  "canvas_size": [
+    1000,
+    1900
+  ],
+  "top": {
+    "file": "clothing_top_1000x1900.png",
+    "bbox": [
+      390,
+      345,
+      644,
+      683
+    ],
+    "width": 254,
+    "height": 338
+  },
+  "bottom": {
+    "file": "clothing_bottom_1000x1900.png",
+    "bbox": [
+      352,
+      680,
+      677,
+      993
+    ],
+    "width": 325,
+    "height": 313
+  },
+  "set": {
+    "file": "clothing_set_1000x1900.png",
+    "bbox": [
+      352,
+      345,
+      677,
+      993
+    ],
+    "width": 325,
+    "height": 648
+  }
+}

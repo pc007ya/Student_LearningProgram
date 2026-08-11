@@ -1,0 +1,37 @@
+{
+  "id": "sheet-creative",
+  "title": "Creative 灰黑短版外套",
+  "audience": "girl",
+  "canvas": {
+    "width": 1000,
+    "height": 1900
+  },
+  "base": "base.png",
+  "parts": {
+    "top": {
+      "canvas": "top.png",
+      "shop": "shop-top.png"
+    },
+    "bot": {
+      "canvas": "bot.png",
+      "shop": "shop-bottom.png"
+    },
+    "hair": {
+      "canvas": "hair.png",
+      "shop": "shop-hair.png"
+    }
+  },
+  "cssAnchors": {
+      "shoe": "shop-shoe.png"
+  },
+  "set": "set.png",
+  "renderOrder": [
+    "base",
+    "bot",
+    "top",
+    "shoe",
+    "hand",
+    "hair",
+    "hat"
+  ]
+}
