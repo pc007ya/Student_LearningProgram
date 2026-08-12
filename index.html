@@ -5178,7 +5178,6 @@ class Component extends DCLogic {
       isQuiz: s.screen === "quiz", isResult: s.screen === "result", isWriting: s.screen === "writing", isWeekly: s.screen === "weekly", isWeeklyQuiz: s.screen === "weeklyQuiz", isWeeklyResult: s.screen === "weeklyResult", isShop: s.screen === "shop", isGacha: s.screen === "gacha", isCollection: s.screen === "collection",
       isGeoLesson: s.screen === "geoLesson",
       geoLessonTitle: s.geoLesson ? GEO_LESSON_TITLES[s.geoLesson.topic] || "幾何教學" : "",
-      geoLessonFig: buildGeoLessonFigure(s.geoLesson),
       geoLessonTrail: s.geoLesson ? s.geoLesson.script.slice(0, s.geoLesson.revealIndex + 1).map((beat, index, rows) => ({ icon: beat.final ? "✅" : "📐", text: beat.narrate, bg: beat.final ? "#e6f7ee" : "#fbfaff", border: beat.final ? "#35c98a" : index === rows.length - 1 ? "#7c5cff" : "#ece7ff" })) : [],
       geoLessonPlayPauseLabel: s.geoLesson && s.geoLesson.playing ? "⏸ 暫停" : "▶️ 繼續",
       geoLessonPlayPause: () => { const lesson = this.state.geoLesson; if (lesson && lesson.playing) this.pauseGeoLesson(); else this.resumeGeoLesson(); },
