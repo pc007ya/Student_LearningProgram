@@ -10,9 +10,9 @@
 
 apple, ant, ball, banana, bear, bed, bee, bird, boat, book, box, bread, bus, cake,
 car, cat, chair, chicken, clock, cloud, coat, cow, cup, desk, dog, doll, door, duck,
-egg, elephant, fish, flower, fox, frog, garden, goat, grape, hat, horse, house, ice,
+egg, elephant, fish, flower, fox, frog, garden, goat, grape, hat, horse, house,
 juice, kite, lion, moon, mouse, orange, owl, panda, pen, pencil, pig, pizza, plane,
-rabbit, rain, school, sheep, shoe, train
+rabbit, rain, school, sheep, shoe, train, candy
 
 ## 小二 60 題
 
