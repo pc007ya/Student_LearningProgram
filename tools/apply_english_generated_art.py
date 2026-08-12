@@ -12,8 +12,8 @@ ART_DIR = ROOT / "images" / "english-generated-v1"
 GENERATED_WORDS = {
     1: """apple ant ball banana bear bed bee bird boat book box bread bus cake car cat
     chair chicken clock cloud coat cow cup desk dog doll door duck egg elephant fish flower
-    fox frog garden goat grape hat horse house ice juice kite lion moon mouse orange owl
-    panda pen pencil pig pizza plane rabbit rain school sheep shoe train""".split(),
+    fox frog garden goat grape hat horse house juice kite lion moon mouse orange owl
+    panda pen pencil pig pizza plane rabbit rain school sheep shoe train candy""".split(),
     2: """rock card wind ship wood gold leaf pool salt ring meal meat tool shop gift scarf
     knee tape bowl wing lake gate sand lock flag mail bell soup tent rope pond fork drum wolf
     soap coin sofa taxi lamb rose heart phone movie radio hotel truck photo plate shirt ocean
