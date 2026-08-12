@@ -2293,6 +2293,29 @@ const ENCOURAGE_FEEDBACKS = [
   "沒關係，再試一題就會更熟！",
   "差一點點，繼續加油！",
 ];
+const MATH_GAME_FALLBACK = {
+  schemaVersion: 1,
+  modules: [
+    { id: "u29", questions: [
+      { id: "shape-triangle-demo", type: "shape-count", stem: "圖中一共有幾個三角形？", answer: 4, options: [3, 4, 5, 6], explain: "逐一指出三角形，共有 4 個。", visual: { items: ["triangle", "circle", "triangle", "square", "triangle", "rectangle", "triangle"] } },
+      { id: "solid-cube-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "正方體", options: ["正方體", "長方體", "圓柱體", "圓錐體"], explain: "每一面都是一樣大的正方形，所以是正方體。", visual: { solid: "cube", image: "images/math-games/solid-cube.png", alt: "紫色與藍綠色的正方體" } },
+      { id: "solid-cuboid-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "長方體", options: ["正方體", "長方體", "圓柱體", "圓錐體"], explain: "它有長、寬、高，側面是長方形，所以是長方體。", visual: { solid: "cuboid", image: "images/math-games/solid-cuboid.png", alt: "紫色與藍綠色的長方體" } },
+      { id: "solid-cylinder-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "圓柱體", options: ["圓柱體", "圓錐體", "正方體", "球體"], explain: "它有兩個一樣大的圓形底面，所以是圓柱體。", visual: { solid: "cylinder", image: "images/math-games/solid-cylinder.png", alt: "紫色與藍綠色的圓柱體" } },
+      { id: "solid-cone-demo", type: "solid", stem: "這個立體圖形叫什麼？", answer: "圓錐體", options: ["圓柱體", "圓錐體", "長方體", "球體"], explain: "它有一個圓形底面和一個頂點，所以是圓錐體。", visual: { solid: "cone", image: "images/math-games/solid-cone.png", alt: "紫色與藍綠色的圓錐體" } },
+      { id: "blocks-demo", type: "block-count", stem: "這座積木一共用了幾個小正方體？", answer: 6, options: [4, 5, 6, 7], explain: "3＋2＋1＝6，共有 6 個。", visual: { columns: [3, 2, 1] } }
+    ] },
+    { id: "u30", questions: [
+      { id: "clock-demo", type: "clock", stem: "時鐘現在是幾點幾分？", answer: "8 點 30 分", options: ["8 點 30 分", "6 點 40 分", "8 點整", "9 點 30 分"], explain: "長針指向 6 是 30 分，短針走過 8。", visual: { hour: 8, minute: 30 } },
+      { id: "weight-demo", type: "weight", stem: "看天平，哪一邊的物品比較重？", answer: "西瓜比較重", options: ["西瓜比較重", "蘋果比較重", "一樣重", "無法判斷"], explain: "天平較低的一端比較重。", visual: { left: { icon: "🍉", label: "西瓜", weight: 5 }, right: { icon: "🍎", label: "蘋果", weight: 2 } } },
+      { id: "angle-demo", type: "protractor", stem: "量角器上的角是多少度？", answer: "60°", options: ["30°", "60°", "90°", "120°"], explain: "射線通過 60° 的刻度，所以是 60°。", visual: { angle: 60 } }
+    ] },
+    { id: "u31", questions: [{ id: "g1-cubes-demo", type: "block-count", stem: "這座積木共有幾個小正方體？", answer: 6, options: [4, 5, 6, 7], explain: "由下往上分層數：3＋2＋1＝6。", visual: { cubes: [[0,0,0],[1,0,0],[1,0,1],[2,0,0],[2,0,1],[2,0,2]], skill: "分層數" } }] },
+    { id: "u32", questions: [{ id: "g2-cubes-demo", type: "block-count", stem: "包含被遮住的積木，共有幾個小正方體？", answer: 8, options: [6, 7, 8, 9], explain: "四根柱子的高度是 3、1、2、2，合計 8 個。", visual: { cubes: [[0,0,0],[0,0,1],[0,0,2],[1,0,0],[0,1,0],[0,1,1],[1,1,0],[1,1,1]], skill: "看柱高" } }] },
+    { id: "u33", questions: [{ id: "grid-match-demo", type: "gridChoices", stem: "哪一個方格圖形和目標圖形相同，只是轉了方向？", speakText: "目標是由四個小方格組成的L形。請比較甲、乙、丙、丁。", answer: "乙", options: ["甲", "乙", "丙", "丁"], explain: "把目標圖形在心中轉動，乙的連接位置完全相同。", visual: { target: ["100","100","110"], choices: [{ label: "甲", cells: ["111","010","000"] },{ label: "乙", cells: ["111","100","000"] },{ label: "丙", cells: ["110","011","000"] },{ label: "丁", cells: ["101","111","000"] }] } }] },
+    { id: "u34", questions: [{ id: "count-demo", type: "countItems", stem: "圖中有幾隻兔子？", speakText: "請只數兔子，不要把小鳥算進去。", answer: 5, options: [4, 5, 6, 7], explain: "逐一指出兔子，共有 5 隻。", visual: { items: ["🐰","🐦","🐰","🐰","🐦","🐰","🐦","🐰"], skill: "分類後再數" } }] },
+    { id: "u35", questions: [{ id: "sequence-demo", type: "sequenceCards", stem: "準備吃飯時，哪一件事應該最先做？", speakText: "甲是洗手，乙是擦乾，丙是坐好，丁是開始吃飯。", answer: "甲", options: ["甲", "乙", "丙", "丁"], explain: "吃飯前應先把手洗乾淨，所以甲最先。", visual: { cards: [{ label: "甲", icon: "🧼", text: "洗手" },{ label: "乙", icon: "🧻", text: "擦乾" },{ label: "丙", icon: "🪑", text: "坐好" },{ label: "丁", icon: "🍚", text: "開始吃飯" }] } }] }
+  ]
+};
 function localDateKey() {
   const now = new Date();
   return now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
@@ -3588,7 +3611,8 @@ class Component extends DCLogic {
   }
 
   buildMathGame(unitId) {
-    const mod = this.state.mathGameBank.find((m) => m.id === unitId);
+    const bank = Array.isArray(this.state.mathGameBank) ? this.state.mathGameBank : ((this.state.mathGameBank && Array.isArray(this.state.mathGameBank.modules)) ? this.state.mathGameBank.modules : []);
+    const mod = bank.find((m) => m.id === unitId);
     if (!mod || !mod.questions || !mod.questions.length) return [];
     const shuffle = (a) => a.slice().sort(() => Math.random() - 0.5);
     const cellRow = (row) => row.split("").map((c) => ({ bg: c === "1" ? "#2b1f57" : "#eee9ff" }));
