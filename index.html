@@ -6,6 +6,7 @@
 <title>學習星球｜小學數學與國文互動學習</title>
 <meta name="description" content="提供小學數學、國文闖關、題目朗讀、班級排行與角色獎勵的互動學習網站。">
 <script src="./support.js"></script>
+<script src="./sci-art.js"></script>
 </head>
 <body>
 <x-dc>
@@ -47,6 +48,63 @@
   @keyframes memoryCardReveal { 0% { transform:rotateY(86deg) scale(.9);opacity:.25 } 100% { transform:rotateY(0) scale(1);opacity:1 } }
   @keyframes memoryMatch { 0%,100% { transform:translateY(0) scale(1) } 45% { transform:translateY(-8px) scale(1.06) } }
   @keyframes englishTilePop { 0% { transform:scale(.7) rotate(-7deg);opacity:0 } 70% { transform:scale(1.08) rotate(2deg) } 100% { transform:scale(1);opacity:1 } }
+  @keyframes signinSeaGlow { 0%,100% { transform:translate(-50%,-50%) scale(.88);box-shadow:0 0 0 7px rgba(255,220,74,.18),0 0 22px 9px rgba(255,205,35,.50) } 50% { transform:translate(-50%,-50%) scale(1.08);box-shadow:0 0 0 13px rgba(255,228,91,.26),0 0 34px 15px rgba(255,189,24,.76) } }
+  @keyframes signinCheckPop { 0% { transform:scale(.3) rotate(-18deg);opacity:0 } 70% { transform:scale(1.15) rotate(5deg);opacity:1 } 100% { transform:scale(1) rotate(0) } }
+  .signin-sea-stage { position:relative;overflow:hidden;width:100%;aspect-ratio:16/9;border-radius:30px;background:#8bb8c2 url("images/signin/learning-sea-map.jpg") center/cover no-repeat;box-shadow:0 24px 54px rgba(43,31,87,.20);isolation:isolate; }
+  .signin-sea-title { position:absolute;z-index:3;left:50%;top:8.6%;width:45%;transform:translateX(-50%);margin:0;text-align:center;color:#5a3a22;font-size:clamp(18px,3vw,34px);font-weight:900;letter-spacing:.05em;text-shadow:0 2px 0 rgba(255,255,255,.8);white-space:nowrap; }
+  .signin-sea-title rt { color:#75563d; }
+  .signin-sea-step { position:absolute;z-index:4;left:var(--step-x);top:var(--step-y);width:clamp(34px,5.2vw,58px);height:clamp(34px,5.2vw,58px);transform:translate(-50%,-50%);border:0;border-radius:50%;background:rgba(255,246,188,.10);color:transparent;font-family:inherit;cursor:default; }
+  .signin-sea-step.is-next { cursor:pointer;background:rgba(255,238,118,.18);animation:signinSeaGlow 1.25s ease-in-out infinite; }
+  .signin-sea-step.is-next::before { content:"";position:absolute;inset:7%;border:2px solid rgba(255,246,185,.85);border-radius:50%; }
+  .signin-sea-check { position:absolute;z-index:2;right:-4px;bottom:-5px;width:clamp(22px,3.2vw,34px);height:clamp(22px,3.2vw,34px);display:grid;place-items:center;border:3px solid #fff;border-radius:50%;background:#31bb72;color:#fff;font-size:clamp(14px,2.2vw,23px);font-weight:900;box-shadow:0 6px 14px rgba(22,112,71,.34);animation:signinCheckPop .42s ease both; }
+  .signin-sea-prize { position:absolute;z-index:3;left:50%;bottom:3.5%;transform:translateX(-50%);margin:0;border:1px solid rgba(255,255,255,.7);border-radius:99px;padding:8px 16px;background:rgba(255,250,224,.84);backdrop-filter:blur(6px);color:#634329;font-size:clamp(10px,1.4vw,14px);font-weight:900;box-shadow:0 8px 20px rgba(70,43,22,.18);white-space:nowrap; }
+  @media (max-width:640px) { .signin-sea-stage { border-radius:20px;background-size:100% 100%; } .signin-sea-title { top:5.5%;width:68%;font-size:18px;white-space:normal;line-height:1.25; } .signin-sea-step { width:34px;height:34px; } .signin-sea-prize { bottom:2%;max-width:92%;white-space:normal;text-align:center;padding:5px 9px;font-size:9px; } }
+  .achievement-page { overflow:hidden;border:1px solid #a87a32;border-radius:30px;background:linear-gradient(145deg,rgba(5,25,43,.98),rgba(11,50,65,.98) 52%,rgba(24,18,46,.98));box-shadow:0 28px 65px rgba(15,25,45,.28);color:#fff; }
+  .achievement-hero { position:relative;padding:28px;background:radial-gradient(circle at 80% 0,rgba(35,207,219,.21),transparent 38%),linear-gradient(120deg,rgba(197,139,30,.2),transparent 52%);border-bottom:1px solid rgba(230,184,87,.42); }
+  .achievement-kicker { margin:0;color:#efcf72;font-size:11px;font-weight:900;letter-spacing:.24em; }
+  .achievement-title { margin:7px 0 4px;font-size:clamp(27px,4vw,40px);font-weight:900;letter-spacing:.06em; }
+  .achievement-score { display:inline-flex;align-items:center;gap:8px;margin-top:12px;border:1px solid rgba(239,207,114,.48);border-radius:999px;padding:7px 13px;background:rgba(0,0,0,.2);color:#ffe995;font-size:13px;font-weight:900; }
+  .achievement-recent { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px; }
+  .achievement-recent-card { min-width:0;display:flex;align-items:center;gap:11px;border:1px solid rgba(239,207,114,.3);border-radius:18px;padding:10px;background:linear-gradient(135deg,rgba(13,68,85,.88),rgba(18,30,60,.86)); }
+  .achievement-recent-card img { width:54px;height:54px;flex:0 0 54px;border-radius:13px;object-fit:cover;border:1px solid rgba(255,230,143,.48); }
+  .achievement-recent-card strong { display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff4bf;font-size:13px; }
+  .achievement-recent-card small { color:#9bdde2;font-size:10px;font-weight:800; }
+  .achievement-section { padding:24px 28px;border-bottom:1px solid rgba(230,184,87,.22); }
+  .achievement-section-title { margin:0 0 15px;color:#f2d77f;font-size:20px;font-weight:900;letter-spacing:.08em; }
+  .reputation-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px; }
+  .reputation-card { display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;border:1px solid rgba(138,209,218,.22);border-radius:18px;padding:12px;background:rgba(0,0,0,.2); }
+  .reputation-card img { width:58px;height:58px;border-radius:14px;object-fit:cover;border:1px solid rgba(239,207,114,.45); }
+  .reputation-copy { min-width:0; }
+  .reputation-head { display:flex;align-items:baseline;justify-content:space-between;gap:8px; }
+  .reputation-head strong { color:#fff;font-size:15px; }
+  .reputation-head span { color:#ffe07b;font-size:11px;font-weight:900;white-space:nowrap; }
+  .reputation-track,.collection-track { height:11px;margin-top:8px;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:99px;background:#071720;box-shadow:inset 0 2px 4px rgba(0,0,0,.5); }
+  .reputation-track i,.collection-track i { display:block;height:100%;border-radius:99px;background:linear-gradient(180deg,#72f2cf,#149d75 58%,#087351);box-shadow:0 0 12px rgba(67,235,177,.5); }
+  .reputation-foot { display:flex;justify-content:space-between;margin-top:6px;color:#98b8c6;font-size:10px;font-weight:800; }
+  .collection-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px; }
+  .collection-card { display:grid;grid-template-columns:64px 1fr;gap:13px;align-items:center;border:1px solid rgba(239,207,114,.25);border-radius:20px;padding:13px;background:linear-gradient(135deg,rgba(76,38,93,.44),rgba(7,31,48,.68)); }
+  .collection-card img { width:64px;height:64px;border-radius:15px;object-fit:cover;border:1px solid rgba(239,207,114,.45); }
+  .collection-card strong { color:#fff;font-size:15px; }
+  .collection-card p { margin:4px 0 0;color:#9bb9c8;font-size:11px;font-weight:800; }
+  .collection-card .collection-track i { background:linear-gradient(180deg,#c19cff,#7c5cff 58%,#5531cf); }
+  .achievement-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px; }
+  .achievement-card { display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:center;border:1px solid rgba(239,207,114,.24);border-radius:21px;padding:13px;background:rgba(3,16,29,.47); }
+  .achievement-card.is-done { border-color:rgba(99,235,177,.58);background:linear-gradient(135deg,rgba(12,82,65,.43),rgba(3,16,29,.58)); }
+  .achievement-card img { width:74px;height:74px;border-radius:17px;object-fit:cover;border:1px solid rgba(239,207,114,.44); }
+  .achievement-card:not(.is-done) img { filter:saturate(.5) brightness(.72); }
+  .achievement-card h3 { margin:0;color:#fff;font-size:16px; }
+  .achievement-card p { margin:4px 0 0;color:#9bb9c8;font-size:11px;font-weight:700; }
+  .achievement-card-foot { display:flex;justify-content:space-between;margin-top:7px;color:#b9d4de;font-size:10px;font-weight:900; }
+  .achievement-state-done { color:#6eecb5; }
+  .achievement-badge-overview { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px; }
+  .achievement-badge-item { display:grid;grid-template-columns:58px 1fr;gap:11px;align-items:center;border:1px solid rgba(138,209,218,.22);border-radius:18px;padding:12px;background:rgba(3,16,29,.42); }
+  .achievement-badge-item.is-earned { border-color:rgba(99,235,177,.58);background:linear-gradient(135deg,rgba(12,82,65,.43),rgba(3,16,29,.58)); }
+  .achievement-badge-item img { width:58px;height:58px;border-radius:14px;object-fit:cover;border:1px solid rgba(239,207,114,.44); }
+  .achievement-badge-item:not(.is-earned) img { filter:saturate(.42) brightness(.58); }
+  .achievement-badge-item strong { display:block;color:#fff;font-size:13px; }
+  .achievement-badge-item small { display:block;margin-top:3px;color:#9bb9c8;font-size:10px;font-weight:800;line-height:1.35; }
+  .achievement-badge-item em { display:block;margin-top:5px;color:#ffe07b;font-size:10px;font-style:normal;font-weight:900; }
+  @media (max-width:720px) { .achievement-hero,.achievement-section { padding:20px 15px; } .achievement-recent { grid-template-columns:1fr; } .reputation-grid,.collection-grid,.achievement-grid,.achievement-badge-overview { grid-template-columns:1fr; } .achievement-recent-card:nth-child(n+4) { display:none; } }
   .english-word-card { min-height:190px;border:1px solid #ece7ff;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 10px 24px rgba(43,31,87,.08); }
   .english-word-card img { width:100%;height:128px;object-fit:cover;display:block; }
   .english-letter-tile { min-width:52px;height:58px;border:2px solid #fff;border-radius:16px;background:linear-gradient(145deg,#ffcf66,#ff9fc9);color:#2b1f57;box-shadow:0 8px 15px rgba(43,31,87,.18);font:900 25px/1 "Baloo 2",sans-serif;cursor:grab;touch-action:none;animation:englishTilePop .25s ease both; }
@@ -137,7 +195,8 @@
   /* Pet motion is supplied by real six-frame transparent WebP sequences.
      Never transform the whole static animal: that recreates the old shake-only bug. */
   .animated-pet { animation:none !important;transform:none; }
-  @media (max-width:540px) { .memory-card { min-height:104px !important; border-radius:18px !important; } .memory-card-number { font-size:38px !important; } }
+  @media (max-width:540px) { .memory-card { min-height:118px !important; border-radius:18px !important; } .memory-card-number { font-size:38px !important; } .memory-term { font-size:17px !important; } .memory-en { font-size:9px !important; } .memory-kind { display:none !important; } .memory-pic { width:34px !important; height:34px !important; } .memory-term-sm { font-size:10px !important; } .memory-speaker { width:24px !important; height:24px !important; border-radius:9px !important; top:4px !important; right:4px !important; } }
+  @media (min-width:541px) and (max-width:1024px) { .memory-card { min-height:126px !important; } .memory-term { font-size:20px !important; } .memory-en { font-size:10.5px !important; } .memory-pic { width:40px !important; height:40px !important; } .memory-term-sm { font-size:11px !important; } .memory-speaker { width:27px !important; height:27px !important; } }
   @media (max-width:600px) {
     .english-scramble-layout { grid-template-columns:1fr; }
     .english-scramble-layout > img { max-width:230px;margin:0 auto; }
@@ -263,7 +322,6 @@
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;gap:8px">
           <span style="display:flex;align-items:center;gap:6px;background:#fff6e0;border:1px solid #ffe2ab;border-radius:99px;padding:8px 14px;font-size:15px;font-weight:900;color:#a06400">⭐ {{ coins }}</span>
-          <span style="display:flex;align-items:center;gap:6px;background:#ffeef6;border:1px solid #ffd0e6;border-radius:99px;padding:8px 14px;font-size:15px;font-weight:900;color:#b0316f">🏅 {{ stamps }}</span>
         </div>
       </sc-if>
       <span style="flex:1"></span>
@@ -562,6 +620,12 @@
                 </sc-for>
               </div>
             </sc-if>
+            <sc-if value="{{ geoLessonFig.isArt }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;gap:12px;justify-items:center;width:100%">
+                {{ geoLessonFig.artNode }}
+                <strong style="font-size:15px;font-weight:900;color:#5b3fe0;background:#f3f0ff;border:1.5px solid #ddd5ff;border-radius:12px;padding:7px 16px">{{ geoLessonFig.sceneCaption }}</strong>
+              </div>
+            </sc-if>
             <sc-if value="{{ geoLessonFig.isScene }}" hint-placeholder-val="{{ false }}">
               <div style="display:grid;gap:14px;justify-items:center">
                 <div style="display:flex;align-items:center;justify-content:center;gap:22px">
@@ -622,7 +686,7 @@
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
             <article style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:20px;box-shadow:0 14px 30px rgba(43,31,87,.06);display:flex;flex-direction:column;gap:12px">
               <div style="display:flex;align-items:center;gap:12px">
-                <span style="width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:{{ u.tint }}">{{ u.icon }}</span>
+                <span style="width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:{{ u.tint }}">{{ u.iconEl }}</span>
                 <div style="min-width:0">
                   <strong style="display:block;font-size:17px;font-weight:900">{{ u.title }}</strong>
                   <span style="font-size:12px;font-weight:800;color:#9a90c8">{{ u.sub }}</span>
@@ -637,12 +701,81 @@
               </div>
               <div style="height:8px;border-radius:99px;background:#f0ecff;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#7c5cff,#22c8d8);width:{{ u.pct }}%"></div></div>
               <button onClick="{{ u.start }}" style="margin-top:2px;border:0;border-radius:18px;padding:13px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer;color:{{ u.btnFg }};background:{{ u.btnBg }}" style-hover="filter:brightness(1.04)">{{ u.btnLabel }}</button>
+              <sc-if value="{{ u.hasVideo }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ u.watchVideo }}" style="margin-top:-4px;border:1.5px solid #ffd9ec;border-radius:16px;padding:10px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;color:#c8447a;background:#fff5f9">🎬 教學影片</button>
+              </sc-if>
               <sc-if value="{{ u.hasLesson }}" hint-placeholder-val="{{ false }}">
                 <button onClick="{{ u.lesson }}" style="margin-top:-4px;border:1.5px solid #ddd5ff;border-radius:16px;padding:10px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;color:#5b3fe0;background:#fbfaff">{{ u.lessonLabel }}</button>
               </sc-if>
             </article>
           </sc-for>
         </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMindmap }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="概念連連看" style="max-width:900px;margin:0 auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <button onClick="{{ mindmapBack }}" aria-label="回到闖關地圖" style="border:1px solid #ece7ff;background:#fff;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;font-family:inherit;color:#7c74a8">←</button>
+          <div style="flex:1">
+            <p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">CONCEPT MAP</p>
+            <h2 style="margin:4px 0 0;font-size:24px;font-weight:900">概念連連看</h2>
+          </div>
+          <span style="padding:9px 13px;border-radius:99px;background:#fff6e0;color:#a06400;font-size:13px;font-weight:900">已連 {{ mindmapProgress }}</span>
+        </div>
+        <section style="background:linear-gradient(145deg,#ffffff,#f6f1ff);border:1px solid #ece7ff;border-radius:30px;padding:22px;box-shadow:0 18px 38px rgba(43,31,87,.08)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+            <div>
+              <strong style="display:block;font-size:21px;font-weight:900;color:#2b1f57">{{ mindmapTitle }}</strong>
+              <span style="font-size:12px;font-weight:800;color:#9a90c8;letter-spacing:.02em">{{ mindmapTitleEn }}</span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span style="padding:8px 12px;border-radius:99px;background:#eef2ff;color:#5b3fe0;font-size:13px;font-weight:900">{{ mindmapGradeLabel }}</span>
+              <button onClick="{{ mindmapRestart }}" style="border:1.5px solid #ece7ff;background:#fff;border-radius:99px;padding:9px 15px;font-size:13px;font-weight:900;font-family:inherit;color:#7c74a8;cursor:pointer">🔄 換一張</button>
+            </div>
+          </div>
+          <p style="margin:0 0 16px;padding:11px 14px;border-radius:15px;background:{{ mindmapNoteBg }};color:{{ mindmapNoteFg }};font-size:14px;font-weight:900;text-align:center">{{ mindmapNote }}</p>
+          <div id="mm-stage" style="position:relative">
+            {{ mindmapLines }}
+            <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+              <sc-for list="{{ mindmapHubs }}" as="hub" hint-placeholder-count="2">
+                <button data-mm-id="{{ hub.domId }}" onClick="{{ hub.pick }}" style="position:relative;flex:1 1 150px;max-width:230px;min-height:82px;border:2.5px solid {{ hub.bd }};background:{{ hub.tint }};border-radius:22px;padding:12px 14px;display:grid;gap:2px;justify-items:center;cursor:pointer;font-family:inherit">
+                  <strong style="font-size:19px;font-weight:900;color:{{ hub.fg }};line-height:1.2">{{ hub.label }}</strong>
+                  <span style="font-size:11px;font-weight:800;color:{{ hub.fg }};opacity:.8;text-align:center;line-height:1.25">{{ hub.en }}</span>
+                  <span style="font-size:11px;font-weight:900;color:{{ hub.fg }};background:rgba(255,255,255,.85);border-radius:99px;padding:2px 9px">{{ hub.countLabel }}</span>
+                  <span role="button" tabIndex="0" aria-label="朗讀中文與英文" onClick="{{ hub.speak }}" style="position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.92);border:1.5px solid rgba(255,255,255,.9);cursor:pointer">
+                    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9.2h3.1L12 5.2v13.6L7.1 14.8H4z" fill="#5b3fe0"></path><path d="M15.4 9a4.3 4.3 0 0 1 0 7" fill="none" stroke="#5b3fe0" stroke-width="2" stroke-linecap="round"></path></svg>
+                  </span>
+                </button>
+              </sc-for>
+            </div>
+            <div style="display:grid;place-items:center;margin:14px 0 10px">
+              <span style="padding:7px 16px;border-radius:99px;background:#2b1f57;color:#fff;font-size:13px;font-weight:900;border:3px solid #fff;box-shadow:0 4px 12px rgba(43,31,87,.18)">{{ mindmapCenter }}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px">
+              <sc-for list="{{ mindmapNodes }}" as="n" hint-placeholder-count="6">
+                <button data-mm-id="{{ n.domId }}" onClick="{{ n.pick }}" style="position:relative;min-height:126px;border:2px solid {{ n.border }};background:{{ n.bg }};border-radius:20px;padding:12px 8px 10px;display:grid;gap:4px;justify-items:center;align-content:center;cursor:pointer;font-family:inherit;box-shadow:{{ n.shadow }};animation:{{ n.animation }};transition:border-color .2s ease,background .2s ease">
+                  <span style="width:42px;height:42px;display:grid;place-items:center">{{ n.iconEl }}</span>
+                  <strong style="font-size:15px;font-weight:900;color:{{ n.labelColor }};line-height:1.2;text-align:center">{{ n.label }}</strong>
+                  <span style="font-size:10.5px;font-weight:800;color:#9a90c8;line-height:1.25;text-align:center">{{ n.en }}</span>
+                  <span style="font-size:10px;font-weight:900;color:#1d7a55">{{ n.hubLabel }}</span>
+                  <span role="button" tabIndex="0" aria-label="朗讀中文與英文" onClick="{{ n.speak }}" style="position:absolute;top:5px;right:5px;width:25px;height:25px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.94);border:1.5px solid #ece7ff;cursor:pointer">
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M4 9.2h3.1L12 5.2v13.6L7.1 14.8H4z" fill="#5b3fe0"></path><path d="M15.4 9a4.3 4.3 0 0 1 0 7" fill="none" stroke="#5b3fe0" stroke-width="2" stroke-linecap="round"></path></svg>
+                  </span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <sc-if value="{{ mindmapShowAnimalVideos }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ mindmapWatchAnimals }}" style="margin-top:14px;width:100%;border:1.5px solid #ffd9ec;background:#fff5f9;border-radius:18px;padding:12px;font-size:14px;font-weight:900;font-family:inherit;color:#c8447a;cursor:pointer">🎬 看動物的一生教學影片（青蛙・蝴蝶・貓・雞）</button>
+          </sc-if>
+          <sc-if value="{{ mindmapDone }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+              <button onClick="{{ mindmapRestart }}" style="flex:1;border:0;border-radius:18px;padding:14px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">再連一張心智圖</button>
+              <button onClick="{{ mindmapBack }}" style="border:1.5px solid #ece7ff;background:#fff;border-radius:18px;padding:14px 18px;font-size:15px;font-weight:900;font-family:inherit;color:#7c74a8;cursor:pointer">回地圖</button>
+            </div>
+          </sc-if>
+        </section>
       </div>
     </sc-if>
 
@@ -661,7 +794,7 @@
           <p style="margin:0 0 16px;padding:11px 14px;border-radius:15px;background:{{ memoryNoteBg }};color:{{ memoryNoteFg }};font-size:14px;font-weight:900;text-align:center">{{ memoryNote }}</p>
           <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:900px">
             <sc-for list="{{ memoryCards }}" as="card" hint-placeholder-count="12">
-              <button class="memory-card" onClick="{{ card.flip }}" aria-label="{{ card.aria }}" style="position:relative;min-height:132px;padding:0;border:0;border-radius:22px;overflow:hidden;cursor:{{ card.cursor }};background:{{ card.cardBg }};box-shadow:{{ card.shadow }};transform:{{ card.transform }};transition:transform .24s ease,box-shadow .24s ease;animation:{{ card.animation }};font-family:inherit">
+              <button class="memory-card" onClick="{{ card.flip }}" aria-label="{{ card.aria }}" style="position:relative;min-height:146px;padding:0;border:0;border-radius:22px;overflow:hidden;cursor:{{ card.cursor }};background:{{ card.cardBg }};box-shadow:{{ card.shadow }};transform:{{ card.transform }};transition:transform .24s ease,box-shadow .24s ease;animation:{{ card.animation }};font-family:inherit">
                 <sc-if value="{{ card.isBack }}" hint-placeholder-val="{{ false }}">
                   <span style="position:absolute;inset:0;background-image:url('images/memory-cards/card-back.png');background-size:cover;background-position:center"></span>
                   <span style="position:absolute;inset:10px;border:2px solid rgba(255,255,255,.75);border-radius:15px"></span>
@@ -679,13 +812,20 @@
                       <small style="font-size:11px;font-weight:900;color:#7c74a8">數一數</small>
                     </sc-if>
                     <sc-if value="{{ card.isSciTerm }}" hint-placeholder-val="{{ false }}">
-                      <strong style="font-size:24px;font-weight:900;color:#1d7a55">{{ card.sciLabel }}</strong>
-                      <small style="font-size:11px;font-weight:900;color:#7c74a8">自然名詞</small>
+                      <strong class="memory-term" style="font-size:23px;font-weight:900;color:#1d7a55;line-height:1.15">{{ card.sciLabel }}</strong>
+                      <span class="memory-en" style="font-size:12px;font-weight:800;color:#2f9d74;letter-spacing:.01em;line-height:1.25;text-align:center">{{ card.sciEn }}</span>
+                      <small class="memory-kind" style="font-size:10px;font-weight:900;color:#a49bce">自然名詞</small>
                     </sc-if>
                     <sc-if value="{{ card.isSciPic }}" hint-placeholder-val="{{ false }}">
-                      <span style="font-size:40px;line-height:1">{{ card.sciEmoji }}</span>
-                      <small style="font-size:12px;font-weight:900;color:#a06400">{{ card.sciLabel }}</small>
+                      <span class="memory-pic" style="display:grid;place-items:center;width:46px;height:46px">{{ card.sciPicEl }}</span>
+                      <small class="memory-term-sm" style="font-size:12px;font-weight:900;color:#a06400;line-height:1.2">{{ card.sciLabel }}</small>
+                      <span class="memory-en" style="font-size:11px;font-weight:800;color:#b98220;line-height:1.25;text-align:center">{{ card.sciEn }}</span>
                     </sc-if>
+                  </span>
+                </sc-if>
+                <sc-if value="{{ card.showSpeaker }}" hint-placeholder-val="{{ false }}">
+                  <span class="memory-speaker" role="button" tabIndex="0" aria-label="朗讀中文與英文" onClick="{{ card.speak }}" style="position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.94);border:1.5px solid #ddd5ff;box-shadow:0 3px 8px rgba(43,31,87,.12);cursor:pointer">
+                    <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M4 9.2h3.1L12 5.2v13.6L7.1 14.8H4z" fill="#5b3fe0"></path><path d="M15.4 9a4.3 4.3 0 0 1 0 6" fill="none" stroke="#5b3fe0" stroke-width="2" stroke-linecap="round"></path><path d="M17.9 6.6a7.6 7.6 0 0 1 0 10.8" fill="none" stroke="#a08eff" stroke-width="2" stroke-linecap="round"></path></svg>
                   </span>
                 </sc-if>
               </button>
@@ -866,6 +1006,24 @@
             <button onClick="{{ nextWriting }}" style="border:1.5px solid #ffd98a;border-radius:16px;padding:12px 20px;background:#fffaf0;color:#a06400;font-family:inherit;font-size:14px;font-weight:900;cursor:pointer">換下一個字 →</button>
           </div>
         </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isVideo }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="教學影片" style="max-width:820px;margin:0 auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <button onClick="{{ videoBack }}" aria-label="返回" style="border:1px solid #ece7ff;background:#fff;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;font-family:inherit;color:#7c74a8">←</button>
+          <div style="flex:1"><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">TEACHING VIDEO</p><h2 style="margin:4px 0 0;font-size:24px;font-weight:900">{{ videoTitle }}</h2></div>
+        </div>
+        <section style="background:#0e0b1a;border-radius:26px;padding:14px;box-shadow:0 18px 38px rgba(43,31,87,.18)">
+          <sc-if value="{{ videoIsYoutube }}" hint-placeholder-val="{{ false }}">
+            <iframe src="{{ videoYtUrl }}" title="{{ videoCurrent.label }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;border-radius:18px;display:block"></iframe>
+          </sc-if>
+          <video ref="{{ videoRef }}" src="{{ videoCurrent.src }}" poster="{{ videoCurrent.poster }}" controls="{{ true }}" playsInline="{{ true }}" style="width:100%;max-height:64vh;border-radius:18px;background:#000;display:{{ videoNativeDisplay }}"></video>
+        </section>
+        <sc-if value="{{ videoHasTabs }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;justify-content:center"><sc-for list="{{ videoClipTabs }}" as="tab" hint-placeholder-count="2"><button onClick="{{ tab.pick }}" style="border:1.5px solid #ece7ff;border-radius:99px;padding:9px 16px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;background:{{ tab.bg }};color:{{ tab.fg }}">{{ tab.label }}</button></sc-for></div>
+        </sc-if>
       </div>
     </sc-if>
 
@@ -1424,9 +1582,12 @@
           </sc-if>
 
           <sc-if value="{{ figSciIcon }}" hint-placeholder-val="{{ false }}">
-            <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;justify-content:center;align-items:center;gap:14px;font-size:44px">
+            <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;justify-content:center;align-items:stretch;flex-wrap:wrap;gap:14px">
               <sc-for list="{{ sciIcons }}" as="s" hint-placeholder-count="3">
-                <span>{{ s.icon }}</span>
+                <span style="display:grid;grid-template-rows:66px 20px;justify-items:center;align-items:center;gap:4px;min-width:84px;padding:8px 6px;border-radius:16px;background:#fff;border:1.5px solid #f0ecff">
+                  <span style="display:grid;place-items:center;width:62px;height:62px">{{ s.iconEl }}</span>
+                  <small style="font-size:13px;font-weight:900;color:#7c74a8;line-height:1.2;text-align:center">{{ s.name }}</small>
+                </span>
               </sc-for>
             </div>
           </sc-if>
@@ -1438,6 +1599,13 @@
                   {{ o.label }}<span style="font-size:20px">{{ o.mark }}</span>
                 </button>
               </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showSciConfirm }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:14px;display:flex;gap:10px;align-items:stretch;flex-wrap:wrap">
+              <button onClick="{{ sciConfirm }}" style="flex:1;min-width:220px;min-height:60px;border:0;border-radius:20px;padding:14px 18px;font-size:17px;font-weight:900;font-family:inherit;color:{{ sciConfirmFg }};background:{{ sciConfirmBg }};cursor:{{ sciConfirmCursor }}">{{ sciConfirmLabel }}</button>
+              <button onClick="{{ sciRepeat }}" aria-label="再唸一次" style="min-width:64px;min-height:60px;border:1.5px solid #ece7ff;border-radius:20px;background:#fff;font-size:15px;font-weight:900;font-family:inherit;color:#5b3fe0;cursor:pointer">🔊 再唸</button>
             </div>
           </sc-if>
 
@@ -1495,23 +1663,50 @@
     </sc-if>
 
     <sc-if value="{{ isAchieve }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="成就" style="display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
-        <sc-for list="{{ achievements }}" as="a" hint-placeholder-count="6">
-          <article style="background:#fff;border:2px solid {{ a.border }};border-radius:26px;padding:20px;box-shadow:0 12px 26px rgba(43,31,87,.05);display:flex;flex-direction:column;gap:12px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="width:56px;height:56px;border-radius:20px;display:grid;place-items:center;font-size:28px;background:{{ a.tint }};filter:{{ a.filter }}">{{ a.icon }}</span>
-              <div style="min-width:0">
-                <strong style="display:block;font-size:16px;font-weight:900">{{ a.title }}</strong>
-                <span style="font-size:12px;font-weight:700;color:#9a90c8">{{ a.note }}</span>
-              </div>
-            </div>
-            <div style="height:10px;border-radius:99px;background:#f0ecff;overflow:hidden"><div style="height:100%;border-radius:99px;background:{{ a.barBg }};width:{{ a.pct }}%"></div></div>
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <span style="font-size:12px;font-weight:900;color:#7c74a8">{{ a.progress }}</span>
-              <span style="font-size:12px;font-weight:900;color:{{ a.stateColor }}">{{ a.state }}</span>
-            </div>
-          </article>
-        </sc-for>
+      <div data-screen-label="成就" class="achievement-page">
+        <header class="achievement-hero">
+          <p class="achievement-kicker">HALL OF ACHIEVEMENTS</p>
+          <h2 class="achievement-title">星海成就殿堂</h2>
+          <p style="margin:0;color:#a8c8d4;font-size:13px;font-weight:700">每一步學習，都會累積成角色的聲望與冒險紀錄。</p>
+          <span class="achievement-score">成就點數 {{ achievementScore }}</span>
+          <h3 style="margin:23px 0 9px;color:#f2d77f;font-size:15px;letter-spacing:.12em">近期達成</h3>
+          <div class="achievement-recent">
+            <sc-for list="{{ recentAchievements }}" as="recent" hint-placeholder-count="3">
+              <article class="achievement-recent-card"><img src="{{ recent.image }}" alt="{{ recent.title }}徽章" /><span style="min-width:0"><strong>{{ recent.title }}</strong><small>{{ recent.note }}</small></span></article>
+            </sc-for>
+          </div>
+        </header>
+        <section class="achievement-section">
+          <h3 class="achievement-section-title">成就徽章總覽</h3>
+          <div class="achievement-badge-overview">
+            <sc-for list="{{ achievementBadgeOverview }}" as="badge" hint-placeholder-count="12">
+              <article class="{{ badge.className }}"><img src="{{ badge.image }}" alt="{{ badge.title }}徽章" /><span><strong>{{ badge.title }}</strong><small>{{ badge.note }}</small><em>{{ badge.status }}</em></span></article>
+            </sc-for>
+          </div>
+        </section>
+        <section class="achievement-section">
+          <h3 class="achievement-section-title">四科主城聲望</h3>
+          <div class="reputation-grid">
+            <sc-for list="{{ reputationSubjects }}" as="rep" hint-placeholder-count="4">
+              <article class="reputation-card">
+                <img src="{{ rep.image }}" alt="{{ rep.name }}聲望徽章" />
+                <div class="reputation-copy"><div class="reputation-head"><strong>{{ rep.name }}</strong><span>{{ rep.rank }} · {{ rep.rankEn }}</span></div><div class="reputation-track"><i style="width:{{ rep.pct }}%"></i></div><div class="reputation-foot"><span>{{ rep.points }} 聲望</span><span>{{ rep.nextLabel }}</span></div></div>
+              </article>
+            </sc-for>
+          </div>
+          <div class="collection-grid">
+            <article class="collection-card"><img src="images/achievements/wardrobe.png" alt="服裝收藏徽章" /><div><strong>服裝收集完成度</strong><p>{{ wardrobeCollectionProgress }}</p><div class="collection-track"><i style="width:{{ wardrobeCollectionPct }}%"></i></div></div></article>
+            <article class="collection-card"><img src="images/achievements/gacha.png" alt="扭蛋收藏徽章" /><div><strong>扭蛋圖鑑完成度</strong><p>{{ gachaCollectionProgress }}</p><div class="collection-track"><i style="width:{{ gachaCollectionPct }}%"></i></div></div></article>
+          </div>
+        </section>
+        <section class="achievement-section" style="border-bottom:0">
+          <h3 class="achievement-section-title">進行中的里程碑</h3>
+          <div class="achievement-grid">
+            <sc-for list="{{ achievements }}" as="a" hint-placeholder-count="4">
+              <article class="{{ a.cardClass }}"><img src="{{ a.image }}" alt="{{ a.title }}徽章" /><div><h3>{{ a.title }}</h3><p>{{ a.note }}</p><div class="reputation-track"><i style="width:{{ a.width }}"></i></div><div class="achievement-card-foot"><span>{{ a.progress }}</span><span class="{{ a.stateClass }}">{{ a.state }}</span></div></div></article>
+            </sc-for>
+          </div>
+        </section>
       </div>
     </sc-if>
 
@@ -1678,56 +1873,16 @@
     </sc-if>
 
     <sc-if value="{{ isSignin }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="簽到" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
-        <section style="grid-column:1/-1;background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
-          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap">
-            <div>
-              <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">DAILY CHECK-IN</p>
-              <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">{{ calendarTitle }}學習月曆</h2>
-              <p style="margin:8px 0 0;font-size:14px;font-weight:700;color:#7c74a8"><ruby>連<rt>ㄌㄧㄢˊ</rt></ruby><ruby>續<rt>ㄒㄩˋ</rt></ruby><ruby>簽<rt>ㄑㄧㄢ</rt></ruby><ruby>到<rt>ㄉㄠˋ</rt></ruby><ruby>越<rt>ㄩㄝˋ</rt></ruby><ruby>多<rt>ㄉㄨㄛ</rt></ruby><ruby>天<rt>ㄊㄧㄢ</rt></ruby>，<ruby>星<rt>ㄒㄧㄥ</rt></ruby><ruby>星<rt>ㄒㄧㄥ</rt></ruby><ruby>幣<rt>ㄅㄧˋ</rt></ruby><ruby>加<rt>ㄐㄧㄚ</rt></ruby><ruby>倍<rt>ㄅㄟˋ</rt></ruby>！</p>
-            </div>
-            <button onClick="{{ signToday }}" disabled="{{ signedToday }}" style="border:0;border-radius:20px;padding:16px 28px;font-size:17px;font-weight:900;font-family:inherit;cursor:pointer;color:{{ signBtnFg }};background:{{ signBtnBg }};box-shadow:0 12px 24px rgba(255,176,32,.24)">{{ signBtnLabel }}</button>
-          </div>
-          <div style="margin-top:20px;display:grid;grid-template-columns:repeat(7,1fr);gap:8px">
-            <sc-for list="{{ weekHeads }}" as="w" hint-placeholder-count="7">
-              <div style="text-align:center;font-size:12px;font-weight:900;color:#b3a9d8">{{ w }}</div>
-            </sc-for>
-            <sc-for list="{{ calendar }}" as="d" hint-placeholder-count="35">
-              <button onClick="{{ d.open }}" disabled="{{ d.disabled }}" style="aspect-ratio:1;border-radius:16px;border:1.5px solid {{ d.border }};background:{{ d.bg }};display:grid;place-items:center;align-content:center;gap:1px;font-family:inherit;cursor:{{ d.cursor }}">
-                <span style="font-size:13px;font-weight:900;color:{{ d.fg }}">{{ d.label }}</span>
-                <span style="font-size:16px;line-height:1">{{ d.mark }}</span>
-                <span style="font-size:9px;font-weight:900;color:#5b3fe0">{{ d.expLabel }}</span>
+      <div data-screen-label="簽到" style="display:grid;gap:14px">
+        <section style="border-radius:32px;padding:14px;background:linear-gradient(145deg,#f9e8bd,#b9d6d6);box-shadow:0 18px 42px rgba(43,31,87,.12)">
+          <div class="signin-sea-stage" aria-label="連續獎勵簽到海圖">
+            <h2 class="signin-sea-title"><ruby>連<rt>ㄌㄧㄢˊ</rt></ruby><ruby>續<rt>ㄒㄩˋ</rt></ruby><ruby>獎<rt>ㄐㄧㄤˇ</rt></ruby><ruby>勵<rt>ㄌㄧˋ</rt></ruby><ruby>表<rt>ㄅㄧㄠˇ</rt></ruby></h2>
+            <sc-for list="{{ signinSeaSteps }}" as="step" hint-placeholder-count="8">
+              <button class="signin-sea-step {{ step.className }}" onClick="{{ step.sign }}" disabled="{{ step.disabled }}" aria-label="{{ step.aria }}" style="--step-x:{{ step.x }}%;--step-y:{{ step.y }}%">
+                <sc-if value="{{ step.checked }}" hint-placeholder-val="{{ false }}"><span class="signin-sea-check">✓</span></sc-if>
               </button>
             </sc-for>
-          </div>
-        </section>
-
-        <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
-          <h3 style="margin:0 0 4px;font-size:20px;font-weight:900">{{ selectedDateLabel }} EXP 明細</h3>
-          <p style="margin:0 0 14px;font-size:14px;font-weight:900;color:#5b3fe0">當日共獲得 {{ selectedDateXp }} EXP　{{ selectedDateBadges }}</p>
-          <sc-for list="{{ selectedXpRows }}" as="row" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f0ff"><span style="font-size:20px">✨</span><span style="flex:1"><strong style="display:block;font-size:14px;font-weight:900">{{ row.source }}</strong><span style="font-size:12px;font-weight:700;color:#9a90c8">{{ row.detail }}</span></span><strong style="font-size:15px;color:#35c98a">+{{ row.amount }} EXP</strong></div></sc-for>
-          <sc-if value="{{ selectedXpEmpty }}" hint-placeholder-val="{{ false }}"><p style="margin:0;color:#b3a9d8;font-size:13px;font-weight:800">這一天還沒有取得 EXP。</p></sc-if>
-        </section>
-
-        <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
-          <h3 style="margin:0 0 6px;font-size:20px;font-weight:900"><ruby>連<rt>ㄌㄧㄢˊ</rt></ruby><ruby>續<rt>ㄒㄩˋ</rt></ruby><ruby>獎<rt>ㄐㄧㄤˇ</rt></ruby><ruby>勵<rt>ㄌㄧˋ</rt></ruby><ruby>表<rt>ㄅㄧㄠˇ</rt></ruby></h3>
-          <p style="margin:0 0 14px;font-size:13px;font-weight:700;color:#9a90c8">中斷一天就回到第 1 天喔</p>
-          <sc-for list="{{ streakTable }}" as="r" hint-placeholder-count="5">
-            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;margin-bottom:8px;background:{{ r.bg }};border:1.5px solid {{ r.border }}">
-              <strong style="width:74px;font-size:14px;font-weight:900;color:{{ r.fg }}">{{ r.day }}</strong>
-              <span style="flex:1;font-size:14px;font-weight:800;color:#2b1f57">{{ r.reward }}</span>
-              <span style="font-size:12px;font-weight:900;color:{{ r.fg }}">{{ r.state }}</span>
-            </div>
-          </sc-for>
-        </section>
-
-        <section style="background:linear-gradient(150deg,#fff6e0,#ffeef6);border:1px solid #ffe2ab;border-radius:28px;padding:22px">
-          <h3 style="margin:0 0 12px;font-size:20px;font-weight:900"><ruby>印<rt>ㄧㄣˋ</rt></ruby><ruby>章<rt>ㄓㄤ</rt></ruby><ruby>收<rt>ㄕㄡ</rt></ruby><ruby>集<rt>ㄐㄧˊ</rt></ruby></h3>
-          <p style="margin:0 0 16px;font-size:13px;font-weight:700;color:#a06400">集滿 20 個印章可以兌換一件限定裝備</p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:10px">
-            <sc-for list="{{ stampSlots }}" as="st" hint-placeholder-count="20">
-              <div style="aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-size:22px;background:{{ st.bg }};border:2px dashed {{ st.border }}">{{ st.mark }}</div>
-            </sc-for>
+            <p class="signin-sea-prize">{{ signinSeaMessage }}</p>
           </div>
         </section>
       </div>
@@ -2374,13 +2529,279 @@ const EN_UNITS = [
   { id: "e18", grade: 3, difficulty: 2, icon: "🧠", tint: "#ffe0ef", title: "生活關聯心智圖", sub: "三年級 · 物件與部件英文聯想", kind: "english-association" },
 ];
 
+const MM_HUB_STYLES = [
+  { tint: "#eefaf3", bd: "#35c98a", fg: "#1d7a55" },
+  { tint: "#fff1f4", bd: "#ef4f6b", fg: "#c8283f" },
+  { tint: "#eef4ff", bd: "#7c5cff", fg: "#5b3fe0" },
+  { tint: "#fff7e6", bd: "#f5921d", fg: "#a06400" },
+];
+const MM_TOPICS = [
+  { id: "magnet", grade: 3, title: "磁鐵吸得住什麼？", en: "What magnets attract", center: "磁鐵", hint: "先點下面的物品，再點上面的分支，把「吸得住」和「吸不住」連起來。",
+    hubs: [{ key: "yes", label: "吸得住", en: "Attracts" }, { key: "no", label: "吸不住", en: "Does not attract" }],
+    nodes: [
+      { id: "nail", icon: "🔩", label: "鐵釘", en: "Iron nail", hub: "yes" },
+      { id: "clip", icon: "📎", label: "迴紋針", en: "Paper clip", hub: "yes" },
+      { id: "spoon", icon: "🥄", label: "鐵湯匙", en: "Iron spoon", hub: "yes" },
+      { id: "wood", icon: "🪵", label: "木塊", en: "Wood block", hub: "no" },
+      { id: "paper", icon: "📄", label: "紙張", en: "Paper", hub: "no" },
+      { id: "ruler", icon: "📏", label: "塑膠尺", en: "Plastic ruler", hub: "no" },
+    ] },
+  { id: "water3", grade: 3, title: "水的三態", en: "Three states of water", center: "水", hint: "把每一種樣子的水，連到固態、液態或氣態。",
+    hubs: [{ key: "solid", label: "固態", en: "Solid" }, { key: "liquid", label: "液態", en: "Liquid" }, { key: "gas", label: "氣態", en: "Gas" }],
+    nodes: [
+      { id: "ice", icon: "🧊", label: "冰塊", en: "Ice cube", hub: "solid" },
+      { id: "snow", icon: "❄️", label: "雪花", en: "Snowflake", hub: "solid" },
+      { id: "drop", icon: "💧", label: "水滴", en: "Water drop", hub: "liquid" },
+      { id: "cup", icon: "🥤", label: "杯子裡的水", en: "Water in a cup", hub: "liquid" },
+      { id: "steam", icon: "💨", label: "水蒸氣", en: "Water vapor", hub: "gas" },
+      { id: "cloud", icon: "☁️", label: "雲", en: "Cloud", hub: "gas" },
+    ] },
+  { id: "plantFlow", grade: 3, title: "植物開花結果的順序", en: "From flower to seed", center: "植物", hint: "把每件事連到它發生的階段：開花 → 結果實 → 長出種子。",
+    hubs: [{ key: "flower", label: "① 開花", en: "Flowering" }, { key: "fruit", label: "② 結果實", en: "Fruiting" }, { key: "seed", label: "③ 長出種子", en: "Seeds" }],
+    nodes: [
+      { id: "bloom", icon: "🌸", label: "花瓣打開", en: "Petals open", hub: "flower" },
+      { id: "pollen", icon: "🌸", label: "花粉授粉", en: "Pollination", hub: "flower" },
+      { id: "small", icon: "🍎", label: "小果實長大", en: "Fruit grows", hub: "fruit" },
+      { id: "ripe", icon: "🍎", label: "果實變熟", en: "Fruit ripens", hub: "fruit" },
+      { id: "seedfall", icon: "🌰", label: "種子掉到土裡", en: "Seeds fall", hub: "seed" },
+      { id: "sprout", icon: "🌱", label: "長出新芽", en: "New sprout", hub: "seed" },
+    ] },
+  { id: "plantPart", grade: 3, title: "植物各部位的工作", en: "Jobs of plant parts", center: "植物的身體", hint: "把工作連到負責的部位。",
+    hubs: [{ key: "root", label: "根", en: "Root" }, { key: "stem", label: "莖", en: "Stem" }, { key: "leaf", label: "葉", en: "Leaf" }, { key: "flower", label: "花", en: "Flower" }],
+    nodes: [
+      { id: "absorb", icon: "🥕", label: "吸收水分", en: "Absorbs water", hub: "root" },
+      { id: "fix", icon: "🪴", label: "固定植物", en: "Anchors the plant", hub: "root" },
+      { id: "carry", icon: "🎋", label: "運送水分", en: "Carries water", hub: "stem" },
+      { id: "hold", icon: "⬆️", label: "撐起植物", en: "Holds it up", hub: "stem" },
+      { id: "photo", icon: "🍃", label: "光合作用", en: "Photosynthesis", hub: "leaf" },
+      { id: "food", icon: "🌿", label: "製造養分", en: "Makes food", hub: "leaf" },
+      { id: "pollin", icon: "🌸", label: "授粉", en: "Pollination", hub: "flower" },
+      { id: "become", icon: "🍎", label: "變成果實", en: "Becomes fruit", hub: "flower" },
+    ] },
+  { id: "animalGroup", grade: 3, title: "動物分類", en: "Animal groups", center: "動物", hint: "把每一種動物連到牠所屬的類別。",
+    hubs: [{ key: "mammal", label: "哺乳類", en: "Mammals" }, { key: "bird", label: "鳥類", en: "Birds" }, { key: "fish", label: "魚類", en: "Fish" }, { key: "insect", label: "昆蟲", en: "Insects" }],
+    nodes: [
+      { id: "dog", icon: "dog", label: "狗", en: "Dog", hub: "mammal" },
+      { id: "rabbit", icon: "rabbit", label: "兔子", en: "Rabbit", hub: "mammal" },
+      { id: "sparrow", icon: "bird", label: "麻雀", en: "Sparrow", hub: "bird" },
+      { id: "eagle", icon: "eagle", label: "老鷹", en: "Eagle", hub: "bird" },
+      { id: "goldfish", icon: "fish", label: "金魚", en: "Goldfish", hub: "fish" },
+      { id: "butterfly", icon: "butterfly", label: "蝴蝶", en: "Butterfly", hub: "insect" },
+    ] },
+  { id: "dayNight", grade: 4, title: "地球自轉與日夜", en: "Rotation, day and night", center: "地球自轉一圈＝一天", hint: "把每件事連到它發生在白天還是黑夜。",
+    hubs: [{ key: "day", label: "白天", en: "Daytime" }, { key: "night", label: "黑夜", en: "Night" }],
+    nodes: [
+      { id: "facing", icon: "day", label: "這一面對著太陽", en: "Facing the sun", hub: "day" },
+      { id: "shadow", icon: "🧍", label: "看得見影子", en: "Shadows appear", hub: "day" },
+      { id: "nolight", icon: "☀️", label: "不用開電燈", en: "No lamp needed", hub: "day" },
+      { id: "away", icon: "night", label: "這一面背對太陽", en: "Facing away", hub: "night" },
+      { id: "moonseen", icon: "🌙", label: "看得見月亮", en: "The moon is visible", hub: "night" },
+      { id: "lamp", icon: "💡", label: "要開電燈", en: "We turn on lamps", hub: "night" },
+    ] },
+  { id: "sunEarthMoon", grade: 4, title: "太陽・地球・月亮", en: "Sun, Earth and Moon", center: "三者的關係", hint: "把每個特徵連到正確的星體。",
+    hubs: [{ key: "sun", label: "太陽", en: "Sun" }, { key: "earth", label: "地球", en: "Earth" }, { key: "moon", label: "月亮", en: "Moon" }],
+    nodes: [
+      { id: "shine", icon: "☀️", label: "自己會發光", en: "Gives its own light", hub: "sun" },
+      { id: "heat", icon: "🌞", label: "給我們光和熱", en: "Gives light and heat", hub: "sun" },
+      { id: "orbit", icon: "earth", label: "繞著太陽公轉", en: "Orbits the sun", hub: "earth" },
+      { id: "spin", icon: "day", label: "自轉產生日夜", en: "Rotates to make day and night", hub: "earth" },
+      { id: "around", icon: "night", label: "繞著地球轉", en: "Orbits the earth", hub: "moon" },
+      { id: "reflect", icon: "🌙", label: "反射太陽的光", en: "Reflects sunlight", hub: "moon" },
+    ] },
+  { id: "lightSource", grade: 4, title: "是不是光源？", en: "Light source or not", center: "光源", hint: "自己會發光的才是光源，把卡片連到正確的分支。",
+    hubs: [{ key: "yes", label: "是光源", en: "Light source" }, { key: "no", label: "不是光源", en: "Not a light source" }],
+    nodes: [
+      { id: "sun", icon: "☀️", label: "太陽", en: "The sun", hub: "yes" },
+      { id: "lamp", icon: "💡", label: "點亮的燈泡", en: "A lit bulb", hub: "yes" },
+      { id: "firefly", icon: "✨", label: "螢火蟲", en: "Firefly", hub: "yes" },
+      { id: "candle", icon: "🕯️", label: "燭火", en: "Candle flame", hub: "yes" },
+      { id: "moon", icon: "🌙", label: "月亮", en: "The moon", hub: "no" },
+      { id: "mirror", icon: "🪞", label: "鏡子", en: "A mirror", hub: "no" },
+    ] },
+  { id: "circuit", grade: 4, title: "通路還是斷路？", en: "Closed or broken circuit", center: "電路", hint: "把每個情況連到燈泡會亮的通路，或不會亮的斷路。",
+    hubs: [{ key: "closed", label: "通路（燈亮）", en: "Closed circuit" }, { key: "open", label: "斷路（燈不亮）", en: "Broken circuit" }],
+    nodes: [
+      { id: "wired", icon: "➰", label: "電線接成一圈", en: "Wires form a loop", hub: "closed" },
+      { id: "swon", icon: "🎚️", label: "開關關上", en: "Switch closed", hub: "closed" },
+      { id: "batok", icon: "🔋", label: "電池方向接對", en: "Battery connected", hub: "closed" },
+      { id: "cut", icon: "✂️", label: "電線斷掉", en: "Wire is cut", hub: "open" },
+      { id: "loose", icon: "⚫", label: "燈泡鬆掉了", en: "Bulb is loose", hub: "open" },
+      { id: "plastic", icon: "📏", label: "中間夾塑膠尺", en: "Plastic in the gap", hub: "open" },
+    ] },
+  { id: "conductor", grade: 4, title: "導體與絕緣體", en: "Conductors and insulators", center: "電流通不通？", hint: "會導電的連到導體，不會導電的連到絕緣體。",
+    hubs: [{ key: "cond", label: "導體", en: "Conductor" }, { key: "insu", label: "絕緣體", en: "Insulator" }],
+    nodes: [
+      { id: "nail", icon: "🔩", label: "鐵釘", en: "Iron nail", hub: "cond" },
+      { id: "key", icon: "🔑", label: "鑰匙", en: "Metal key", hub: "cond" },
+      { id: "spoon", icon: "🥄", label: "鐵湯匙", en: "Iron spoon", hub: "cond" },
+      { id: "eraser", icon: "🧽", label: "橡皮擦", en: "Eraser", hub: "insu" },
+      { id: "wood", icon: "🪵", label: "木頭", en: "Wood", hub: "insu" },
+      { id: "ruler", icon: "📏", label: "塑膠尺", en: "Plastic ruler", hub: "insu" },
+    ] },
+  { id: "dissolve", grade: 3, title: "溶得了還是溶不了？", en: "Dissolve or not", center: "放進水裡攪拌", hint: "把每一種東西連到「溶得了」或「溶不了」。",
+    hubs: [{ key: "yes", label: "溶得了", en: "Dissolves" }, { key: "no", label: "溶不了", en: "Does not dissolve" }],
+    nodes: [
+      { id: "sugar", icon: "dissolve", label: "砂糖", en: "Sugar", hub: "yes" },
+      { id: "salt", icon: "🧊", label: "食鹽", en: "Salt", hub: "yes" },
+      { id: "juice", icon: "🥤", label: "果汁粉", en: "Juice powder", hub: "yes" },
+      { id: "sand", icon: "🪵", label: "沙子", en: "Sand", hub: "no" },
+      { id: "oil", icon: "💧", label: "沙拉油", en: "Cooking oil", hub: "no" },
+      { id: "chalk", icon: "mountain", label: "小石子", en: "Pebbles", hub: "no" },
+    ] },
+  { id: "airWind", grade: 4, title: "空氣與風", en: "Air and wind", center: "空氣看不見，卻有力量", hint: "把現象連到它說明的是「空氣佔空間」還是「風有力量」。",
+    hubs: [{ key: "space", label: "空氣佔空間", en: "Air takes up space" }, { key: "power", label: "風有力量", en: "Wind has force" }],
+    nodes: [
+      { id: "balloon", icon: "☁️", label: "氣球吹得鼓鼓的", en: "A balloon inflates", hub: "space" },
+      { id: "cup", icon: "🥤", label: "杯口朝下壓入水中，水進不去", en: "Water cannot enter", hub: "space" },
+      { id: "bag", icon: "📄", label: "塑膠袋裝滿空氣變飽滿", en: "A bag puffs up", hub: "space" },
+      { id: "sail", icon: "wind", label: "風把帆船推著走", en: "Wind pushes a sail", hub: "power" },
+      { id: "tree", icon: "🍃", label: "樹葉被吹得沙沙響", en: "Leaves rustle", hub: "power" },
+      { id: "kite", icon: "⬆️", label: "風箏被吹上天", en: "A kite rises", hub: "power" },
+    ] },
+  { id: "starGroup", grade: 5, title: "星空裡的分類", en: "Stars, planets, moons", center: "星空", hint: "把每個天體連到它的種類。",
+    hubs: [{ key: "star", label: "恆星（自己發光）", en: "Star" }, { key: "planet", label: "行星", en: "Planet" }, { key: "moon", label: "衛星", en: "Moon" }],
+    nodes: [
+      { id: "sun", icon: "☀️", label: "太陽", en: "The sun", hub: "star" },
+      { id: "polaris", icon: "stars", label: "北極星", en: "Polaris", hub: "star" },
+      { id: "earth", icon: "earth", label: "地球", en: "Earth", hub: "planet" },
+      { id: "mars", icon: "mountain", label: "火星", en: "Mars", hub: "planet" },
+      { id: "moon", icon: "🌙", label: "月亮", en: "The moon", hub: "moon" },
+      { id: "callisto", icon: "night", label: "木星的衛星", en: "A moon of Jupiter", hub: "moon" },
+    ] },
+  { id: "forceType", grade: 5, title: "力的種類", en: "Kinds of force", center: "力", hint: "把每個例子連到它屬於的力。",
+    hubs: [{ key: "friction", label: "摩擦力", en: "Friction" }, { key: "gravity", label: "重力", en: "Gravity" }, { key: "magnet", label: "磁力", en: "Magnetic force" }],
+    nodes: [
+      { id: "brake", icon: "force", label: "煞車讓車子停下來", en: "Brakes stop a bike", hub: "friction" },
+      { id: "rough", icon: "🪵", label: "粗糙的地面不好推", en: "Rough ground is hard to push on", hub: "friction" },
+      { id: "fall", icon: "🍎", label: "蘋果往下掉", en: "An apple falls down", hub: "gravity" },
+      { id: "weight", icon: "⬆️", label: "東西有重量", en: "Objects have weight", hub: "gravity" },
+      { id: "clip", icon: "📎", label: "隔空吸住迴紋針", en: "Attracting a clip", hub: "magnet" },
+      { id: "poles", icon: "🧲", label: "同極互相推開", en: "Like poles repel", hub: "magnet" },
+    ] },
+  { id: "heatCond", grade: 5, title: "熱的傳導快不快？", en: "Heat conductors", center: "熱與物質", hint: "把材質連到導熱快或導熱慢。",
+    hubs: [{ key: "fast", label: "導熱快", en: "Conducts heat fast" }, { key: "slow", label: "導熱慢", en: "Conducts heat slowly" }],
+    nodes: [
+      { id: "iron", icon: "🔩", label: "鐵棒", en: "Iron rod", hub: "fast" },
+      { id: "spoon", icon: "🥄", label: "鐵湯匙", en: "Metal spoon", hub: "fast" },
+      { id: "key", icon: "🔑", label: "銅鑰匙", en: "Copper key", hub: "fast" },
+      { id: "wood", icon: "🪵", label: "木筷", en: "Wooden chopsticks", hub: "slow" },
+      { id: "plastic", icon: "📏", label: "塑膠尺", en: "Plastic ruler", hub: "slow" },
+      { id: "cloth", icon: "👕", label: "棉布手套", en: "Cotton glove", hub: "slow" },
+    ] },
+  { id: "machineType", grade: 5, title: "簡單機械分類", en: "Simple machines", center: "省力的工具", hint: "把工具連到它用到的簡單機械。",
+    hubs: [{ key: "lever", label: "槓桿", en: "Lever" }, { key: "pulley", label: "滑輪", en: "Pulley" }, { key: "slope", label: "斜面", en: "Inclined plane" }],
+    nodes: [
+      { id: "scissors", icon: "✂️", label: "剪刀", en: "Scissors", hub: "lever" },
+      { id: "seesaw", icon: "lever", label: "蹺蹺板", en: "Seesaw", hub: "lever" },
+      { id: "flag", icon: "⬆️", label: "升旗的繩輪", en: "Flagpole pulley", hub: "pulley" },
+      { id: "well", icon: "➰", label: "吊水桶的輪子", en: "Well pulley", hub: "pulley" },
+      { id: "ramp", icon: "mountain", label: "搬東西用的坡道", en: "A loading ramp", hub: "slope" },
+      { id: "screw", icon: "🔩", label: "螺絲的螺旋面", en: "A screw thread", hub: "slope" },
+    ] },
+  { id: "surfaceChange", grade: 6, title: "地表為什麼會變？", en: "Why the land changes", center: "地表變化", hint: "把現象連到造成它的作用。",
+    hubs: [{ key: "water", label: "流水作用", en: "Running water" }, { key: "wind", label: "風的作用", en: "Wind" }, { key: "inside", label: "地球內部作用", en: "Inside the earth" }],
+    nodes: [
+      { id: "valley", icon: "mountain", label: "河流切出峽谷", en: "A river carves a valley", hub: "water" },
+      { id: "delta", icon: "🌊", label: "河口堆出三角洲", en: "A delta forms", hub: "water" },
+      { id: "dune", icon: "wind", label: "海邊堆成沙丘", en: "Sand dunes pile up", hub: "wind" },
+      { id: "rock", icon: "🪵", label: "岩石被風磨成怪石", en: "Wind-carved rocks", hub: "wind" },
+      { id: "quake", icon: "force", label: "地震把地層錯開", en: "An earthquake shifts layers", hub: "inside" },
+      { id: "volcano", icon: "⚠️", label: "火山噴出岩漿", en: "A volcano erupts", hub: "inside" },
+    ] },
+  { id: "weatherSign", grade: 6, title: "天氣要變了嗎？", en: "Reading the weather", center: "天氣變化", hint: "把觀察到的現象連到可能的天氣。",
+    hubs: [{ key: "fine", label: "晴天", en: "Fine weather" }, { key: "rain", label: "陰雨", en: "Rainy weather" }, { key: "typhoon", label: "颱風來了", en: "Typhoon" }],
+    nodes: [
+      { id: "blue", icon: "day", label: "藍天白雲、氣壓高", en: "Blue sky, high pressure", hub: "fine" },
+      { id: "dry", icon: "☀️", label: "陽光強、空氣乾", en: "Strong sun, dry air", hub: "fine" },
+      { id: "grey", icon: "weather", label: "厚厚的雲層變暗", en: "Thick dark clouds", hub: "rain" },
+      { id: "humid", icon: "💧", label: "溼度變高", en: "Humidity rises", hub: "rain" },
+      { id: "spiral", icon: "wind", label: "衛星雲圖出現大螺旋", en: "A big spiral on satellite images", hub: "typhoon" },
+      { id: "warn", icon: "⚠️", label: "強風豪雨警報", en: "Strong wind and rain warning", hub: "typhoon" },
+    ] },
+  { id: "rustCond", grade: 6, title: "怎樣不生鏽、不腐壞？", en: "Preventing rust and spoiling", center: "防鏽與防腐", hint: "把做法連到「容易壞」或「保護得好」。",
+    hubs: [{ key: "bad", label: "容易生鏽腐壞", en: "Spoils easily" }, { key: "good", label: "保護得好", en: "Well protected" }],
+    nodes: [
+      { id: "wet", icon: "💧", label: "鐵器一直放在潮濕處", en: "Iron left in damp air", hub: "bad" },
+      { id: "open", icon: "🍎", label: "食物放在室溫敞開", en: "Food left uncovered", hub: "bad" },
+      { id: "salt2", icon: "🌊", label: "泡到海水的鐵釘", en: "A nail in seawater", hub: "bad" },
+      { id: "paint", icon: "rust", label: "鐵欄杆上油漆", en: "Painting the railing", hub: "good" },
+      { id: "fridge", icon: "🧊", label: "食物放冰箱冷藏", en: "Refrigerating food", hub: "good" },
+      { id: "dry2", icon: "👕", label: "擦乾、保持乾燥", en: "Keeping things dry", hub: "good" },
+    ] },
+  { id: "ecoRole", grade: 6, title: "生態系裡的角色", en: "Roles in an ecosystem", center: "生態環境", hint: "把生物連到牠在生態系的角色。",
+    hubs: [{ key: "prod", label: "生產者", en: "Producer" }, { key: "cons", label: "消費者", en: "Consumer" }, { key: "decomp", label: "分解者", en: "Decomposer" }],
+    nodes: [
+      { id: "grass2", icon: "grass", label: "草", en: "Grass", hub: "prod" },
+      { id: "tree", icon: "eco", label: "大樹", en: "A tree", hub: "prod" },
+      { id: "rabbit2", icon: "rabbit", label: "兔子", en: "Rabbit", hub: "cons" },
+      { id: "eagle2", icon: "eagle", label: "老鷹", en: "Eagle", hub: "cons" },
+      { id: "mushroom", icon: "dissolve", label: "土裡的細菌", en: "Soil bacteria", hub: "decomp" },
+      { id: "worm", icon: "caterpillar", label: "蚯蚓與細菌", en: "Worms and bacteria", hub: "decomp" },
+    ] },
+  { id: "foodChain", grade: 4, title: "食物鏈的角色", en: "Roles in a food chain", center: "食物鏈", hint: "把每一種生物連到牠在食物鏈中的角色。",
+    hubs: [{ key: "prod", label: "生產者", en: "Producer" }, { key: "cons1", label: "初級消費者", en: "Primary consumer" }, { key: "cons2", label: "高級消費者", en: "Top consumer" }],
+    nodes: [
+      { id: "grass", icon: "grass", label: "草", en: "Grass", hub: "prod" },
+      { id: "leaf", icon: "🍃", label: "樹葉", en: "Leaves", hub: "prod" },
+      { id: "rabbit", icon: "rabbit", label: "兔子", en: "Rabbit", hub: "cons1" },
+      { id: "cater", icon: "caterpillar", label: "毛蟲", en: "Caterpillar", hub: "cons1" },
+      { id: "eagle", icon: "eagle", label: "老鷹", en: "Eagle", hub: "cons2" },
+      { id: "snake", icon: "snake", label: "蛇", en: "Snake", hub: "cons2" },
+    ] },
+];
+const VIDEO_LIB = {
+  s1: { title: "植物的身體", clips: [
+    { key: "plantlife", label: "植物一生", src: "videos/plantlife/video.mp4", poster: "videos/plantlife/poster.png" },
+    { key: "photo", label: "光合作用", src: "videos/photosynthesis/classic.mp4", poster: "videos/photosynthesis/poster.png" },
+    { key: "photoPaper", label: "光合作用（剪紙版）", yt: "KJqHeGfD-pw" },
+  ] },
+  s2: { title: "磁鐵與磁力", clips: [{ key: "magnet", label: "磁力原理", src: "videos/magnet/video.mp4", poster: "videos/magnet/poster.png" }] },
+  s9: { title: "溶解", clips: [{ key: "solute", label: "溶劑與溶質", src: "videos/solute/video.mp4", poster: "videos/solute/poster.png" }] },
+  s13: { title: "熱與物質", clips: [{ key: "popcorn", label: "熱與爆米花", src: "videos/popcorn/video.mp4", poster: "videos/popcorn/poster.png" }] },
+  s15: { title: "地表變化", clips: [
+    { key: "classic", label: "一般版", src: "videos/rocksoil/classic.mp4", poster: "videos/rocksoil/poster.png" },
+    { key: "papercut", label: "剪紙版", src: "videos/rocksoil/papercut.mp4", poster: "videos/rocksoil/poster.png" },
+  ] },
+  s19: { title: "月相變化", clips: [{ key: "moon", label: "月相變化", src: "videos/moonphase/video.mp4", poster: "videos/moonphase/poster.png" }] },
+  s22: { title: "地球轉動", clips: [
+    { key: "earth", label: "地球自轉", src: "videos/earthrotation/video.mp4", poster: "" },
+    { key: "spring", label: "四季・春天", src: "videos/seasons/spring.mp4", poster: "videos/seasons/poster.png" },
+    { key: "summer", label: "四季・夏天", src: "videos/seasons/summer.mp4", poster: "videos/seasons/poster.png" },
+    { key: "autumn", label: "四季・秋天", src: "videos/seasons/autumn.mp4", poster: "videos/seasons/poster.png" },
+    { key: "winter", label: "四季・冬天", src: "videos/seasons/winter.mp4", poster: "videos/seasons/poster.png" },
+  ] },
+  s23: { title: "燃燒與氧氣", clips: [{ key: "combustion", label: "蠟燭燃燒與氧氣", src: "videos/combustion/video.mp4", poster: "videos/combustion/poster.png" }] },
+  animalGroup: { title: "動物的一生", clips: [
+    { key: "frog", label: "青蛙的一生", src: "videos/frog/video.mp4", poster: "videos/frog/poster.png" },
+    { key: "butterfly", label: "蝴蝶的一生", src: "videos/butterfly/video.mp4", poster: "videos/butterfly/poster.png" },
+    { key: "cat", label: "貓的一生", src: "videos/cat/video.mp4", poster: "videos/cat/poster.png" },
+    { key: "chicken", label: "雞的一生", src: "videos/chicken/video.mp4", poster: "" },
+  ] },
+};
 const SCI_UNITS = [
+  { id: "s7", grade: 3, difficulty: 2, icon: "mindmap", tint: "#eef2ff", title: "概念連連看", sub: "三年級 · 心智圖找關聯", kind: "mindmap" },
   { id: "s1", grade: 3, difficulty: 1, icon: "🌱", tint: "#e6f7ee", title: "植物的身體", sub: "三年級 · 根莖葉花果實種子" },
   { id: "s2", grade: 3, difficulty: 2, icon: "🧲", tint: "#ffe0e6", title: "磁鐵與磁力", sub: "三年級 · 吸鐵、同極相斥異極相吸" },
   { id: "s3", grade: 3, difficulty: 2, icon: "💧", tint: "#dff7fa", title: "千變萬化的水", sub: "三年級 · 固態液態氣態" },
+  { id: "s9", grade: 3, difficulty: 2, icon: "dissolve", tint: "#e9f6ff", title: "溶解", sub: "三年級 · 溶得了、溶不了與加快溶解" },
+  { id: "s19", grade: 3, difficulty: 2, icon: "🌙", tint: "#eef0ff", title: "月相變化", sub: "三年級 · 月亮的形狀為什麼會變" },
   { id: "s6", grade: 3, difficulty: 1, icon: "🃏", tint: "#e8f2ff", title: "自然記憶翻牌", sub: "三年級 · 概念與圖示配對", kind: "memory" },
+  { id: "s8", grade: 4, difficulty: 2, icon: "mindmap", tint: "#eef2ff", title: "概念連連看", sub: "四年級 · 心智圖找關聯", kind: "mindmap" },
   { id: "s4", grade: 4, difficulty: 2, icon: "🔦", tint: "#fff6e0", title: "光與影", sub: "四年級 · 光的直進與影子" },
   { id: "s5", grade: 4, difficulty: 2, icon: "💡", tint: "#f1e6ff", title: "電路與能源", sub: "四年級 · 通路斷路、導體絕緣體" },
+  { id: "s10", grade: 4, difficulty: 2, icon: "wind", tint: "#eafaff", title: "空氣與風", sub: "四年級 · 空氣佔空間、風的形成" },
+  { id: "s22", grade: 4, difficulty: 2, icon: "earth", tint: "#e6f7ee", title: "地球轉動", sub: "四年級 · 自轉公轉、四季變化" },
+  { id: "s20", grade: 5, difficulty: 2, icon: "mindmap", tint: "#eef2ff", title: "概念連連看", sub: "五年級 · 心智圖找關聯", kind: "mindmap" },
+  { id: "s11", grade: 5, difficulty: 2, icon: "stars", tint: "#eceaff", title: "星空", sub: "五年級 · 恆星行星衛星、北極星" },
+  { id: "s12", grade: 5, difficulty: 2, icon: "force", tint: "#ffeef5", title: "力與運動", sub: "五年級 · 摩擦力、重力與省力" },
+  { id: "s13", grade: 5, difficulty: 2, icon: "thermo", tint: "#fff1ec", title: "熱與物質", sub: "五年級 · 熱傳導、熱脹冷縮" },
+  { id: "s14", grade: 5, difficulty: 2, icon: "lever", tint: "#fff6e0", title: "簡單機械", sub: "五年級 · 槓桿、滑輪、輪軸與斜面" },
+  { id: "s23", grade: 5, difficulty: 2, icon: "🕯️", tint: "#fff1ec", title: "燃燒與氧氣", sub: "五年級 · 燃燒需要氧氣才能持續" },
+  { id: "s21", grade: 6, difficulty: 3, icon: "mindmap", tint: "#eef2ff", title: "概念連連看", sub: "六年級 · 心智圖找關聯", kind: "mindmap" },
+  { id: "s15", grade: 6, difficulty: 3, icon: "mountain", tint: "#eef4f0", title: "地表變化", sub: "六年級 · 風化侵蝕、地震與火山" },
+  { id: "s16", grade: 6, difficulty: 3, icon: "weather", tint: "#eaf6ff", title: "天氣變化", sub: "六年級 · 氣團、鋒面與颱風" },
+  { id: "s17", grade: 6, difficulty: 3, icon: "rust", tint: "#fdf0e6", title: "防鏽與防腐", sub: "六年級 · 生鏽條件與食物保存" },
+  { id: "s18", grade: 6, difficulty: 3, icon: "eco", tint: "#eefaf3", title: "生態環境", sub: "六年級 · 食物網、棲地與環境保護" },
 ];
 const EN_GRAMMAR_SETS = [
   ["cat", "sees", "bird", "貓看見鳥"], ["dog", "chases", "ball", "狗追球"], ["rabbit", "eats", "carrot", "兔子吃胡蘿蔔"],
@@ -2527,7 +2948,6 @@ const associationBuildSet = (groupId, row) => {
 const EN_ASSOCIATION_CONCEPT_SETS = ASSOCIATION_CONCEPT_GROUPS.flatMap((group) => group.sets.map((row) => associationBuildSet(group.id, row)));
 const EN_ASSOCIATION_ALL_SETS = EN_ASSOCIATION_SETS.concat(EN_ASSOCIATION_CONCEPT_SETS);
 
-const WEEK = ["日", "一", "二", "三", "四", "五", "六"];
 const TODAY = new Date().getDate();
 const AVATAR_IMAGES = {
   girl: { atelier: "rewards/avatar-female-v2.png", creative: "rewards/avatar-female-creative-v3.png", performance: "rewards/avatar-female-performance-v3.png" },
@@ -2615,6 +3035,10 @@ const MATH_GAME_FALLBACK = {
 function localDateKey() {
   const now = new Date();
   return now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+}
+function hasSignedToday(profile) {
+  const days = profile && Array.isArray(profile.signedDays) ? profile.signedDays : [];
+  return days.indexOf(localDateKey()) >= 0 || days.indexOf(TODAY) >= 0;
 }
 function normalizeDailyMastery(value) {
   const today = localDateKey();
@@ -2942,46 +3366,49 @@ function computeGeoLessonScript(topic) {
     beats.push({ narrate: "比大小：整數部分一樣，就比小數點後面的數字。0.7 比 0.4 大。", fig: { mode: "text", lines: ["0.7 ＞ 0.4"] } });
     beats.push({ narrate: "小數加減就是數 0.1 有幾個：0.3 加 0.4，3 個 0.1 加 4 個 0.1 是 7 個 0.1，等於 0.7。", fig: { mode: "text", lines: ["0.3 ＋ 0.4 ＝ 0.7"] } });
     beats.push({ narrate: "記住：0.1 就是把 1 分成 10 份的其中 1 份，小數點要對齊再加減！", fig: gridFig, final: true });
+  } else if (SCI_LESSON_SCRIPTS[topic]) {
+    const arr = SCI_LESSON_SCRIPTS[topic].beats;
+    arr.forEach((b, i) => beats.push({ narrate: b[0], fig: { mode: "art", spec: b[1], caption: b[2] }, final: i === arr.length - 1 }));
   } else if (topic === "sciPlant") {
-    const sc = (items, caption) => ({ mode: "scene", items, caption });
-    beats.push({ narrate: "一株植物就像一個小工廠，每個部位都有自己的工作。我們從下面看到上面。", fig: sc([{ icon: "🌱", anim: "sciFloat", label: "小植物" }], "植物的身體") });
-    beats.push({ narrate: "土裡的「根」像吸管，負責喝水、吸收養分，還能把植物牢牢固定住。", fig: sc([{ icon: "🥕", anim: "sciPulse", label: "根" }, { icon: "💧", anim: "sciDrop", label: "吸水" }], "根：吸收水分、固定植物") });
-    beats.push({ narrate: "「莖」像水管和柱子，把水送到全身，也把植物撐起來。", fig: sc([{ icon: "🎋", anim: "sciFloat", label: "莖" }, { icon: "⬆️", anim: "sciFloat", label: "運送" }], "莖：運輸與支撐") });
-    beats.push({ narrate: "「葉」是廚房！利用陽光、空氣和水行光合作用，自己做養分。", fig: sc([{ icon: "🍃", anim: "sciFloat", label: "葉" }, { icon: "☀️", anim: "sciPulse", label: "陽光" }], "葉：光合作用") });
-    beats.push({ narrate: "「花」開了會授粉，慢慢變成「果實」，果實裡藏著「種子」。", fig: sc([{ icon: "🌸", anim: "sciPulse", label: "花" }, { icon: "🍎", anim: "sciFloat", label: "果實" }, { icon: "🌰", anim: "none", label: "種子" }], "花 → 果實 → 種子") });
-    beats.push({ narrate: "種子掉到土裡發芽，又長成新的植物，生命就這樣一直傳下去！", fig: sc([{ icon: "🌰", anim: "none", label: "種子" }, { icon: "➡️", anim: "none", label: "" }, { icon: "🌱", anim: "sciGrow", label: "發芽" }], "生命的循環"), final: true });
+    const art = (key, caption) => ({ mode: "art", art: key, caption: caption });
+    beats.push({ narrate: "一株植物就像一個小工廠，每個部位都有自己的工作。我們從下面看到上面。", fig: art("plant1", "植物的身體") });
+    beats.push({ narrate: "土裡的「根」像吸管，負責喝水、吸收養分，還能把植物牢牢固定住。", fig: art("plant2", "根：吸收水分、固定植物") });
+    beats.push({ narrate: "「莖」像水管和柱子，把水送到全身，也把植物撐起來。", fig: art("plant3", "莖：運輸與支撐") });
+    beats.push({ narrate: "「葉」是廚房！利用陽光、空氣和水行光合作用，自己做養分。", fig: art("plant4", "葉：光合作用") });
+    beats.push({ narrate: "「花」開了會授粉，慢慢變成「果實」，果實裡藏著「種子」。", fig: art("plant5", "花 → 果實 → 種子") });
+    beats.push({ narrate: "種子掉到土裡發芽，又長成新的植物，生命就這樣一直傳下去！", fig: art("plant6", "生命的循環"), final: true });
   } else if (topic === "sciMagnet") {
-    const sc = (items, caption) => ({ mode: "scene", items, caption });
-    beats.push({ narrate: "磁鐵有一種看不見的力量，叫做磁力，可以隔空吸住鐵做的東西。", fig: sc([{ icon: "🧲", anim: "sciPulse", label: "磁鐵" }, { icon: "📎", anim: "sciLeft", label: "迴紋針" }], "磁鐵吸鐵") });
-    beats.push({ narrate: "磁鐵只吸「鐵」做的東西：鐵釘、迴紋針吸得住；紙、木頭、塑膠吸不住。", fig: sc([{ icon: "🔩", anim: "sciLeft", label: "鐵釘 ✓" }, { icon: "🧲", anim: "none", label: "" }, { icon: "🪵", anim: "none", label: "木塊 ✗" }], "只吸鐵做的東西") });
-    beats.push({ narrate: "磁鐵的兩端叫磁極，一端是 N 極、一端是 S 極，兩端的磁力最強。", fig: sc([{ icon: "🇳", anim: "sciPulse", label: "N 極" }, { icon: "🧲", anim: "none", label: "" }, { icon: "🇸", anim: "sciPulse", label: "S 極" }], "兩端磁力最強") });
-    beats.push({ narrate: "不一樣的極互相吸引：N 極碰 S 極，啪！吸在一起。", fig: sc([{ icon: "🧲", anim: "sciRight", label: "N" }, { icon: "🤝", anim: "sciPulse", label: "相吸" }, { icon: "🧲", anim: "sciLeft", label: "S" }], "異極相吸") });
-    beats.push({ narrate: "一樣的極互相排斥：N 極碰 N 極，會把對方推開！", fig: sc([{ icon: "🧲", anim: "sciLeft", label: "N" }, { icon: "💥", anim: "sciPulse", label: "相斥" }, { icon: "🧲", anim: "sciRight", label: "N" }], "同極相斥") });
-    beats.push({ narrate: "磁力還能穿過紙和布，指北針裡的磁針也是磁鐵，幫我們找方向。記住：同極相斥、異極相吸！", fig: sc([{ icon: "🧭", anim: "sciFloat", label: "指北針" }], "同極相斥、異極相吸"), final: true });
+    const art = (key, caption) => ({ mode: "art", art: key, caption: caption });
+    beats.push({ narrate: "磁鐵有一種看不見的力量，叫做磁力，可以隔空吸住鐵做的東西。", fig: art("magnet1", "磁鐵吸鐵") });
+    beats.push({ narrate: "磁鐵只吸「鐵」做的東西：鐵釘、迴紋針吸得住；紙、木頭、塑膠吸不住。", fig: art("magnet2", "只吸鐵做的東西") });
+    beats.push({ narrate: "磁鐵的兩端叫磁極，一端是 N 極、一端是 S 極，兩端的磁力最強。", fig: art("magnet3", "兩端磁力最強") });
+    beats.push({ narrate: "不一樣的極互相吸引：N 極碰 S 極，啪！吸在一起。", fig: art("magnet4", "異極相吸") });
+    beats.push({ narrate: "一樣的極互相排斥：N 極碰 N 極，會把對方推開！", fig: art("magnet5", "同極相斥") });
+    beats.push({ narrate: "磁力還能穿過紙和布，指北針裡的磁針也是磁鐵，幫我們找方向。記住：同極相斥、異極相吸！", fig: art("magnet6", "同極相斥、異極相吸"), final: true });
   } else if (topic === "sciWater") {
-    const sc = (items, caption) => ({ mode: "scene", items, caption });
-    beats.push({ narrate: "水是變身高手！它有三種樣子：固態的冰、液態的水、氣態的水蒸氣。", fig: sc([{ icon: "🧊", anim: "none", label: "固態" }, { icon: "💧", anim: "sciFloat", label: "液態" }, { icon: "💨", anim: "sciFloat", label: "氣態" }], "水的三態") });
-    beats.push({ narrate: "冰遇熱會「融化」變成水，像冰淇淋在太陽下慢慢變軟流下來。", fig: sc([{ icon: "🧊", anim: "none", label: "冰" }, { icon: "☀️", anim: "sciPulse", label: "加熱" }, { icon: "💧", anim: "sciDrop", label: "水" }], "融化：固態 → 液態") });
-    beats.push({ narrate: "水遇熱會「蒸發」變成看不見的水蒸氣，濕衣服曬太陽會乾就是這個原因。", fig: sc([{ icon: "👕", anim: "none", label: "濕衣服" }, { icon: "☀️", anim: "sciPulse", label: "" }, { icon: "💨", anim: "sciFloat", label: "水蒸氣" }], "蒸發：液態 → 氣態") });
-    beats.push({ narrate: "水蒸氣遇冷會「凝結」變回小水滴，冰水杯外面的水珠就是空氣中的水蒸氣變的。", fig: sc([{ icon: "💨", anim: "sciFloat", label: "水蒸氣" }, { icon: "🥤", anim: "none", label: "冰杯" }, { icon: "💦", anim: "sciDrop", label: "水珠" }], "凝結：氣態 → 液態") });
-    beats.push({ narrate: "水放進冷凍庫會「結冰」變回固態。冰、水、水蒸氣就這樣變來變去！", fig: sc([{ icon: "💧", anim: "none", label: "水" }, { icon: "❄️", anim: "sciPulse", label: "遇冷" }, { icon: "🧊", anim: "none", label: "冰" }], "結冰：液態 → 固態") });
-    beats.push({ narrate: "大自然也在玩這個遊戲：水蒸發上天變成雲，凝結成水滴落下來變成雨，這就是水的循環！", fig: sc([{ icon: "🌊", anim: "none", label: "蒸發" }, { icon: "☁️", anim: "sciFloat", label: "雲" }, { icon: "🌧️", anim: "sciDrop", label: "雨" }], "水的循環"), final: true });
+    const art = (key, caption) => ({ mode: "art", art: key, caption: caption });
+    beats.push({ narrate: "水是變身高手！它有三種樣子：固態的冰、液態的水、氣態的水蒸氣。", fig: art("water1", "水的三態") });
+    beats.push({ narrate: "冰遇熱會「融化」變成水，像冰淇淋在太陽下慢慢變軟流下來。", fig: art("water2", "融化：固態 → 液態") });
+    beats.push({ narrate: "水遇熱會「蒸發」變成看不見的水蒸氣，濕衣服曬太陽會乾就是這個原因。", fig: art("water3", "蒸發：液態 → 氣態") });
+    beats.push({ narrate: "水蒸氣遇冷會「凝結」變回小水滴，冰水杯外面的水珠就是空氣中的水蒸氣變的。", fig: art("water4", "凝結：氣態 → 液態") });
+    beats.push({ narrate: "水放進冷凍庫會「結冰」變回固態。冰、水、水蒸氣就這樣變來變去！", fig: art("water5", "結冰：液態 → 固態") });
+    beats.push({ narrate: "大自然也在玩這個遊戲：水蒸發上天變成雲，凝結成水滴落下來變成雨，這就是水的循環！", fig: art("water6", "水的循環"), final: true });
   } else if (topic === "sciLight") {
-    const sc = (items, caption) => ({ mode: "scene", items, caption });
-    beats.push({ narrate: "自己會發光的東西叫「光源」，像太陽、電燈、螢火蟲。月亮不是光源，它只是反射太陽的光。", fig: sc([{ icon: "☀️", anim: "sciPulse", label: "光源" }, { icon: "💡", anim: "sciBlink", label: "光源" }, { icon: "🌙", anim: "none", label: "不是光源" }], "什麼是光源？") });
-    beats.push({ narrate: "光是走直線的，不會轉彎。所以躲在牆後面，光就照不到你。", fig: sc([{ icon: "🔦", anim: "none", label: "光" }, { icon: "➡️", anim: "sciRight", label: "直線前進" }], "光直線前進") });
-    beats.push({ narrate: "光被不透明的東西擋住，後面照不到光的地方就出現「影子」。", fig: sc([{ icon: "🔦", anim: "none", label: "光" }, { icon: "🧸", anim: "none", label: "擋住" }, { icon: "⬛", anim: "sciFloat", label: "影子" }], "影子在背光那一側") });
-    beats.push({ narrate: "光源離得越近，影子就越大；離得越遠，影子越小。用手電筒試試看！", fig: sc([{ icon: "🔦", anim: "sciRight", label: "靠近" }, { icon: "🧸", anim: "none", label: "" }, { icon: "⬛", anim: "sciGrow", label: "影子變大" }], "光源近 → 影子大") });
-    beats.push({ narrate: "太陽也一樣：中午太陽最高，影子最短；早上和傍晚太陽斜斜的，影子拉得長長的。", fig: sc([{ icon: "🌞", anim: "sciFloat", label: "中午" }, { icon: "🧍", anim: "none", label: "" }, { icon: "⬛", anim: "none", label: "影子短" }], "中午影子最短") });
-    beats.push({ narrate: "記住：光源自己會發光、光走直線、擋住光就有影子、光源越近影子越大！", fig: sc([{ icon: "🔦", anim: "sciPulse", label: "" }, { icon: "⬛", anim: "none", label: "" }], "光與影的祕密"), final: true });
+    const art = (key, caption) => ({ mode: "art", art: key, caption: caption });
+    beats.push({ narrate: "自己會發光的東西叫「光源」，像太陽、電燈、螢火蟲。月亮不是光源，它只是反射太陽的光。", fig: art("light1", "什麼是光源？") });
+    beats.push({ narrate: "光是走直線的，不會轉彎。所以躲在牆後面，光就照不到你。", fig: art("light2", "光直線前進") });
+    beats.push({ narrate: "光被不透明的東西擋住，後面照不到光的地方就出現「影子」。", fig: art("light3", "影子在背光那一側") });
+    beats.push({ narrate: "光源離得越近，影子就越大；離得越遠，影子越小。用手電筒試試看！", fig: art("light4", "光源近 → 影子大") });
+    beats.push({ narrate: "太陽也一樣：中午太陽最高，影子最短；早上和傍晚太陽斜斜的，影子拉得長長的。", fig: art("light5", "中午影子最短") });
+    beats.push({ narrate: "記住：光源自己會發光、光走直線、擋住光就有影子、光源越近影子越大！", fig: art("light6", "光與影的祕密"), final: true });
   } else if (topic === "sciCircuit") {
-    const sc = (items, caption) => ({ mode: "scene", items, caption });
-    beats.push({ narrate: "電池、電線、燈泡接成一個圈圈，電流繞一圈回到電池，這叫「通路」，燈泡就亮了！", fig: sc([{ icon: "🔋", anim: "none", label: "電池" }, { icon: "➰", anim: "none", label: "電線" }, { icon: "💡", anim: "sciBlink", label: "亮了！" }], "通路：燈泡會亮") });
-    beats.push({ narrate: "電線鬆掉或斷掉，圈圈破了洞，電流過不去，這叫「斷路」，燈泡就不亮。", fig: sc([{ icon: "🔋", anim: "none", label: "電池" }, { icon: "✂️", anim: "sciPulse", label: "斷掉" }, { icon: "⚫", anim: "none", label: "不亮" }], "斷路：燈泡不亮") });
-    beats.push({ narrate: "電池有正極（＋）和負極（－），方向接對，電流才會乖乖流動。", fig: sc([{ icon: "➕", anim: "sciPulse", label: "正極" }, { icon: "🔋", anim: "none", label: "" }, { icon: "➖", anim: "sciPulse", label: "負極" }], "正極與負極") });
-    beats.push({ narrate: "會讓電通過的叫「導體」，像鐵、銅這些金屬；不讓電通過的叫「絕緣體」，像塑膠、木頭、橡皮。", fig: sc([{ icon: "🔑", anim: "sciFloat", label: "導體 ✓" }, { icon: "📏", anim: "none", label: "絕緣體 ✗" }], "導體與絕緣體") });
-    beats.push({ narrate: "開關就是電路的門：關上門電流通過燈就亮，打開門變斷路燈就熄。", fig: sc([{ icon: "🎚️", anim: "sciPulse", label: "開關" }, { icon: "💡", anim: "sciBlink", label: "亮/熄" }], "開關控制通斷") });
-    beats.push({ narrate: "最重要的安全守則：濕濕的手不碰插座、不把東西插進插座孔！水會導電，很危險。記住：通路亮、斷路熄！", fig: sc([{ icon: "⚠️", anim: "sciPulse", label: "安全用電" }, { icon: "🔌", anim: "none", label: "" }], "安全第一"), final: true });
+    const art = (key, caption) => ({ mode: "art", art: key, caption: caption });
+    beats.push({ narrate: "電池、電線、燈泡接成一個圈圈，電流繞一圈回到電池，這叫「通路」，燈泡就亮了！", fig: art("circuit1", "通路：燈泡會亮") });
+    beats.push({ narrate: "電線鬆掉或斷掉，圈圈破了洞，電流過不去，這叫「斷路」，燈泡就不亮。", fig: art("circuit2", "斷路：燈泡不亮") });
+    beats.push({ narrate: "電池有正極（＋）和負極（－），方向接對，電流才會乖乖流動。", fig: art("circuit3", "正極與負極") });
+    beats.push({ narrate: "會讓電通過的叫「導體」，像鐵、銅這些金屬；不讓電通過的叫「絕緣體」，像塑膠、木頭、橡皮。", fig: art("circuit4", "導體與絕緣體") });
+    beats.push({ narrate: "開關就是電路的門：關上門電流通過燈就亮，打開門變斷路燈就熄。", fig: art("circuit5", "開關控制通斷") });
+    beats.push({ narrate: "最重要的安全守則：濕濕的手不碰插座、不把東西插進插座孔！水會導電，很危險。記住：通路亮、斷路熄！", fig: art("circuit6", "安全第一"), final: true });
   } else {
     const rr = r(3, 6);
     const round2 = (x) => Math.round(x * 100) / 100;
@@ -2994,8 +3421,92 @@ function computeGeoLessonScript(topic) {
   }
   return beats;
 }
+const SCI_LESSON_SCRIPTS = {
+  sciDissolve: { title: "溶解教學", unit: "s9", beats: [
+    ["把糖放進水裡攪一攪，糖粒慢慢就看不見了，這就是「溶解」。", { k: "focus", icon: "dissolve", label: "糖水", title: "什麼是溶解？", lines: ["糖放進水裡攪一攪", "糖粒慢慢看不見", "均勻散在整杯水裡"] }, "溶解"],
+    ["糖、鹽、果汁粉溶得了；沙子、沙拉油、粉筆灰溶不了，會沉下去或分層。", { k: "cmp", left: { title: "溶得了", ok: true, items: [{ icon: "dissolve", label: "砂糖" }, { icon: "🧊", label: "食鹽" }, { icon: "🥤", label: "果汁粉" }] }, right: { title: "溶不了", ok: false, items: [{ icon: "🪵", label: "沙子" }, { icon: "💧", label: "沙拉油" }, { icon: "📏", label: "粉筆灰" }] }, cap: "溶得了與溶不了" }, "溶得了與溶不了"],
+    ["想溶得更快，可以用溫水、多攪拌、把顆粒弄小一點。", { k: "flow", items: [{ icon: "thermo", label: "用溫水" }, { icon: "dissolve", label: "多攪拌" }, { icon: "✅", label: "溶得更快" }], cap: "加快溶解的方法" }, "加快溶解"],
+    ["溶解以後糖並沒有不見，它均勻分散在水裡，喝起來還是甜的。", { k: "focus", icon: "dissolve", label: "糖水", title: "溶解後跑到哪？", lines: ["糖沒有不見", "均勻分散在水中", "嚐起來還是甜的"] }, "溶解後仍在水中"],
+    ["一杯水能溶解的量有限，超過就會沉在杯底，加水或加溫才溶得下。", { k: "focus", icon: "🥤", label: "杯底有沉澱", title: "水能溶多少？", lines: ["每杯水都有極限", "超過會沉在杯底", "加水或加溫可再溶"] }, "溶解有極限"],
+    ["記住：溶解是均勻散開、看不見；泥沙和油只是混在一起，不算溶解。", { k: "cmp", left: { title: "是溶解", ok: true, items: [{ icon: "🥤", label: "沖泡飲料" }, { icon: "dissolve", label: "糖水" }, { icon: "🧊", label: "鹽水" }] }, right: { title: "不是溶解", ok: false, items: [{ icon: "🪵", label: "泥沙水" }, { icon: "💧", label: "油水分層" }, { icon: "☁️", label: "棉花泡水" }] }, cap: "均勻、看不見才是溶解" }, "記住：均勻看不見"],
+  ] },
+  sciAir: { title: "空氣與風教學", unit: "s10", beats: [
+    ["空氣到處都是，看不見卻會佔空間、也有重量，流動起來就是風。", { k: "focus", icon: "wind", label: "空氣", title: "空氣在哪裡？", lines: ["到處都是，看不見", "會佔空間也有重量", "流動起來就是風"] }, "空氣就在身邊"],
+    ["把杯口朝下壓進水裡，水進不去，因為杯子裡的空氣佔住了空間。", { k: "focus", icon: "🥤", label: "杯口朝下", title: "空氣佔空間", lines: ["杯口朝下壓進水裡", "水進不去", "因為裡面有空氣"] }, "空氣佔空間"],
+    ["地面受熱讓空氣變輕上升，旁邊的冷空氣補進來，就形成了風。", { k: "flow", items: [{ icon: "☀️", label: "地面受熱" }, { icon: "⬆️", label: "熱空氣上升" }, { icon: "wind", label: "冷空氣補進來" }], cap: "風怎麼形成" }, "風的形成"],
+    ["流動的空氣有力量，可以推動帆船、風箏和風車。", { k: "cmp", left: { title: "風做得到", ok: true, items: [{ icon: "wind", label: "推動帆船" }, { icon: "⬆️", label: "吹起風箏" }, { icon: "🍃", label: "吹動樹葉" }] }, right: { title: "不是風做的", ok: false, items: [{ icon: "🧲", label: "磁鐵吸釘" }, { icon: "💡", label: "燈泡發亮" }, { icon: "🧊", label: "水結成冰" }] }, cap: "風有力量" }, "風有力量"],
+    ["風速就是空氣流動的快慢，風可以發電，太強時也會造成災害。", { k: "focus", icon: "wind", label: "風力", title: "風的大小", lines: ["風速＝空氣流動快慢", "風力可以發電", "太強會造成災害"] }, "風的大小"],
+    ["記住：空氣佔空間、有重量；冷熱不均勻就會產生風，風有力量。", { k: "focus", icon: "wind", label: "空氣與風", title: "記住三件事", lines: ["空氣佔空間、有重量", "冷熱不均產生風", "風能推動東西"] }, "空氣與風"],
+  ] },
+  sciStar: { title: "星空教學", unit: "s11", beats: [
+    ["抬頭看星空，有的星星自己會發光，有的只是反射別人的光。", { k: "focus", icon: "stars", label: "夜空", title: "抬頭看星空", lines: ["星星有不同亮度", "有的自己會發光", "有的只是反射光"] }, "認識星空"],
+    ["自己會發光的叫恆星，像太陽和北極星；地球、月亮不會自己發光。", { k: "cmp", left: { title: "自己會發光", ok: true, items: [{ icon: "☀️", label: "太陽" }, { icon: "stars", label: "北極星" }] }, right: { title: "不會自己發光", ok: false, items: [{ icon: "earth", label: "地球" }, { icon: "🌙", label: "月亮" }] }, cap: "恆星與非恆星" }, "恆星自己發光"],
+    ["行星繞著恆星轉，衛星繞著行星轉，月亮就是地球的衛星。", { k: "flow", items: [{ icon: "☀️", label: "恆星" }, { icon: "earth", label: "行星繞恆星" }, { icon: "🌙", label: "衛星繞行星" }], cap: "誰繞著誰轉" }, "恆星・行星・衛星"],
+    ["晚上想找方向，可以先找北斗七星，再找到北極星，它就在北方。", { k: "focus", icon: "🧭", label: "北方", title: "怎麼找北極星", lines: ["先找北斗七星", "杓口兩星連線延伸", "找到北極星就是北方"] }, "用北極星找方向"],
+    ["星星東升西落是因為地球自轉；不同季節看到不同星空是因為公轉。", { k: "focus", icon: "earth", label: "地球", title: "星星為什麼會動", lines: ["自轉→星星東升西落", "公轉→季節星空不同", "其實是我們在動"] }, "地球在動"],
+    ["記住：恆星自己發光、行星反射光繞恆星、月亮是地球的衛星。", { k: "focus", icon: "stars", label: "星空", title: "記住三件事", lines: ["恆星自己發光", "行星繞著恆星轉", "月亮是地球的衛星"] }, "星空的祕密"],
+  ] },
+  sciForce: { title: "力與運動教學", unit: "s12", beats: [
+    ["推和拉都是力。力看不見，但可以讓東西動起來、停下來或變形。", { k: "focus", icon: "force", label: "推與拉", title: "什麼是力？", lines: ["推、拉都是力", "會改變運動或形狀", "看不見但看得到效果"] }, "認識力"],
+    ["地面越粗糙，摩擦力越大，東西就越難推動。", { k: "flow", items: [{ icon: "🪵", label: "粗糙地面" }, { icon: "force", label: "摩擦力變大" }, { icon: "⬆️", label: "推起來費力" }], cap: "摩擦力" }, "摩擦力"],
+    ["把表面變光滑或加潤滑油，摩擦力變小，東西就滑得順。", { k: "flow", items: [{ icon: "🧊", label: "光滑表面" }, { icon: "💧", label: "加潤滑油" }, { icon: "➡️", label: "滑得順" }], cap: "減少摩擦力" }, "減少摩擦"],
+    ["地球會把東西往下拉，這個力叫重力，重量就是重力的大小。", { k: "focus", icon: "🍎", label: "蘋果落下", title: "重力", lines: ["地球把東西往下拉", "所以蘋果會掉下來", "重量就是重力大小"] }, "重力"],
+    ["力的三個效果：讓靜止的動起來、讓運動的停下來、改變方向或形狀。", { k: "focus", icon: "force", label: "力的效果", title: "力會做什麼", lines: ["讓靜止的動起來", "讓運動的停下來", "改變方向或形狀"] }, "力的效果"],
+    ["記住：磁力和重力不用接觸就有作用，摩擦力要接觸才會出現。", { k: "focus", icon: "🧲", label: "磁力", title: "記住三件事", lines: ["磁力、重力不用接觸", "摩擦力要接觸才有", "力會改變運動狀態"] }, "力與運動"],
+  ] },
+  sciHeat: { title: "熱與物質教學", unit: "s13", beats: [
+    ["溫度用溫度計來量，熱會自己從高溫的地方流向低溫的地方。", { k: "focus", icon: "thermo", label: "溫度計", title: "溫度與熱", lines: ["溫度用溫度計量", "熱從高溫流向低溫", "直到兩邊一樣溫"] }, "溫度與熱"],
+    ["鐵棒一端加熱，熱會沿著鐵棒傳到另一端，這叫熱的傳導。", { k: "flow", items: [{ icon: "🔩", label: "一端加熱" }, { icon: "thermo", label: "熱往旁邊傳" }, { icon: "🥄", label: "整支變熱" }], cap: "熱的傳導" }, "熱的傳導"],
+    ["金屬導熱快，木頭、塑膠、布導熱慢，所以鍋把手常用這些材料。", { k: "cmp", left: { title: "導熱快", items: [{ icon: "🔩", label: "鐵" }, { icon: "🥄", label: "鐵湯匙" }, { icon: "🔑", label: "銅" }] }, right: { title: "導熱慢", items: [{ icon: "🪵", label: "木頭" }, { icon: "📏", label: "塑膠" }, { icon: "👕", label: "棉布" }] }, cap: "導熱快與導熱慢" }, "導熱快慢"],
+    ["大部分物體受熱會膨脹、遇冷會收縮，這叫熱脹冷縮。", { k: "flow", items: [{ icon: "thermo", label: "受熱" }, { icon: "⬆️", label: "體積變大" }, { icon: "❄️", label: "遇冷收縮" }], cap: "熱脹冷縮" }, "熱脹冷縮"],
+    ["所以鐵軌之間要留縫隙，電線夏天會鬆、冬天會緊。", { k: "focus", icon: "🔩", label: "鐵軌留縫", title: "生活中的應用", lines: ["鐵軌之間留縫隙", "電線夏鬆冬緊", "溫度計靠熱脹冷縮"] }, "生活應用"],
+    ["記住：熱從高溫傳到低溫、金屬導熱快、物體會熱脹冷縮。", { k: "focus", icon: "thermo", label: "熱", title: "記住三件事", lines: ["熱從高溫傳到低溫", "金屬導熱快", "物體熱脹冷縮"] }, "熱與物質"],
+  ] },
+  sciMachine: { title: "簡單機械教學", unit: "s14", beats: [
+    ["工具可以幫我們省力或改變施力方向，但不會憑空生出能量。", { k: "focus", icon: "lever", label: "工具", title: "為什麼要用工具", lines: ["工具可以省力", "也能改變施力方向", "但不會生出能量"] }, "簡單機械"],
+    ["槓桿有支點、施力點和抗力點，支點靠近抗力點就比較省力。", { k: "focus", icon: "lever", label: "槓桿", title: "槓桿", lines: ["有支點、施力點、抗力點", "支點靠近抗力點較省力", "蹺蹺板、剪刀都是槓桿"] }, "槓桿"],
+    ["繩子繞過輪子就是滑輪，往下拉就能把東西升上去。", { k: "flow", items: [{ icon: "➰", label: "繩子繞過輪子" }, { icon: "lever", label: "變成滑輪" }, { icon: "⬆️", label: "往下拉就升上去" }], cap: "滑輪" }, "滑輪"],
+    ["把重物推上斜坡比直接抬起來省力，但要走比較長的距離。", { k: "flow", items: [{ icon: "mountain", label: "斜坡" }, { icon: "force", label: "推上去" }, { icon: "✅", label: "省力但路變長" }], cap: "斜面" }, "斜面"],
+    ["剪刀、蹺蹺板是槓桿；坡道、螺絲其實都是斜面。", { k: "cmp", left: { title: "槓桿家族", items: [{ icon: "✂️", label: "剪刀" }, { icon: "lever", label: "蹺蹺板" }, { icon: "🔑", label: "開瓶器" }] }, right: { title: "斜面家族", items: [{ icon: "mountain", label: "坡道" }, { icon: "🔩", label: "螺絲" }, { icon: "📏", label: "楔子" }] }, cap: "工具的分類" }, "工具分類"],
+    ["記住：槓桿、滑輪、輪軸、斜面都能省力或換方向，但距離會變長。", { k: "focus", icon: "lever", label: "簡單機械", title: "記住三件事", lines: ["四大類：槓桿滑輪輪軸斜面", "省力或改變方向", "省力就要走更長"] }, "簡單機械"],
+  ] },
+  sciSurface: { title: "地表變化教學", unit: "s15", beats: [
+    ["地表一直在改變，有的很慢像風化侵蝕，有的很快像地震火山。", { k: "focus", icon: "mountain", label: "地表", title: "地表一直在變", lines: ["有的很慢：風化侵蝕", "有的很快：地震火山", "幾百年也看得出來"] }, "地表變化"],
+    ["日夜溫差和滲入岩縫的水結冰，會把大岩石一點一點撐裂。", { k: "flow", items: [{ icon: "thermo", label: "日夜溫差" }, { icon: "💧", label: "水滲入結冰" }, { icon: "mountain", label: "岩石裂開" }], cap: "風化作用" }, "風化"],
+    ["河水沖刷把河谷切深成峽谷，泥沙在河口堆積形成三角洲。", { k: "flow", items: [{ icon: "🌊", label: "河水沖刷" }, { icon: "mountain", label: "切出峽谷" }, { icon: "🌊", label: "河口堆三角洲" }], cap: "流水的侵蝕與堆積" }, "流水作用"],
+    ["風也會搬運沙粒，把沙堆成沙丘，把岩石磨成奇形怪狀。", { k: "focus", icon: "wind", label: "風", title: "風的作用", lines: ["風把沙搬走再堆積", "海邊形成沙丘", "岩石被磨成怪石"] }, "風的作用"],
+    ["慢慢改變的是風化、侵蝕、堆積；快速改變的是地震、火山、土石流。", { k: "cmp", left: { title: "慢慢改變", items: [{ icon: "💧", label: "風化" }, { icon: "🌊", label: "侵蝕" }, { icon: "wind", label: "堆積" }] }, right: { title: "很快改變", items: [{ icon: "force", label: "地震" }, { icon: "⚠️", label: "火山" }, { icon: "🌊", label: "土石流" }] }, cap: "兩種速度的地表變化" }, "快與慢"],
+    ["記住：流水、風會慢慢改變地表；地震火山來自地球內部，變化很快。", { k: "focus", icon: "mountain", label: "地表", title: "記住三件事", lines: ["流水和風慢慢改變地表", "地震火山來自地球內部", "變化每天都在發生"] }, "地表變化"],
+  ] },
+  sciWeather: { title: "天氣變化教學", unit: "s16", beats: [
+    ["天氣就是氣溫、濕度、風、雲和雨的狀況，每天都在變。", { k: "focus", icon: "weather", label: "天氣", title: "天氣是什麼", lines: ["氣溫、濕度、風", "雲量與降雨", "每天都在改變"] }, "認識天氣"],
+    ["晴天藍天白雲、陽光強；陰雨天雲層厚、濕度高。", { k: "cmp", left: { title: "晴天", items: [{ icon: "day", label: "藍天白雲" }, { icon: "☀️", label: "陽光強" }, { icon: "wind", label: "微風" }] }, right: { title: "陰雨", items: [{ icon: "weather", label: "厚厚的雲" }, { icon: "💧", label: "濕度變高" }, { icon: "🌧️", label: "開始下雨" }] }, cap: "觀察天氣" }, "晴天與陰雨"],
+    ["冷氣團南下會變冷，鋒面經過常常帶來降雨和變天。", { k: "flow", items: [{ icon: "❄️", label: "冷氣團南下" }, { icon: "wind", label: "鋒面經過" }, { icon: "🌧️", label: "降雨變天" }], cap: "氣團與鋒面" }, "氣團與鋒面"],
+    ["颱風在衛星雲圖上是一個大螺旋，會帶來強風和豪雨。", { k: "focus", icon: "wind", label: "颱風", title: "颱風", lines: ["雲圖上是大螺旋", "帶來強風豪雨", "注意氣象警報"] }, "颱風"],
+    ["颱風來之前要收好陽台雜物、準備飲水，不要靠近海邊河邊。", { k: "focus", icon: "⚠️", label: "防颱", title: "防颱要做什麼", lines: ["收好陽台雜物", "準備飲水與電池", "不靠近海邊河邊"] }, "防颱準備"],
+    ["記住：冷氣團帶來低溫、鋒面過境常降雨、颱風要提早準備。", { k: "focus", icon: "weather", label: "天氣", title: "記住三件事", lines: ["冷氣團帶來低溫", "鋒面過境常降雨", "颱風要提早防範"] }, "天氣變化"],
+  ] },
+  sciRust: { title: "防鏽與防腐教學", unit: "s17", beats: [
+    ["鐵遇到水和空氣中的氧氣，就會慢慢生鏽，鐵鏽會讓鐵變脆。", { k: "focus", icon: "rust", label: "生鏽的鐵釘", title: "鐵為什麼生鏽", lines: ["鐵＋水＋氧氣", "慢慢變成鐵鏽", "鐵鏽讓鐵變脆"] }, "生鏽的原因"],
+    ["潮濕、泡海水最容易生鏽；上油漆、保持乾燥就能保護鐵。", { k: "cmp", left: { title: "容易生鏽", ok: false, items: [{ icon: "💧", label: "潮濕環境" }, { icon: "🌊", label: "泡到海水" }, { icon: "👕", label: "濕布包著" }] }, right: { title: "保護得好", ok: true, items: [{ icon: "rust", label: "上油漆" }, { icon: "☀️", label: "保持乾燥" }, { icon: "🔩", label: "不鏽鋼" }] }, cap: "生鏽的條件" }, "生鏽條件"],
+    ["防鏽的方法就是隔絕水和空氣：上漆、塗油、鍍鋅。", { k: "flow", items: [{ icon: "🔩", label: "鐵器" }, { icon: "rust", label: "上漆隔絕水氧" }, { icon: "✅", label: "不容易生鏽" }], cap: "防鏽的方法" }, "防鏽"],
+    ["食物會壞是因為細菌和黴菌在上面生長，溫暖潮濕長得最快。", { k: "focus", icon: "🍎", label: "發霉的食物", title: "食物為什麼會壞", lines: ["細菌黴菌會生長", "需要水分和養分", "溫暖潮濕長得快"] }, "食物腐壞"],
+    ["冷藏冷凍、曬乾、醃鹽糖都能減慢微生物生長，把食物保存更久。", { k: "cmp", left: { title: "保存得好", ok: true, items: [{ icon: "🧊", label: "冷藏冷凍" }, { icon: "☀️", label: "曬乾脫水" }, { icon: "dissolve", label: "醃鹽糖" }] }, right: { title: "容易壞掉", ok: false, items: [{ icon: "🍎", label: "室溫敞開" }, { icon: "💧", label: "潮濕悶熱" }, { icon: "⚠️", label: "已經長黴" }] }, cap: "防腐的方法" }, "防腐方法"],
+    ["記住：隔絕水和空氣可以防鏽；低溫乾燥密封能保存食物，長黴就別吃。", { k: "focus", icon: "rust", label: "防鏽防腐", title: "記住三件事", lines: ["隔絕水和空氣防鏽", "低溫乾燥密封保存", "長黴的食物不能吃"] }, "防鏽與防腐"],
+  ] },
+  sciEco: { title: "生態環境教學", unit: "s18", beats: [
+    ["生態系就是一個地方的生物和環境合在一起，彼此互相影響。", { k: "focus", icon: "eco", label: "森林", title: "什麼是生態系", lines: ["生物＋環境合起來", "彼此互相影響", "森林、池塘都是"] }, "生態系"],
+    ["草被兔子吃、兔子被老鷹吃，這樣吃與被吃的關係叫食物鏈。", { k: "flow", items: [{ icon: "grass", label: "草" }, { icon: "rabbit", label: "兔子" }, { icon: "eagle", label: "老鷹" }], cap: "食物鏈" }, "食物鏈"],
+    ["很多條食物鏈交織在一起，就變成複雜的食物網。", { k: "focus", icon: "eco", label: "食物網", title: "食物網", lines: ["很多食物鏈交織", "一種生物吃很多種", "關係比一條線複雜"] }, "食物網"],
+    ["植物是生產者，動物是消費者，蚯蚓和蕈類是分解者。", { k: "cmp", left: { title: "生產者與消費者", items: [{ icon: "grass", label: "草" }, { icon: "eco", label: "大樹" }, { icon: "rabbit", label: "兔子" }] }, right: { title: "分解者", items: [{ icon: "caterpillar", label: "蚯蚓" }, { icon: "dissolve", label: "蕈類" }, { icon: "🍃", label: "分解落葉" }] }, cap: "生態系裡的角色" }, "生態角色"],
+    ["如果天敵消失或棲地被破壞，生物數量就會失衡，整個生態系受影響。", { k: "focus", icon: "⚠️", label: "失衡", title: "破壞會怎樣", lines: ["天敵消失→數量失衡", "污染破壞棲地", "外來種威脅本地生物"] }, "生態失衡"],
+    ["記住：減量回收、不亂丟垃圾、不隨意放生，保護棲地就是保護我們自己。", { k: "focus", icon: "eco", label: "保護生態", title: "我們可以做", lines: ["減量、回收、不亂丟", "不隨意放生或帶走生物", "保護棲地就是保護自己"] }, "保護生態環境"],
+  ] },
+};
 const GEO_LESSON_TITLES = { areaGrid: "方格數面積教學", angleTypes: "認識角教學", angleDeg: "角度教學", rect: "周長與面積教學", cuboid: "體積教學", capacity: "容積換算教學", triangle: "三角形面積教學", circle: "圓形教學", num10000: "一萬以內的數教學", add4: "四位數加減教學", mul3: "直式乘法進階教學", length: "毫米與長度教學", decimal: "小數初步教學", sciPlant: "植物的身體", sciMagnet: "磁鐵與磁力", sciWater: "千變萬化的水", sciLight: "光與影", sciCircuit: "電路與能源" };
+Object.keys(SCI_LESSON_SCRIPTS).forEach((k) => { GEO_LESSON_TITLES[k] = SCI_LESSON_SCRIPTS[k].title; });
 const GEO_LESSON_UNIT = { areaGrid: "u50", angleTypes: "u51", angleDeg: "u52", rect: "u53", cuboid: "u54", capacity: "u55", triangle: "u56", circle: "u57", num10000: "u58", add4: "u59", mul3: "u60", length: "u61", decimal: "u62", sciPlant: "s1", sciMagnet: "s2", sciWater: "s3", sciLight: "s4", sciCircuit: "s5" };
+Object.keys(SCI_LESSON_SCRIPTS).forEach((k) => { GEO_LESSON_UNIT[k] = SCI_LESSON_SCRIPTS[k].unit; });
 function readSpeechMuted() {
   try { return localStorage.getItem(SPEECH_MUTE_STORE_KEY) === "1"; } catch (_) { return false; }
 }
@@ -3045,11 +3556,32 @@ function saveStudentProfiles(students) {
 }
 const FACES = ["🦊", "🐰", "🐯", "🐼", "🐨", "🦄", "🐸", "🐥", "🦁", "🐧", "🐢", "🦉"];
 const TINTS = ["#ffe6d1", "#ffe0ef", "#fff0cc", "#e8f2ff", "#e6f7ee", "#f1e6ff", "#e6f9e9", "#fff6cc", "#ffeccc", "#dff1ff", "#dff7fa", "#f6e9ff"];
+const REPUTATION_RANKS = [
+  { zh: "冷淡", en: "Unfriendly", at: 0 },
+  { zh: "中立", en: "Neutral", at: 50 },
+  { zh: "友好", en: "Friendly", at: 150 },
+  { zh: "尊敬", en: "Honored", at: 350 },
+  { zh: "崇敬", en: "Revered", at: 700 },
+  { zh: "崇拜", en: "Exalted", at: 1200 },
+];
+function reputationStatus(value) {
+  const points = Math.max(0, Number(value) || 0);
+  let index = 0;
+  REPUTATION_RANKS.forEach((rank, rankIndex) => { if (points >= rank.at) index = rankIndex; });
+  const rank = REPUTATION_RANKS[index], next = REPUTATION_RANKS[index + 1];
+  const pct = next ? Math.round((points - rank.at) / Math.max(1, next.at - rank.at) * 100) : 100;
+  return { points, rank: rank.zh, rankEn: rank.en, pct: Math.max(0, Math.min(100, pct)), next: next ? next.at : rank.at, nextLabel: next ? "距「" + next.zh + "」還差 " + Math.max(0, next.at - points) : "已達最終階級" };
+}
+function nextMilestone(value, step) {
+  const amount = Math.max(0, Number(value) || 0), size = Math.max(1, Number(step) || 1);
+  return Math.max(size, (Math.floor(amount / size) + 1) * size);
+}
 
 function makeProfile() {
   return {
-    xp: 0, coins: 60, stamps: 0, streak: 0, signedDays: [],
-    todayCount: 0, correctTotal: 0, perfect: 0, cleared: [],
+    xp: 0, coins: 60, streak: 0, signedDays: [],
+    todayCount: 0, correctTotal: 0, answeredTotal: 0, perfect: 0, cleared: [],
+    subjectCorrect: { math: 0, chinese: 0, english: 0, science: 0 },
     owned: BASE_OWNED.slice(),
     equipped: Object.assign({}, BASE_EQUIP),
     avatar: "girl", avatarStyle: "atelier", avatarSelected: false,
@@ -3057,7 +3589,37 @@ function makeProfile() {
     dailyMastery: { date: localDateKey(), units: {} },
     masteryHistory: {}, xpLedger: [], rewardedRuns: [], weeklyExam: null,
     gachaOwned: {}, gachaHistory: [], gachaDraws: 0,
+    achievementHistory: [],
   };
+}
+function achievedMilestoneEntries(profile) {
+  const p = profile || {}, level = Math.floor((Number(p.xp) || 0) / 100) + 1;
+  const levelTier = Math.floor(level / 5) * 5;
+  const perfectTier = Math.floor((Number(p.perfect) || 0) / 10) * 10;
+  const questionTier = Math.floor((Number(p.answeredTotal) || Number(p.correctTotal) || 0) / 200) * 200;
+  const signinTier = Math.floor(Math.floor((Number(p.streak) || 0) / 7) / 4) * 4;
+  const subjectCorrect = Object.assign({ math: 0, chinese: 0, english: 0, science: 0 }, p.subjectCorrect || {});
+  const subjectMeta = { math: ["數學", "math.png"], chinese: ["國文", "chinese.png"], english: ["英文", "english.png"], science: ["自然", "science.png"] };
+  const reputationEntries = Object.keys(subjectMeta).map((key) => {
+    const status = reputationStatus(subjectCorrect[key]);
+    if (status.rankEn === "Unfriendly") return null;
+    return { id: "reputation:" + key + ":" + status.rankEn, title: subjectMeta[key][0] + "聲望 · " + status.rank, note: status.rankEn + " 主城聲望", image: "images/achievements/" + subjectMeta[key][1] };
+  }).filter(Boolean);
+  const wardrobeTier = Math.floor((Array.isArray(p.owned) ? p.owned.filter((id) => !/-00$/.test(id)).length : 0) / 20) * 20;
+  const gachaUnique = Object.keys(p.gachaOwned || {}).filter((id) => Number(p.gachaOwned[id] || 0) > 0).length;
+  const gachaTier = Math.floor(gachaUnique / 50) * 50;
+  const allExalted = Object.keys(subjectMeta).every((key) => reputationStatus(subjectCorrect[key]).rankEn === "Exalted");
+  const allRounder = Object.keys(subjectMeta).every((key) => Number(subjectCorrect[key]) >= 150) && wardrobeTier >= 20 && gachaUnique >= 10;
+  return [
+    levelTier ? { id: "level:" + levelTier, title: "達到 Lv." + levelTier, note: "角色等級里程碑", image: "images/achievements/level.png" } : null,
+    perfectTier ? { id: "perfect:" + perfectTier, title: "全對 " + perfectTier + " 次", note: "完整答對挑戰", image: "images/achievements/perfect.png" } : null,
+    questionTier ? { id: "questions:" + questionTier, title: "完成 " + questionTier + " 題", note: "累積完成題目", image: "images/achievements/questions.png" } : null,
+    signinTier ? { id: "signin:" + signinTier, title: "完成 " + signinTier + " 次七日簽到", note: "學習海連續旅程", image: "images/achievements/signin.png" } : null,
+    wardrobeTier ? { id: "wardrobe:" + wardrobeTier, title: "收藏 " + wardrobeTier + " 件造型", note: "角色服裝收藏里程碑", image: "images/achievements/wardrobe.png" } : null,
+    gachaTier ? { id: "gacha:" + gachaTier, title: "解鎖 " + gachaTier + " 款扭蛋", note: "扭蛋圖鑑收藏里程碑", image: "images/achievements/gacha.png" } : null,
+    allExalted ? { id: "mastery:exalted", title: "四科聲望大師", note: "國英數自全部達到崇拜", image: "images/achievements/mastery.png" } : null,
+    allRounder ? { id: "recent:all-rounder", title: "星海全能冒險家", note: "四科、服裝與扭蛋全面成長", image: "images/achievements/recent.png" } : null,
+  ].filter(Boolean).concat(reputationEntries);
 }
 function makeStudents() {
   return ["小宇", "婷婷", "阿凱", "小語", "阿哲", "妍妍", "阿翔", "小恩"].map((name, i) => ({
@@ -3070,6 +3632,13 @@ function makeStudents() {
   }));
 }
 
+const SCI_ICON_EL = (emoji, px) => {
+  if (!emoji || !window.SCI_ART || !window.SCI_ART.hasIcon(emoji)) return emoji || "";
+  return React.createElement("span", {
+    style: { width: px, height: px, display: "block", flex: "0 0 auto" },
+    dangerouslySetInnerHTML: { __html: window.SCI_ART.icon(emoji) },
+  });
+};
 class Component extends DCLogic {
   state = {
     screen: "login",
@@ -3092,7 +3661,6 @@ class Component extends DCLogic {
     junyiBank: [],
     mathGameBank: [],
     memoryDeck: [], memoryFlipped: [], memoryMatched: [], memoryMoves: 0, memoryLocked: false, memoryStatus: "", memoryNote: "",
-    selectedDate: localDateKey(),
     shopCat: "hair", slot: "hair", shopQuery: "", shopOwnedOnly: false,
     shopMessage: "上衣與下身是獨立道具，可自由混搭；髮型與服裝依角色分流，帽子、鞋履與手持道具共用。",
     words: [], customWords: [],
@@ -3118,6 +3686,8 @@ class Component extends DCLogic {
   };
 
   componentDidMount() {
+    this.mmResizeHandler = () => { if (this.state.screen === "mindmap") this.measureMindmap(); };
+    window.addEventListener("resize", this.mmResizeHandler);
     document.body.dataset.nozhuyin = (this.props.showZhuyin ?? true) ? "0" : "1";
     const savedAvatars = readAvatarSelections();
     const savedProfiles = readStudentProfiles();
@@ -3144,6 +3714,9 @@ class Component extends DCLogic {
         profile.gachaOwned = profile.gachaOwned && typeof profile.gachaOwned === "object" ? profile.gachaOwned : {};
         profile.gachaHistory = Array.isArray(profile.gachaHistory) ? profile.gachaHistory : [];
         profile.gachaDraws = Math.max(0, Number(profile.gachaDraws) || 0);
+        profile.answeredTotal = Math.max(Number(profile.correctTotal) || 0, Number(profile.answeredTotal) || 0);
+        profile.subjectCorrect = Object.assign({ math: 0, chinese: 0, english: 0, science: 0 }, profile.subjectCorrect && typeof profile.subjectCorrect === "object" ? profile.subjectCorrect : {});
+        profile.achievementHistory = Array.isArray(profile.achievementHistory) && profile.achievementHistory.length ? profile.achievementHistory : achievedMilestoneEntries(profile).reverse();
         profile.petVisible = profile.petVisible !== false;
         profile.petPosition = profile.petPosition && Number.isFinite(Number(profile.petPosition.x)) && Number.isFinite(Number(profile.petPosition.y))
           ? { x: Math.max(5, Math.min(95, Number(profile.petPosition.x))), y: Math.max(7, Math.min(93, Number(profile.petPosition.y))) }
@@ -3795,9 +4368,15 @@ class Component extends DCLogic {
   prof() { const c = this.cur(); return c ? c.profile : makeProfile(); }
   patch(next) {
     this.setState((s) => {
-      const students = s.students.map((st) => st.id === s.currentId
-        ? Object.assign({}, st, { profile: Object.assign({}, st.profile, typeof next === "function" ? next(st.profile) : next) })
-        : st);
+      const students = s.students.map((st) => {
+        if (st.id !== s.currentId) return st;
+        const delta = typeof next === "function" ? next(st.profile) : next;
+        const profile = Object.assign({}, st.profile, delta || {});
+        const previousIds = new Set(achievedMilestoneEntries(st.profile).map((entry) => entry.id));
+        const newlyReached = achievedMilestoneEntries(profile).filter((entry) => !previousIds.has(entry.id)).map((entry) => Object.assign({ reachedAt: Date.now() }, entry));
+        profile.achievementHistory = newlyReached.concat(Array.isArray(profile.achievementHistory) ? profile.achievementHistory : []).slice(0, 30);
+        return Object.assign({}, st, { profile });
+      });
       saveStudentProfiles(students);
       return { students };
     });
@@ -3967,6 +4546,105 @@ class Component extends DCLogic {
     });
   }
 
+  startVideo(unitId, returnScreen) {
+    const lib = VIDEO_LIB[unitId];
+    if (!lib || !Array.isArray(lib.clips) || !lib.clips.length) return;
+    if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
+    this.setState({
+      screen: "video", videoUnit: unitId, videoTitle: lib.title,
+      videoClips: lib.clips, videoIndex: 0, videoReturn: returnScreen || "map",
+    });
+  }
+  pickVideoClip(index) {
+    this.setState({ videoIndex: index }, () => {
+      if (this.videoRef && this.videoRef.load) this.videoRef.load();
+    });
+  }
+
+  startMindmap(unitId) {
+    const MM_UNIT_GRADE = { s7: 3, s8: 4, s20: 5, s21: 6 };
+    const id = MM_UNIT_GRADE[unitId] ? unitId : "s7";
+    const grade = MM_UNIT_GRADE[id];
+    const pool = MM_TOPICS.filter((t) => t.grade === grade);
+    const profile = this.prof();
+    const round = dailyMasteryRound(profile, id);
+    const prev = this.state.mmTopic ? this.state.mmTopic.id : null;
+    let choices = pool.filter((t) => t.id !== prev);
+    if (!choices.length) choices = pool;
+    const topic = choices[(round + Math.floor(Math.random() * choices.length)) % choices.length];
+    const order = topic.nodes.map((n) => n.id).sort(() => Math.random() - .5);
+    this.setState({
+      screen: "mindmap", unit: id, mmTopic: topic, mmOrder: order, mmLinks: [], mmSelected: null,
+      mmWrong: null, mmMoves: 0, mmStatus: "play", mmNote: topic.hint, mmGeom: {},
+    }, () => {
+      if (!this.state.speechMuted) this.speakText(topic.title);
+      this.mmMeasureTimer = setTimeout(() => this.measureMindmap(), 90);
+      setTimeout(() => this.measureMindmap(), 420);
+    });
+  }
+  measureMindmap() {
+    if (typeof document === "undefined") return;
+    const stage = document.getElementById("mm-stage");
+    if (!stage) return;
+    const r = stage.getBoundingClientRect();
+    const geom = {};
+    stage.querySelectorAll("[data-mm-id]").forEach((el) => {
+      const b = el.getBoundingClientRect();
+      geom[el.getAttribute("data-mm-id")] = {
+        cx: b.left - r.left + b.width / 2, top: b.top - r.top, bottom: b.bottom - r.top,
+      };
+    });
+    this.setState({ mmGeom: geom, mmStageH: r.height, mmStageW: r.width });
+  }
+  selectMindmapNode(nodeId) {
+    const s = this.state;
+    if (s.mmStatus !== "play") return;
+    if (s.mmLinks.some((l) => l.node === nodeId)) return;
+    const same = s.mmSelected === nodeId;
+    this.setState({ mmSelected: same ? null : nodeId, mmWrong: null, mmNote: same ? s.mmTopic.hint : "很好，現在點上面的分支，把線連過去！" });
+  }
+  pickMindmapHub(hubKey) {
+    const s = this.state;
+    if (s.mmStatus !== "play" || !s.mmTopic) return;
+    if (!s.mmSelected) { this.setState({ mmNote: "先點一張下面的卡片，再點分支喔！" }); return; }
+    const node = s.mmTopic.nodes.find((n) => n.id === s.mmSelected);
+    const hub = s.mmTopic.hubs.find((x) => x.key === hubKey);
+    if (!node || !hub) return;
+    if (node.hub !== hubKey) {
+      clearTimeout(this.mmWrongTimer);
+      this.setState({ mmWrong: node.id, mmMoves: s.mmMoves + 1, mmNote: "「" + node.label + "」不是這一邊，再想想看！" });
+      if (!this.state.speechMuted) this.speakText("再想想看");
+      this.mmWrongTimer = setTimeout(() => this.setState({ mmWrong: null }), 700);
+      return;
+    }
+    const mmLinks = s.mmLinks.concat({ node: node.id, hub: hubKey });
+    const complete = mmLinks.length === s.mmTopic.nodes.length;
+    this.setState({
+      mmLinks, mmSelected: null, mmWrong: null, mmMoves: s.mmMoves + 1,
+      mmNote: complete ? "整張心智圖連好了！" : "連對了！" + node.label + " → " + hub.label,
+    }, () => {
+      this.measureMindmap();
+      if (complete) this.finishMindmap(mmLinks);
+      else if (!this.state.speechMuted) this.speakBilingual(node.label + "，" + hub.label, node.en + ", " + hub.en);
+    });
+  }
+  finishMindmap(mmLinks) {
+    const profile = this.prof();
+    const unitId = ["s7", "s8", "s20", "s21"].indexOf(this.state.unit) >= 0 ? this.state.unit : "s7";
+    const topic = this.state.mmTopic;
+    const round = dailyMasteryRound(profile, unitId);
+    const rewardId = "mindmap:" + unitId + ":" + localDateKey() + ":" + (round + 1);
+    const rewarded = round < 3 && profile.rewardedRuns.indexOf(rewardId) < 0;
+    this.patch((p) => {
+      const daily = normalizeDailyMastery(p.dailyMastery);
+      const currentRound = dailyMasteryRound(p, unitId);
+      if (currentRound >= 3 || p.rewardedRuns.indexOf(rewardId) >= 0) return {};
+      daily.units[unitId] = currentRound + 1;
+      return { dailyMastery: daily, coins: p.coins + 5, xp: p.xp + 5, correctTotal: p.correctTotal + (topic ? topic.nodes.length : 6), rewardedRuns: p.rewardedRuns.concat(rewardId).slice(-300), xpLedger: [{ id: rewardId, date: localDateKey(), amount: 5, source: "概念連連看", detail: topic ? topic.title : "" }].concat(p.xpLedger).slice(0, 500) };
+    });
+    this.setState({ mmLinks, mmStatus: "done", mmSelected: null, mmNote: rewarded ? "全部連對！獲得 5 顆星幣。" : "全部連對！今天的本單元獎勵已完成。" });
+    if (!this.state.speechMuted) this.speakText("全部連對，好厲害");
+  }
   startMemory(unitId) {
     const id = unitId || "u38";
     clearTimeout(this.memoryPreviewTimer);
@@ -3975,23 +4653,23 @@ class Component extends DCLogic {
     let deck;
     if (id === "s6") {
       const pool = [
-        { key: "evap", term: "蒸發", emoji: "💨", cue: "水變水蒸氣" },
-        { key: "freeze", term: "結冰", emoji: "🧊", cue: "水變固態" },
-        { key: "melt", term: "融化", emoji: "☀️", cue: "冰變成水" },
-        { key: "magnet", term: "磁鐵", emoji: "🧲", cue: "會吸鐵" },
-        { key: "compass", term: "指北針", emoji: "🧭", cue: "磁針指方向" },
-        { key: "root", term: "根", emoji: "🥕", cue: "吸收水分" },
-        { key: "leaf", term: "葉", emoji: "🍃", cue: "光合作用" },
-        { key: "seed", term: "種子", emoji: "🌱", cue: "發芽長大" },
-        { key: "source", term: "光源", emoji: "💡", cue: "自己會發光" },
-        { key: "shadow", term: "影子", emoji: "⬛", cue: "光被擋住" },
-        { key: "circuit", term: "通路", emoji: "🔋", cue: "燈泡會亮" },
-        { key: "insulator", term: "絕緣體", emoji: "📏", cue: "電流通不過" },
+        { key: "evap", term: "蒸發", en: "Evaporation", emoji: "💨", cue: "水變水蒸氣", cueEn: "Water turns to vapor" },
+        { key: "freeze", term: "結冰", en: "Freezing", emoji: "🧊", cue: "水變固態", cueEn: "Water turns solid" },
+        { key: "melt", term: "融化", en: "Melting", emoji: "☀️", cue: "冰變成水", cueEn: "Ice turns to water" },
+        { key: "magnet", term: "磁鐵", en: "Magnet", emoji: "🧲", cue: "會吸鐵", cueEn: "It attracts iron" },
+        { key: "compass", term: "指北針", en: "Compass", emoji: "🧭", cue: "磁針指方向", cueEn: "The needle shows direction" },
+        { key: "root", term: "根", en: "Root", emoji: "🥕", cue: "吸收水分", cueEn: "It absorbs water" },
+        { key: "leaf", term: "葉", en: "Leaf", emoji: "🍃", cue: "光合作用", cueEn: "Photosynthesis" },
+        { key: "seed", term: "種子", en: "Seed", emoji: "🌱", cue: "發芽長大", cueEn: "It sprouts and grows" },
+        { key: "source", term: "光源", en: "Light source", emoji: "💡", cue: "自己會發光", cueEn: "It gives off light" },
+        { key: "shadow", term: "影子", en: "Shadow", emoji: "⬛", cue: "光被擋住", cueEn: "Light is blocked" },
+        { key: "circuit", term: "通路", en: "Closed circuit", emoji: "🔋", cue: "燈泡會亮", cueEn: "The bulb lights up" },
+        { key: "insulator", term: "絕緣體", en: "Insulator", emoji: "📏", cue: "電流通不過", cueEn: "Electricity cannot pass" },
       ];
       const chosen = shuffle(pool).slice(0, 6);
       deck = shuffle(chosen.flatMap((p) => [
-        { id: "term-" + p.key, type: "term", value: p.key, kind: "sci", label: p.term },
-        { id: "pic-" + p.key, type: "pic", value: p.key, kind: "sci", label: p.cue, emoji: p.emoji },
+        { id: "term-" + p.key, type: "term", value: p.key, kind: "sci", label: p.term, en: p.en },
+        { id: "pic-" + p.key, type: "pic", value: p.key, kind: "sci", label: p.cue, en: p.cueEn, emoji: p.emoji },
       ]));
     } else {
       const mascots = [
@@ -4876,7 +5554,117 @@ class Component extends DCLogic {
     const NONLIGHTS = [["月亮", "🌙"], ["鏡子", "🪞"], ["白紙", "📄"], ["湯匙", "🥄"]];
     const CONDUCT = [["鐵釘", "🔩"], ["銅線", "🧵"], ["鑰匙", "🔑"], ["硬幣", "🪙"]];
     const NONCONDUCT = [["塑膠尺", "📏"], ["橡皮擦", "🧽"], ["木筷", "🥢"], ["紙張", "📄"]];
+    const BANKS = {
+      s9: [
+        ["把砂糖放進水裡攪拌，砂糖會？", "溶解在水裡看不見了", ["浮在水面不動", "變成石頭", "跑到杯子外面"], "糖會溶解在水中，變成看不見的糖水，這叫「溶解」。", ["dissolve"]],
+        ["下面哪一個「溶不了」在水裡？", "沙子", ["食鹽", "砂糖", "果汁粉"], "沙子不會溶解，會沉到杯底；鹽、糖、果汁粉都溶得了。", ["dissolve", "❌"]],
+        ["想讓糖溶得更快，可以怎麼做？", "用溫水並且攪拌", ["放進冰箱不要動", "蓋起來等三天", "把糖壓在杯底"], "溫度越高、有攪拌、顆粒越小，溶解就越快。", ["thermo", "dissolve"]],
+        ["糖水放久了，糖會沉下來嗎？", "不會，已經均勻溶在水中", ["會，全部沉到底", "會變成冰塊", "會浮到水面"], "溶解後的糖均勻分布在水裡，不會自己沉下來。", ["dissolve"]],
+        ["一杯水能溶解的糖是無限多嗎？", "不是，超過會沉在杯底", ["是，可以一直加", "會變成汽水", "會結冰"], "水能溶解的量有限，超過就溶不下，多的會沉在底部。", ["dissolve", "⚠️"]],
+        ["攪拌會讓溶解變快，是因為？", "讓糖和水更快混合接觸", ["把糖變小顆", "讓水變多", "讓杯子變熱"], "攪拌讓糖分子更快散開接觸水，所以溶得比較快。", ["dissolve"]],
+      ],
+      s10: [
+        ["把杯口朝下壓進水裡，水為什麼進不去？", "因為杯子裡有空氣佔住空間", ["因為水太重", "因為杯子破了", "因為水討厭杯子"], "空氣看不見卻會佔空間，把水擋在外面。", ["wind", "🥤"]],
+        ["風是怎麼形成的？", "空氣從冷的地方流向熱的地方", ["樹自己搖出來的", "雲吹出來的", "太陽在呼吸"], "空氣受熱上升、冷空氣補進來流動，就形成風。", ["wind", "☀️"]],
+        ["下面哪一個可以證明「風有力量」？", "風把風箏吹上天", ["水在杯子裡不動", "石頭放在地上", "燈泡會亮"], "風能推動帆船、風箏、風車，代表流動的空氣有力量。", ["wind", "⬆️"]],
+        ["吹脹的氣球放手後會飛走，是因為？", "空氣噴出去推著氣球跑", ["氣球會走路", "空氣變輕了", "氣球有電"], "空氣往後噴出，反作用把氣球往前推。", ["wind"]],
+        ["空氣有重量嗎？", "有，只是很輕", ["完全沒有重量", "比石頭還重", "只有冬天有"], "空氣也有重量，我們感覺不到是因為很輕。", ["wind", "⬆️"]],
+        ["風速越大，代表？", "空氣流動得越快", ["空氣變成水", "溫度一定變高", "沒有空氣了"], "風速就是空氣流動的快慢。", ["wind"]],
+      ],
+      s11: [
+        ["太陽和北極星都會自己發光，它們是？", "恆星", ["行星", "衛星", "彗星"], "自己會發光的星星叫恆星，太陽也是一顆恆星。", ["stars", "☀️"]],
+        ["月亮繞著地球轉，所以月亮是地球的？", "衛星", ["恆星", "行星", "太陽"], "繞著行星轉的天體叫衛星，月亮是地球的衛星。", ["🌙", "earth"]],
+        ["晚上找方向，可以看哪一顆星？", "北極星", ["月亮", "金星", "流星"], "北極星幾乎固定在北方天空，可以幫我們找方向。", ["stars", "🧭"]],
+        ["星星看起來會東升西落，是因為？", "地球在自轉", ["星星在散步", "月亮推它們", "地球停住了"], "地球自轉讓我們看到星星每天東升西落。", ["earth", "stars"]],
+        ["同一個星座在不同季節的位置會？", "隨季節改變", ["永遠一樣", "消失不見", "變成月亮"], "地球繞太陽公轉，所以不同季節看到的星空不一樣。", ["stars", "earth"]],
+        ["行星和恆星最大的不同是？", "行星不會自己發光", ["行星比較亮", "行星會爆炸", "行星是熱的"], "行星靠反射恆星的光，本身不會發光。", ["stars"]],
+      ],
+      s12: [
+        ["在粗糙的地面推箱子比較費力，是因為？", "摩擦力比較大", ["重力消失了", "箱子變重了", "空氣不夠"], "表面越粗糙摩擦力越大，推起來越費力。", ["force", "🪵"]],
+        ["蘋果會往下掉，是因為地球有？", "重力", ["磁力", "電力", "風力"], "地球的重力把物體往地心方向拉。", ["🍎", "force"]],
+        ["溜滑梯抹上潤滑油，會？", "摩擦力變小、滑得更快", ["摩擦力變大", "重力消失", "完全不會動"], "潤滑可以減少摩擦力，所以滑得更順。", ["force"]],
+        ["用力推靜止的球，球會？", "改變運動狀態開始移動", ["永遠不動", "變小", "自己回來"], "力可以讓物體開始動、停下來或改變方向。", ["force"]],
+        ["腳踏車煞車讓車停下來，靠的是？", "煞車皮和輪圈的摩擦力", ["磁力", "重力", "風力"], "煞車利用摩擦力把運動的能量消耗掉。", ["force", "🎚️"]],
+        ["同樣的力推重的和輕的物體，哪一個比較容易動？", "輕的物體", ["重的物體", "兩個一樣", "都不會動"], "質量越小，同樣的力造成的改變越大。", ["force"]],
+      ],
+      s13: [
+        ["鐵湯匙放進熱湯，柄很快變熱，這是熱的？", "傳導", ["對流", "輻射", "反射"], "熱從高溫處沿著物體傳到低溫處，叫做傳導。", ["thermo", "🥄"]],
+        ["下面哪一個是導熱慢的材料（隔熱好）？", "木頭", ["鐵", "銅", "鋁"], "木頭、塑膠、布導熱慢，常用來做隔熱的把手。", ["🪵", "thermo"]],
+        ["鐵軌之間留縫隙，是為了？", "讓鐵軌熱脹冷縮有空間", ["讓火車比較好停", "省鋼鐵", "讓雨水流走"], "物體受熱會膨脹、遇冷會收縮，要預留空間。", ["thermo", "🔩"]],
+        ["溫度計裡的液體受熱會？", "膨脹往上升", ["收縮往下降", "變成固體", "消失"], "受熱膨脹體積變大，液柱就往上升。", ["thermo"]],
+        ["熱水和冷水混在一起，最後會？", "溫度變成中間的溫度", ["熱水更熱", "冷水結冰", "都不變"], "熱會從高溫傳到低溫，直到溫度一樣。", ["thermo", "💧"]],
+        ["拿鍋子要用布或隔熱墊，是因為？", "布導熱慢，可以保護手", ["布比較好看", "布會吸熱變冷", "習慣而已"], "隔熱材料導熱慢，避免燙傷。", ["👕", "thermo"]],
+      ],
+      s14: [
+        ["蹺蹺板是哪一種簡單機械？", "槓桿", ["滑輪", "斜面", "齒輪"], "有支點、能省力或改變方向的棒子就是槓桿。", ["lever"]],
+        ["升旗時繩子繞過上面的輪子，用到？", "滑輪", ["槓桿", "斜面", "螺絲"], "滑輪可以改變施力方向，讓我們往下拉就能升旗。", ["lever", "➰"]],
+        ["把重物推上斜坡比垂直搬起來？", "比較省力，但要走比較長", ["比較費力", "完全一樣", "不可能做到"], "斜面省力但移動距離變長，總功不變。", ["mountain", "force"]],
+        ["剪刀能輕鬆剪紙，是因為它是？", "兩個槓桿組合", ["兩個滑輪", "斜面", "彈簧"], "剪刀是兩根槓桿，支點在中間的螺絲。", ["✂️", "lever"]],
+        ["螺絲的螺旋紋其實是？", "繞起來的斜面", ["槓桿", "滑輪", "輪軸"], "螺旋就是纏在圓柱上的斜面，能省力鎖緊。", ["🔩", "mountain"]],
+        ["用簡單機械可以？", "省力或改變施力方向", ["讓功變不見", "無限增加能量", "讓重量消失"], "簡單機械省力或換方向，但不會製造能量。", ["lever"]],
+      ],
+      s15: [
+        ["河流長期沖刷會把河谷？", "越切越深、變成峽谷", ["填成平地", "變成沙漠", "完全不變"], "流水的侵蝕作用會把河谷切深、切寬。", ["mountain", "🌊"]],
+        ["河水帶來的泥沙堆在河口，形成？", "三角洲", ["火山", "沙丘", "峽谷"], "水流變慢時泥沙沉積，在河口堆成三角洲。", ["🌊", "mountain"]],
+        ["海邊的沙丘主要是誰堆出來的？", "風", ["地震", "火山", "雨"], "風把沙粒搬運堆積，形成沙丘。", ["wind", "mountain"]],
+        ["地震會讓地表？", "斷層錯動、地面裂開隆起", ["變得完全平坦", "消失不見", "變成水"], "地震是地球內部作用，會讓地層錯動。", ["force", "mountain"]],
+        ["火山噴發帶出來的是？", "岩漿、火山灰和氣體", ["雨水", "沙子和貝殼", "冰塊"], "岩漿冷卻成岩石，火山灰會覆蓋地表。", ["⚠️", "mountain"]],
+        ["岩石被日夜溫差和水凍裂，這叫？", "風化作用", ["公轉", "溶解", "傳導"], "風化把大岩石慢慢變成碎屑和土壤。", ["mountain", "thermo"]],
+      ],
+      s16: [
+        ["天空出現厚厚暗雲、溼度變高，可能要？", "下雨", ["出大太陽", "下雪一整年", "起大火"], "水氣多、雲層厚時容易形成降雨。", ["weather", "💧"]],
+        ["冷氣團南下會讓天氣？", "變冷", ["變熱", "完全不變", "變成夏天"], "冷氣團帶來低溫，暖氣團帶來高溫潮濕。", ["weather", "❄️"]],
+        ["衛星雲圖上出現大螺旋雲系，最可能是？", "颱風", ["彩虹", "沙塵", "月亮"], "颱風在雲圖上是明顯的螺旋雲系，帶來強風豪雨。", ["wind", "⚠️"]],
+        ["颱風來之前要做什麼？", "收好陽台雜物、準備飲水", ["去海邊看浪", "爬山賞景", "把窗戶打開"], "颱風有強風豪雨，要提前防颱並注意警報。", ["⚠️", "weather"]],
+        ["氣象報告的「氣溫」是量什麼？", "空氣的溫度", ["水的溫度", "太陽的溫度", "土的溫度"], "氣溫是量空氣的溫度，用溫度計測量。", ["thermo", "weather"]],
+        ["同一天山上通常比平地？", "溫度較低", ["溫度較高", "完全一樣", "沒有空氣"], "海拔越高氣溫通常越低。", ["mountain", "thermo"]],
+      ],
+      s17: [
+        ["鐵生鏽需要哪兩個條件？", "水（潮濕）和空氣中的氧", ["陽光和聲音", "冰塊和鹽", "電和磁"], "鐵和水、氧氣作用就會生鏽，保持乾燥可以防鏽。", ["rust", "💧"]],
+        ["下面哪個做法可以防止鐵欄杆生鏽？", "上油漆或塗油", ["常常淋水", "泡在海水裡", "埋進濕土裡"], "隔絕水和空氣就能防鏽，例如上漆、鍍鋅、塗油。", ["rust", "✅"]],
+        ["食物放冰箱比較不容易壞，因為？", "低溫讓細菌長得慢", ["細菌怕黑", "冰箱有魔法", "食物會變新"], "低溫抑制微生物生長，所以保存得久一些。", ["🧊", "🍎"]],
+        ["曬乾、醃鹽可以保存食物，是因為？", "減少水分讓細菌不易生長", ["讓食物變甜", "把細菌嚇跑", "增加水分"], "細菌需要水，脫水或高鹽會抑制它們。", ["☀️", "🍎"]],
+        ["不鏽鋼比較不容易生鏽，是因為？", "表面有保護層隔絕水和氧", ["它不是金屬", "它很輕", "它會發光"], "合金表面形成緻密氧化層，保護裡面的金屬。", ["rust", "🔩"]],
+        ["發現食物長黴了應該？", "整份丟掉不要吃", ["切掉一角繼續吃", "加熱後照吃", "冰起來明天吃"], "黴菌會產生毒素，長黴的食物不能吃。", ["⚠️", "🍎"]],
+      ],
+      s19: [
+        ["月亮自己會發光嗎？", "不會，是反射太陽的光", ["會，自己發光", "是月亮自己在燃燒", "靠地球發電"], "月亮本身不會發光，我們看到的月光是反射太陽的光。", ["🌙", "☀️"]],
+        ["農曆十五前後，我們看到圓圓的月亮，這是？", "滿月", ["新月", "弦月", "月食"], "月亮被太陽照到的一面全部朝向地球時，看起來圓圓的，叫滿月。", ["🌙"]],
+        ["幾乎完全看不見月亮的那一天，叫做？", "新月", ["滿月", "弦月", "超級月亮"], "月亮被照到的一面背對地球時，我們幾乎看不到月亮，叫新月。", ["🌙", "🌑"]],
+        ["月亮的形狀為什麼會一直改變？", "月亮繞地球轉，被太陽照到的角度不同", ["月亮真的會變形", "雲把月亮遮住了", "月亮會自己開燈關燈"], "月亮繞地球公轉時，我們從地球看到被太陽照亮的部分不同，就形成不同月相。", ["🌙", "earth"]],
+        ["月相從新月變到滿月，再變回新月，大約要多久？", "約一個月", ["一天", "一年", "一小時"], "月亮繞地球一圈大約 29.5 天，月相會跟著完整變化一輪。", ["🌙"]],
+        ["月亮的形狀每天都一樣嗎？", "不一樣，會慢慢變化", ["一樣，永遠是圓的", "只有滿月才存在", "只在下雨天才改變"], "月相每天都在慢慢變化，從新月漸漸變圓，再漸漸變小。", ["🌙"]],
+      ],
+      s22: [
+        ["地球自轉一圈大約要多久？", "一天（24 小時）", ["一小時", "一年", "一星期"], "地球自轉一圈大約 24 小時，就是一天。", ["earth", "day"]],
+        ["因為地球自轉，我們才會看到？", "白天和黑夜交替出現", ["永遠是白天", "永遠是黑夜", "春夏秋冬"], "地球一直在自轉，面向太陽的地方是白天，背對的地方是黑夜。", ["day", "night"]],
+        ["地球繞著誰公轉？", "太陽", ["月亮", "地軸", "銀河"], "地球一邊自轉，一邊繞著太陽公轉。", ["earth", "☀️"]],
+        ["地球公轉一圈大約要多久？", "一年", ["一天", "一星期", "一個月"], "地球繞太陽公轉一圈大約 365 天，就是一年。", ["earth"]],
+        ["台灣夏天比較熱，主要是因為那段時間？", "這一面陽光照射比較直、比較強", ["離太陽距離變近了", "地球轉得比較快", "太陽突然變大"], "地軸傾斜，讓不同季節時陽光照射的角度不同，角度越直、越熱。", ["☀️", "earth"]],
+        ["四季正確的順序是？", "春 → 夏 → 秋 → 冬", ["冬 → 夏 → 春 → 秋", "夏 → 春 → 冬 → 秋", "沒有固定順序"], "地球公轉時陽光角度規律改變，四季按春夏秋冬的順序循環。", ["🌸", "☀️", "🍂", "❄️"]],
+      ],
+      s23: [
+        ["蠟燭燃燒的時候，需要空氣中的什麼氣體？", "氧氣", ["二氧化碳", "氮氣", "氫氣"], "燃燒需要氧氣才能持續，這也是燃燒三要素之一。", ["🕯️", "💨"]],
+        ["用玻璃杯把點燃的蠟燭整個蓋住，會發生什麼事？", "蠟燭慢慢熄滅", ["燒得更旺", "變成水", "飛起來"], "杯子裡的氧氣被用完後，火就沒辦法繼續燃燒，會慢慢熄滅。", ["🕯️", "⚠️"]],
+        ["蓋住杯子後蠟燭熄滅，主要是因為？", "杯子裡的氧氣用完了", ["蠟燭沒有蠟油了", "杯子太重了", "杯子把光吸走了"], "杯子擋住外面的空氣補進來，裡面的氧氣用完後火就熄滅了。", ["🕯️", "💨"]],
+        ["東西燃燒之後，會產生什麼？", "二氧化碳和水氣等", ["讓氧氣變得更多", "變成金子", "什麼都不會產生"], "燃燒是氧氣和物質反應，會產生二氧化碳、水氣等新物質。", ["🕯️"]],
+        ["滅火時常用棉被或沙子蓋住火焰，原理是？", "隔絕氧氣讓火熄滅", ["讓火更亮更旺", "幫火保暖", "把火染成別的顏色"], "蓋住火焰能阻止氧氣補充，沒有氧氣燃燒就會停止。", ["🕯️", "⚠️"]],
+        ["下面哪種情況，火通常燒得比較旺？", "空氣流通、氧氣充足的地方", ["完全密閉的箱子裡", "水裡面", "抽成真空的袋子裡"], "氧氣越充足，燃燒越旺；缺氧的地方火燒不起來或很快熄滅。", ["🕯️", "💨"]],
+      ],
+      s18: [
+        ["在生態系中會自己製造養分的是？", "生產者（植物）", ["消費者", "分解者", "石頭"], "植物行光合作用自己製造養分，是生產者。", ["grass", "eco"]],
+        ["蚯蚓和細菌把落葉分解，牠們是？", "分解者", ["生產者", "初級消費者", "高級消費者"], "分解者把遺體殘骸分解，讓養分回到土裡。", ["caterpillar", "eco"]],
+        ["草→兔子→老鷹，這樣的關係叫？", "食物鏈", ["食物盤", "生態瓶", "水循環"], "生物間吃與被吃的關係連起來就是食物鏈。", ["grass", "rabbit", "eagle"]],
+        ["如果森林裡的老鷹突然消失，兔子會？", "先變多，草可能被吃光", ["立刻消失", "變成老鷹", "完全不受影響"], "少了天敵，被捕食者會增加，可能破壞生態平衡。", ["rabbit", "grass"]],
+        ["垃圾隨手丟進河裡，會？", "污染水質、危害水中生物", ["讓魚長更大", "讓水更乾淨", "沒有影響"], "污染會破壞棲地，傷害整個生態系。", ["🌊", "⚠️"]],
+        ["保護生態環境可以怎麼做？", "減量、回收、不破壞棲地", ["多用一次性用品", "抓野生動物回家", "把樹全部砍掉"], "減少污染、資源回收、保護棲地都能保護生態。", ["eco", "✅"]],
+      ],
+    };
     const gen = () => {
+      if (BANKS[unitId]) {
+        const t = pick(BANKS[unitId]);
+        return mk(t[0], t[1], t[2], t[3], t[4]);
+      }
       if (unitId === "s1") {
         const parts = [
           ["根", "吸收土裡的水分和養分", "🥕"],
@@ -5101,6 +5889,7 @@ class Component extends DCLogic {
     const englishUnit = EN_UNITS.find((unit) => unit.id === id);
     if (englishUnit) { this.startEnglishUnit(englishUnit); return; }
     if (id === "u38" || id === "s6") { this.startMemory(id); return; }
+    if (["s7", "s8", "s20", "s21"].indexOf(id) >= 0) { this.startMindmap(id); return; }
     if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
     const round = dailyMasteryRound(this.prof(), id);
@@ -5285,6 +6074,19 @@ class Component extends DCLogic {
     this.setState({ screen: "map", geoLesson: null });
   }
 
+  pickSciOption(index) {
+    const s = this.state;
+    if (s.locked) return;
+    const q = s.qs[s.qi];
+    if (!q) return;
+    this.setState({ sciChoice: index });
+    if (!s.speechMuted) this.speakText(String(q.opts[index]));
+  }
+  confirmSciAnswer() {
+    const idx = this.state.sciChoice;
+    if (idx === null || idx === undefined || this.state.locked) return;
+    this.pick(idx);
+  }
   pick(index) {
     if (this.state.locked) return;
     const q = this.state.qs[this.state.qi];
@@ -5334,6 +6136,7 @@ class Component extends DCLogic {
 
   next() {
     clearTimeout(this.autoNextTimer);
+    this.setState({ sciChoice: null });
     const s = this.state;
     if (s.qi + 1 < s.qs.length) {
       const nextQuestion = s.qs[s.qi + 1];
@@ -5352,12 +6155,17 @@ class Component extends DCLogic {
     this.patch((p) => {
       if (p.rewardedRuns.indexOf(rewardId) >= 0) return {};
       const daily = normalizeDailyMastery(p.dailyMastery);
+      const reputationKey = ["math", "chinese", "english", "science"].indexOf(s.quizSubject) >= 0 ? s.quizSubject : (["math", "chinese", "english", "science"].indexOf(s.subject) >= 0 ? s.subject : "math");
+      const subjectCorrect = Object.assign({ math: 0, chinese: 0, english: 0, science: 0 }, p.subjectCorrect || {});
+      subjectCorrect[reputationKey] = Math.max(0, Number(subjectCorrect[reputationKey]) || 0) + s.correct;
       if (all) daily.units[s.unit] = completedRound;
       const masteryHistory = Object.assign({}, p.masteryHistory);
       if (all && completedRound >= 3) masteryHistory[localDateKey()] = Array.from(new Set((masteryHistory[localDateKey()] || []).concat(s.unit)));
       return {
         coins: p.coins + coins, xp: p.xp + xp,
         correctTotal: p.correctTotal + s.correct,
+        answeredTotal: Math.max(Number(p.answeredTotal) || 0, Number(p.correctTotal) || 0) + s.qs.length,
+        subjectCorrect,
         perfect: p.perfect + (all ? 1 : 0),
         todayCount: Math.min(10, p.todayCount + s.qs.length),
         cleared: all && p.cleared.indexOf(s.unit) < 0 ? p.cleared.concat(s.unit) : p.cleared,
@@ -5375,10 +6183,12 @@ class Component extends DCLogic {
 
   signToday() {
     const p = this.prof();
-    if (p.signedDays.indexOf(TODAY) >= 0) return;
-    const bonus = 5 * Math.min(4, p.streak + 1);
-    this.patch({ signedDays: p.signedDays.concat(TODAY), streak: p.streak + 1, coins: p.coins + bonus, stamps: p.stamps + 1 });
-    this.addLog("🏅", "#ffeef6", "每日登入簽到", "+" + bonus + " ⭐", "#ff7ab8");
+    if (hasSignedToday(p)) return;
+    const stage = Math.min(8, p.streak + 1);
+    const bonus = stage === 8 ? 40 : 5 * Math.min(4, stage);
+    const retainedDays = (Array.isArray(p.signedDays) ? p.signedDays : []).filter((day) => typeof day === "string");
+    this.patch({ signedDays: retainedDays.concat(localDateKey()), streak: p.streak + 1, coins: p.coins + bonus });
+    this.addLog("🗺️", "#fff6e0", "學習海簽到 · 第 " + stage + " 站", "+" + bonus + " ⭐", "#ffb020");
     this.flash("簽到成功！獲得 " + bonus + " 顆星星幣 ⭐");
   }
 
@@ -5505,6 +6315,21 @@ class Component extends DCLogic {
     this.flash("已新增字彙「" + ch + "」");
   }
 
+  speakBilingual(zh, en) {
+    if (typeof speechSynthesis === "undefined") return;
+    speechSynthesis.cancel();
+    const sayEn = () => {
+      if (!en) return;
+      const u2 = new SpeechSynthesisUtterance(en);
+      u2.lang = "en-US"; u2.rate = 0.85;
+      speechSynthesis.speak(u2);
+    };
+    if (!zh) { sayEn(); return; }
+    const u = new SpeechSynthesisUtterance(zh);
+    u.lang = "zh-TW"; u.rate = 0.8;
+    u.onend = sayEn; u.onerror = sayEn;
+    speechSynthesis.speak(u);
+  }
   speakText(text, onDone) {
     if (!text || typeof speechSynthesis === "undefined") { if (onDone) setTimeout(onDone, 900); return; }
     const u = new SpeechSynthesisUtterance(String(text).replace(/＋/g, "加").replace(/－/g, "減").replace(/×/g, "乘以").replace(/÷/g, "除以").replace(/＝/g, "等於"));
@@ -5977,6 +6802,54 @@ class Component extends DCLogic {
     }).filter((entry) => entry.total);
     const rarityColors = { "普通": "#22aebc", "稀有": "#7c5cff", "傳說": "#d75c93", "限定": "#e08a13" };
 
+    const achievementImageRoot = "images/achievements/";
+    const subjectCorrect = Object.assign({ math: 0, chinese: 0, english: 0, science: 0 }, p.subjectCorrect || {});
+    const reputationSubjects = [
+      { key: "math", name: "數學", image: "math.png" },
+      { key: "chinese", name: "國文", image: "chinese.png" },
+      { key: "english", name: "英文", image: "english.png" },
+      { key: "science", name: "自然", image: "science.png" },
+    ].map((entry) => Object.assign({}, entry, reputationStatus(subjectCorrect[entry.key]), { image: achievementImageRoot + entry.image }));
+    const collectionCategories = new Set(["set", "hair", "top", "bottom", "shoes", "accessory", "neck", "hand", "pet", "background"]);
+    const collectibleCatalog = compatibleCatalog.filter((item) => collectionCategories.has(item.category) && item.audience !== "system" && !/-00$/.test(item.id));
+    const ownedCollectibles = collectibleCatalog.filter((item) => p.owned.indexOf(item.id) >= 0).length;
+    const clothingPct = collectibleCatalog.length ? Math.round(ownedCollectibles / collectibleCatalog.length * 100) : 0;
+    const gachaCollectionPct = gachaItems.length ? Math.round(gachaOwnedUnique / gachaItems.length * 100) : 0;
+    const answeredTotal = Math.max(Number(p.answeredTotal) || 0, Number(p.correctTotal) || 0);
+    const sevenDayRuns = Math.floor((Number(p.streak) || 0) / 7);
+    const achievementCards = [
+      { key: "level", title: "冒險等級 Lv." + nextMilestone(level, 5), note: "每提升 5 等更新一次", cur: level, goal: nextMilestone(level, 5), image: "level.png" },
+      { key: "perfect", title: "全對 " + nextMilestone(p.perfect, 10) + " 次", note: "每 10 次完整答對更新", cur: Number(p.perfect) || 0, goal: nextMilestone(p.perfect, 10), image: "perfect.png" },
+      { key: "questions", title: "完成 " + nextMilestone(answeredTotal, 200) + " 題", note: "每完成 200 題更新", cur: answeredTotal, goal: nextMilestone(answeredTotal, 200), image: "questions.png" },
+      { key: "signin", title: "四次七日遠征", note: "連續登入 7 天，每 4 次更新", cur: sevenDayRuns % 4, goal: 4, image: "signin.png", progress: sevenDayRuns + " 次七日旅程" },
+    ].map((entry) => {
+      const done = entry.cur > 0 && entry.cur >= entry.goal;
+      const pct = Math.min(100, Math.round(entry.cur / Math.max(1, entry.goal) * 100));
+      return Object.assign({}, entry, { image: achievementImageRoot + entry.image, pct, width: pct + "%", progress: entry.progress || Math.min(entry.cur, entry.goal) + " / " + entry.goal, state: done ? "已達成" : "進行中", cardClass: done ? "achievement-card is-done" : "achievement-card", stateClass: done ? "achievement-state-done" : "" });
+    });
+    const storedAchievementHistory = Array.isArray(p.achievementHistory) ? p.achievementHistory : [];
+    const achievementHistory = (storedAchievementHistory.length ? storedAchievementHistory : achievedMilestoneEntries(p).reverse()).slice(0, 3);
+    const recentPlaceholders = achievementCards.slice(0, 3).map((entry) => ({ title: "下一目標 · " + entry.title, note: entry.note, image: entry.image }));
+    const recentAchievements = achievementHistory.concat(recentPlaceholders).slice(0, 3);
+    const rankStage = (status) => Math.max(0, REPUTATION_RANKS.findIndex((rank) => rank.en === status.rankEn));
+    const allExalted = reputationSubjects.every((rep) => rep.rankEn === "Exalted");
+    const allRounder = reputationSubjects.every((rep) => rep.points >= 150) && ownedCollectibles >= 20 && gachaOwnedUnique >= 10;
+    const achievementBadgeOverview = [
+      { title: "冒險等級", note: "每 5 等更新一次", image: "level.png", earned: level >= 5, status: "目前 Lv." + level },
+      { title: "全對大師", note: "每 10 次全對更新一次", image: "perfect.png", earned: Number(p.perfect) >= 10, status: (Number(p.perfect) || 0) + " 次全對" },
+      { title: "題海征服者", note: "每完成 200 題更新一次", image: "questions.png", earned: answeredTotal >= 200, status: answeredTotal + " 題" },
+      { title: "七日遠征", note: "每完成 4 次七日簽到更新", image: "signin.png", earned: sevenDayRuns >= 4, status: sevenDayRuns + " 次七日旅程" },
+      { title: "數學主城聲望", note: "答對數學題提升聲望", image: "math.png", earned: reputationSubjects[0].rankEn !== "Unfriendly", status: reputationSubjects[0].rank },
+      { title: "國文主城聲望", note: "答對國文題提升聲望", image: "chinese.png", earned: reputationSubjects[1].rankEn !== "Unfriendly", status: reputationSubjects[1].rank },
+      { title: "英文主城聲望", note: "答對英文題提升聲望", image: "english.png", earned: reputationSubjects[2].rankEn !== "Unfriendly", status: reputationSubjects[2].rank },
+      { title: "自然主城聲望", note: "答對自然題提升聲望", image: "science.png", earned: reputationSubjects[3].rankEn !== "Unfriendly", status: reputationSubjects[3].rank },
+      { title: "造型收藏家", note: "收藏角色服裝與配件", image: "wardrobe.png", earned: ownedCollectibles >= 20, status: ownedCollectibles + " 件" },
+      { title: "扭蛋圖鑑家", note: "解鎖不同款式的扭蛋收藏", image: "gacha.png", earned: gachaOwnedUnique >= 50, status: gachaOwnedUnique + " 款" },
+      { title: "四科聲望大師", note: "四科聲望全部達到崇拜", image: "mastery.png", earned: allExalted, status: allExalted ? "已達成" : "最高聲望 " + Math.max.apply(null, reputationSubjects.map(rankStage)) + " / 5" },
+      { title: "星海全能冒險家", note: "四科友好、服裝 20 件、扭蛋 10 款", image: "recent.png", earned: allRounder, status: allRounder ? "已達成" : "持續冒險中" },
+    ].map((badge) => Object.assign({}, badge, { image: achievementImageRoot + badge.image, className: badge.earned ? "achievement-badge-item is-earned" : "achievement-badge-item" }));
+    const achievedCount = Math.floor(level / 5) + Math.floor((Number(p.perfect) || 0) / 10) + Math.floor(answeredTotal / 200) + Math.floor(sevenDayRuns / 4) + reputationSubjects.reduce((sum, rep) => sum + rankStage(rep), 0) + Math.floor(ownedCollectibles / 20) + Math.floor(gachaOwnedUnique / 50) + (allExalted ? 1 : 0) + (allRounder ? 1 : 0);
+
     const tabDefs = [
       { key: "map", icon: "🗺️", label: "闖關" },
       { key: "weekly", icon: "📝", label: "週考" },
@@ -5988,7 +6861,7 @@ class Component extends DCLogic {
       { key: "collection", icon: "🧸", label: "蒐集" },
       { key: "signin", icon: "📅", label: "簽到" },
     ];
-    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen;
+    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen;
     const subjectUnits = s.subject === "math" ? MATH_UNITS : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
@@ -6016,6 +6889,88 @@ class Component extends DCLogic {
       isApp: s.screen !== "login",
       isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
+      isMindmap: s.screen === "mindmap",
+      mindmapTitle: s.mmTopic ? s.mmTopic.title : "",
+      mindmapTitleEn: s.mmTopic ? s.mmTopic.en : "",
+      mindmapCenter: s.mmTopic ? s.mmTopic.center : "",
+      mindmapGradeLabel: s.unit === "s21" ? "六年級" : s.unit === "s20" ? "五年級" : s.unit === "s8" ? "四年級" : "三年級",
+      mindmapNote: s.mmNote || "",
+      mindmapNoteBg: s.mmStatus === "done" ? "#e6f7ee" : s.mmWrong ? "#fff1f4" : "#eafbfd",
+      mindmapNoteFg: s.mmStatus === "done" ? "#1d7a55" : s.mmWrong ? "#c8283f" : "#0e7d8c",
+      mindmapProgress: s.mmTopic ? (s.mmLinks || []).length + " / " + s.mmTopic.nodes.length : "0 / 0",
+      mindmapMoves: s.mmMoves || 0,
+      mindmapDone: s.mmStatus === "done",
+      mindmapHubs: s.mmTopic ? s.mmTopic.hubs.map((hub, i) => {
+        const st = MM_HUB_STYLES[i % MM_HUB_STYLES.length];
+        const linked = (s.mmLinks || []).filter((l) => l.hub === hub.key).length;
+        const total = s.mmTopic.nodes.filter((n) => n.hub === hub.key).length;
+        return {
+          key: hub.key, domId: "hub-" + hub.key, label: hub.label, en: hub.en,
+          tint: st.tint, bd: st.bd, fg: st.fg,
+          countLabel: linked + " / " + total,
+          full: linked >= total,
+          pick: () => this.pickMindmapHub(hub.key),
+          speak: (ev) => { if (ev && ev.stopPropagation) { ev.stopPropagation(); ev.preventDefault(); } this.speakBilingual(hub.label, hub.en); },
+        };
+      }) : [],
+      mindmapNodes: s.mmTopic ? (s.mmOrder || []).map((nid) => {
+        const node = s.mmTopic.nodes.find((n) => n.id === nid);
+        if (!node) return null;
+        const link = (s.mmLinks || []).find((l) => l.node === nid);
+        const hubIndex = s.mmTopic.hubs.findIndex((x) => x.key === node.hub);
+        const st = MM_HUB_STYLES[(hubIndex < 0 ? 0 : hubIndex) % MM_HUB_STYLES.length];
+        const selected = s.mmSelected === nid;
+        const wrong = s.mmWrong === nid;
+        return {
+          key: nid, domId: "node-" + nid, label: node.label, en: node.en,
+          iconEl: SCI_ICON_EL(node.icon, 42),
+          hubLabel: link ? (s.mmTopic.hubs.find((x) => x.key === link.hub) || {}).label : "",
+          done: !!link,
+          bg: link ? st.tint : selected ? "#f3f0ff" : "#fff",
+          border: link ? st.bd : wrong ? "#ef4f6b" : selected ? "#7c5cff" : "#ece7ff",
+          shadow: selected ? "0 10px 22px rgba(124,92,255,.22)" : "0 6px 16px rgba(43,31,87,.07)",
+          animation: wrong ? "gachaShake .42s ease" : "none",
+          labelColor: link ? st.fg : "#2b1f57",
+          pick: () => this.selectMindmapNode(nid),
+          speak: (ev) => { if (ev && ev.stopPropagation) { ev.stopPropagation(); ev.preventDefault(); } this.speakBilingual(node.label, node.en); },
+        };
+      }).filter(Boolean) : [],
+      mindmapLines: (() => {
+        if (!s.mmTopic) return null;
+        const geom = s.mmGeom || {};
+        const paths = [];
+        (s.mmLinks || []).forEach((l, i) => {
+          const a = geom["node-" + l.node], b = geom["hub-" + l.hub];
+          if (!a || !b) return;
+          const hubIndex = s.mmTopic.hubs.findIndex((x) => x.key === l.hub);
+          const st = MM_HUB_STYLES[(hubIndex < 0 ? 0 : hubIndex) % MM_HUB_STYLES.length];
+          const x1 = a.cx, y1 = a.top, x2 = b.cx, y2 = b.bottom;
+          const mid = (y1 + y2) / 2;
+          paths.push(React.createElement("path", {
+            key: "l" + i, d: "M" + x1 + " " + y1 + " C" + x1 + " " + mid + " " + x2 + " " + mid + " " + x2 + " " + y2,
+            fill: "none", stroke: st.bd, strokeWidth: 3.2, strokeLinecap: "round", opacity: .72,
+          }));
+          paths.push(React.createElement("circle", { key: "d" + i, cx: x2, cy: y2, r: 4.5, fill: st.bd }));
+        });
+        return React.createElement("svg", {
+          width: "100%", height: "100%",
+          style: { position: "absolute", inset: 0, pointerEvents: "none", overflow: "visible" },
+        }, paths);
+      })(),
+      mindmapBack: () => { clearTimeout(this.mmWrongTimer); this.setState({ screen: "map" }); },
+      mindmapShowAnimalVideos: !!(s.mmTopic && s.mmTopic.id === "animalGroup"),
+      mindmapWatchAnimals: () => this.startVideo("animalGroup", "mindmap"),
+      isVideo: s.screen === "video",
+      videoTitle: s.videoTitle || "自然教學影片",
+      videoCurrent: (s.videoClips && s.videoClips[s.videoIndex || 0]) || { label: "", src: "", poster: "" },
+      videoIsYoutube: !!(s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt),
+      videoYtUrl: s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt ? "https://www.youtube-nocookie.com/embed/" + s.videoClips[s.videoIndex || 0].yt : "",
+      videoNativeDisplay: s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt ? "none" : "block",
+      videoHasTabs: !!(s.videoClips && s.videoClips.length > 1),
+      videoClipTabs: (s.videoClips || []).map((clip, index) => ({ label: clip.label, bg: index === (s.videoIndex || 0) ? "#7c5cff" : "#fff", fg: index === (s.videoIndex || 0) ? "#fff" : "#5b3fe0", pick: () => this.pickVideoClip(index) })),
+      videoRef: (element) => { this.videoRef = element; },
+      videoBack: () => this.setState({ screen: s.videoReturn || "map" }),
+      mindmapRestart: () => this.startMindmap(s.unit),
       isQuiz: s.screen === "quiz", isResult: s.screen === "result", isWriting: s.screen === "writing", isWeekly: s.screen === "weekly", isWeeklyQuiz: s.screen === "weeklyQuiz", isWeeklyResult: s.screen === "weeklyResult", isShop: s.screen === "shop", isGacha: s.screen === "gacha", isCollection: s.screen === "collection",
       isGeoLesson: s.screen === "geoLesson",
       geoLessonTitle: s.geoLesson ? GEO_LESSON_TITLES[s.geoLesson.topic] || "幾何教學" : "",
@@ -6125,7 +7080,7 @@ class Component extends DCLogic {
       geoLessonTitle: s.geoLesson ? GEO_LESSON_TITLES[s.geoLesson.topic] || "" : "",
       geoLessonFig: s.geoLesson ? (() => {
         const fig = s.geoLesson.script[s.geoLesson.revealIndex].fig;
-        const out = { isGrid: false, isAngle: false, isRect: false, isCuboid: false, isTriangle: false, isCircle: false, isText: false, isScene: false, sceneItems: [], sceneCaption: "", gridRows: [], lines: [], angle: { arc: "none", rayRotate: "none", labelLeft: 0, labelTop: 0, labelText: "" }, rect: { w: 0, h: 0, wLabel: "", hLabel: "" }, cuboid: { boxW: 0, boxH: 0, frontW: 0, frontH: 0, frontTop: 0, topClip: "none", rightClip: "none", lLabel: "", wLabel: "", hLabel: "" }, tri: { boxW: 0, boxH: 0, clip: "none", heightLineLeft: 0, baseLabel: "", heightLabel: "" }, circle: { size: 0, half: 0, lineWidth: 0, lineLeft: 0, label: "" } };
+        const out = { isGrid: false, isAngle: false, isRect: false, isCuboid: false, isTriangle: false, isCircle: false, isText: false, isScene: false, isArt: false, artNode: null, sceneItems: [], sceneCaption: "", gridRows: [], lines: [], angle: { arc: "none", rayRotate: "none", labelLeft: 0, labelTop: 0, labelText: "" }, rect: { w: 0, h: 0, wLabel: "", hLabel: "" }, cuboid: { boxW: 0, boxH: 0, frontW: 0, frontH: 0, frontTop: 0, topClip: "none", rightClip: "none", lLabel: "", wLabel: "", hLabel: "" }, tri: { boxW: 0, boxH: 0, clip: "none", heightLineLeft: 0, baseLabel: "", heightLabel: "" }, circle: { size: 0, half: 0, lineWidth: 0, lineLeft: 0, label: "" } };
         if (fig.mode === "grid") {
           out.isGrid = true;
           out.gridRows = fig.rows.map((row, i) => ({
@@ -6184,6 +7139,13 @@ class Component extends DCLogic {
             lineLeft: fig.showDiameter ? 0 : Math.round(size / 2),
             label: fig.label,
           };
+        } else if (fig.mode === "art") {
+          out.isArt = true;
+          out.artNode = React.createElement("div", {
+            style: { width: "100%", display: "flex", justifyContent: "center" },
+            dangerouslySetInnerHTML: { __html: (window.SCI_ART ? (fig.spec ? window.SCI_ART.renderSpec(fig.spec) : (fig.spec ? window.SCI_ART.renderSpec(fig.spec) : window.SCI_ART.render(fig.art))) : "") },
+          });
+          out.sceneCaption = fig.caption || "";
         } else if (fig.mode === "scene") {
           out.isScene = true;
           out.sceneItems = fig.items.map((it, i) => ({
@@ -6196,7 +7158,7 @@ class Component extends DCLogic {
           out.lines = fig.lines.map((t, i) => ({ key: i, text: t }));
         }
         return out;
-      })() : { isGrid: false, isAngle: false, isRect: false, isCuboid: false, isTriangle: false, isCircle: false, isText: false, isScene: false, sceneItems: [], sceneCaption: "", gridRows: [], angle: { arc: "none", rayRotate: "none", labelLeft: 0, labelTop: 0, labelText: "" }, rect: { w: 0, h: 0, wLabel: "", hLabel: "" }, cuboid: { boxW: 0, boxH: 0, frontW: 0, frontH: 0, frontTop: 0, topClip: "none", rightClip: "none", lLabel: "", wLabel: "", hLabel: "" }, tri: { boxW: 0, boxH: 0, clip: "none", heightLineLeft: 0, baseLabel: "", heightLabel: "" }, circle: { size: 0, half: 0, lineWidth: 0, lineLeft: 0, label: "" }, lines: [] },
+      })() : { isGrid: false, isAngle: false, isRect: false, isCuboid: false, isTriangle: false, isCircle: false, isText: false, isScene: false, isArt: false, artNode: null, sceneItems: [], sceneCaption: "", gridRows: [], angle: { arc: "none", rayRotate: "none", labelLeft: 0, labelTop: 0, labelText: "" }, rect: { w: 0, h: 0, wLabel: "", hLabel: "" }, cuboid: { boxW: 0, boxH: 0, frontW: 0, frontH: 0, frontTop: 0, topClip: "none", rightClip: "none", lLabel: "", wLabel: "", hLabel: "" }, tri: { boxW: 0, boxH: 0, clip: "none", heightLineLeft: 0, baseLabel: "", heightLabel: "" }, circle: { size: 0, half: 0, lineWidth: 0, lineLeft: 0, label: "" }, lines: [] },
       geoLessonTrail: s.geoLesson ? s.geoLesson.script.slice(0, s.geoLesson.revealIndex + 1).map((beat, i, arr) => ({
         key: i, icon: beat.final ? "✅" : "📐", text: beat.narrate,
         bg: beat.final ? "#e6f7ee" : "#fbfaff",
@@ -6270,7 +7232,9 @@ class Component extends DCLogic {
         return {
           isFront: front, isBack: !front, isNumber: !isSci && card.type === "number", isQuantity: !isSci && card.type === "quantity",
           isSciTerm: isSci && card.type === "term", isSciPic: isSci && card.type === "pic",
-          value: isSci ? "" : card.value, sciLabel: card.label || "", sciEmoji: card.emoji || "",
+          value: isSci ? "" : card.value, sciLabel: card.label || "", sciEn: card.en || "", sciEmoji: card.emoji || "", sciPicEl: isSci ? SCI_ICON_EL(card.emoji, 52) : "",
+          showSpeaker: isSci && front,
+          speak: (ev) => { if (ev && ev.stopPropagation) { ev.stopPropagation(); ev.preventDefault(); } this.speakBilingual(card.label, card.en); },
           icons: (card.icons || []).map((icon) => ({ pos: icon.pos, size })), spritePos: isSci ? "0%" : card.mascot.pos,
           faceBg: isSci ? (card.type === "term" ? "linear-gradient(145deg,#f2fff7,#dff7ec)" : "linear-gradient(145deg,#fff7f0,#ffeeda)") : card.type === "number" ? "linear-gradient(145deg,#fffdf2,#fff0c9)" : "linear-gradient(145deg,#f4fbff,#edf7ff)",
           cardBg: front ? "#fff" : "#dfefff", cursor: s.memoryStatus === "play" && !front ? "pointer" : "default",
@@ -6346,8 +7310,8 @@ class Component extends DCLogic {
       roster: s.students.filter((st) => st.classId === s.loginClass).slice().sort((a, b) => a.seat.localeCompare(b.seat, "en", { numeric: true })).map((st) => ({
         name: st.name, seat: st.seat, face: st.face, tint: st.tint,
         level: Math.floor(st.profile.xp / 100) + 1,
-        signLabel: st.profile.signedDays.indexOf(TODAY) >= 0 ? "今天已簽到" : "還沒簽到",
-        signColor: st.profile.signedDays.indexOf(TODAY) >= 0 ? "#35c98a" : "#c9bfff",
+        signLabel: hasSignedToday(st.profile) ? "今天已簽到" : "還沒簽到",
+        signColor: hasSignedToday(st.profile) ? "#35c98a" : "#c9bfff",
         login: () => this.setState({ screen: "home", currentId: st.id, teacher: false, slot: "hair", shopCat: "hair" }),
       })),
       rosterEmpty: s.students.filter((st) => st.classId === s.loginClass).length === 0,
@@ -6361,7 +7325,7 @@ class Component extends DCLogic {
       user: s.teacher || !me ? { name: "陳老師", seat: "導師", face: "🍎", tint: "#ffe0e6" } : { name: me.name, seat: me.seat, face: me.face, tint: me.tint },
       isStudent: !s.teacher && !!me,
       userSub: s.teacher || !me ? "教師工作台" : "Lv." + level + " · " + className(me.classId) + " " + me.seat,
-      level, xp: p.xp, coins: p.coins, stamps: p.stamps, streak: p.streak,
+      level, xp: p.xp, coins: p.coins, streak: p.streak,
       levelPct: p.xp % 100, toNext: 100 - (p.xp % 100),
       todayCount: p.todayCount, correctTotal: p.correctTotal,
       speechMuted: s.speechMuted,
@@ -6389,15 +7353,15 @@ class Component extends DCLogic {
         { key: "math", icon: "🧮", title: "數學", note: "加減乘除・分數・時間・幾何", tint: "#f1e6ff", border: "#ddd5ff" },
         { key: "chinese", icon: "📖", title: "國文", note: "識字學習庫・聽注音選國字", tint: "#e6f7ee", border: "#c9ebd8" },
         { key: "english", icon: "🔤", title: "英文", note: "1500 字庫・拼字・圖片配對・單字串鍊・文法拖曳・心智圖關聯", tint: "#eafbfd", border: "#bfeaf0" },
-        { key: "science", icon: "🔬", title: "自然", note: "植物・磁鐵・水・光影・電路", tint: "#dff7fa", border: "#bfe9f0" },
-      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(4, s.grade)) : s.grade }) })),      subjectTabs: [
+        { key: "science", icon: "🔬", title: "自然", note: "植物・磁鐵・水・光影・電路・溶解・力與熱・星空・生態", tint: "#dff7fa", border: "#bfe9f0" },
+      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }) })),      subjectTabs: [
         { key: "math", icon: "🧮", label: "數學" },
         { key: "chinese", icon: "📖", label: "國文" },
         { key: "english", icon: "🔤", label: "英文" },
         { key: "science", icon: "🔬", label: "自然" },
       ].map((c) => ({
         icon: c.icon, label: c.label,
-        go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(4, s.grade)) : s.grade }),
+        go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }),
         bg: s.subject === c.key ? "#7c5cff" : "#fff",
         fg: s.subject === c.key ? "#fff" : "#7c74a8",
         border: s.subject === c.key ? "#7c5cff" : "#ece7ff",
@@ -6424,50 +7388,22 @@ class Component extends DCLogic {
       ledger: p.log,
       ledgerEmpty: p.log.length === 0,
 
-      weekHeads: WEEK,
-      calendarTitle: (new Date().getMonth() + 1) + " 月",
-      calendar: (() => {
-        const now = new Date(), year = now.getFullYear(), month = now.getMonth();
-        const offset = new Date(year, month, 1).getDay(), days = new Date(year, month + 1, 0).getDate();
-        return Array.from({ length: 42 }, (_, index) => {
-          const day = index - offset + 1, valid = day >= 1 && day <= days;
-          const date = valid ? year + "-" + String(month + 1).padStart(2, "0") + "-" + String(day).padStart(2, "0") : "";
-          const signed = valid && p.signedDays.indexOf(day) >= 0, isToday = date === localDateKey(), selected = date === s.selectedDate;
-          const entries = valid ? p.xpLedger.filter((entry) => entry.date === date) : [];
-          const exp = entries.reduce((sum, entry) => sum + Number(entry.amount || 0), 0);
-          const badges = valid ? (p.masteryHistory[date] || []) : [];
-          return { label: valid ? String(day) : "", mark: badges.length ? "🏅×" + badges.length : signed ? "✓" : isToday ? "•" : "", expLabel: exp ? "+" + exp + " EXP" : "", disabled: !valid, cursor: valid ? "pointer" : "default",
-            bg: !valid ? "transparent" : selected ? "#eafbfd" : signed ? "#fff6e0" : isToday ? "#f1e6ff" : "#fbfaff", border: !valid ? "transparent" : selected ? "#22c8d8" : signed ? "#ffd98a" : isToday ? "#7c5cff" : "#f0ecff", fg: signed ? "#a06400" : isToday || selected ? "#5b3fe0" : "#b3a9d8", open: () => valid && this.setState({ selectedDate: date }) };
+      signinSeaSteps: (() => {
+        const coords = [[10.2,42],[23.7,33.5],[33.6,59],[45,43.5],[56.4,66],[68.2,52],[79.1,35.3],[91.5,34.4]];
+        const signed = hasSignedToday(p), target = Math.min(8, p.streak + 1), completed = Math.min(8, p.streak);
+        return coords.map((point, index) => {
+          const day = index + 1, checked = day <= completed, isNext = !signed && day === target;
+          return { x: point[0], y: point[1], checked, className: isNext ? "is-next" : "", disabled: !isNext,
+            aria: checked ? "第 " + day + " 天已完成" : isNext ? "簽到第 " + day + " 天" : "第 " + day + " 天尚未開放", sign: () => isNext && this.signToday() };
         });
       })(),
-      selectedDateLabel: s.selectedDate,
-      selectedDateXp: p.xpLedger.filter((entry) => entry.date === s.selectedDate).reduce((sum, entry) => sum + Number(entry.amount || 0), 0),
-      selectedDateBadges: (p.masteryHistory[s.selectedDate] || []).length ? "· 🏅 完成三輪單元 " + (p.masteryHistory[s.selectedDate] || []).length + " 個" : "",
-      selectedXpRows: p.xpLedger.filter((entry) => entry.date === s.selectedDate).map((entry) => ({ source: entry.source, detail: entry.detail, amount: entry.amount })),
-      selectedXpEmpty: !p.xpLedger.some((entry) => entry.date === s.selectedDate),
-      signedToday: p.signedDays.indexOf(TODAY) >= 0,
-      signBtnLabel: p.signedDays.indexOf(TODAY) >= 0 ? "今天已簽到 ✓" : "簽到領星星幣 ⭐",
-      signBtnBg: p.signedDays.indexOf(TODAY) >= 0 ? "#f0ecff" : "linear-gradient(90deg,#ffb020,#ff7ab8)",
-      signBtnFg: p.signedDays.indexOf(TODAY) >= 0 ? "#b3a9d8" : "#fff",
+      signinSeaMessage: hasSignedToday(p)
+        ? "今天已完成簽到；明天再沿著海圖前進。"
+        : p.streak >= 8 ? "點亮第 8 站，領取每天完成簽到的連續獎勵。" : "點選黃光島嶼，完成第 " + Math.min(8, p.streak + 1) + " 天簽到。",
+      signedToday: hasSignedToday(p),
       signToday: () => this.signToday(),
-      streakTable: [1, 2, 3, 4, 7].map((d) => {
-        const reached = p.streak >= d;
-        return {
-          day: "第 " + d + " 天",
-          reward: d === 7 ? "20 星星幣 ＋ 傳說裝備" : (5 * Math.min(4, d)) + " 星星幣",
-          state: reached ? "已達成" : "尚未達成",
-          bg: reached ? "#fff6e0" : "#fbfaff",
-          border: reached ? "#ffd98a" : "#f0ecff",
-          fg: reached ? "#a06400" : "#b3a9d8",
-        };
-      }),
-      stampSlots: Array.from({ length: 20 }, (_, i) => ({
-        mark: i < p.stamps ? "🏅" : "",
-        bg: i < p.stamps ? "#fff" : "rgba(255,255,255,.5)",
-        border: i < p.stamps ? "#ffb020" : "#ffd98a",
-      })),
 
-      gradeTabs: (s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "english" ? [1, 2, 3] : s.subject === "science" ? [3, 4] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g],
+      gradeTabs: (s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "english" ? [1, 2, 3] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g],
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",
         fg: s.grade === g ? "#fff" : "#7c74a8",
@@ -6479,7 +7415,7 @@ class Component extends DCLogic {
         const atLimit = round >= 3;
         const difficulty = Math.max(1, Math.min(3, Number(u.difficulty) || 1));
         return {
-          icon: u.icon, tint: u.tint, title: u.title, sub: u.sub,
+          icon: u.icon, iconEl: /^s\d/.test(u.id) ? SCI_ICON_EL(u.icon, 34) : u.icon, tint: u.tint, title: u.title, sub: u.sub,
           pct: isLib ? 100 : Math.round(round / 3 * 100),
           stars: isLib ? ["📖", "📖", "📖"] : [0, 1, 2].map((i) => (i < difficulty ? "⭐" : "☆")),
           masteryMark: isLib ? "字庫" : masteryRoman(round),
@@ -6492,7 +7428,9 @@ class Component extends DCLogic {
           btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
           btnFg: atLimit ? "#9a90c8" : "#fff",
           start: () => this.startUnit(u.id),
-          hasLesson: ["u40", "u41", "u42", "u47", "u48", "u49", "u50", "u51", "u52", "u53", "u54", "u55", "u56", "u57", "u58", "u59", "u60", "u61", "u62", "s1", "s2", "s3", "s4", "s5"].indexOf(u.id) >= 0,
+          hasVideo: !!VIDEO_LIB[u.id],
+          watchVideo: () => this.startVideo(u.id, "map"),
+          hasLesson: ["u40", "u41", "u42", "u47", "u48", "u49", "u50", "u51", "u52", "u53", "u54", "u55", "u56", "u57", "u58", "u59", "u60", "u61", "u62", "s1", "s2", "s3", "s4", "s5", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18"].indexOf(u.id) >= 0,
           lessonLabel: "📺 老師示範",
           lesson: () => {
             if (u.id === "u47") return this.startVertLesson("add", 1);
@@ -6568,12 +7506,23 @@ class Component extends DCLogic {
       options: q ? q.opts.map((o, i) => {
         const right = o === q.ans;
         const chosen = s.picked === i;
+        const sciMode = !!s.unit && s.unit.charAt(0) === "s";
+        const preSelected = sciMode && !s.locked && s.sciChoice === i;
         let bg = "#fbfaff", border = "#e6e0ff", fg = "#2b1f57", mark = "";
         if (s.locked && right) { bg = "#e6f7ee"; border = "#35c98a"; fg = "#1d7a55"; mark = "✓"; }
         else if (s.locked && chosen) { bg = "#ffeef2"; border = "#ff5c8a"; fg = "#c0325c"; mark = "✕"; }
         else if (s.locked) { bg = "#fbfaff"; border = "#f0ecff"; fg = "#b3a9d8"; }
-        return { label: String(o), mark, bg, border, fg, pick: () => this.pick(i) };
+        else if (preSelected) { bg = "#f3f0ff"; border = "#7c5cff"; fg = "#5b3fe0"; mark = "🔊"; }
+        return { label: String(o), mark, bg, border, fg, pick: () => (sciMode ? this.pickSciOption(i) : this.pick(i)) };
       }) : [],
+      showSciConfirm: !!q && !!s.unit && s.unit.charAt(0) === "s" && !s.locked,
+      sciConfirmReady: s.sciChoice !== null && s.sciChoice !== undefined,
+      sciConfirmLabel: (s.sciChoice !== null && s.sciChoice !== undefined && q) ? "確認送出：" + String(q.opts[s.sciChoice]) : "先點一個答案（會唸給你聽）",
+      sciConfirmBg: (s.sciChoice !== null && s.sciChoice !== undefined) ? "linear-gradient(90deg,#35c98a,#22c8d8)" : "#efecfa",
+      sciConfirmFg: (s.sciChoice !== null && s.sciChoice !== undefined) ? "#fff" : "#a49bce",
+      sciConfirmCursor: (s.sciChoice !== null && s.sciChoice !== undefined) ? "pointer" : "default",
+      sciConfirm: () => this.confirmSciAnswer(),
+      sciRepeat: () => { const cur = this.state.sciChoice; if (cur === null || cur === undefined || !q) return; this.speakText(String(q.opts[cur])); },
       showMcOptions: !!q && q.opts && q.opts.length > 0,
       figZhuyin: !!q && q.fig === "zhuyin",
       zhuyinBig: q && q.fig === "zhuyin" ? q.figData.z : "",
@@ -6868,7 +7817,7 @@ class Component extends DCLogic {
       })() : { size: 0, half: 0, lineWidth: 0, lineLeft: 0, label: "" },
       figCapacity: !!q && q.fig === "capacity",
       figSciIcon: !!(q && q.fig === "sciIcon" && q.figData.icons.length > 0),
-      sciIcons: q && q.fig === "sciIcon" ? q.figData.icons.map((icon, i) => ({ key: i, icon })) : [],
+      sciIcons: q && q.fig === "sciIcon" ? q.figData.icons.map((icon, i) => ({ key: i, icon, iconEl: SCI_ICON_EL(icon, 62), name: (window.SCI_ART ? window.SCI_ART.name(icon) : "") })) : [],
       fracstackBars: q && q.fig === "fracstack" ? (() => {
         const den = q.figData.den, total = q.figData.total;
         const wholeBars = Math.floor(total / den), rem = total % den;
@@ -6976,27 +7925,15 @@ class Component extends DCLogic {
       classCorrect,
       classPct: Math.min(100, Math.round(classCorrect / 1000 * 100)),
 
-      achievements: [
-        { icon: "🔥", title: "連續登入 7 天", note: "每天都來報到", cur: p.streak, goal: 7, tint: "#ffe0e6", bar: "linear-gradient(90deg,#ff7ab8,#ffb020)" },
-        { icon: "🏅", title: "收集 20 個印章", note: "簽到就有印章", cur: p.stamps, goal: 20, tint: "#fff6e0", bar: "linear-gradient(90deg,#ffb020,#ff9f45)" },
-        { icon: "🎯", title: "答對 200 題", note: "累積答對題數", cur: p.correctTotal, goal: 200, tint: "#e6f7ee", bar: "linear-gradient(90deg,#35c98a,#22c8d8)" },
-        { icon: "💯", title: "全對 5 次", note: "一關全部答對", cur: p.perfect, goal: 5, tint: "#eafbfd", bar: "linear-gradient(90deg,#22c8d8,#5b6bff)" },
-        { icon: "🗺️", title: "通關 6 個單元", note: "闖關地圖的進度", cur: p.cleared.length, goal: 6, tint: "#f1e6ff", bar: "linear-gradient(90deg,#7c5cff,#22c8d8)" },
-        { icon: "📖", title: "收藏 15 個生字", note: "國文學習庫加入複習", cur: p.favorites.length, goal: 15, tint: "#e6f9e9", bar: "linear-gradient(90deg,#35c98a,#ffb020)" },
-        { icon: "👑", title: "收集 20 件裝備", note: "衣櫃裡的收藏", cur: p.owned.length, goal: 20, tint: "#ffeccc", bar: "linear-gradient(90deg,#ffb020,#7c5cff)" },
-        { icon: "⭐", title: "達到 Lv.10", note: "經驗值累積", cur: level, goal: 10, tint: "#e8f2ff", bar: "linear-gradient(90deg,#5b6bff,#22c8d8)" },
-      ].map((a) => {
-        const done = a.cur >= a.goal;
-        return {
-          icon: a.icon, title: a.title, note: a.note, tint: a.tint, barBg: a.bar,
-          pct: Math.min(100, Math.round(a.cur / a.goal * 100)),
-          progress: Math.min(a.cur, a.goal) + " / " + a.goal,
-          state: done ? "已達成 ✓" : "進行中",
-          stateColor: done ? "#35c98a" : "#b3a9d8",
-          border: done ? "#9fe3c4" : "#f0ecff",
-          filter: done ? "none" : "grayscale(.65) opacity(.75)",
-        };
-      }),
+      achievements: achievementCards,
+      recentAchievements,
+      achievementBadgeOverview,
+      reputationSubjects,
+      achievementScore: achievedCount * 10,
+      wardrobeCollectionPct: clothingPct,
+      wardrobeCollectionProgress: ownedCollectibles + " / " + collectibleCatalog.length + " 件 · " + clothingPct + "%",
+      gachaCollectionPct,
+      gachaCollectionProgress: gachaOwnedUnique + " / " + gachaItems.length + " 款 · " + gachaCollectionPct + "%",
 
       adminTabs: [
         { key: "weekly", label: "每週考卷" },
@@ -7030,18 +7967,18 @@ class Component extends DCLogic {
       weeklyTeacherTotal: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade).reduce((sum, candidate) => sum + Number((s.weeklyConfig.modules[candidate.id] || {}).count || 0), 0),
 
       studentCount: s.students.length,
-      loggedIn: s.students.filter((st) => st.profile.signedDays.indexOf(TODAY) >= 0).length,
+      loggedIn: s.students.filter((st) => hasSignedToday(st.profile)).length,
       classOptions: s.classes.map((c) => ({ id: c.id, name: c.name })),
       teacherRows: s.students.slice().sort((a, b) => (a.classId + a.seat).localeCompare(b.classId + b.seat, "en", { numeric: true })).map((st) => ({
         seat: st.seat.replace(" 號", ""),
         face: st.face, tint: st.tint, name: st.name,
         className: className(st.classId),
-        loginLabel: st.profile.signedDays.indexOf(TODAY) >= 0 ? "✅ 已登入" : "⚠️ 未登入",
-        loginColor: st.profile.signedDays.indexOf(TODAY) >= 0 ? "#35c98a" : "#ff5c8a",
+        loginLabel: hasSignedToday(st.profile) ? "✅ 已登入" : "⚠️ 未登入",
+        loginColor: hasSignedToday(st.profile) ? "#35c98a" : "#ff5c8a",
         level: Math.floor(st.profile.xp / 100) + 1,
         correct: st.profile.correctTotal,
         coins: st.profile.coins,
-        bg: st.profile.signedDays.indexOf(TODAY) >= 0 ? "#fbfaff" : "#fff6f8",
+        bg: hasSignedToday(st.profile) ? "#fbfaff" : "#fff6f8",
         viewing: s.editId !== st.id,
         editing: s.editId === st.id,
         edit: () => this.setState({ editId: st.id, editName: st.name, editSeat: st.seat.replace(/[^0-9]/g, ""), editClass: st.classId }),
@@ -7155,9 +8092,8 @@ class Component extends DCLogic {
       rewardRules: [
         { title: "每答對 1 題", note: "數學與國文相同，立即入帳", value: "+8 XP / +3 ⭐" },
         { title: "全對加碼", note: "一關全部答對", value: "+10 ⭐" },
-        { title: "每日登入", note: "連續天數加倍，最多 4 倍", value: "5～20 ⭐ / +1 🏅" },
+        { title: "學習海簽到", note: "依海圖前進，第 8 站是連續獎勵", value: "5～40 ⭐" },
         { title: "等級里程碑", note: "每 100 XP 升一級，解鎖裝備", value: "免費領取" },
-        { title: "印章集滿 20", note: "兌換限定裝備", value: "限定獎勵" },
       ],
     };
 
