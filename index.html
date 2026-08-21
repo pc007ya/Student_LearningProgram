@@ -42,6 +42,11 @@
     .gacha-knob-layer, .gacha-knob-button { bottom:105px !important; }
     .gacha-coin-bowl { right:-2px !important; bottom:-4px !important; transform:scale(.84); transform-origin:right bottom; }
   }
+  .home-dashboard { display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,.95fr);gap:16px;height:clamp(510px,calc(100vh - 180px),600px); }
+  .home-subject-grid { min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:12px; }
+  .home-subject-card:last-child { grid-column:1/-1; }
+  .home-avatar-scene { position:relative;isolation:isolate;min-width:0;overflow:hidden;border-radius:30px;background:linear-gradient(155deg,#241a4d 0%,#150f33 62%,#1c1546 100%);box-shadow:0 22px 48px rgba(43,31,87,.24); }
+  @media (max-width:760px) { .home-dashboard { height:auto;grid-template-columns:1fr; } .home-subject-grid { grid-template-columns:1fr;grid-template-rows:none; } .home-subject-card:last-child { grid-column:auto; } .home-avatar-scene { min-height:560px; } }
   @keyframes gachaCapsuleLand { 0% { transform:translateY(-190px) scale(.58);opacity:0 } 68% { transform:translateY(10px) scale(1.08);opacity:1 } 84% { transform:translateY(-7px) scale(.94) } 100% { transform:translateY(0) scale(1);opacity:1 } }
   @keyframes gachaCapsuleHalo { 0%,100% { transform:scale(.9);opacity:.45 } 50% { transform:scale(1.14);opacity:1 } }
   @keyframes gachaCapsuleOpen { 0% { transform:scale(.68) rotate(-12deg);opacity:0 } 55% { transform:scale(1.08) rotate(5deg);opacity:1 } 100% { transform:scale(1) rotate(0) } }
@@ -426,62 +431,27 @@
     </nav>
 
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="首頁" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
-        <section style="grid-column:1/-1;position:relative;overflow:hidden;border-radius:30px;padding:28px;background:linear-gradient(135deg,#7c5cff 0%,#8f6bff 45%,#22c8d8 100%);color:#fff;box-shadow:0 22px 44px rgba(124,92,255,.28)">
-          <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.22em;opacity:.85">TODAY</p>
-          <h2 style="margin:10px 0 0;font-size:32px;font-weight:900;line-height:1.35"><ruby>今<rt>ㄐㄧㄣ</rt></ruby><ruby>天<rt>ㄊㄧㄢ</rt></ruby><ruby>的<rt>ㄉㄜ˙</rt></ruby><ruby>任<rt>ㄖㄣˋ</rt></ruby><ruby>務<rt>ㄨˋ</rt></ruby>：<ruby>闖<rt>ㄔㄨㄤˇ</rt></ruby><ruby>過<rt>ㄍㄨㄛˋ</rt></ruby><ruby>一<rt>ㄧ</rt></ruby><ruby>關<rt>ㄍㄨㄢ</rt></ruby></h2>
-          <p style="margin:10px 0 0;font-size:15px;font-weight:700;opacity:.92">{{ assignedText }}</p>
-          <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-            <button onClick="{{ startAssigned }}" style="border:0;border-radius:20px;padding:15px 26px;font-size:17px;font-weight:900;font-family:inherit;color:#3a1d5c;background:#fff;cursor:pointer;box-shadow:0 12px 22px rgba(0,0,0,.14)" style-hover="transform:translateY(-2px)">▶ <ruby>開<rt>ㄎㄞ</rt></ruby><ruby>始<rt>ㄕˇ</rt></ruby><ruby>闖<rt>ㄔㄨㄤˇ</rt></ruby><ruby>關<rt>ㄍㄨㄢ</rt></ruby></button>
-            <button onClick="{{ goSignin }}" style="border:1px solid rgba(255,255,255,.5);border-radius:20px;padding:15px 24px;font-size:16px;font-weight:900;font-family:inherit;color:#fff;background:rgba(255,255,255,.16);cursor:pointer">📅 <ruby>今<rt>ㄐㄧㄣ</rt></ruby><ruby>日<rt>ㄖˋ</rt></ruby><ruby>簽<rt>ㄑㄧㄢ</rt></ruby><ruby>到<rt>ㄉㄠˋ</rt></ruby></button>
-          </div>
-          <div style="margin-top:22px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
-            <div style="background:rgba(0,0,0,.16);border-radius:20px;padding:14px"><p style="margin:0;font-size:12px;font-weight:800;opacity:.8">今日題數</p><p style="margin:4px 0 0;font-size:22px;font-weight:900">{{ todayCount }} / 10</p></div>
-            <div style="background:rgba(0,0,0,.16);border-radius:20px;padding:14px"><p style="margin:0;font-size:12px;font-weight:800;opacity:.8">連續登入</p><p style="margin:4px 0 0;font-size:22px;font-weight:900">🔥 {{ streak }} 天</p></div>
-            <div style="background:rgba(0,0,0,.16);border-radius:20px;padding:14px"><p style="margin:0;font-size:12px;font-weight:800;opacity:.8">累積答對</p><p style="margin:4px 0 0;font-size:22px;font-weight:900">{{ correctTotal }} 題</p></div>
-          </div>
-        </section>
-
-        <section style="grid-column:1/-1;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div data-screen-label="首頁" class="home-dashboard">
+        <section class="home-subject-grid">
           <sc-for list="{{ subjectCards }}" as="sc" hint-placeholder-count="2">
-            <button onClick="{{ sc.go }}" style="text-align:left;border:2px solid {{ sc.border }};background:#fff;border-radius:28px;padding:22px;cursor:pointer;font-family:inherit;box-shadow:0 14px 30px rgba(43,31,87,.06);display:flex;align-items:center;gap:16px" style-hover="transform:translateY(-3px)">
-              <span style="width:64px;height:64px;border-radius:22px;display:grid;place-items:center;font-size:32px;background:{{ sc.tint }}">{{ sc.icon }}</span>
+            <button class="home-subject-card" onClick="{{ sc.go }}" style="min-width:0;text-align:left;border:0;background:{{ sc.bg }};color:#fff;border-radius:28px;padding:20px;cursor:pointer;font-family:inherit;box-shadow:0 14px 30px {{ sc.shadow }};display:flex;align-items:center;gap:15px" style-hover="transform:translateY(-3px)">
+              <span style="width:62px;height:62px;flex:0 0 62px;border-radius:22px;display:grid;place-items:center;font-size:31px;background:rgba(255,255,255,.24)">{{ sc.icon }}</span>
               <span style="flex:1;min-width:0">
-                <strong style="display:block;font-size:20px;font-weight:900;color:#2b1f57">{{ sc.title }}</strong>
-                <span style="display:block;margin-top:4px;font-size:13px;font-weight:700;color:#9a90c8">{{ sc.note }}</span>
+                <strong style="display:block;font-size:20px;font-weight:900;color:#fff">{{ sc.title }}</strong>
+                <span style="display:block;margin-top:4px;font-size:13px;font-weight:800;line-height:1.5;color:rgba(255,255,255,.82)">{{ sc.note }}</span>
               </span>
-              <span style="font-size:20px;color:#c9bfff">→</span>
             </button>
           </sc-for>
         </section>
 
-        <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <h3 style="margin:0;font-size:20px;font-weight:900"><ruby>我<rt>ㄨㄛˇ</rt></ruby><ruby>的<rt>ㄉㄜ˙</rt></ruby><ruby>造<rt>ㄗㄠˋ</rt></ruby><ruby>型<rt>ㄒㄧㄥˊ</rt></ruby></h3>
-            <button onClick="{{ goCloset }}" style="border:0;background:none;font-size:14px;font-weight:900;color:#7c5cff;cursor:pointer;font-family:inherit">換裝備 →</button>
+        <section class="home-avatar-scene">
+          {{ dollBackgroundBig }}
+          <div style="position:absolute;z-index:4;left:18px;right:18px;top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <h3 style="margin:0;color:#fff;font-size:20px;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,.62)"><ruby>我<rt>ㄨㄛˇ</rt></ruby><ruby>的<rt>ㄉㄜ˙</rt></ruby><ruby>造<rt>ㄗㄠˋ</rt></ruby><ruby>型<rt>ㄒㄧㄥˊ</rt></ruby></h3>
+            <button onClick="{{ goCloset }}" style="border:1px solid rgba(255,255,255,.72);border-radius:99px;padding:8px 12px;background:rgba(25,18,58,.46);backdrop-filter:blur(7px);color:#fff;font-size:12px;font-weight:900;cursor:pointer;font-family:inherit">換裝備</button>
           </div>
-          <div style="margin-top:14px;display:flex;justify-content:center">
-            <figure style="position:relative;isolation:isolate;margin:0;width:100%;max-width:340px;height:420px;border-radius:28px;overflow:hidden;background:linear-gradient(155deg,#241a4d 0%,#150f33 62%,#1c1546 100%);box-shadow:0 26px 60px rgba(43,31,87,.34)">
-              <span style="position:absolute;right:-70px;top:34px;z-index:0;width:230px;height:230px;border-radius:50%;opacity:.3;filter:blur(46px);background:{{ doll.hair.color }}"></span>
-              <span style="position:absolute;left:18px;top:16px;z-index:3;font-size:10px;font-weight:900;letter-spacing:.24em;color:rgba(255,255,255,.5)">PROFILE / {{ doll.code }}</span>
-              {{ dollImg }}
-              {{ dollWearables }}
-            </figure>
-          </div>
-        </section>
-
-        <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
-          <h3 style="margin:0 0 14px;font-size:20px;font-weight:900"><ruby>最<rt>ㄗㄨㄟˋ</rt></ruby><ruby>近<rt>ㄐㄧㄣˋ</rt></ruby><ruby>紀<rt>ㄐㄧˋ</rt></ruby><ruby>錄<rt>ㄌㄨˋ</rt></ruby></h3>
-          <sc-for list="{{ ledger }}" as="row" hint-placeholder-count="5">
-            <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #f3f0ff">
-              <span style="width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-size:17px;background:{{ row.tint }}">{{ row.icon }}</span>
-              <span style="flex:1;min-width:0"><strong style="display:block;font-size:14px;font-weight:800">{{ row.text }}</strong><span style="font-size:11px;font-weight:700;color:#b3a9d8">{{ row.when }}</span></span>
-              <strong style="font-size:14px;font-weight:900;color:{{ row.color }}">{{ row.amount }}</strong>
-            </div>
-          </sc-for>
-          <sc-if value="{{ ledgerEmpty }}" hint-placeholder-val="{{ false }}">
-            <p style="margin:6px 0 0;font-size:13px;font-weight:800;color:#b3a9d8">還沒有紀錄，去闖關或簽到就會出現囉！</p>
-          </sc-if>
+          {{ dollImg }}
+          {{ dollWearables }}
         </section>
       </div>
     </sc-if>
@@ -8078,11 +8048,11 @@ class Component extends DCLogic {
       })),
 
       subjectCards: [
-        { key: "math", icon: "🧮", title: "數學", note: "加減乘除・分數・時間・幾何", tint: "#f1e6ff", border: "#ddd5ff" },
-        { key: "chinese", icon: "📖", title: "國文", note: "識字學習庫・聽注音選國字", tint: "#e6f7ee", border: "#c9ebd8" },
-        { key: "english", icon: "🔤", title: "英文", note: "1500 字庫・拼字・圖片配對・單字串鍊・文法拖曳・心智圖關聯", tint: "#eafbfd", border: "#bfeaf0" },
-        { key: "science", icon: "🔬", title: "自然", note: "植物・磁鐵・水・光影・電路・溶解・力與熱・星空・生態", tint: "#dff7fa", border: "#bfe9f0" },
-        { key: "experiment", icon: "🧪", title: "實驗", note: "自由操作・觀察現象・驗證科學原理", tint: "#fff3d8", border: "#f2d9aa" },
+        { key: "math", icon: "🧮", title: "數學", note: "加減乘除・分數・時間・幾何", bg: "linear-gradient(135deg,#6f4dff,#9669ff)", shadow: "rgba(111,77,255,.24)" },
+        { key: "chinese", icon: "📖", title: "國文", note: "識字學習庫・聽注音選國字", bg: "linear-gradient(135deg,#1ea878,#42cfa0)", shadow: "rgba(30,168,120,.22)" },
+        { key: "english", icon: "🔤", title: "英文", note: "1500 字庫・拼字・圖片配對・單字串鍊・文法拖曳・心智圖關聯", bg: "linear-gradient(135deg,#168bb7,#29bed0)", shadow: "rgba(22,139,183,.22)" },
+        { key: "science", icon: "🔬", title: "自然", note: "植物・磁鐵・水・光影・電路・溶解・力與熱・星空・生態", bg: "linear-gradient(135deg,#2578c9,#38a8db)", shadow: "rgba(37,120,201,.22)" },
+        { key: "experiment", icon: "🧪", title: "實驗", note: "自由操作・觀察現象・驗證科學原理", bg: "linear-gradient(135deg,#d88918,#f3b643)", shadow: "rgba(216,137,24,.22)" },
       ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }) })),      subjectTabs: [
         { key: "math", icon: "🧮", label: "數學" },
         { key: "chinese", icon: "📖", label: "國文" },
