@@ -2912,8 +2912,14 @@ const MM_TOPICS = [
       { id: "snake", icon: "snake", label: "蛇", en: "Snake", hub: "cons2" },
     ] },
 ];
+const YOUTUBE_PLAYLIST_ID = "PLRYr_-w9fh5Y";
 const VIDEO_LIB = {
   s1: { title: "植物的身體", clips: [
+    { key: "seedGrowthYoutube", label: "種子怎麼變成植物", yt: "z_ZfJ8LfvWI", playlist: YOUTUBE_PLAYLIST_ID },
+    { key: "riceYoutube", label: "水稻種植流程", yt: "pzc-hUfL_8U", playlist: YOUTUBE_PLAYLIST_ID },
+    { key: "plantWaterYoutube", label: "植物水分運輸與蒸散", yt: "nPc35w_T_Rs", playlist: YOUTUBE_PLAYLIST_ID },
+    { key: "photoYoutube", label: "光合作用", yt: "2N_xUyPgr2A", playlist: YOUTUBE_PLAYLIST_ID },
+    { key: "photoYoutube2", label: "光合作用（另一支）", yt: "ci01iP4a-LQ", playlist: YOUTUBE_PLAYLIST_ID },
     { key: "plantlife", label: "植物一生", src: "videos/plantlife/video.mp4", poster: "videos/plantlife/poster.png" },
     { key: "photo", label: "光合作用", src: "videos/photosynthesis/classic.mp4", poster: "videos/photosynthesis/poster.png" },
     { key: "photoPaper", label: "光合作用（剪紙版）", yt: "KJqHeGfD-pw" },
@@ -2922,17 +2928,27 @@ const VIDEO_LIB = {
   s9: { title: "溶解", clips: [{ key: "solute", label: "溶劑與溶質", src: "videos/solute/video.mp4", poster: "videos/solute/poster.png" }] },
   s13: { title: "熱與物質", clips: [{ key: "popcorn", label: "熱與爆米花", src: "videos/popcorn/video.mp4", poster: "videos/popcorn/poster.png" }] },
   s15: { title: "地表變化", clips: [
+    { key: "volcanoYoutube", label: "火山爆發，形成大陸", yt: "Ee87Vct7eZU", playlist: YOUTUBE_PLAYLIST_ID },
+    { key: "earthquakeYoutube", label: "地震是怎麼發生的？", yt: "M0p5GDgqwuI", playlist: YOUTUBE_PLAYLIST_ID },
     { key: "classic", label: "一般版", src: "videos/rocksoil/classic.mp4", poster: "videos/rocksoil/poster.png" },
     { key: "papercut", label: "剪紙版", src: "videos/rocksoil/papercut.mp4", poster: "videos/rocksoil/poster.png" },
   ] },
-  s19: { title: "月相變化", clips: [{ key: "moon", label: "月相變化", src: "videos/moonphase/video.mp4", poster: "videos/moonphase/poster.png" }] },
+  s16: { title: "天氣變化", clips: [{ key: "waterWeatherYoutube", label: "水循環、雲朵及雨的形成", yt: "0_U-2wFIGbY", playlist: YOUTUBE_PLAYLIST_ID }] },
+  s19: { title: "月相變化", clips: [
+    { key: "moonYoutube", label: "月亮為什麼會變成不同形狀？", yt: "136_-z4PRvc", playlist: YOUTUBE_PLAYLIST_ID },
+    { key: "moon", label: "月相變化", src: "videos/moonphase/video.mp4", poster: "videos/moonphase/poster.png" },
+  ] },
+  s4: { title: "光與影", clips: [{ key: "rainbowYoutube", label: "彩虹是怎麼形成的？", yt: "QXCC84UdPmo", playlist: YOUTUBE_PLAYLIST_ID }] },
+  s10: { title: "空氣與風", clips: [{ key: "windYoutube", label: "風的起源", yt: "1yO9vJfgv-g", playlist: YOUTUBE_PLAYLIST_ID }] },
   s22: { title: "地球轉動", clips: [
+    { key: "seasonsYoutube", label: "為什麼會有四季", yt: "ArLP7s9kMmA", playlist: YOUTUBE_PLAYLIST_ID },
     { key: "earth", label: "地球自轉", src: "videos/earthrotation/video.mp4", poster: "" },
     { key: "spring", label: "四季・春天", src: "videos/seasons/spring.mp4", poster: "videos/seasons/poster.png" },
     { key: "summer", label: "四季・夏天", src: "videos/seasons/summer.mp4", poster: "videos/seasons/poster.png" },
     { key: "autumn", label: "四季・秋天", src: "videos/seasons/autumn.mp4", poster: "videos/seasons/poster.png" },
     { key: "winter", label: "四季・冬天", src: "videos/seasons/winter.mp4", poster: "videos/seasons/poster.png" },
   ] },
+  "exp-plant-water": { title: "植物怎麼喝水？", clips: [{ key: "plantWaterYoutube", label: "植物水分運輸與蒸散", yt: "nPc35w_T_Rs", playlist: YOUTUBE_PLAYLIST_ID }] },
   s23: { title: "燃燒與氧氣", clips: [{ key: "combustion", label: "蠟燭燃燒與氧氣", src: "videos/combustion/video.mp4", poster: "videos/combustion/poster.png" }] },
   animalGroup: { title: "動物的一生", clips: [
     { key: "frog", label: "青蛙的一生", src: "videos/frog/video.mp4", poster: "videos/frog/poster.png" },
@@ -7643,7 +7659,7 @@ class Component extends DCLogic {
       videoTitle: s.videoTitle || "自然教學影片",
       videoCurrent: (s.videoClips && s.videoClips[s.videoIndex || 0]) || { label: "", src: "", poster: "" },
       videoIsYoutube: !!(s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt),
-      videoYtUrl: s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt ? "https://www.youtube-nocookie.com/embed/" + s.videoClips[s.videoIndex || 0].yt : "",
+      videoYtUrl: (() => { const clip = s.videoClips && s.videoClips[s.videoIndex || 0]; if (!clip || !clip.yt) return ""; return "https://www.youtube-nocookie.com/embed/" + clip.yt + (clip.playlist ? "?list=" + encodeURIComponent(clip.playlist) : ""); })(),
       videoNativeDisplay: s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt ? "none" : "block",
       videoHasTabs: !!(s.videoClips && s.videoClips.length > 1),
       videoClipTabs: (s.videoClips || []).map((clip, index) => ({ label: clip.label, bg: index === (s.videoIndex || 0) ? "#7c5cff" : "#fff", fg: index === (s.videoIndex || 0) ? "#fff" : "#5b3fe0", pick: () => this.pickVideoClip(index) })),
