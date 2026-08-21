@@ -72,9 +72,6 @@
   .achievement-recent { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px; }
   .achievement-recent-card { min-width:0;display:flex;align-items:center;gap:11px;border:1px solid rgba(239,207,114,.3);border-radius:18px;padding:10px;background:linear-gradient(135deg,rgba(13,68,85,.88),rgba(18,30,60,.86)); }
   .achievement-recent-card img { width:54px;height:54px;flex:0 0 54px;border-radius:13px;object-fit:cover;border:1px solid rgba(255,230,143,.48); }
-  .achievement-recent-icon,.achievement-badge-icon,.achievement-card-icon,.reputation-icon,.collection-icon { display:grid;place-items:center;border-radius:14px;border:1px solid rgba(255,230,143,.48);font-size:28px;line-height:1; }
-  .achievement-recent-icon { width:54px;height:54px;flex:0 0 54px; }
-  .achievement-badge-icon,.achievement-card-icon,.reputation-icon,.collection-icon { width:58px;height:58px;flex:0 0 58px; }
   .achievement-recent-card strong { display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff4bf;font-size:13px; }
   .achievement-recent-card small { color:#9bdde2;font-size:10px;font-weight:800; }
   .achievement-section { padding:24px 28px;border-bottom:1px solid rgba(230,184,87,.22); }
@@ -739,9 +736,6 @@
         <sc-if value="{{ showChallengeRules }}" hint-placeholder-val="{{ true }}"><div style="margin-bottom:16px;padding:13px 16px;border:1px solid #d9f4f8;border-radius:18px;background:linear-gradient(90deg,#eafbfd,#f3f0ff);font-size:12px;font-weight:800;line-height:1.7;color:#4a3d7a">
           🎯 每個單元每天最多完成三輪；100% 全對才會得到 I／II／III。第二輪每題少 5 秒，第三輪再少 5 秒，完成 III 後請換別的練習。
         </div></sc-if>
-        <sc-if value="{{ isExperimentSubject }}" hint-placeholder-val="{{ false }}"><div style="margin-bottom:16px;padding:13px 16px;border:1px solid #f2d9aa;border-radius:18px;background:linear-gradient(90deg,#fff7df,#fff0e8);font-size:12px;font-weight:800;line-height:1.7;color:#78533e">
-          🧪 實驗是自由探索活動，不計入考試輪次；可以反覆操作、觀察並驗證科學現象。
-        </div></sc-if>
         <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
             <article style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:20px;box-shadow:0 14px 30px rgba(43,31,87,.06);display:flex;flex-direction:column;gap:12px">
@@ -751,15 +745,15 @@
                   <strong style="display:block;font-size:17px;font-weight:900">{{ u.title }}</strong>
                   <span style="font-size:12px;font-weight:800;color:#9a90c8">{{ u.sub }}</span>
                 </div>
-                <span style="margin-left:auto;min-width:38px;height:38px;padding:0 8px;border-radius:14px;display:grid;place-items:center;font-size:14px;font-weight:900;color:{{ u.masteryFg }};background:{{ u.masteryBg }};border:1.5px solid {{ u.masteryBorder }}">{{ u.masteryMark }}</span>
+                <sc-if value="{{ u.showMastery }}" hint-placeholder-val="{{ true }}"><span style="margin-left:auto;min-width:38px;height:38px;padding:0 8px;border-radius:14px;display:grid;place-items:center;font-size:14px;font-weight:900;color:{{ u.masteryFg }};background:{{ u.masteryBg }};border:1.5px solid {{ u.masteryBorder }}">{{ u.masteryMark }}</span></sc-if>
               </div>
-              <div style="display:flex;gap:6px">
+              <sc-if value="{{ u.showStatus }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:6px">
                 <sc-for list="{{ u.stars }}" as="s" hint-placeholder-count="3">
                   <span style="font-size:19px">{{ s }}</span>
                 </sc-for>
                 <span style="margin-left:auto;font-size:12px;font-weight:900;color:{{ u.stateColor }}">{{ u.stateLabel }}</span>
-              </div>
-              <div style="height:8px;border-radius:99px;background:#f0ecff;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#7c5cff,#22c8d8);width:{{ u.pct }}%"></div></div>
+              </div></sc-if>
+              <sc-if value="{{ u.showProgress }}" hint-placeholder-val="{{ true }}"><div style="height:8px;border-radius:99px;background:#f0ecff;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#7c5cff,#22c8d8);width:{{ u.pct }}%"></div></div></sc-if>
               <button onClick="{{ u.start }}" style="margin-top:2px;border:0;border-radius:18px;padding:13px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer;color:{{ u.btnFg }};background:{{ u.btnBg }}" style-hover="filter:brightness(1.04)">{{ u.btnLabel }}</button>
               <sc-if value="{{ u.hasVideo }}" hint-placeholder-val="{{ false }}">
                 <button onClick="{{ u.watchVideo }}" style="margin-top:-4px;border:1.5px solid #ffd9ec;border-radius:16px;padding:10px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;color:#c8447a;background:#fff5f9">🎬 教學影片</button>
@@ -1813,7 +1807,7 @@
           <h3 style="margin:23px 0 9px;color:#f2d77f;font-size:15px;letter-spacing:.12em">近期達成</h3>
           <div class="achievement-recent">
             <sc-for list="{{ recentAchievements }}" as="recent" hint-placeholder-count="3">
-              <article class="achievement-recent-card"><span class="achievement-recent-icon" style="background:{{ recent.iconBg }}" role="img" aria-label="{{ recent.title }}徽章">{{ recent.icon }}</span><span style="min-width:0"><strong>{{ recent.title }}</strong><small>{{ recent.note }}</small></span></article>
+              <article class="achievement-recent-card"><img src="{{ recent.image }}" alt="{{ recent.title }}徽章" /><span style="min-width:0"><strong>{{ recent.title }}</strong><small>{{ recent.note }}</small></span></article>
             </sc-for>
           </div>
         </header>
@@ -1821,7 +1815,7 @@
           <h3 class="achievement-section-title">成就徽章總覽</h3>
           <div class="achievement-badge-overview">
             <sc-for list="{{ achievementBadgeOverview }}" as="badge" hint-placeholder-count="12">
-              <article class="{{ badge.className }}"><span class="achievement-badge-icon" style="background:{{ badge.iconBg }}" role="img" aria-label="{{ badge.title }}徽章">{{ badge.icon }}</span><span><strong>{{ badge.title }}</strong><small>{{ badge.note }}</small><em>{{ badge.status }}</em></span></article>
+              <article class="{{ badge.className }}"><img src="{{ badge.image }}" alt="{{ badge.title }}徽章" /><span><strong>{{ badge.title }}</strong><small>{{ badge.note }}</small><em>{{ badge.status }}</em></span></article>
             </sc-for>
           </div>
         </section>
@@ -1830,21 +1824,21 @@
           <div class="reputation-grid">
             <sc-for list="{{ reputationSubjects }}" as="rep" hint-placeholder-count="4">
               <article class="reputation-card">
-                <span class="reputation-icon" style="background:{{ rep.iconBg }}" role="img" aria-label="{{ rep.name }}聲望徽章">{{ rep.icon }}</span>
+                <img src="{{ rep.image }}" alt="{{ rep.name }}聲望徽章" />
                 <div class="reputation-copy"><div class="reputation-head"><strong>{{ rep.name }}</strong><span>{{ rep.rank }} · {{ rep.rankEn }}</span></div><div class="reputation-track"><i style="width:{{ rep.pct }}%"></i></div><div class="reputation-foot"><span>{{ rep.points }} 聲望</span><span>{{ rep.nextLabel }}</span></div></div>
               </article>
             </sc-for>
           </div>
           <div class="collection-grid">
-            <article class="collection-card"><span class="collection-icon" style="background:#ffc4dd" role="img" aria-label="服裝收藏徽章">👗</span><div><strong>服裝收集完成度</strong><p>{{ wardrobeCollectionProgress }}</p><div class="collection-track"><i style="width:{{ wardrobeCollectionPct }}%"></i></div></div></article>
-            <article class="collection-card"><span class="collection-icon" style="background:#c9b9ff" role="img" aria-label="扭蛋收藏徽章">🫧</span><div><strong>扭蛋圖鑑完成度</strong><p>{{ gachaCollectionProgress }}</p><div class="collection-track"><i style="width:{{ gachaCollectionPct }}%"></i></div></div></article>
+            <article class="collection-card"><img src="images/achievements/wardrobe.png" alt="服裝收藏徽章" /><div><strong>服裝收集完成度</strong><p>{{ wardrobeCollectionProgress }}</p><div class="collection-track"><i style="width:{{ wardrobeCollectionPct }}%"></i></div></div></article>
+            <article class="collection-card"><img src="images/achievements/gacha.png" alt="扭蛋收藏徽章" /><div><strong>扭蛋圖鑑完成度</strong><p>{{ gachaCollectionProgress }}</p><div class="collection-track"><i style="width:{{ gachaCollectionPct }}%"></i></div></div></article>
           </div>
         </section>
         <section class="achievement-section" style="border-bottom:0">
           <h3 class="achievement-section-title">進行中的里程碑</h3>
           <div class="achievement-grid">
             <sc-for list="{{ achievements }}" as="a" hint-placeholder-count="4">
-              <article class="{{ a.cardClass }}"><span class="achievement-card-icon" style="background:{{ a.iconBg }}" role="img" aria-label="{{ a.title }}徽章">{{ a.icon }}</span><div><h3>{{ a.title }}</h3><p>{{ a.note }}</p><div class="reputation-track"><i style="width:{{ a.width }}"></i></div><div class="achievement-card-foot"><span>{{ a.progress }}</span><span class="{{ a.stateClass }}">{{ a.state }}</span></div></div></article>
+              <article class="{{ a.cardClass }}"><img src="{{ a.image }}" alt="{{ a.title }}徽章" /><div><h3>{{ a.title }}</h3><p>{{ a.note }}</p><div class="reputation-track"><i style="width:{{ a.width }}"></i></div><div class="achievement-card-foot"><span>{{ a.progress }}</span><span class="{{ a.stateClass }}">{{ a.state }}</span></div></div></article>
             </sc-for>
           </div>
         </section>
@@ -7414,30 +7408,13 @@ class Component extends DCLogic {
     const rarityColors = { "普通": "#22aebc", "稀有": "#7c5cff", "傳說": "#d75c93", "限定": "#e08a13" };
 
     const achievementImageRoot = "images/achievements/";
-    const iconForAchievement = (entry) => {
-      const id = String(entry && (entry.id || entry.key) || "");
-      const title = String(entry && (entry.title || entry.name) || "");
-      if (id.indexOf("level") === 0 || title.indexOf("等級") >= 0) return { icon: "🏆", iconBg: "#f8d67a" };
-      if (id.indexOf("perfect") === 0 || title.indexOf("全對") >= 0) return { icon: "🌟", iconBg: "#ffe6a7" };
-      if (id.indexOf("questions") === 0 || title.indexOf("題") >= 0) return { icon: "📚", iconBg: "#bfe8ff" };
-      if (id.indexOf("signin") === 0 || title.indexOf("簽到") >= 0 || title.indexOf("七日") >= 0) return { icon: "🗺️", iconBg: "#bdebd6" };
-      if (id.indexOf("wardrobe") === 0 || title.indexOf("收藏") >= 0 || title.indexOf("造型") >= 0) return { icon: "👗", iconBg: "#ffc4dd" };
-      if (id.indexOf("gacha") === 0 || title.indexOf("扭蛋") >= 0 || title.indexOf("圖鑑") >= 0) return { icon: "🫧", iconBg: "#c9b9ff" };
-      if (id.indexOf("reputation:math") === 0 || title.indexOf("數學") >= 0) return { icon: "🧮", iconBg: "#cbbcff" };
-      if (id.indexOf("reputation:chinese") === 0 || title.indexOf("國文") >= 0) return { icon: "📖", iconBg: "#bdebd6" };
-      if (id.indexOf("reputation:english") === 0 || title.indexOf("英文") >= 0) return { icon: "🔤", iconBg: "#bcecf4" };
-      if (id.indexOf("reputation:science") === 0 || title.indexOf("自然") >= 0) return { icon: "🔬", iconBg: "#bfe4f5" };
-      if (id.indexOf("mastery") === 0) return { icon: "🧠", iconBg: "#c7d7ff" };
-      if (id.indexOf("recent") === 0 || title.indexOf("全能") >= 0) return { icon: "🌈", iconBg: "#f9c9e7" };
-      return { icon: "🎖️", iconBg: "#d8ccff" };
-    };
     const subjectCorrect = Object.assign({ math: 0, chinese: 0, english: 0, science: 0 }, p.subjectCorrect || {});
     const reputationSubjects = [
       { key: "math", name: "數學", image: "math.png" },
       { key: "chinese", name: "國文", image: "chinese.png" },
       { key: "english", name: "英文", image: "english.png" },
       { key: "science", name: "自然", image: "science.png" },
-    ].map((entry) => Object.assign({}, entry, reputationStatus(subjectCorrect[entry.key]), iconForAchievement({ id: "reputation:" + entry.key, name: entry.name }), { image: achievementImageRoot + entry.image }));
+    ].map((entry) => Object.assign({}, entry, reputationStatus(subjectCorrect[entry.key]), { image: achievementImageRoot + entry.image }));
     const collectionCategories = new Set(["set", "hair", "top", "bottom", "shoes", "accessory", "neck", "hand", "pet", "background"]);
     const collectibleCatalog = compatibleCatalog.filter((item) => collectionCategories.has(item.category) && item.audience !== "system" && !/-00$/.test(item.id));
     const ownedCollectibles = collectibleCatalog.filter((item) => p.owned.indexOf(item.id) >= 0).length;
@@ -7453,12 +7430,12 @@ class Component extends DCLogic {
     ].map((entry) => {
       const done = entry.cur > 0 && entry.cur >= entry.goal;
       const pct = Math.min(100, Math.round(entry.cur / Math.max(1, entry.goal) * 100));
-      return Object.assign({}, entry, iconForAchievement(entry), { image: achievementImageRoot + entry.image, pct, width: pct + "%", progress: entry.progress || Math.min(entry.cur, entry.goal) + " / " + entry.goal, state: done ? "已達成" : "進行中", cardClass: done ? "achievement-card is-done" : "achievement-card", stateClass: done ? "achievement-state-done" : "" });
+      return Object.assign({}, entry, { image: achievementImageRoot + entry.image, pct, width: pct + "%", progress: entry.progress || Math.min(entry.cur, entry.goal) + " / " + entry.goal, state: done ? "已達成" : "進行中", cardClass: done ? "achievement-card is-done" : "achievement-card", stateClass: done ? "achievement-state-done" : "" });
     });
     const storedAchievementHistory = Array.isArray(p.achievementHistory) ? p.achievementHistory : [];
     const achievementHistory = (storedAchievementHistory.length ? storedAchievementHistory : achievedMilestoneEntries(p).reverse()).slice(0, 3);
-    const recentPlaceholders = achievementCards.slice(0, 3).map((entry) => ({ id: entry.key, title: "下一目標 · " + entry.title, note: entry.note, image: entry.image }));
-    const recentAchievements = achievementHistory.concat(recentPlaceholders).slice(0, 3).map((entry) => Object.assign({}, entry, iconForAchievement(entry)));
+    const recentPlaceholders = achievementCards.slice(0, 3).map((entry) => ({ title: "下一目標 · " + entry.title, note: entry.note, image: entry.image }));
+    const recentAchievements = achievementHistory.concat(recentPlaceholders).slice(0, 3);
     const rankStage = (status) => Math.max(0, REPUTATION_RANKS.findIndex((rank) => rank.en === status.rankEn));
     const allExalted = reputationSubjects.every((rep) => rep.rankEn === "Exalted");
     const allRounder = reputationSubjects.every((rep) => rep.points >= 150) && ownedCollectibles >= 20 && gachaOwnedUnique >= 10;
@@ -7475,7 +7452,7 @@ class Component extends DCLogic {
       { title: "扭蛋圖鑑家", note: "解鎖不同款式的扭蛋收藏", image: "gacha.png", earned: gachaOwnedUnique >= 50, status: gachaOwnedUnique + " 款" },
       { title: "四科聲望大師", note: "四科聲望全部達到崇拜", image: "mastery.png", earned: allExalted, status: allExalted ? "已達成" : "最高聲望 " + Math.max.apply(null, reputationSubjects.map(rankStage)) + " / 5" },
       { title: "星海全能冒險家", note: "四科友好、服裝 20 件、扭蛋 10 款", image: "recent.png", earned: allRounder, status: allRounder ? "已達成" : "持續冒險中" },
-    ].map((badge) => Object.assign({}, badge, iconForAchievement(badge), { image: achievementImageRoot + badge.image, className: badge.earned ? "achievement-badge-item is-earned" : "achievement-badge-item" }));
+    ].map((badge) => Object.assign({}, badge, { image: achievementImageRoot + badge.image, className: badge.earned ? "achievement-badge-item is-earned" : "achievement-badge-item" }));
     const achievedCount = Math.floor(level / 5) + Math.floor((Number(p.perfect) || 0) / 10) + Math.floor(answeredTotal / 200) + Math.floor(sevenDayRuns / 4) + reputationSubjects.reduce((sum, rep) => sum + rankStage(rep), 0) + Math.floor(ownedCollectibles / 20) + Math.floor(gachaOwnedUnique / 50) + (allExalted ? 1 : 0) + (allRounder ? 1 : 0);
 
     const tabDefs = [
@@ -8072,11 +8049,13 @@ class Component extends DCLogic {
         { key: "chinese", icon: "📖", title: "國文", note: "識字學習庫・聽注音選國字", bg: "linear-gradient(135deg,#1ea878,#42cfa0)", shadow: "rgba(30,168,120,.22)" },
         { key: "english", icon: "🔤", title: "英文", note: "1500 字庫・拼字・圖片配對・單字串鍊・文法拖曳・心智圖關聯", bg: "linear-gradient(135deg,#168bb7,#29bed0)", shadow: "rgba(22,139,183,.22)" },
         { key: "science", icon: "🔬", title: "自然", note: "植物・磁鐵・水・光影・電路・溶解・力與熱・星空・生態", bg: "linear-gradient(135deg,#2578c9,#38a8db)", shadow: "rgba(37,120,201,.22)" },
+        { key: "experiment", icon: "🧪", title: "實驗", note: "自由操作・觀察現象・驗證科學原理", bg: "linear-gradient(135deg,#d88918,#f3b643)", shadow: "rgba(216,137,24,.22)" },
       ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }) })),      subjectTabs: [
         { key: "math", icon: "🧮", label: "數學" },
         { key: "chinese", icon: "📖", label: "國文" },
         { key: "english", icon: "🔤", label: "英文" },
         { key: "science", icon: "🔬", label: "自然" },
+        { key: "experiment", icon: "🧪", label: "實驗" },
       ].map((c) => ({
         icon: c.icon, label: c.label,
         go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }),
@@ -8138,12 +8117,15 @@ class Component extends DCLogic {
         return {
           icon: u.icon, iconEl: /^s\d/.test(u.id) ? SCI_ICON_EL(u.icon, 34) : u.icon, tint: u.tint, title: u.title, sub: u.sub,
           pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
-          stars: isLib ? ["📖", "📖", "📖"] : isExperiment ? ["🧪"] : [0, 1, 2].map((i) => (i < difficulty ? "⭐" : "☆")),
-          masteryMark: isLib ? "字庫" : isExperiment ? "實驗" : masteryRoman(round),
+          stars: isLib ? ["📖", "📖", "📖"] : isExperiment ? [] : [0, 1, 2].map((i) => (i < difficulty ? "⭐" : "☆")),
+          showMastery: !isExperiment,
+          showStatus: !isExperiment,
+          showProgress: !isExperiment,
+          masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
           masteryBg: round ? "#e6f7ee" : "#fbfaff",
           masteryFg: round ? "#1d7a55" : "#b3a9d8",
           masteryBorder: round ? "#9fe3c4" : "#ece7ff",
-          stateLabel: isLib ? gradeWords.length + " 個字" : isExperiment ? "自由探索" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
+          stateLabel: isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
           stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
           btnLabel: isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
           btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
