@@ -353,6 +353,10 @@
   .daynight-v2-marker i,.daynight-v2-marker.night i{position:absolute;left:2px;top:1px;width:21px;height:21px;border-radius:50% 50% 50% 0;background:#e53935;box-shadow:0 3px 7px rgba(103,5,13,.48),0 0 0 1px rgba(255,255,255,.38);transform:rotate(-45deg)}
   .daynight-v2-marker i:after{content:"";position:absolute;left:6px;top:6px;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 0 0 1px rgba(126,8,20,.12)}
   .daynight-v2-marker{transition:left .28s linear,top .28s linear,opacity .28s linear}
+  .earth-lab-tabs{display:flex;gap:6px;margin-left:auto}.earth-lab-tabs button{border:1.5px solid #cbd9ee;border-radius:99px;padding:8px 13px;background:#fff;color:#61779d;font-family:inherit;font-size:11px;font-weight:950;cursor:pointer}.earth-lab-tabs button.active{border-color:#6657df;background:#6657df;color:#fff;box-shadow:0 7px 16px rgba(80,62,193,.22)}
+  .daynight-v2-finished{display:flex;align-items:center;justify-content:space-between;gap:12px}.daynight-v2-next{border:0;border-radius:10px;padding:8px 12px;background:#fff;color:#17764f;font-family:inherit;font-size:10px;font-weight:1000;cursor:pointer;white-space:nowrap}
+  .revolution-v1-workspace{display:grid;grid-template-columns:minmax(0,1fr) 328px;gap:12px}.revolution-v1-stage{position:relative;min-height:506px;overflow:hidden;border:3px solid #6154c8;border-radius:26px;background:#050b1d url('images/science/day-night/earth-revolution-space-v1.jpg') center/cover no-repeat;box-shadow:0 18px 42px rgba(26,31,88,.3);color:#fff}.revolution-v1-stage:after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 50%,transparent 0 18%,rgba(1,8,27,.08) 43%,rgba(1,5,18,.18) 100%);pointer-events:none}.revolution-v1-orbit{position:absolute;left:50%;top:50%;z-index:2;width:78%;height:59%;transform:translate(-50%,-50%);border:2px dashed rgba(137,209,255,.72);border-radius:50%;box-shadow:0 0 18px rgba(69,156,255,.15),inset 0 0 18px rgba(69,156,255,.08)}.revolution-v1-orbit:after{content:"";position:absolute;right:4%;top:10%;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid #9adeff;transform:rotate(39deg)}.revolution-v1-month{position:absolute;z-index:5;padding:4px 8px;border:1px solid rgba(203,225,255,.34);border-radius:99px;background:rgba(8,18,54,.74);color:#e9f3ff;font-size:9px;font-weight:950;backdrop-filter:blur(5px)}.revolution-v1-month.mar{left:50%;bottom:10%;transform:translateX(-50%)}.revolution-v1-month.jun{left:4%;top:50%;transform:translateY(-50%)}.revolution-v1-month.sep{left:50%;top:9%;transform:translateX(-50%)}.revolution-v1-month.dec{right:4%;top:50%;transform:translateY(-50%)}.revolution-v1-earth{position:absolute;left:var(--orbit-x);top:var(--orbit-y);z-index:6;width:104px;aspect-ratio:1;transform:translate(-50%,-50%);transition:left .3s linear,top .3s linear}.revolution-v1-globe{position:absolute;inset:10px;overflow:hidden;border-radius:50%;background:#061225;clip-path:circle(50%);box-shadow:0 0 0 3px rgba(148,220,255,.6),0 10px 25px rgba(0,0,0,.5)}.revolution-v1-globe video{position:absolute;left:50%;top:50%;width:178%;height:178%;max-width:none;object-fit:cover;transform:translate(-50%,-50%);clip-path:circle(28.1% at 50% 50%);filter:saturate(1.16) contrast(1.08) brightness(1.05);pointer-events:none}.revolution-v1-shadow{position:absolute;inset:0;border-radius:50%;background:linear-gradient(var(--shadow-angle),rgba(0,1,9,.88) 0,rgba(2,5,20,.65) 37%,rgba(2,5,20,.08) 54%,transparent 68%);pointer-events:none}.revolution-v1-axis{position:absolute;left:50%;top:-2%;height:104%;z-index:3;border-left:2px solid #bceaff;transform:rotate(var(--axis-angle));filter:drop-shadow(0 0 4px #4cbaff)}.revolution-v1-axis:before,.revolution-v1-axis:after{position:absolute;left:6px;color:#dff6ff;font-size:8px;font-style:normal;font-weight:1000;white-space:nowrap}.revolution-v1-axis:before{content:"北";top:0}.revolution-v1-axis:after{content:"南";bottom:0}.revolution-v1-earth-label{position:absolute;left:50%;top:100%;transform:translate(-50%,4px);min-width:106px;text-align:center;color:#fff4ad;font-size:9px;font-weight:1000;text-shadow:0 2px 5px #000}.revolution-v1-fact{position:absolute;left:4%;bottom:4%;z-index:5;max-width:188px;padding:8px 11px;border:1px solid rgba(255,235,137,.55);border-radius:12px;background:rgba(18,17,61,.78);color:#fff7c2;font-size:9px;font-weight:900;line-height:1.45;backdrop-filter:blur(6px)}.revolution-v1-status{position:absolute;right:3%;bottom:3%;z-index:5;min-width:150px;padding:9px 12px;border:1px solid rgba(255,255,255,.28);border-radius:14px;background:rgba(8,15,51,.84)}.revolution-v1-status small{display:block;color:#a9c3e9;font-size:8px;font-weight:950}.revolution-v1-status strong{display:block;margin-top:2px;color:#fff19c;font-size:18px}.revolution-v1-status span{color:#d2def1;font-size:9px;font-weight:900}.revolution-v1-controls{display:flex;flex-direction:column;gap:7px;padding:10px;border:2px solid #c9d8ed;border-radius:24px;background:linear-gradient(180deg,#f8fbff,#eef4fd);color:#213354}.revolution-v1-controls>article{padding:9px 10px;border:1.5px solid #dbe5f1;border-radius:15px;background:rgba(255,255,255,.9)}.revolution-v1-controls h3{display:flex;align-items:center;gap:7px;margin:0;color:#253961;font-size:13px}.revolution-v1-controls h3>b{display:grid;place-items:center;width:21px;height:21px;border-radius:50%;background:#e7e4ff;color:#5e51ce;font-size:10px}.revolution-v1-controls p{margin:4px 0 7px;color:#71819a;font-size:9px;font-weight:850}.revolution-v1-dates{display:grid;grid-template-columns:1fr 1fr;gap:5px}.revolution-v1-dates button,.revolution-v1-tilts button,.revolution-v1-evidence button{border:1.5px solid #cfdbeb;border-radius:9px;padding:7px 4px;background:#f8fbff;color:#425c84;font-family:inherit;font-size:9px;font-weight:950;cursor:pointer}.revolution-v1-dates button.active,.revolution-v1-tilts button.active{border-color:#7362e6;background:#eae7ff;color:#4a38bd}.revolution-v1-auto{width:100%;margin-top:6px;border:0;border-radius:10px;padding:8px;background:linear-gradient(90deg,#6657df,#22b9d0);color:#fff;font-family:inherit;font-size:10px;font-weight:1000;cursor:pointer}.revolution-v1-tilts{display:grid;grid-template-columns:1fr 1fr;gap:5px}.revolution-v1-evidence{display:grid;gap:5px}.revolution-v1-evidence button{text-align:left;padding:7px 9px}.revolution-v1-evidence button.correct{border-color:#37b982;background:#e4f8ee;color:#1e754d}.revolution-v1-evidence button.wrong{border-color:#eea1a5;background:#fff0f0;color:#aa3c46}.revolution-v1-message{margin:auto 0 0;padding:8px 10px;border-radius:12px;background:#fff5d6;color:#735d1d;font-size:10px;font-weight:900;line-height:1.45}.revolution-v1-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.revolution-v1-summary article{padding:10px 12px;border:2px solid #b7c8e9;border-radius:15px;background:#f7f9ff;color:#263b62}.revolution-v1-summary b{display:block;font-size:11px}.revolution-v1-summary span{display:block;margin-top:2px;color:#667895;font-size:9px;font-weight:850}.revolution-v1-summary .done{border-color:#62c69c;background:#effcf7}.revolution-v1-complete{grid-column:1/-1;padding:9px 14px;border-radius:13px;background:#1fa66b;color:#fff;text-align:center;font-size:11px;font-weight:1000}
+  @media(max-width:920px){.revolution-v1-workspace{grid-template-columns:minmax(0,1fr) 300px}.revolution-v1-stage{min-height:480px}.revolution-v1-earth{width:92px}}@media(max-width:760px){.earth-lab-tabs{order:4;width:100%}.revolution-v1-workspace{grid-template-columns:1fr}.revolution-v1-stage{min-height:430px}.revolution-v1-controls{display:grid;grid-template-columns:1fr 1fr}.revolution-v1-controls>article:last-of-type,.revolution-v1-message{grid-column:1/-1}}@media(max-width:520px){.earth-lab-tabs button{flex:1}.revolution-v1-stage{min-height:370px}.revolution-v1-earth{width:76px}.revolution-v1-summary{grid-template-columns:1fr}.revolution-v1-controls{display:flex}}
 </style>
 </helmet>
 
@@ -1180,11 +1184,13 @@
       <div class="daynight-v2-shell" data-screen-label="白天與黑夜實驗室">
         <div class="daynight-v2-head">
           <button class="daynight-v2-back" onClick="{{ dayNightBack }}" aria-label="返回實驗模組">←</button>
-          <div><p>地球科學互動實驗</p><h2>白天與黑夜</h2></div>
+          <div><p>地球科學互動實驗</p><h2>{{ earthLabTitle }}</h2></div>
+          <div class="earth-lab-tabs"><button class="{{ earthRotationTabClass }}" onClick="{{ earthShowRotation }}">自轉・日夜</button><button class="{{ earthRevolutionTabClass }}" onClick="{{ earthShowRevolution }}">公轉・四季</button></div>
           <button class="daynight-v2-speak" onClick="{{ dayNightSpeak }}">🔊 聽原理</button>
           <button class="daynight-v2-reset" onClick="{{ dayNightReset }}">重新實驗</button>
         </div>
 
+        <sc-if value="{{ earthRotationMode }}" hint-placeholder-val="{{ true }}">
         <section class="daynight-v2-workspace">
           <div class="daynight-v2-stage">
             <div class="daynight-v2-light-label"><b>太陽光</b><span>固定向右照射　→ → →</span></div>
@@ -1229,8 +1235,35 @@
           <article class="rotation"><strong>地球自轉</strong><b>約 24 小時一圈</b><span>造成白天與黑夜交替</span></article>
           <i>≠</i>
           <article class="revolution"><strong>地球公轉</strong><b>約 1 年繞太陽一圈</b><span>形成一年的週期；配合地軸傾斜影響季節</span></article>
-          <sc-if value="{{ dayNightCompleted }}" hint-placeholder-val="{{ false }}"><div class="daynight-v2-finished">✓ 實驗完成！日夜交替的主要原因是地球自轉。</div></sc-if>
+          <sc-if value="{{ dayNightCompleted }}" hint-placeholder-val="{{ false }}"><div class="daynight-v2-finished"><span>✓ 自轉評估完成！日夜交替的主要原因是地球自轉。</span><button class="daynight-v2-next" onClick="{{ earthShowRevolution }}">下一個：觀察公轉 →</button></div></sc-if>
         </section>
+        </sc-if>
+
+        <sc-if value="{{ earthRevolutionMode }}" hint-placeholder-val="{{ false }}">
+          <section class="revolution-v1-workspace">
+            <div class="revolution-v1-stage">
+              <div class="revolution-v1-orbit"></div>
+              <span class="revolution-v1-month mar">3 月・春分</span><span class="revolution-v1-month jun">6 月・夏至</span><span class="revolution-v1-month sep">9 月・秋分</span><span class="revolution-v1-month dec">12 月・冬至</span>
+              <div class="revolution-v1-earth" style="--orbit-x:{{ earthOrbitX }}%;--orbit-y:{{ earthOrbitY }}%;--shadow-angle:{{ earthShadowAngle }}deg;--axis-angle:{{ earthAxisAngle }}deg">
+                <div class="revolution-v1-globe">
+                  <!-- Pexels video 856356 by Pixabay, marked free to use (CC0). -->
+                  <video src="https://videos.pexels.com/video-files/856356/856356-sd_640_360_25fps.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" loop="{{ true }}" autoPlay="{{ true }}" aria-label="真實地球旋轉影像"></video>
+                  <i class="revolution-v1-shadow" aria-hidden="true"></i><i class="revolution-v1-axis" aria-hidden="true"></i>
+                </div>
+                <span class="revolution-v1-earth-label">{{ earthOrbitDate }}</span>
+              </div>
+              <div class="revolution-v1-fact">地軸在公轉途中保持同一方向；軌道略呈橢圓，但四季主要不是距離造成。</div>
+              <div class="revolution-v1-status"><small>北半球目前季節</small><strong>{{ earthOrbitSeason }}</strong><span>公轉 {{ earthOrbitAngle }}°・{{ earthOrbitDays }} 天</span></div>
+            </div>
+            <aside class="revolution-v1-controls">
+              <article><h3><b>1</b>移動到四個日期</h3><p>觀察地球位置與北半球朝向。</p><div class="revolution-v1-dates"><sc-for list="{{ earthOrbitDates }}" as="date" hint-placeholder-count="4"><button class="{{ date.className }}" onClick="{{ date.pick }}">{{ date.label }}</button></sc-for></div><button class="revolution-v1-auto" onClick="{{ earthOrbitAuto }}">{{ earthOrbitAutoLabel }}</button></article>
+              <article><h3><b>2</b>比較地軸傾斜</h3><p>地軸傾斜讓兩半球接收陽光的角度不同。</p><div class="revolution-v1-tilts"><button class="{{ earthTiltOnClass }}" onClick="{{ earthTiltOn }}">23.5° 地軸</button><button class="{{ earthTiltOffClass }}" onClick="{{ earthTiltOff }}">0° 無傾斜</button></div></article>
+              <article><h3><b>3</b>四季主要怎麼形成？</h3><div class="revolution-v1-evidence"><sc-for list="{{ earthOrbitEvidence }}" as="item" hint-placeholder-count="3"><button class="{{ item.className }}" onClick="{{ item.pick }}">{{ item.label }}</button></sc-for></div></article>
+              <p class="revolution-v1-message">{{ earthOrbitMessage }}</p>
+            </aside>
+          </section>
+          <section class="revolution-v1-summary"><article class="{{ earthOrbitVisitedClass }}"><b>公轉週期</b><span>約 365.25 天繞太陽一圈</span></article><article class="{{ earthTiltComparedClass }}"><b>地軸傾斜</b><span>約 23.5°，途中保持同一方向</span></article><article class="{{ earthOrbitEvidenceClass }}"><b>四季原因</b><span>公轉位置＋地軸傾斜改變日照</span></article><sc-if value="{{ earthOrbitCompleted }}" hint-placeholder-val="{{ false }}"><div class="revolution-v1-complete">✓ 公轉評估完成！四季不是因為地球離太陽忽近忽遠。</div></sc-if></section>
+        </sc-if>
       </div>
     </sc-if>
 
@@ -6295,6 +6328,7 @@ class Component extends DCLogic {
 
   newDayNightLabState() {
     return {
+      mode: "rotation",
       rotation: 0,
       prediction: "",
       checked: false,
@@ -6303,7 +6337,15 @@ class Component extends DCLogic {
       evidence: "",
       evidenceCorrect: false,
       auto: false,
-      message: "任務一：先預測臺灣現在是白天還是黑夜。"
+      message: "任務一：先預測臺灣現在是白天還是黑夜。",
+      orbitAngle: 0,
+      orbitVisited: { 0: true },
+      orbitAuto: false,
+      tilt: 23.5,
+      tiltCompared: false,
+      orbitEvidence: "",
+      orbitEvidenceCorrect: false,
+      orbitMessage: "先點四個日期，觀察地軸方向與北半球季節。"
     };
   }
   dayNightPhase(rotation) {
@@ -6316,6 +6358,11 @@ class Component extends DCLogic {
     (this.dayNightTimers || []).forEach((timer) => clearTimeout(timer));
     this.dayNightTimers = [];
     if (this.dayNightVideo) this.dayNightVideo.pause();
+  }
+  showEarthLabMode(mode) {
+    this.clearDayNightTimers();
+    const lab = this.state.dayNightLab; if (!lab) return;
+    this.setState({ dayNightLab: Object.assign({}, lab, { mode, auto: false, orbitAuto: false }) });
   }
   syncDayNightVideo(rotation) {
     const video = this.dayNightVideo;
@@ -6333,7 +6380,9 @@ class Component extends DCLogic {
   }
   resetDayNightLab() {
     this.clearDayNightTimers();
-    this.setState({ dayNightLab: this.newDayNightLabState() });
+    const fresh = this.newDayNightLabState();
+    fresh.mode = this.state.dayNightLab && this.state.dayNightLab.mode === "revolution" ? "revolution" : "rotation";
+    this.setState({ dayNightLab: fresh });
     requestAnimationFrame(() => this.syncDayNightVideo(0));
   }
   dayNightPredict(choice) {
@@ -6396,6 +6445,49 @@ class Component extends DCLogic {
         }
       }, stepMs);
     }, (index + 1) * stepMs));
+  }
+  earthOrbitInfo(angle) {
+    const a = ((angle % 360) + 360) % 360;
+    if (a < 45 || a >= 315) return { season: "冬季", anchor: "12 月・冬至" };
+    if (a < 135) return { season: "春季", anchor: "3 月・春分" };
+    if (a < 225) return { season: "夏季", anchor: "6 月・夏至" };
+    return { season: "秋季", anchor: "9 月・秋分" };
+  }
+  setEarthOrbit(angle) {
+    const lab = this.state.dayNightLab; if (!lab) return;
+    const a = ((angle % 360) + 360) % 360;
+    const visited = Object.assign({}, lab.orbitVisited);
+    if ([0, 90, 180, 270].indexOf(a) >= 0) visited[a] = true;
+    const info = this.earthOrbitInfo(a);
+    this.setState({ dayNightLab: Object.assign({}, lab, { orbitAngle: a, orbitVisited: visited, orbitMessage: info.anchor + "：北半球是" + info.season + "；注意地軸仍指向同一方向。" }) });
+  }
+  startEarthOrbitAuto() {
+    const lab = this.state.dayNightLab; if (!lab || lab.orbitAuto) return;
+    const stepCount = 36, stepDegrees = 10, stepMs = 280;
+    this.clearDayNightTimers();
+    this.setState({ dayNightLab: Object.assign({}, lab, { orbitAuto: true, orbitMessage: "地球正在繞太陽公轉一年；地球也同時持續自轉。" }) });
+    this.dayNightTimers = Array.from({ length: stepCount }, (_, index) => setTimeout(() => {
+      const current = this.state.dayNightLab; if (!current) return;
+      const angle = (current.orbitAngle + stepDegrees) % 360;
+      const visited = Object.assign({}, current.orbitVisited);
+      if ([0, 90, 180, 270].indexOf(angle) >= 0) visited[angle] = true;
+      this.setState({ dayNightLab: Object.assign({}, current, { orbitAngle: angle, orbitVisited: visited }) });
+      if (index === stepCount - 1) setTimeout(() => {
+        const done = this.state.dayNightLab; if (!done) return;
+        this.setState({ dayNightLab: Object.assign({}, done, { orbitAuto: false, orbitMessage: "公轉一圈完成：約 365.25 天，形成一年的週期。" }) });
+      }, stepMs);
+    }, (index + 1) * stepMs));
+  }
+  compareEarthTilt(tilt) {
+    const lab = this.state.dayNightLab; if (!lab) return;
+    const compared = lab.tiltCompared || tilt === 0 || (lab.tilt === 0 && tilt === 23.5);
+    this.setState({ dayNightLab: Object.assign({}, lab, { tilt, tiltCompared: compared, orbitMessage: tilt === 0 ? "沒有地軸傾斜時，南北半球全年接收陽光的差異會小很多。" : "恢復 23.5°：公轉時兩半球輪流朝向太陽，形成季節變化。" }) });
+  }
+  pickEarthOrbitEvidence(id) {
+    const lab = this.state.dayNightLab; if (!lab) return;
+    const correct = id === "tiltOrbit";
+    const message = correct ? "答對了！公轉位置配合固定方向的傾斜地軸，使日照角度與日照時間改變。" : id === "distance" ? "再想想：地球一月較接近太陽，北半球卻是冬季，所以距離不是四季主因。" : "自轉造成日夜，不是四季。";
+    this.setState({ dayNightLab: Object.assign({}, lab, { orbitEvidence: id, orbitEvidenceCorrect: correct, orbitMessage: message }) });
   }
 
   newMagnetLabState() {
@@ -7774,6 +7866,11 @@ class Component extends DCLogic {
       isDissolveLab: s.screen === "dissolveLab",
       isPlantLab: s.screen === "plantWaterLab",
       isDayNightLab: s.screen === "dayNightLab",
+      earthRotationMode: !s.dayNightLab || s.dayNightLab.mode !== "revolution",
+      earthRevolutionMode: !!(s.dayNightLab && s.dayNightLab.mode === "revolution"),
+      earthLabTitle: s.dayNightLab && s.dayNightLab.mode === "revolution" ? "地球公轉與四季" : "白天與黑夜",
+      earthRotationTabClass: !s.dayNightLab || s.dayNightLab.mode !== "revolution" ? "active" : "",
+      earthRevolutionTabClass: s.dayNightLab && s.dayNightLab.mode === "revolution" ? "active" : "",
       dayNightRotation: s.dayNightLab ? s.dayNightLab.rotation : 0,
       dayNightStatus: (() => { const l = s.dayNightLab; if (!l) return "準備開始"; const phase = this.dayNightPhase(l.rotation); return phase === "day" ? "白天" : phase === "night" ? "黑夜" : "晨昏交界"; })(),
       dayNightMessage: s.dayNightLab ? s.dayNightLab.message : "先預測，再轉動地球。",
@@ -7803,7 +7900,26 @@ class Component extends DCLogic {
       dayNightBack: () => this.exitDayNightLab(), dayNightReset: () => this.resetDayNightLab(),
       dayNightPredictDay: () => this.dayNightPredict("day"), dayNightPredictNight: () => this.dayNightPredict("night"), dayNightCheck: () => this.dayNightCheck(),
       dayNightTurnBack: () => this.dayNightRotate(-60), dayNightTurnHalf: () => this.dayNightRotate(180), dayNightTurnForward: () => this.dayNightRotate(60), dayNightAuto: () => this.startDayNightAuto(),
-      dayNightSpeak: () => this.speakText("太陽持續發光。地球每約二十四小時自轉一圈，面向太陽是白天，背向太陽是黑夜。地球繞太陽公轉約一年，公轉不是一天內白天黑夜交替的原因。"),
+      earthShowRotation: () => this.showEarthLabMode("rotation"), earthShowRevolution: () => this.showEarthLabMode("revolution"),
+      earthOrbitAngle: s.dayNightLab ? Math.round(s.dayNightLab.orbitAngle || 0) : 0,
+      earthOrbitX: (() => { const a = ((s.dayNightLab ? s.dayNightLab.orbitAngle : 0) || 0) * Math.PI / 180; return (50 + 39 * Math.cos(a)).toFixed(2); })(),
+      earthOrbitY: (() => { const a = ((s.dayNightLab ? s.dayNightLab.orbitAngle : 0) || 0) * Math.PI / 180; return (50 + 29.5 * Math.sin(a)).toFixed(2); })(),
+      earthShadowAngle: (((s.dayNightLab ? s.dayNightLab.orbitAngle : 0) || 0) + 270) % 360,
+      earthAxisAngle: s.dayNightLab && s.dayNightLab.tilt === 0 ? 0 : 23.5,
+      earthOrbitSeason: this.earthOrbitInfo(s.dayNightLab ? s.dayNightLab.orbitAngle : 0).season,
+      earthOrbitDate: (() => { const a = ((s.dayNightLab ? s.dayNightLab.orbitAngle : 0) || 0); const month = ((Math.round(a / 30) + 11) % 12) + 1; return month + " 月位置"; })(),
+      earthOrbitDays: s.dayNightLab && (s.dayNightLab.orbitAngle || 0) === 0 && Object.keys(s.dayNightLab.orbitVisited || {}).length >= 4 ? 365 : Math.round((((s.dayNightLab ? s.dayNightLab.orbitAngle : 0) || 0) / 360) * 365.25),
+      earthOrbitMessage: s.dayNightLab ? s.dayNightLab.orbitMessage : "先點四個日期，觀察地軸方向與北半球季節。",
+      earthOrbitDates: [{ angle: 90, label: "3 月・春分" }, { angle: 180, label: "6 月・夏至" }, { angle: 270, label: "9 月・秋分" }, { angle: 0, label: "12 月・冬至" }].map((date) => ({ label: date.label, className: s.dayNightLab && s.dayNightLab.orbitAngle === date.angle ? "active" : "", pick: () => this.setEarthOrbit(date.angle) })),
+      earthOrbitAuto: () => this.startEarthOrbitAuto(), earthOrbitAutoLabel: s.dayNightLab && s.dayNightLab.orbitAuto ? "公轉進行中…" : "▶ 自動公轉一年",
+      earthTiltOn: () => this.compareEarthTilt(23.5), earthTiltOff: () => this.compareEarthTilt(0),
+      earthTiltOnClass: !s.dayNightLab || s.dayNightLab.tilt !== 0 ? "active" : "", earthTiltOffClass: s.dayNightLab && s.dayNightLab.tilt === 0 ? "active" : "",
+      earthOrbitEvidence: (() => { const l = s.dayNightLab || { orbitEvidence: "" }; return [{ id: "tiltOrbit", label: "地軸傾斜＋繞太陽公轉" }, { id: "distance", label: "離太陽近就是夏天" }, { id: "rotation", label: "地球每天自轉" }].map((item) => ({ label: (l.orbitEvidence === item.id ? (item.id === "tiltOrbit" ? "✓ " : "再想想　") : "") + item.label, className: l.orbitEvidence === item.id ? (item.id === "tiltOrbit" ? "correct" : "wrong") : "", pick: () => this.pickEarthOrbitEvidence(item.id) })); })(),
+      earthOrbitVisitedClass: s.dayNightLab && Object.keys(s.dayNightLab.orbitVisited || {}).length >= 4 ? "done" : "",
+      earthTiltComparedClass: s.dayNightLab && s.dayNightLab.tiltCompared ? "done" : "",
+      earthOrbitEvidenceClass: s.dayNightLab && s.dayNightLab.orbitEvidenceCorrect ? "done" : "",
+      earthOrbitCompleted: !!(s.dayNightLab && Object.keys(s.dayNightLab.orbitVisited || {}).length >= 4 && s.dayNightLab.tiltCompared && s.dayNightLab.orbitEvidenceCorrect),
+      dayNightSpeak: () => this.speakText(s.dayNightLab && s.dayNightLab.mode === "revolution" ? "地球約三百六十五點二五天繞太陽公轉一圈。地軸約傾斜二十三點五度，而且公轉途中保持指向同一方向。公轉位置配合地軸傾斜，使南北半球接收陽光的角度與時間不同，形成四季。" : "太陽持續發光。地球每約二十四小時自轉一圈，面向太陽是白天，背向太陽是黑夜。地球繞太陽公轉約一年，公轉不是一天內白天黑夜交替的原因。"),
       plantIntro: !!(s.plantLab && s.plantLab.intro),
       plantInteractive: !!(s.plantLab && !s.plantLab.intro),
       plantPhaseClass: s.plantLab ? "phase-" + (s.plantLab.phase || 0) : "phase-0",
