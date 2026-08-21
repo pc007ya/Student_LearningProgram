@@ -6352,7 +6352,7 @@ class Component extends DCLogic {
     };
   }
   dayNightPhase(rotation) {
-    const facing = Math.cos(((((rotation + 45) % 360) + 360) % 360) * Math.PI / 180);
+    const facing = Math.cos(((((45 - rotation) % 360) + 360) % 360) * Math.PI / 180);
     if (facing > .18) return "day";
     if (facing < -.18) return "night";
     return "twilight";
@@ -7877,9 +7877,9 @@ class Component extends DCLogic {
       dayNightRotation: s.dayNightLab ? s.dayNightLab.rotation : 0,
       dayNightStatus: (() => { const l = s.dayNightLab; if (!l) return "準備開始"; const phase = this.dayNightPhase(l.rotation); return phase === "day" ? "白天" : phase === "night" ? "黑夜" : "晨昏交界"; })(),
       dayNightMessage: s.dayNightLab ? s.dayNightLab.message : "先預測，再轉動地球。",
-      dayNightMarkerX: (() => { const angle = (((s.dayNightLab ? s.dayNightLab.rotation : 0) + 45) * Math.PI / 180), tilt = 23.5 * Math.PI / 180, major = -50 * Math.cos(angle), minor = 9.8 * Math.sin(angle); return (50 + major * Math.cos(tilt) - minor * Math.sin(tilt)).toFixed(1); })(),
-      dayNightMarkerY: (() => { const angle = (((s.dayNightLab ? s.dayNightLab.rotation : 0) + 45) * Math.PI / 180), tilt = 23.5 * Math.PI / 180, major = -50 * Math.cos(angle), minor = 9.8 * Math.sin(angle); return (50 + major * Math.sin(tilt) + minor * Math.cos(tilt)).toFixed(1); })(),
-      dayNightMarkerClass: (() => { const l = s.dayNightLab; if (!l) return "day front"; const phase = this.dayNightPhase(l.rotation), depth = Math.sin((l.rotation + 45) * Math.PI / 180); return phase + (depth >= -1e-6 ? " front" : " back"); })(),
+      dayNightMarkerX: (() => { const angle = ((45 - (s.dayNightLab ? s.dayNightLab.rotation : 0)) * Math.PI / 180), tilt = 23.5 * Math.PI / 180, major = -50 * Math.cos(angle), minor = 9.8 * Math.sin(angle); return (50 + major * Math.cos(tilt) - minor * Math.sin(tilt)).toFixed(1); })(),
+      dayNightMarkerY: (() => { const angle = ((45 - (s.dayNightLab ? s.dayNightLab.rotation : 0)) * Math.PI / 180), tilt = 23.5 * Math.PI / 180, major = -50 * Math.cos(angle), minor = 9.8 * Math.sin(angle); return (50 + major * Math.sin(tilt) + minor * Math.cos(tilt)).toFixed(1); })(),
+      dayNightMarkerClass: (() => { const l = s.dayNightLab; if (!l) return "day front"; const phase = this.dayNightPhase(l.rotation), depth = Math.sin((45 - l.rotation) * Math.PI / 180); return phase + (depth >= -1e-6 ? " front" : " back"); })(),
       dayNightPredictionDayClass: s.dayNightLab && s.dayNightLab.prediction === "day" ? "selected" : "",
       dayNightPredictionNightClass: s.dayNightLab && s.dayNightLab.prediction === "night" ? "selected" : "",
       dayNightObservedDayClass: s.dayNightLab && s.dayNightLab.observed.day ? "done" : "",
