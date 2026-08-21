@@ -1072,7 +1072,7 @@
         </div>
         <section style="background:#0e0b1a;border-radius:26px;padding:14px;box-shadow:0 18px 38px rgba(43,31,87,.18)">
           <sc-if value="{{ videoIsYoutube }}" hint-placeholder-val="{{ false }}">
-            <iframe src="{{ videoYtUrl }}" title="{{ videoCurrent.label }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;border-radius:18px;display:block"></iframe>
+            <iframe src="{{ videoYtUrl }}" title="{{ videoCurrent.label }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="true" frameborder="0" style="width:100%;aspect-ratio:16/9;border:0;border-radius:18px;display:block"></iframe>
           </sc-if>
           <video ref="{{ videoRef }}" src="{{ videoCurrent.src }}" poster="{{ videoCurrent.poster }}" controls="{{ true }}" playsInline="{{ true }}" style="width:100%;max-height:64vh;border-radius:18px;background:#000;display:{{ videoNativeDisplay }}"></video>
         </section>
@@ -7659,7 +7659,7 @@ class Component extends DCLogic {
       videoTitle: s.videoTitle || "自然教學影片",
       videoCurrent: (s.videoClips && s.videoClips[s.videoIndex || 0]) || { label: "", src: "", poster: "" },
       videoIsYoutube: !!(s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt),
-      videoYtUrl: (() => { const clip = s.videoClips && s.videoClips[s.videoIndex || 0]; if (!clip || !clip.yt) return ""; return "https://www.youtube-nocookie.com/embed/" + clip.yt + (clip.playlist ? "?list=" + encodeURIComponent(clip.playlist) : ""); })(),
+      videoYtUrl: (() => { const clip = s.videoClips && s.videoClips[s.videoIndex || 0]; if (!clip || !clip.yt) return ""; const params = []; if (clip.playlist) params.push("list=" + encodeURIComponent(clip.playlist)); params.push("playsinline=1", "rel=0", "modestbranding=1"); return "https://www.youtube.com/embed/" + clip.yt + "?" + params.join("&"); })(),
       videoNativeDisplay: s.videoClips && s.videoClips[s.videoIndex || 0] && s.videoClips[s.videoIndex || 0].yt ? "none" : "block",
       videoHasTabs: !!(s.videoClips && s.videoClips.length > 1),
       videoClipTabs: (s.videoClips || []).map((clip, index) => ({ label: clip.label, bg: index === (s.videoIndex || 0) ? "#7c5cff" : "#fff", fg: index === (s.videoIndex || 0) ? "#fff" : "#5b3fe0", pick: () => this.pickVideoClip(index) })),
