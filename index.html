@@ -353,6 +353,7 @@
   .daynight-v2-marker i,.daynight-v2-marker.night i{position:relative;width:17px;height:17px;border-radius:50% 50% 50% 0;background:#ef3340;box-shadow:0 2px 6px rgba(126,8,20,.45);transform:rotate(-45deg)}
   .daynight-v2-marker i:after{content:"";position:absolute;left:5px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(126,8,20,.16)}
   .daynight-v2-marker b{font-size:10px;font-weight:1000;letter-spacing:.02em}
+  .daynight-v2-marker{transition:left .28s linear,top .28s linear,opacity .28s linear}
 </style>
 </helmet>
 
@@ -6375,26 +6376,27 @@ class Component extends DCLogic {
   startDayNightAuto() {
     const lab = this.state.dayNightLab; if (!lab) return;
     if (lab.auto) return;
+    const stepCount = 36, stepDegrees = 10, stepMs = 280, rotationMs = stepCount * stepMs;
     this.clearDayNightTimers();
-    this.setState({ dayNightLab: Object.assign({}, lab, { auto: true, message: "地球正在自轉一圈，注意臺灣會依序經過白天與黑夜。" }) });
+    this.setState({ dayNightLab: Object.assign({}, lab, { auto: true, message: "地球正在慢速自轉一圈，跟著紅色臺灣地標觀察日夜變化。" }) });
     if (this.dayNightVideo && Number.isFinite(this.dayNightVideo.duration) && this.dayNightVideo.duration > 0) {
       this.syncDayNightVideo(lab.rotation);
-      this.dayNightVideo.playbackRate = Math.min(16, Math.max(.25, this.dayNightVideo.duration / 2.52));
+      this.dayNightVideo.playbackRate = Math.min(16, Math.max(.25, this.dayNightVideo.duration / (rotationMs / 1000)));
       const playResult = this.dayNightVideo.play();
       if (playResult && playResult.catch) playResult.catch(() => {});
     }
-    this.dayNightTimers = Array.from({ length: 6 }, (_, index) => setTimeout(() => {
+    this.dayNightTimers = Array.from({ length: stepCount }, (_, index) => setTimeout(() => {
       if (!this.state.dayNightLab) return;
-      this.dayNightRotate(60, false);
-      if (index === 5) setTimeout(() => {
+      this.dayNightRotate(stepDegrees, false);
+      if (index === stepCount - 1) setTimeout(() => {
         const current = this.state.dayNightLab;
         if (this.dayNightVideo) this.dayNightVideo.pause();
         if (current) {
           this.syncDayNightVideo(current.rotation);
           this.setState({ dayNightLab: Object.assign({}, current, { auto: false, message: "自轉一圈完成：臺灣經歷一次白天與一次黑夜。" }) });
         }
-      }, 240);
-    }, (index + 1) * 420));
+      }, stepMs);
+    }, (index + 1) * stepMs));
   }
 
   newMagnetLabState() {
