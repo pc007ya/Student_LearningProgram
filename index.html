@@ -403,6 +403,8 @@
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;gap:8px">
           <span style="display:flex;align-items:center;gap:6px;background:#fff6e0;border:1px solid #ffe2ab;border-radius:99px;padding:8px 14px;font-size:15px;font-weight:900;color:#a06400">⭐ {{ coins }}</span>
+          <button onClick="{{ goSignin }}" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0">📅 簽到</button>
+          <button onClick="{{ goRank }}" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0">🏆 排行</button>
         </div>
       </sc-if>
       <span style="flex:1"></span>
@@ -1956,12 +1958,6 @@
           <p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.22em;color:#9eeaf1">REWARD ARCHIVE</p>
           <h2 style="margin:8px 0 4px;font-size:28px;font-weight:900">角色造型商城</h2>
           <p style="margin:0;font-size:13px;font-weight:700;color:rgba(255,255,255,.72)">目前角色可使用 {{ catalogCount }} 件已上架造型商品；女性髮型已更新為 1000×1900 定位素材，其餘服裝分類持續整理中。</p>
-        </section>
-        <section style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border:1.5px solid #bde8ee;border-radius:24px;padding:16px 18px;background:linear-gradient(120deg,#eafbfd,#f5f0ff)">
-          <span style="width:56px;height:56px;border-radius:20px;display:grid;place-items:center;background:#fff;font-size:29px;box-shadow:0 8px 16px rgba(34,200,216,.14)">🫧</span>
-          <div style="flex:1;min-width:190px"><strong style="display:block;font-size:17px;font-weight:900">星光扭蛋蒐集</strong><span style="font-size:12px;font-weight:800;color:#7c74a8">已收藏 {{ gachaOwnedUnique }} / {{ gachaTotal }} 款・重複抽到也會保留次數</span></div>
-          <button onClick="{{ goGacha }}" style="border:0;border-radius:16px;padding:11px 16px;background:linear-gradient(90deg,#ff7ab8,#7c5cff);color:#fff;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer">去扭蛋</button>
-          <button onClick="{{ goCollection }}" style="border:1.5px solid #c9bfff;border-radius:16px;padding:10px 15px;background:#fff;color:#5b3fe0;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer">看蒐集</button>
         </section>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <sc-for list="{{ shopCats }}" as="c" hint-placeholder-count="8">
@@ -7494,13 +7490,11 @@ class Component extends DCLogic {
     const tabDefs = [
       { key: "map", icon: "🗺️", label: "闖關" },
       { key: "weekly", icon: "📝", label: "週考" },
-      { key: "rank", icon: "🏆", label: "排行" },
       { key: "achieve", icon: "🎖️", label: "成就" },
       { key: "closet", icon: "👗", label: "衣櫃" },
       { key: "shop", icon: "🎁", label: "獎勵" },
       { key: "gacha", icon: "🫧", label: "扭蛋" },
       { key: "collection", icon: "🧸", label: "蒐集" },
-      { key: "signin", icon: "📅", label: "簽到" },
     ];
     const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen;
     const subjectUnits = s.subject === "math" ? MATH_UNITS : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
@@ -8106,7 +8100,7 @@ class Component extends DCLogic {
 
       assignedText: "陳老師指派：" + (allUnits.find((u) => u.id === s.assigned) || MATH_UNITS[0]).title + "　" + this.total() + " 題　限時 " + this.seconds() + " 秒／題",
       startAssigned: () => this.startUnit(s.assigned),
-      goSignin: go("signin"), goShop: go("shop"), goMap: go("map"), goCloset: go("closet"), goWeekly: go("weekly"),
+      goSignin: go("signin"), goRank: go("rank"), goShop: go("shop"), goMap: go("map"), goCloset: go("closet"), goWeekly: go("weekly"),
 
       weeklyKey: weekKey(), weeklyTime: s.weeklyConfig.timeSeconds,
       weeklySections: weeklyUnits.map((entry) => ({ icon: entry.unit.icon, title: entry.unit.title, count: entry.count, stars: "⭐".repeat(Math.max(1, Math.min(3, entry.difficulty))) })),
