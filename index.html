@@ -349,6 +349,10 @@
   .daynight-v2-globe{background:#02040d;isolation:isolate;contain:paint;clip-path:circle(50% at 50% 50%);-webkit-mask-image:radial-gradient(circle,#000 0 98.8%,transparent 99.5%)}
   .daynight-v2-globe>video{position:absolute;left:50%;top:50%;width:178%;height:178%;max-width:none;object-fit:cover;transform:translate(-50%,-50%);clip-path:circle(28.1% at 50% 50%);filter:saturate(1.16) contrast(1.08) brightness(1.06);pointer-events:none}
   .daynight-v2-night{background:linear-gradient(90deg,transparent 0 43%,rgba(2,5,23,.2) 50%,rgba(1,3,18,.68) 67%,rgba(0,1,10,.88) 100%);box-shadow:inset -34px 0 48px rgba(0,0,0,.54)}
+  .daynight-v2-marker,.daynight-v2-marker.night,.daynight-v2-marker.twilight{gap:5px;padding:4px 7px 4px 5px;border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.92);color:#263653;box-shadow:0 3px 12px rgba(0,0,0,.42)}
+  .daynight-v2-marker i,.daynight-v2-marker.night i{position:relative;width:17px;height:17px;border-radius:50% 50% 50% 0;background:#ef3340;box-shadow:0 2px 6px rgba(126,8,20,.45);transform:rotate(-45deg)}
+  .daynight-v2-marker i:after{content:"";position:absolute;left:5px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(126,8,20,.16)}
+  .daynight-v2-marker b{font-size:10px;font-weight:1000;letter-spacing:.02em}
 </style>
 </helmet>
 
@@ -1191,7 +1195,7 @@
                 <video ref="{{ dayNightVideoRef }}" src="https://videos.pexels.com/video-files/856356/856356-sd_640_360_25fps.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" loop="{{ true }}" aria-label="旋轉中的地球"></video>
                 <i class="daynight-v2-night" aria-hidden="true"></i>
                 <i class="daynight-v2-axis" aria-hidden="true"></i>
-                <span class="daynight-v2-marker {{ dayNightMarkerClass }}" style="left:{{ dayNightMarkerX }}%;top:{{ dayNightMarkerY }}%"><i></i>臺灣</span>
+                <span class="daynight-v2-marker {{ dayNightMarkerClass }}" style="left:{{ dayNightMarkerX }}%;top:{{ dayNightMarkerY }}%"><i aria-hidden="true"></i><b>臺灣</b></span>
               </div>
             </div>
             <div class="daynight-v2-legend"><span><i class="lit"></i>面向太陽＝白天</span><span><i class="dark"></i>背向太陽＝黑夜</span></div>
