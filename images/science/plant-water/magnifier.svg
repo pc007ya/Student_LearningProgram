@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 210">
+  <defs><filter id="s"><feDropShadow dx="0" dy="7" stdDeviation="5" flood-opacity=".24"/></filter><radialGradient id="g"><stop stop-color="#fff" stop-opacity=".82"/><stop offset="1" stop-color="#bce8ff" stop-opacity=".42"/></radialGradient></defs>
+  <g filter="url(#s)">
+    <circle cx="82" cy="78" r="58" fill="url(#g)" stroke="#355b78" stroke-width="12"/>
+    <path d="m125 122 64 64" fill="none" stroke="#355b78" stroke-width="25" stroke-linecap="round"/>
+    <path d="m128 125 58 58" fill="none" stroke="#e5ae57" stroke-width="14" stroke-linecap="round"/>
+    <path d="M48 49c17-17 42-22 64-12" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".75"/>
+  </g>
+</svg>
