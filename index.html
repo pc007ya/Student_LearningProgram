@@ -349,10 +349,9 @@
   .daynight-v2-globe{background:#02040d;isolation:isolate;contain:paint;clip-path:circle(50% at 50% 50%);-webkit-mask-image:radial-gradient(circle,#000 0 98.8%,transparent 99.5%)}
   .daynight-v2-globe>video{position:absolute;left:50%;top:50%;width:178%;height:178%;max-width:none;object-fit:cover;transform:translate(-50%,-50%);clip-path:circle(28.1% at 50% 50%);filter:saturate(1.16) contrast(1.08) brightness(1.06);pointer-events:none}
   .daynight-v2-night{background:linear-gradient(90deg,transparent 0 43%,rgba(2,5,23,.2) 50%,rgba(1,3,18,.68) 67%,rgba(0,1,10,.88) 100%);box-shadow:inset -34px 0 48px rgba(0,0,0,.54)}
-  .daynight-v2-marker,.daynight-v2-marker.night,.daynight-v2-marker.twilight{gap:5px;padding:4px 7px 4px 5px;border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.92);color:#263653;box-shadow:0 3px 12px rgba(0,0,0,.42)}
-  .daynight-v2-marker i,.daynight-v2-marker.night i{position:relative;width:17px;height:17px;border-radius:50% 50% 50% 0;background:#ef3340;box-shadow:0 2px 6px rgba(126,8,20,.45);transform:rotate(-45deg)}
-  .daynight-v2-marker i:after{content:"";position:absolute;left:5px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(126,8,20,.16)}
-  .daynight-v2-marker b{font-size:10px;font-weight:1000;letter-spacing:.02em}
+  .daynight-v2-marker,.daynight-v2-marker.night,.daynight-v2-marker.twilight{width:25px;height:31px;padding:0;border:0;background:transparent;color:transparent;box-shadow:none;overflow:visible}
+  .daynight-v2-marker i,.daynight-v2-marker.night i{position:absolute;left:2px;top:1px;width:21px;height:21px;border-radius:50% 50% 50% 0;background:#e53935;box-shadow:0 3px 7px rgba(103,5,13,.48),0 0 0 1px rgba(255,255,255,.38);transform:rotate(-45deg)}
+  .daynight-v2-marker i:after{content:"";position:absolute;left:6px;top:6px;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 0 0 1px rgba(126,8,20,.12)}
   .daynight-v2-marker{transition:left .28s linear,top .28s linear,opacity .28s linear}
 </style>
 </helmet>
@@ -1196,7 +1195,7 @@
                 <video ref="{{ dayNightVideoRef }}" src="https://videos.pexels.com/video-files/856356/856356-sd_640_360_25fps.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" loop="{{ true }}" aria-label="旋轉中的地球"></video>
                 <i class="daynight-v2-night" aria-hidden="true"></i>
                 <i class="daynight-v2-axis" aria-hidden="true"></i>
-                <span class="daynight-v2-marker {{ dayNightMarkerClass }}" style="left:{{ dayNightMarkerX }}%;top:{{ dayNightMarkerY }}%"><i aria-hidden="true"></i><b>臺灣</b></span>
+                <span class="daynight-v2-marker {{ dayNightMarkerClass }}" style="left:{{ dayNightMarkerX }}%;top:{{ dayNightMarkerY }}%" aria-label="觀察地點"><i aria-hidden="true"></i></span>
               </div>
             </div>
             <div class="daynight-v2-legend"><span><i class="lit"></i>面向太陽＝白天</span><span><i class="dark"></i>背向太陽＝黑夜</span></div>
@@ -7778,8 +7777,8 @@ class Component extends DCLogic {
       dayNightRotation: s.dayNightLab ? s.dayNightLab.rotation : 0,
       dayNightStatus: (() => { const l = s.dayNightLab; if (!l) return "準備開始"; const phase = this.dayNightPhase(l.rotation); return phase === "day" ? "白天" : phase === "night" ? "黑夜" : "晨昏交界"; })(),
       dayNightMessage: s.dayNightLab ? s.dayNightLab.message : "先預測，再轉動地球。",
-      dayNightMarkerX: (() => { const angle = ((s.dayNightLab ? s.dayNightLab.rotation : 0) * Math.PI / 180); return (50 - 34 * Math.cos(angle)).toFixed(1); })(),
-      dayNightMarkerY: (() => { const angle = ((s.dayNightLab ? s.dayNightLab.rotation : 0) * Math.PI / 180); return (50 + 7 * Math.sin(angle)).toFixed(1); })(),
+      dayNightMarkerX: (() => { const angle = ((s.dayNightLab ? s.dayNightLab.rotation : 0) * Math.PI / 180), tilt = 23.5 * Math.PI / 180, major = -34 * Math.cos(angle), minor = 7 * Math.sin(angle); return (50 + major * Math.cos(tilt) - minor * Math.sin(tilt)).toFixed(1); })(),
+      dayNightMarkerY: (() => { const angle = ((s.dayNightLab ? s.dayNightLab.rotation : 0) * Math.PI / 180), tilt = 23.5 * Math.PI / 180, major = -34 * Math.cos(angle), minor = 7 * Math.sin(angle); return (50 + major * Math.sin(tilt) + minor * Math.cos(tilt)).toFixed(1); })(),
       dayNightMarkerClass: (() => { const l = s.dayNightLab; if (!l) return "day front"; const phase = this.dayNightPhase(l.rotation); return phase + (Math.sin(l.rotation * Math.PI / 180) >= 0 ? " front" : " back"); })(),
       dayNightPredictionDayClass: s.dayNightLab && s.dayNightLab.prediction === "day" ? "selected" : "",
       dayNightPredictionNightClass: s.dayNightLab && s.dayNightLab.prediction === "night" ? "selected" : "",
