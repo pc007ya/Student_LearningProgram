@@ -287,15 +287,15 @@
 .lab-focus .magnet2-result{left:24%;right:auto;bottom:11.5%;width:32%;box-sizing:border-box;padding:7px 10px;font-size:12px;line-height:1.35}
 .lab-focus .magnet2-material-callout{left:4.2%;bottom:3.8%;width:15.5%;height:14.8%;min-height:0;padding:8px;font-size:clamp(11px,1.08vw,13px);overflow:hidden}
 .lab-focus .magnet2-rule-card{right:4.2%;bottom:3.5%;width:39%;height:14.8%;min-height:0;overflow:hidden}
-.magnet2-material-lab{position:absolute;z-index:14;left:23%;right:22%;top:25%;bottom:20%}
+.magnet2-material-lab{position:absolute;z-index:14;left:23%;right:22%;top:25%;bottom:3%}
 .magnet2-test-zone{position:absolute;left:23%;top:4%;width:31%;height:54%;border:3px dashed rgba(67,155,199,.45);border-radius:22px;background:rgba(227,247,251,.36);display:flex;align-items:flex-start;justify-content:center;padding-top:9px;box-sizing:border-box;color:#397694;font-size:12px;font-weight:950;pointer-events:none}
 .magnet2-test-magnet{position:absolute;z-index:3;left:63%;top:31%;width:31%;height:29%;transform:translate(-50%,-50%);border:6px solid rgba(255,255,255,.92);border-radius:18px;overflow:hidden;display:flex;box-shadow:0 8px 16px rgba(65,43,30,.2)}
 .magnet2-test-magnet span{height:100%;flex:1 1 50%;display:grid;place-items:center;color:#fff;font-size:27px;font-weight:1000}.magnet2-test-magnet .north{background:linear-gradient(135deg,#ff6558,#d93632)}.magnet2-test-magnet .south{background:linear-gradient(135deg,#4396e8,#1762ad)}
 .lab-focus .magnet2-material-lab .magnet2-materials{position:absolute;inset:0;display:block}
-.lab-focus .magnet2-material-lab .magnet2-material{position:absolute;z-index:5;width:17%;height:31%;transform:translate(-50%,-50%);min-width:0;border:3px solid #ead9b8;border-radius:16px;padding:4px;background:rgba(255,252,243,.97);font-family:inherit;font-weight:950;color:#5d402d;cursor:grab;touch-action:none;box-shadow:0 7px 13px rgba(78,52,27,.12);transition:left .25s ease,top .25s ease,border-color .2s,background .2s}
+.lab-focus .magnet2-material-lab .magnet2-material{position:absolute;z-index:5;width:13%;height:22%;transform:translate(-50%,-50%);min-width:0;border:3px solid #ead9b8;border-radius:16px;padding:4px;background:rgba(255,252,243,.97);font-family:inherit;font-weight:950;color:#5d402d;cursor:grab;touch-action:none;box-shadow:0 7px 13px rgba(78,52,27,.12);transition:left .25s ease,top .25s ease,border-color .2s,background .2s}
 .magnet2-material:active{cursor:grabbing}.magnet2-material.selected{box-shadow:0 0 0 4px rgba(255,202,58,.38),0 8px 15px rgba(78,52,27,.16)}.magnet2-material.good{border-color:#35aa71;background:#e6faee}.magnet2-material.bad{border-color:#df6870;background:#fff0f1}
 .lab-focus .magnet2-material .magnet2-material-icon{font-size:30px;margin:0}.lab-focus .magnet2-material small{display:block;margin-top:1px;font-size:8px;line-height:1.1}
-.magnet2-material-instruction{position:absolute;left:4%;right:4%;bottom:0;text-align:center;color:#75563f;font-size:11px;font-weight:950;pointer-events:none}
+.magnet2-material-instruction{display:none}
 /* Completed observation zones are recorded in the progress strip below. Keep the
    large transparent hit areas invisible so they do not cover the lesson art. */
 .plant-hotspot.visited{border-color:transparent;background:transparent;box-shadow:none}
@@ -6555,10 +6555,10 @@ class Component extends DCLogic {
       tasks: [false, false, false], completed: false, rewarded: false,
       magnets: { a: { x: 42, y: 50, flipped: false }, b: { x: 65, y: 50, flipped: false } },
       materials: [
-        { id: "paperclip", label: "迴紋針", icon: "📎", magnetic: true, tested: false, x: 20, y: 81, homeX: 20, homeY: 81 },
-        { id: "wood", label: "木塊", icon: "🪵", magnetic: false, tested: false, x: 40, y: 81, homeX: 40, homeY: 81 },
-        { id: "aluminum", label: "鋁罐", icon: "🥫", magnetic: false, tested: false, x: 60, y: 81, homeX: 60, homeY: 81 },
-        { id: "plastic", label: "塑膠積木", icon: "🧱", magnetic: false, tested: false, x: 80, y: 81, homeX: 80, homeY: 81 },
+        { id: "paperclip", label: "迴紋針", icon: "📎", magnetic: true, tested: false, x: 10, y: 86, homeX: 10, homeY: 86 },
+        { id: "wood", label: "木塊", icon: "🪵", magnetic: false, tested: false, x: 24, y: 86, homeX: 24, homeY: 86 },
+        { id: "aluminum", label: "鋁罐", icon: "🥫", magnetic: false, tested: false, x: 38, y: 86, homeX: 38, homeY: 86 },
+        { id: "plastic", label: "塑膠積木", icon: "🧱", magnetic: false, tested: false, x: 52, y: 86, homeX: 52, homeY: 86 },
       ],
     };
   }
@@ -8158,7 +8158,7 @@ class Component extends DCLogic {
       magnet2AClass: (() => { const lab = s.magnet2Lab; if (!lab) return ""; return (lab.selected === "a" ? "selected " : "") + (lab.magnets.a.flipped ? "flipped" : ""); })(),
       magnet2BClass: (() => { const lab = s.magnet2Lab; if (!lab) return ""; return (lab.selected === "b" ? "selected " : "") + (lab.magnets.b.flipped ? "flipped" : ""); })(),
       magnet2AttractClass: s.magnet2Lab && s.magnet2Lab.prediction === "attract" ? "active" : "", magnet2RepelClass: s.magnet2Lab && s.magnet2Lab.prediction === "repel" ? "active" : "",
-      magnet2HasResult: !!(s.magnet2Lab && s.magnet2Lab.reaction), magnet2Result: s.magnet2Lab ? s.magnet2Lab.reaction : "",
+      magnet2HasResult: !!(s.magnet2Lab && s.magnet2Lab.reaction && s.magnet2Lab.mission < 2), magnet2Result: s.magnet2Lab ? s.magnet2Lab.reaction : "",
       magnet2CanNext: !!(s.magnet2Lab && s.magnet2Lab.mission < 2 && s.magnet2Lab.tasks[s.magnet2Lab.mission]),
       magnet2GuideOpen: !!(s.magnet2Lab && s.magnet2Lab.guideOpen), magnet2GuideSrc: s.magnet2Lab && s.magnet2Lab.mission === 2 ? "images/science/magnet-ii/materials-guide.png" : "images/science/magnet-ii/opposite-poles-guide.png",
       magnet2Completed: !!(s.magnet2Lab && s.magnet2Lab.completed),
