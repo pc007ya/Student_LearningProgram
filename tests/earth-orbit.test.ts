@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
+import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, LUNAR_SIDEREAL_DAYS, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
 
 const orbit = { centerX: 600, centerY: 337.5, radiusX: 430, radiusY: 218 };
 
@@ -40,6 +40,7 @@ describe('Earth Orbit V0.1 math', () => {
   });
 
   it('advances the Moon by its sidereal orbit ratio', () => {
-    expect(LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT).toBeCloseTo(13.368746, 6);
+    expect(LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT).toBeCloseTo(13.368228, 6);
+    expect(LUNAR_SIDEREAL_DAYS).toBeCloseTo(27.32166, 4);
   });
 });

@@ -1325,13 +1325,13 @@
 
         <sc-if value="{{ earthRevolutionMode }}" hint-placeholder-val="{{ false }}">
           <section class="earth-orbit-v01-shell" data-earth-orbit-v01>
-            <div class="earth-orbit-v01-stage"><p class="earth-orbit-v01-loading" data-orbit-loading>正在載入互動場景…</p><p class="earth-orbit-v01-hint">拖曳地球，或用左右方向鍵沿軌道移動</p></div>
+            <div class="earth-orbit-v01-stage"><p class="earth-orbit-v01-loading" data-orbit-loading>正在載入互動場景…</p><p class="earth-orbit-v01-hint">地球繞太陽・月球繞地球・亮面朝向太陽</p></div>
             <aside class="earth-orbit-v01-panel">
-              <h3>Earth Orbit V0.1</h3>
-              <p>地球會一邊繞太陽公轉，一邊持續自轉。拖曳只會改變公轉位置。</p>
+              <h3>地球與月球運行</h3>
+              <p>地球繞太陽公轉並持續自轉；月球約 27.3 日繞地球一圈，兩個天體的亮面都朝向太陽。</p>
               <div class="earth-orbit-v01-actions"><button type="button" data-orbit-action="play">▶ 繼續播放</button><button type="button" data-orbit-action="pause">Ⅱ 暫停</button><button type="button" data-orbit-action="reset">↺ Reset 起始位置</button></div>
               <dl class="earth-orbit-v01-readout"><div><dt>狀態</dt><dd><output data-orbit-status>載入中</output></dd></div><div><dt>模擬時間尺度</dt><dd><output data-time-scale>計算中</output></dd></div><div><dt>orbitAngle</dt><dd><output data-orbit-angle>0°</output></dd></div><div><dt>earthRotation</dt><dd><output data-earth-rotation>0°</output></dd></div><div><dt>公轉角速度</dt><dd><output data-orbit-speed>0°/秒</output></dd></div><div><dt>自轉角速度</dt><dd><output data-earth-speed>0°/秒</output></dd></div><div><dt>累積自轉</dt><dd><output data-earth-turns>0.00 圈</output></dd></div><div><dt>相對圈速</dt><dd><output data-speed-ratio>366.24 : 1</output></dd></div><div><dt>月球軌道角</dt><dd><output data-moon-angle>0°</output></dd></div><div><dt>累積繞地圈數</dt><dd><output data-moon-orbits>0.00 圈</output></dd></div><div><dt>地軸傾斜</dt><dd>23.5°</dd></div></dl>
-              <p class="earth-orbit-v01-note">V0.1 只驗證公轉、自轉與沿軌道拖曳；四季、日照、Camera、Parallax、任務留待後續 Sprint。</p>
+              <p class="earth-orbit-v01-note">畫面中的距離與大小為教學放大比例，運行週期依真實比例同步計算。</p>
             </aside>
           </section>
         </sc-if>

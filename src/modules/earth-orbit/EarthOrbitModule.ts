@@ -30,6 +30,8 @@ const DESIGN_HEIGHT = 675;
 const START_ANGLE = 0;
 const ORBIT_SPEED = 0.01;
 const KEYBOARD_ORBIT_STEP = 2 * Math.PI / 180;
+const MOON_ORBIT_RADIUS_X = 94;
+const MOON_ORBIT_RADIUS_Y = 42;
 const SIMULATED_DAYS_PER_REAL_SECOND = ORBIT_SPEED / (Math.PI * 2) * SOLAR_DAYS_PER_ORBIT;
 
 interface EarthOrbitState {
@@ -72,7 +74,8 @@ export class EarthOrbitModule {
   private readonly earthOrbitContainer = new Container();
   private earthSurface: TilingSprite | null = null;
   private earthLighting: Sprite | null = null;
-  private moonSprite: Sprite | null = null;
+  private moonBody: Container | null = null;
+  private moonLighting: Sprite | null = null;
   private readonly orbit: OrbitGeometry = {
     centerX: DESIGN_WIDTH / 2,
     centerY: DESIGN_HEIGHT / 2,
@@ -190,7 +193,7 @@ export class EarthOrbitModule {
     // This shadow is independent from the rotating map texture. Its transparent
     // side is always turned toward the Sun, so the illuminated hemisphere stays
     // scientifically correct at every point of the orbit.
-    const earthLighting = new Sprite(this.createEarthLightingTexture());
+    const earthLighting = new Sprite(this.createBodyLightingTexture());
     earthLighting.anchor.set(0.5);
     earthLighting.width = 100;
     earthLighting.height = 100;
@@ -206,18 +209,31 @@ export class EarthOrbitModule {
     axis.zIndex = 2;
 
     const moonOrbitGuide = new Graphics()
-      .ellipse(0, 0, 82, 34)
-      .stroke({ color: 0xb7c9ff, width: 1.5, alpha: 0.48 });
+      .ellipse(0, 0, MOON_ORBIT_RADIUS_X, MOON_ORBIT_RADIUS_Y)
+      .stroke({ color: 0xdbe7ff, width: 2.25, alpha: 0.78 });
     moonOrbitGuide.zIndex = 1;
 
+    const moonBody = new Container();
     const moon = new Sprite(textures.moon);
     moon.anchor.set(0.5);
-    moon.width = 23;
-    moon.height = 23;
-    this.moonSprite = moon;
+    moon.width = 31;
+    moon.height = 31;
+
+    const moonMask = new Graphics().circle(0, 0, 15.5).fill({ color: 0xffffff });
+    const moonLighting = new Sprite(this.createBodyLightingTexture());
+    moonLighting.anchor.set(0.5);
+    moonLighting.width = 31;
+    moonLighting.height = 31;
+    moonLighting.mask = moonMask;
+    moonLighting.eventMode = 'none';
+    const moonGlow = new Graphics()
+      .circle(0, 0, 17.5).stroke({ color: 0xeaf4ff, width: 2, alpha: 0.88 });
+    moonBody.addChild(moon, moonLighting, moonMask, moonGlow);
+    this.moonBody = moonBody;
+    this.moonLighting = moonLighting;
 
     this.earthOrbitContainer.sortableChildren = true;
-    this.earthOrbitContainer.addChild(moonOrbitGuide, axis, globe, moon);
+    this.earthOrbitContainer.addChild(moonOrbitGuide, axis, globe, moonBody);
     this.earthOrbitContainer.eventMode = 'static';
     this.earthOrbitContainer.cursor = 'grab';
     this.earthOrbitContainer.hitArea = new Circle(0, 0, 68);
@@ -248,7 +264,7 @@ export class EarthOrbitModule {
     this.app.stage.hitArea = new Rectangle(0, 0, screen.width, screen.height);
   };
 
-  private createEarthLightingTexture(): Texture {
+  private createBodyLightingTexture(): Texture {
     const size = 160;
     const radius = size / 2;
     const canvas = document.createElement('canvas');
@@ -383,12 +399,18 @@ export class EarthOrbitModule {
       // The generated texture's clear side points left (PI radians).
       this.earthLighting.rotation = sunDirection - Math.PI;
     }
-    if (this.moonSprite) {
-      this.moonSprite.position.set(
-        Math.cos(this.state.moonOrbitAngle) * 82,
-        Math.sin(this.state.moonOrbitAngle) * 34,
-      );
-      this.moonSprite.zIndex = Math.sin(this.state.moonOrbitAngle) < 0 ? 2.5 : 4;
+    if (this.moonBody) {
+      const moonX = Math.cos(this.state.moonOrbitAngle) * MOON_ORBIT_RADIUS_X;
+      const moonY = Math.sin(this.state.moonOrbitAngle) * MOON_ORBIT_RADIUS_Y;
+      this.moonBody.position.set(moonX, moonY);
+      this.moonBody.zIndex = Math.sin(this.state.moonOrbitAngle) < 0 ? 2.5 : 4;
+      if (this.moonLighting) {
+        const moonSunDirection = Math.atan2(
+          this.orbit.centerY - (position.y + moonY),
+          this.orbit.centerX - (position.x + moonX),
+        );
+        this.moonLighting.rotation = moonSunDirection - Math.PI;
+      }
     }
 
     const angleOutput = this.host.querySelector<HTMLOutputElement>('[data-orbit-angle]');
