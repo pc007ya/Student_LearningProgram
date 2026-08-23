@@ -47,6 +47,6 @@ export function earthRotationDeltaForOrbit(orbitDelta: number): number {
   return orbitDelta * SIDEREAL_ROTATIONS_PER_ORBIT;
 }
 
-export function earthTextureOffset(accumulatedTurns: number, textureWidth: number): number {
-  return -accumulatedTurns * textureWidth;
+export function earthTextureOffset(rotationAngle: number, textureWidth: number): number {
+  return -(normalizeAngle(rotationAngle) / TAU) * textureWidth;
 }

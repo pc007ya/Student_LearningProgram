@@ -44,10 +44,9 @@ describe('Earth Orbit V0.1 math', () => {
     expect(LUNAR_SIDEREAL_DAYS).toBeCloseTo(27.32166, 4);
   });
 
-  it('keeps the Earth texture offset continuous across a completed turn', () => {
-    const before = earthTextureOffset(0.999, 1024);
-    const after = earthTextureOffset(1.001, 1024);
-    expect(after - before).toBeCloseTo(-2.048, 8);
-    expect(after).toBeLessThan(-1024);
+  it('keeps the Earth texture offset bounded to one texture width', () => {
+    expect(earthTextureOffset(0, 1024)).toBeCloseTo(0, 8);
+    expect(earthTextureOffset(TAU * 190 + Math.PI, 1024)).toBeCloseTo(-512, 8);
+    expect(Math.abs(earthTextureOffset(-Math.PI / 2, 1024))).toBeLessThanOrEqual(1024);
   });
 });

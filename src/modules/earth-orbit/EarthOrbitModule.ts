@@ -329,7 +329,12 @@ export class EarthOrbitModule {
     const delta = shortestAngleDelta(nextAngle, this.state.orbitAngle);
     const deltaSeconds = Math.max((event.timeStamp - this.previousPointerTime) / 1000, 1 / 120);
     this.previousPointerTime = event.timeStamp;
-    this.advanceOrbit(delta, delta / deltaSeconds);
+    // Dragging is a position scrubber, not elapsed simulated time. Moving Earth
+    // around the orbit must not make the globe spin hundreds of turns or make
+    // the Moon jump through many months in a single pointer movement.
+    this.state.orbitAngle = normalizeAngle(this.state.orbitAngle + delta);
+    this.state.orbitAngularSpeed = delta / deltaSeconds;
+    this.renderState();
   }
 
   private advanceOrbit(delta: number, angularSpeed: number): void {
@@ -396,10 +401,10 @@ export class EarthOrbitModule {
     const position = orbitPosition(this.state.orbitAngle, this.orbit);
     this.earthOrbitContainer.position.set(position.x, position.y);
     if (this.earthSurface) {
-      // Keep the map moving continuously. Resetting the offset every 360 degrees
-      // produced a visible flash at the longitude seam during fast playback.
+      // Keep GPU texture coordinates bounded to one turn. Large accumulated
+      // coordinates lose precision after a long drag and corrupt the globe.
       this.earthSurface.tilePosition.x = earthTextureOffset(
-        this.state.accumulatedEarthTurns,
+        this.state.earthRotation,
         this.earthSurface.texture.width,
       );
     }
