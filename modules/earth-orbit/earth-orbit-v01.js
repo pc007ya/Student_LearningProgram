@@ -203,7 +203,7 @@ const wi = (r) => {
   },
   test: () => !0,
   load: async () => {
-    await Promise.resolve().then(() => Jy);
+    await Promise.resolve().then(() => eb);
   }
 }, zu = {
   extension: {
@@ -213,7 +213,7 @@ const wi = (r) => {
   },
   test: () => typeof self < "u" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await Promise.resolve().then(() => eb);
+    await Promise.resolve().then(() => tb);
   }
 };
 class oe {
@@ -32514,8 +32514,11 @@ function Yy(r, e) {
 function qy(r) {
   return r * pr;
 }
-const ds = 1200, fs = 675, uh = 0, Dt = 0.01, dh = 2 * Math.PI / 180, fh = 94, ph = 42, Ky = Dt / (Math.PI * 2) * ia;
-class Zy {
+function Ky(r, e) {
+  return -r * e;
+}
+const ds = 1200, fs = 675, uh = 0, Dt = 0.01, dh = 2 * Math.PI / 180, fh = 94, ph = 42, Zy = Dt / (Math.PI * 2) * ia;
+class Qy {
   constructor(e) {
     this.host = e;
     const t = e.querySelector(".earth-orbit-v01-stage");
@@ -32596,7 +32599,7 @@ class Zy {
     const n = new Xe().moveTo(0, -72).lineTo(0, 72).stroke({ color: 13103103, width: 2.5, alpha: 0.92 }).circle(0, -72, 4).fill({ color: 15005951 }).circle(0, 72, 4).fill({ color: 15005951 });
     n.rotation = Vy;
     const a = new he(), o = new Xe().circle(0, 0, 50).fill({ color: 16777215 }), h = new Zg({ texture: e.earthSurface, width: 100, height: 100 });
-    h.anchor.set(0.5);
+    h.anchor.set(0.5), h.texture.source.style.addressModeU = "repeat", h.texture.source.style.addressModeV = "clamp-to-edge", h.texture.source.style.update();
     const l = 100 / e.earthSurface.height;
     h.tileScale.set(l), h.mask = o, this.earthSurface = h;
     const c = new Ce(this.createBodyLightingTexture());
@@ -32679,7 +32682,10 @@ class Zy {
   }
   renderState() {
     const e = Xy(this.state.orbitAngle, this.orbit);
-    if (this.earthOrbitContainer.position.set(e.x, e.y), this.earthSurface && (this.earthSurface.tilePosition.x = -(this.state.earthRotation / (Math.PI * 2)) * this.earthSurface.texture.width), this.earthLighting) {
+    if (this.earthOrbitContainer.position.set(e.x, e.y), this.earthSurface && (this.earthSurface.tilePosition.x = Ky(
+      this.state.accumulatedEarthTurns,
+      this.earthSurface.texture.width
+    )), this.earthLighting) {
       const p = Math.atan2(this.orbit.centerY - e.y, this.orbit.centerX - e.x);
       this.earthLighting.rotation = p - Math.PI;
     }
@@ -32694,14 +32700,14 @@ class Zy {
       }
     }
     const t = this.host.querySelector("[data-orbit-angle]"), s = this.host.querySelector("[data-earth-rotation]"), i = this.host.querySelector("[data-orbit-status]"), n = this.host.querySelector("[data-orbit-speed]"), a = this.host.querySelector("[data-earth-speed]"), o = this.host.querySelector("[data-earth-turns]"), h = this.host.querySelector("[data-speed-ratio]"), l = this.host.querySelector("[data-moon-angle]"), c = this.host.querySelector("[data-moon-orbits]"), u = this.host.querySelector("[data-time-scale]"), d = this.host.querySelector('[data-orbit-action="play"]'), f = this.host.querySelector('[data-orbit-action="pause"]');
-    t && (t.value = `${Si(this.state.orbitAngle)}°`), s && (s.value = `${Si(this.state.earthRotation)}°`), i && (i.value = this.state.isDragging ? "拖曳中" : this.state.isPlaying ? "自動公轉中" : "停在目前位置"), n && (n.value = `${(this.state.orbitAngularSpeed * 180 / Math.PI).toFixed(1)}°/秒`), a && (a.value = `${(this.state.orbitAngularSpeed * pr * 180 / Math.PI).toFixed(1)}°/秒`), o && (o.value = `${this.state.accumulatedEarthTurns.toFixed(2)} 圈`), h && (h.value = `${pr.toFixed(2)} : 1（${ia.toFixed(2)} 日/年）`), l && (l.value = `${Si(this.state.moonOrbitAngle)}°`), c && (c.value = `${this.state.accumulatedMoonOrbits.toFixed(2)} 圈`), u && (u.value = `1 秒 ≈ ${Ky.toFixed(2)} 日`), d && (d.disabled = this.state.isPlaying), f && (f.disabled = !this.state.isPlaying);
+    t && (t.value = `${Si(this.state.orbitAngle)}°`), s && (s.value = `${Si(this.state.earthRotation)}°`), i && (i.value = this.state.isDragging ? "拖曳中" : this.state.isPlaying ? "自動公轉中" : "停在目前位置"), n && (n.value = `${(this.state.orbitAngularSpeed * 180 / Math.PI).toFixed(1)}°/秒`), a && (a.value = `${(this.state.orbitAngularSpeed * pr * 180 / Math.PI).toFixed(1)}°/秒`), o && (o.value = `${this.state.accumulatedEarthTurns.toFixed(2)} 圈`), h && (h.value = `${pr.toFixed(2)} : 1（${ia.toFixed(2)} 日/年）`), l && (l.value = `${Si(this.state.moonOrbitAngle)}°`), c && (c.value = `${this.state.accumulatedMoonOrbits.toFixed(2)} 圈`), u && (u.value = `1 秒 ≈ ${Zy.toFixed(2)} 日`), d && (d.disabled = this.state.isPlaying), f && (f.disabled = !this.state.isPlaying);
   }
 }
 const rr = /* @__PURE__ */ new Map();
 function Lu() {
   document.querySelectorAll("[data-earth-orbit-v01]").forEach((r) => {
     if (rr.has(r)) return;
-    const e = new Zy(r);
+    const e = new Qy(r);
     rr.set(r, e), e.init().catch((t) => {
       console.error("Earth Orbit V0.1 failed to initialize.", t), r.dataset.orbitError = "true";
       const s = r.querySelector("[data-orbit-loading]");
@@ -32711,8 +32717,8 @@ function Lu() {
     e.isConnected || (r.destroy(), rr.delete(e));
   });
 }
-const Qy = new MutationObserver(Lu);
-Qy.observe(document.documentElement, { childList: !0, subtree: !0 });
+const Jy = new MutationObserver(Lu);
+Jy.observe(document.documentElement, { childList: !0, subtree: !0 });
 Lu();
 N.add(Jd);
 N.mixin(he, ef);
@@ -32721,8 +32727,8 @@ N.add(Vl);
 N.mixin(he, Sg);
 N.add(ql, jl);
 N.add(Yl);
-const Jy = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const eb = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null
-}, Symbol.toStringTag, { value: "Module" })), eb = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Symbol.toStringTag, { value: "Module" })), tb = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null
 }, Symbol.toStringTag, { value: "Module" }));

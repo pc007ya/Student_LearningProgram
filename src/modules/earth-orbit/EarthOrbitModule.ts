@@ -14,6 +14,7 @@ import { EARTH_ORBIT_ASSETS } from './assets';
 import {
   AXIAL_TILT_RADIANS,
   earthRotationDeltaForOrbit,
+  earthTextureOffset,
   LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT,
   normalizeAngle,
   orbitPosition,
@@ -185,6 +186,9 @@ export class EarthOrbitModule {
     const globeMask = new Graphics().circle(0, 0, 50).fill({ color: 0xffffff });
     const earthSurface = new TilingSprite({ texture: textures.earthSurface, width: 100, height: 100 });
     earthSurface.anchor.set(0.5);
+    earthSurface.texture.source.style.addressModeU = 'repeat';
+    earthSurface.texture.source.style.addressModeV = 'clamp-to-edge';
+    earthSurface.texture.source.style.update();
     const textureScale = 100 / textures.earthSurface.height;
     earthSurface.tileScale.set(textureScale);
     earthSurface.mask = globeMask;
@@ -392,7 +396,12 @@ export class EarthOrbitModule {
     const position = orbitPosition(this.state.orbitAngle, this.orbit);
     this.earthOrbitContainer.position.set(position.x, position.y);
     if (this.earthSurface) {
-      this.earthSurface.tilePosition.x = -(this.state.earthRotation / (Math.PI * 2)) * this.earthSurface.texture.width;
+      // Keep the map moving continuously. Resetting the offset every 360 degrees
+      // produced a visible flash at the longitude seam during fast playback.
+      this.earthSurface.tilePosition.x = earthTextureOffset(
+        this.state.accumulatedEarthTurns,
+        this.earthSurface.texture.width,
+      );
     }
     if (this.earthLighting) {
       const sunDirection = Math.atan2(this.orbit.centerY - position.y, this.orbit.centerX - position.x);
