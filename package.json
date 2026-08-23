@@ -1,0 +1,19 @@
+{
+  "name": "student-learning-program",
+  "private": true,
+  "scripts": {
+    "build:earth-orbit": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test:earth-orbit": "vitest run",
+    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit"
+  },
+  "dependencies": {
+    "pixi.js": "^8.18.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3",
+    "vitest": "^3.2.4"
+  }
+}

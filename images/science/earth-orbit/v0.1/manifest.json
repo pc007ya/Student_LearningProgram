@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "background": "background/space-clean-v01.png",
+  "bodies": {
+    "sun": "bodies/sun-v01.png",
+    "earth": "bodies/earth-v01.png",
+    "earthSurface": "bodies/earth-surface-equirect-v02.png",
+    "moon": "bodies/moon-v01.png"
+  },
+  "guides": {
+    "orbit": "guides/orbit-guide-v01.svg",
+    "overlay": "guides/interaction-overlay-v01.svg",
+    "seasonMarkers": "guides/season-markers-v01.svg"
+  },
+  "v01Enabled": ["background", "sun", "earthSurface", "moon", "orbit", "overlay"],
+  "reservedForLater": ["seasonMarkers"]
+}
