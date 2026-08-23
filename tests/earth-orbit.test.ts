@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, earthTextureOffset, LUNAR_SIDEREAL_DAYS, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
+import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, LUNAR_SIDEREAL_DAYS, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
 
 const orbit = { centerX: 600, centerY: 337.5, radiusX: 430, radiusY: 218 };
 
@@ -44,9 +44,4 @@ describe('Earth Orbit V0.1 math', () => {
     expect(LUNAR_SIDEREAL_DAYS).toBeCloseTo(27.32166, 4);
   });
 
-  it('keeps the Earth texture offset bounded to one texture width', () => {
-    expect(earthTextureOffset(0, 1024)).toBeCloseTo(0, 8);
-    expect(earthTextureOffset(TAU * 190 + Math.PI, 1024)).toBeCloseTo(-512, 8);
-    expect(Math.abs(earthTextureOffset(-Math.PI / 2, 1024))).toBeLessThanOrEqual(1024);
-  });
 });

@@ -46,7 +46,3 @@ export function shortestAngleDelta(next: number, current: number): number {
 export function earthRotationDeltaForOrbit(orbitDelta: number): number {
   return orbitDelta * SIDEREAL_ROTATIONS_PER_ORBIT;
 }
-
-export function earthTextureOffset(rotationAngle: number, textureWidth: number): number {
-  return -(normalizeAngle(rotationAngle) / TAU) * textureWidth;
-}

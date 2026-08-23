@@ -8,13 +8,24 @@ import {
   Rectangle,
   Sprite,
   Texture,
-  TilingSprite,
 } from 'pixi.js';
+import {
+  AmbientLight,
+  DirectionalLight,
+  Group as ThreeGroup,
+  Mesh,
+  MeshPhongMaterial,
+  OrthographicCamera,
+  Scene as ThreeScene,
+  SphereGeometry,
+  SRGBColorSpace,
+  TextureLoader,
+  WebGLRenderer,
+} from 'three';
 import { EARTH_ORBIT_ASSETS } from './assets';
 import {
   AXIAL_TILT_RADIANS,
   earthRotationDeltaForOrbit,
-  earthTextureOffset,
   LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT,
   normalizeAngle,
   orbitPosition,
@@ -49,8 +60,6 @@ interface EarthOrbitState {
 interface LoadedTextures {
   background: Texture;
   sun: Texture;
-  earthSurface: Texture;
-  moon: Texture;
   orbit: Texture;
   overlay: Texture;
 }
@@ -73,10 +82,14 @@ export class EarthOrbitModule {
   private readonly worldLayer = new Container();
   private readonly overlayLayer = new Container();
   private readonly earthOrbitContainer = new Container();
-  private earthSurface: TilingSprite | null = null;
-  private earthLighting: Sprite | null = null;
-  private moonBody: Container | null = null;
-  private moonLighting: Sprite | null = null;
+  private threeRenderer: WebGLRenderer | null = null;
+  private threeCamera: OrthographicCamera | null = null;
+  private readonly threeScene = new ThreeScene();
+  private earth3D: Mesh<SphereGeometry, MeshPhongMaterial> | null = null;
+  private readonly earth3DGroup = new ThreeGroup();
+  private moon3D: Mesh<SphereGeometry, MeshPhongMaterial> | null = null;
+  private readonly moon3DGroup = new ThreeGroup();
+  private sunlight: DirectionalLight | null = null;
   private readonly orbit: OrbitGeometry = {
     centerX: DESIGN_WIDTH / 2,
     centerY: DESIGN_HEIGHT / 2,
@@ -118,6 +131,8 @@ export class EarthOrbitModule {
     const textures = await this.loadTextures();
     if (this.destroyed) return;
     this.buildScene(textures);
+    await this.buildThreeScene();
+    if (this.destroyed) return;
     this.bindControls();
     this.resizeScene();
     this.renderState();
@@ -140,19 +155,24 @@ export class EarthOrbitModule {
   destroy(): void {
     if (this.destroyed) return;
     this.destroyed = true;
+    this.earth3D?.geometry.dispose();
+    this.earth3D?.material.map?.dispose();
+    this.earth3D?.material.dispose();
+    this.moon3D?.geometry.dispose();
+    this.moon3D?.material.dispose();
+    this.threeRenderer?.dispose();
+    this.threeRenderer?.domElement.remove();
     this.app.destroy({ removeView: true }, { children: true });
   }
 
   private async loadTextures(): Promise<LoadedTextures> {
-    const [background, sun, earthSurface, moon, orbit, overlay] = await Promise.all([
+    const [background, sun, orbit, overlay] = await Promise.all([
       Assets.load<Texture>(EARTH_ORBIT_ASSETS.background),
       Assets.load<Texture>(EARTH_ORBIT_ASSETS.sun),
-      Assets.load<Texture>(EARTH_ORBIT_ASSETS.earthSurface),
-      Assets.load<Texture>(EARTH_ORBIT_ASSETS.moon),
       Assets.load<Texture>(EARTH_ORBIT_ASSETS.orbit),
       Assets.load<Texture>(EARTH_ORBIT_ASSETS.overlay),
     ]);
-    return { background, sun, earthSurface, moon, orbit, overlay };
+    return { background, sun, orbit, overlay };
   }
 
   private buildScene(textures: LoadedTextures): void {
@@ -182,34 +202,6 @@ export class EarthOrbitModule {
       .circle(0, 72, 4).fill({ color: 0xe4f8ff });
     axis.rotation = AXIAL_TILT_RADIANS;
 
-    const globe = new Container();
-    const globeMask = new Graphics().circle(0, 0, 50).fill({ color: 0xffffff });
-    const earthSurface = new TilingSprite({ texture: textures.earthSurface, width: 100, height: 100 });
-    earthSurface.anchor.set(0.5);
-    earthSurface.texture.source.style.addressModeU = 'repeat';
-    earthSurface.texture.source.style.addressModeV = 'clamp-to-edge';
-    earthSurface.texture.source.style.update();
-    const textureScale = 100 / textures.earthSurface.height;
-    earthSurface.tileScale.set(textureScale);
-    earthSurface.mask = globeMask;
-    this.earthSurface = earthSurface;
-
-    // This shadow is independent from the rotating map texture. Its transparent
-    // side is always turned toward the Sun, so the illuminated hemisphere stays
-    // scientifically correct at every point of the orbit.
-    const earthLighting = new Sprite(this.createBodyLightingTexture());
-    earthLighting.anchor.set(0.5);
-    earthLighting.width = 100;
-    earthLighting.height = 100;
-    earthLighting.mask = globeMask;
-    earthLighting.eventMode = 'none';
-    this.earthLighting = earthLighting;
-
-    const atmosphere = new Graphics()
-      .circle(0, 0, 50).stroke({ color: 0x8cddff, width: 3, alpha: 0.82 })
-      .circle(0, 0, 47).stroke({ color: 0xffffff, width: 1, alpha: 0.22 });
-    globe.addChild(earthSurface, earthLighting, globeMask, atmosphere);
-    globe.zIndex = 3;
     axis.zIndex = 2;
 
     const moonOrbitGuide = new Graphics()
@@ -217,27 +209,8 @@ export class EarthOrbitModule {
       .stroke({ color: 0xdbe7ff, width: 2.25, alpha: 0.78 });
     moonOrbitGuide.zIndex = 1;
 
-    const moonBody = new Container();
-    const moon = new Sprite(textures.moon);
-    moon.anchor.set(0.5);
-    moon.width = 31;
-    moon.height = 31;
-
-    const moonMask = new Graphics().circle(0, 0, 15.5).fill({ color: 0xffffff });
-    const moonLighting = new Sprite(this.createBodyLightingTexture());
-    moonLighting.anchor.set(0.5);
-    moonLighting.width = 31;
-    moonLighting.height = 31;
-    moonLighting.mask = moonMask;
-    moonLighting.eventMode = 'none';
-    const moonGlow = new Graphics()
-      .circle(0, 0, 17.5).stroke({ color: 0xeaf4ff, width: 2, alpha: 0.88 });
-    moonBody.addChild(moon, moonLighting, moonMask, moonGlow);
-    this.moonBody = moonBody;
-    this.moonLighting = moonLighting;
-
     this.earthOrbitContainer.sortableChildren = true;
-    this.earthOrbitContainer.addChild(moonOrbitGuide, axis, globe, moonBody);
+    this.earthOrbitContainer.addChild(moonOrbitGuide, axis);
     this.earthOrbitContainer.eventMode = 'static';
     this.earthOrbitContainer.cursor = 'grab';
     this.earthOrbitContainer.hitArea = new Circle(0, 0, 68);
@@ -257,6 +230,63 @@ export class EarthOrbitModule {
     this.app.stage.on('pointerupoutside', this.handlePointerUp, this);
   }
 
+  private async buildThreeScene(): Promise<void> {
+    const renderer = new WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setClearColor(0x000000, 0);
+    renderer.domElement.className = 'earth-orbit-v01-three-canvas';
+    renderer.domElement.setAttribute('aria-hidden', 'true');
+    this.stageElement.append(renderer.domElement);
+    this.threeRenderer = renderer;
+
+    const camera = new OrthographicCamera(
+      -DESIGN_WIDTH / 2,
+      DESIGN_WIDTH / 2,
+      DESIGN_HEIGHT / 2,
+      -DESIGN_HEIGHT / 2,
+      0.1,
+      2000,
+    );
+    camera.position.set(0, 0, 1000);
+    camera.lookAt(0, 0, 0);
+    this.threeCamera = camera;
+
+    const earthMap = await new TextureLoader().loadAsync(EARTH_ORBIT_ASSETS.earthSurface);
+    earthMap.colorSpace = SRGBColorSpace;
+    earthMap.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+
+    const earth = new Mesh(
+      new SphereGeometry(50, 64, 40),
+      new MeshPhongMaterial({
+        map: earthMap,
+        color: 0xffffff,
+        emissive: 0x02060d,
+        shininess: 8,
+        specular: 0x183754,
+      }),
+    );
+    this.earth3D = earth;
+    this.earth3DGroup.rotation.z = -AXIAL_TILT_RADIANS;
+    this.earth3DGroup.add(earth);
+    this.threeScene.add(this.earth3DGroup);
+
+    const moon = new Mesh(
+      new SphereGeometry(15.5, 40, 28),
+      new MeshPhongMaterial({ color: 0xc8cbd0, emissive: 0x050608, shininess: 2, specular: 0x25282d }),
+    );
+    this.moon3D = moon;
+    this.moon3DGroup.add(moon);
+    this.threeScene.add(this.moon3DGroup);
+
+    const ambient = new AmbientLight(0x52709a, 0.16);
+    const sunlight = new DirectionalLight(0xffffff, 2.7);
+    sunlight.position.set(0, 0, 0);
+    sunlight.target = this.earth3DGroup;
+    this.sunlight = sunlight;
+    this.threeScene.add(ambient, sunlight);
+    this.resizeThreeScene();
+  }
+
   private readonly resizeScene = (): void => {
     const screen = this.app.screen;
     const scale = Math.min(screen.width / DESIGN_WIDTH, screen.height / DESIGN_HEIGHT);
@@ -266,36 +296,23 @@ export class EarthOrbitModule {
       (screen.height - DESIGN_HEIGHT * scale) / 2,
     );
     this.app.stage.hitArea = new Rectangle(0, 0, screen.width, screen.height);
+    this.resizeThreeScene();
   };
 
-  private createBodyLightingTexture(): Texture {
-    const size = 160;
-    const radius = size / 2;
-    const canvas = document.createElement('canvas');
-    canvas.width = size;
-    canvas.height = size;
-    const context = canvas.getContext('2d');
-    if (!context) return Texture.EMPTY;
-    const image = context.createImageData(size, size);
-    for (let y = 0; y < size; y += 1) {
-      for (let x = 0; x < size; x += 1) {
-        const nx = (x + 0.5 - radius) / radius;
-        const ny = (y + 0.5 - radius) / radius;
-        if (nx * nx + ny * ny > 1) continue;
-        // Base orientation: light arrives from the left. Keep that hemisphere
-        // clear and soften the day/night boundary before the sprite is rotated.
-        const transition = Math.max(0, Math.min(1, (nx + 0.28) / 0.5));
-        const smooth = transition * transition * (3 - 2 * transition);
-        const alpha = Math.round((0.05 + smooth * 0.79) * 255);
-        const offset = (y * size + x) * 4;
-        image.data[offset] = 2;
-        image.data[offset + 1] = 5;
-        image.data[offset + 2] = 18;
-        image.data[offset + 3] = alpha;
-      }
-    }
-    context.putImageData(image, 0, 0);
-    return Texture.from(canvas);
+  private resizeThreeScene(): void {
+    if (!this.threeRenderer || !this.threeCamera) return;
+    const width = this.stageElement.clientWidth;
+    const height = this.stageElement.clientHeight;
+    if (!width || !height) return;
+    this.threeRenderer.setSize(width, height, false);
+    const scale = Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
+    const viewportWidth = DESIGN_WIDTH * scale;
+    const viewportHeight = DESIGN_HEIGHT * scale;
+    const offsetX = (width - viewportWidth) / 2;
+    const offsetY = (height - viewportHeight) / 2;
+    this.threeRenderer.setViewport(offsetX, offsetY, viewportWidth, viewportHeight);
+    this.threeRenderer.setScissor(offsetX, offsetY, viewportWidth, viewportHeight);
+    this.threeRenderer.setScissorTest(true);
   }
 
   private readonly handlePointerDown = (event: FederatedPointerEvent): void => {
@@ -400,31 +417,28 @@ export class EarthOrbitModule {
   private renderState(): void {
     const position = orbitPosition(this.state.orbitAngle, this.orbit);
     this.earthOrbitContainer.position.set(position.x, position.y);
-    if (this.earthSurface) {
-      // Keep GPU texture coordinates bounded to one turn. Large accumulated
-      // coordinates lose precision after a long drag and corrupt the globe.
-      this.earthSurface.tilePosition.x = earthTextureOffset(
-        this.state.earthRotation,
-        this.earthSurface.texture.width,
-      );
+    const earthX = position.x - DESIGN_WIDTH / 2;
+    const earthY = DESIGN_HEIGHT / 2 - position.y;
+    const moonX = Math.cos(this.state.moonOrbitAngle) * MOON_ORBIT_RADIUS_X;
+    const moonY = Math.sin(this.state.moonOrbitAngle) * MOON_ORBIT_RADIUS_Y;
+    this.earth3DGroup.position.set(earthX, earthY, 0);
+    this.moon3DGroup.position.set(
+      earthX + moonX,
+      earthY - moonY,
+      Math.sin(this.state.moonOrbitAngle) * 28,
+    );
+    if (this.earth3D) {
+      // A real 3D rotation of the sphere; no 2D tile offset or wrap-around is used.
+      this.earth3D.rotation.y = -this.state.earthRotation;
     }
-    if (this.earthLighting) {
-      const sunDirection = Math.atan2(this.orbit.centerY - position.y, this.orbit.centerX - position.x);
-      // The generated texture's clear side points left (PI radians).
-      this.earthLighting.rotation = sunDirection - Math.PI;
+    if (this.moon3D) {
+      this.moon3D.rotation.y = -this.state.moonOrbitAngle;
     }
-    if (this.moonBody) {
-      const moonX = Math.cos(this.state.moonOrbitAngle) * MOON_ORBIT_RADIUS_X;
-      const moonY = Math.sin(this.state.moonOrbitAngle) * MOON_ORBIT_RADIUS_Y;
-      this.moonBody.position.set(moonX, moonY);
-      this.moonBody.zIndex = Math.sin(this.state.moonOrbitAngle) < 0 ? 2.5 : 4;
-      if (this.moonLighting) {
-        const moonSunDirection = Math.atan2(
-          this.orbit.centerY - (position.y + moonY),
-          this.orbit.centerX - (position.x + moonX),
-        );
-        this.moonLighting.rotation = moonSunDirection - Math.PI;
-      }
+    if (this.sunlight) {
+      this.sunlight.target = this.earth3DGroup;
+    }
+    if (this.threeRenderer && this.threeCamera) {
+      this.threeRenderer.render(this.threeScene, this.threeCamera);
     }
 
     const angleOutput = this.host.querySelector<HTMLOutputElement>('[data-orbit-angle]');

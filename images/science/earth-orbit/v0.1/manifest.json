@@ -12,6 +12,12 @@
     "overlay": "guides/interaction-overlay-v01.svg",
     "seasonMarkers": "guides/season-markers-v01.svg"
   },
+  "rendering": "Three.js SphereGeometry with real Y-axis mesh rotation and directional sunlight",
+  "references": {
+    "sphereGeometry": "https://threejs.org/docs/pages/SphereGeometry.html",
+    "lighting": "https://threejs.org/manual/en/lights.html",
+    "earthImagery": "https://visibleearth.nasa.gov/collection/1484/blue-marble"
+  },
   "v01Enabled": ["background", "sun", "earthSurface", "moon", "orbit", "overlay"],
   "reservedForLater": ["seasonMarkers"]
 }
