@@ -953,7 +953,7 @@
           </sc-if>
           <sc-if value="{{ englishGrammarComplete }}" hint-placeholder-val="{{ false }}">
             <div style="min-height:390px;display:grid;place-items:center;text-align:center;padding:28px">
-              <div><div style="font-size:72px;line-height:1">🏆</div><h3 style="margin:18px 0 8px;font-size:30px;color:#2b1f57">完成 {{ englishGrammarTotal }} 題！</h3><p style="margin:0 0 22px;color:#7c74a8;font-size:17px;font-weight:800">本輪題目全部完成，沒有空白題目或重複句型。</p><button onClick="{{ englishGrammarRestart }}" style="border:0;border-radius:17px;padding:14px 30px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;font-size:16px;cursor:pointer">重新挑戰 50 題</button></div>
+              <div><div style="font-size:72px;line-height:1">🏆</div><h3 style="margin:18px 0 8px;font-size:30px;color:#2b1f57">完成 {{ englishGrammarTotal }} 題！</h3><p style="margin:0 0 22px;color:#7c74a8;font-size:17px;font-weight:800">本輪 10 題全部完成，題目沒有重複。</p><button onClick="{{ englishGrammarRestart }}" style="border:0;border-radius:17px;padding:14px 30px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;font-size:16px;cursor:pointer">重新抽 10 題</button></div>
             </div>
           </sc-if>
         </section>
@@ -2829,9 +2829,9 @@ const EN_UNITS = [
   { id: "e6", grade: 2, difficulty: 2, icon: "🔤", tint: "#fff0cc", title: "打散字母排單字", sub: "二年級 · 拖曳拼字與導讀", kind: "english-scramble" },
   { id: "e7", grade: 2, difficulty: 2, icon: "🖼️", tint: "#ffe0ef", title: "圖片單字配對", sub: "二年級 · 60 題專圖庫 · 六對六三輪／60 秒", kind: "english-match" },
   { id: "e8", grade: 2, difficulty: 3, icon: "🧩", tint: "#e6f7ee", title: "句子缺字挑戰", sub: "二年級 · 詞義完成句子", kind: "english-chain" },
-  { id: "e9", grade: 1, difficulty: 2, icon: "🧱", tint: "#fff0cc", title: "句型積木拖曳", sub: "一年級 · 50 題不重複句型", kind: "english-grammar" },
-  { id: "e10", grade: 2, difficulty: 2, icon: "🧱", tint: "#eafbfd", title: "句型結構拖曳", sub: "二年級 · 50 題不重複句型", kind: "english-grammar" },
-  { id: "e11", grade: 3, difficulty: 3, icon: "🧱", tint: "#ffe0ef", title: "文法拖曳挑戰", sub: "三年級 · 50 題不重複句型", kind: "english-grammar" },
+  { id: "e9", grade: 1, difficulty: 2, icon: "🧱", tint: "#fff0cc", title: "句型積木拖曳", sub: "一年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
+  { id: "e10", grade: 2, difficulty: 2, icon: "🧱", tint: "#eafbfd", title: "句型結構拖曳", sub: "二年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
+  { id: "e11", grade: 3, difficulty: 3, icon: "🧱", tint: "#ffe0ef", title: "文法拖曳挑戰", sub: "三年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
   { id: "e12", grade: 3, difficulty: 1, icon: "📚", tint: "#eafbfd", title: "500 字單字學習庫", sub: "三年級 · 進階圖像字卡與英文導讀", kind: "english-library" },
   { id: "e13", grade: 3, difficulty: 2, icon: "🔤", tint: "#fff0cc", title: "打散字母排單字", sub: "三年級 · 拖曳拼字與導讀", kind: "english-scramble" },
   { id: "e14", grade: 3, difficulty: 2, icon: "🖼️", tint: "#ffe0ef", title: "圖片單字配對", sub: "三年級 · 生成式專圖庫 · 六對六三輪／60 秒", kind: "english-match" },
@@ -2839,9 +2839,9 @@ const EN_UNITS = [
   { id: "e16", grade: 1, difficulty: 2, icon: "🧠", tint: "#eafbfd", title: "生活關聯心智圖", sub: "一年級 · 大圖卡與子圖卡拖曳配對", kind: "english-association" },
   { id: "e17", grade: 2, difficulty: 2, icon: "🧠", tint: "#e6f7ee", title: "生活關聯心智圖", sub: "二年級 · 家屋、腳踏車、樹木部件", kind: "english-association" },
   { id: "e18", grade: 3, difficulty: 2, icon: "🧠", tint: "#ffe0ef", title: "生活關聯心智圖", sub: "三年級 · 物件與部件英文聯想", kind: "english-association" },
-  { id: "e19", grade: 4, difficulty: 2, icon: "🧱", tint: "#fff0cc", title: "句型積木挑戰", sub: "四年級 · 50 題不重複文法題庫", kind: "english-grammar" },
-  { id: "e20", grade: 5, difficulty: 3, icon: "🧱", tint: "#eafbfd", title: "句型結構挑戰", sub: "五年級 · 50 題不重複文法題庫", kind: "english-grammar" },
-  { id: "e21", grade: 6, difficulty: 3, icon: "🧱", tint: "#ffe0ef", title: "進階文法挑戰", sub: "六年級 · 50 題不重複文法題庫", kind: "english-grammar" },
+  { id: "e19", grade: 4, difficulty: 2, icon: "🧱", tint: "#fff0cc", title: "句型積木挑戰", sub: "四年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
+  { id: "e20", grade: 5, difficulty: 3, icon: "🧱", tint: "#eafbfd", title: "句型結構挑戰", sub: "五年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
+  { id: "e21", grade: 6, difficulty: 3, icon: "🧱", tint: "#ffe0ef", title: "進階文法挑戰", sub: "六年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
 ];
 
 const MM_HUB_STYLES = [
@@ -4661,7 +4661,7 @@ class Component extends DCLogic {
   startEnglishGrammar() {
     const grade = Math.max(1, Math.min(6, Number(this.state.grade) || 1));
     const bank = EN_GRAMMAR_BANKS[grade] || EN_GRAMMAR_BANKS[1];
-    const queue = this.englishShuffle(bank).map((set, index) => {
+    const queue = this.englishShuffle(bank).slice(0, 10).map((set, index) => {
       const subject = this.grammarWord(set[0], "subject"), verb = this.grammarWord(set[1], "verb"), noun = this.grammarWord(set[2], "noun");
       return { id: "grammar-g" + grade + "-" + index + "-" + set[0] + "-" + set[1] + "-" + set[2], hint: set[3], sentence: "The " + set[0] + " " + set[1] + " the " + set[2] + ".", slots: { subject, verb, noun } };
     });
@@ -4684,7 +4684,7 @@ class Component extends DCLogic {
   }
   nextEnglishGrammar() {
     const next = this.state.englishGrammarIndex + 1;
-    if (next >= this.state.englishGrammarQueue.length) { this.setState({ englishGrammarIndex: next, englishGrammarAnswered: true, englishGrammarFeedback: "完成 50 題文法拖曳挑戰！" }); return; }
+    if (next >= this.state.englishGrammarQueue.length) { this.setState({ englishGrammarIndex: next, englishGrammarAnswered: true, englishGrammarFeedback: "完成本輪 10 題文法拖曳挑戰！" }); return; }
     this.setState({ englishGrammarIndex: next, englishGrammarAssignments: {}, englishGrammarSelected: "", englishGrammarAnswered: false, englishGrammarFeedback: "拖曳每個詞到正確的句型欄位。" }, () => this.speakEnglishGrammarPrompt());
   }
   speakEnglishGrammarPrompt() {
