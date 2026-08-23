@@ -935,7 +935,29 @@
     </sc-if>
 
     <sc-if value="{{ isEnglishGrammar }}" hint-placeholder-val="{{ false }}">
-      <div style="max-width:920px;margin:0 auto"><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap"><button onClick="{{ englishBack }}" style="width:42px;height:42px;border-radius:50%;border:1px solid #ece7ff;background:#fff;font-size:18px;cursor:pointer">←</button><div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">GRAMMAR BUILDER</p><h2 style="margin:3px 0 0;font-size:25px;font-weight:900">🧱 主詞・動詞・名詞句型拖曳</h2></div><button onClick="{{ englishGrammarSpeak }}" style="margin-left:auto;border:1px solid #bfeaf0;background:#eafbfd;border-radius:14px;padding:9px 13px;color:#0e7d8c;font-weight:900;cursor:pointer">🔊 聽題目</button><span style="padding:9px 13px;border-radius:99px;background:#fff6e0;color:#a06400;font-weight:900">第 {{ englishGrammarNumber }} / 10 題</span></div><section class="english-grammar-card"><p style="margin:0 0 14px;padding:14px;border-radius:16px;background:#f6f1ff;color:#5b3fe0;font-size:17px;font-weight:900;text-align:center">中文提示：{{ englishGrammarHint }}</p><p style="margin:0 0 16px;text-align:center;font-size:17px;font-weight:900;color:#7c74a8">把三張單字卡拖到正確欄位，完成英文句子。</p><div class="english-grammar-slots"><sc-for list="{{ englishGrammarSlots }}" as="slot" hint-placeholder-count="3"><div class="english-grammar-slot" onClick="{{ slot.choose }}" onDragOver="{{ englishAllowDrop }}" onDrop="{{ slot.drop }}"><strong>{{ slot.label }}</strong><sc-if value="{{ slot.filled }}" hint-placeholder-val="{{ false }}"><button class="english-grammar-filled" onClick="{{ slot.remove }}"><img src="{{ slot.image }}" alt=""><span>{{ slot.word }}</span><small>{{ slot.roleLabel }}</small></button></sc-if><sc-if value="{{ slot.empty }}" hint-placeholder-val="{{ true }}"><span class="english-grammar-empty">拖到這裡</span></sc-if></div></sc-for></div><div class="english-grammar-tray"><sc-for list="{{ englishGrammarCards }}" as="card" hint-placeholder-count="3"><button class="english-grammar-chip" draggable="true" onDragStart="{{ card.drag }}" onClick="{{ card.choose }}" style="outline:{{ card.outline }}"><img src="{{ card.image }}" alt=""><span>{{ card.word }}</span><small>{{ card.roleLabel }}</small></button></sc-for></div><p class="english-grammar-feedback" style="background:{{ englishFeedbackBg }};color:{{ englishFeedbackFg }}">{{ englishGrammarFeedback }}</p><sc-if value="{{ englishGrammarCanNext }}" hint-placeholder-val="{{ false }}"><button onClick="{{ englishGrammarNext }}" style="width:100%;border:0;border-radius:17px;padding:13px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;font-size:15px;cursor:pointer">下一題 →</button></sc-if></section></div>
+      <div style="max-width:920px;margin:0 auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap">
+          <button onClick="{{ englishBack }}" style="width:42px;height:42px;border-radius:50%;border:1px solid #ece7ff;background:#fff;font-size:18px;cursor:pointer">←</button>
+          <div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">GRAMMAR BUILDER</p><h2 style="margin:3px 0 0;font-size:25px;font-weight:900">🧱 主詞・動詞・名詞句型拖曳</h2></div>
+          <sc-if value="{{ englishGrammarPlaying }}" hint-placeholder-val="{{ true }}"><button onClick="{{ englishGrammarSpeak }}" style="margin-left:auto;border:1px solid #bfeaf0;background:#eafbfd;border-radius:14px;padding:9px 13px;color:#0e7d8c;font-weight:900;cursor:pointer">🔊 聽題目</button></sc-if>
+          <span style="padding:9px 13px;border-radius:99px;background:#fff6e0;color:#a06400;font-weight:900">第 {{ englishGrammarNumber }} / {{ englishGrammarTotal }} 題</span>
+        </div>
+        <section class="english-grammar-card">
+          <sc-if value="{{ englishGrammarPlaying }}" hint-placeholder-val="{{ true }}">
+            <p style="margin:0 0 14px;padding:14px;border-radius:16px;background:#f6f1ff;color:#5b3fe0;font-size:17px;font-weight:900;text-align:center">中文提示：{{ englishGrammarHint }}</p>
+            <p style="margin:0 0 16px;text-align:center;font-size:17px;font-weight:900;color:#7c74a8">把三張單字卡拖到正確欄位，完成英文句子。</p>
+            <div class="english-grammar-slots"><sc-for list="{{ englishGrammarSlots }}" as="slot" hint-placeholder-count="3"><div class="english-grammar-slot" onClick="{{ slot.choose }}" onDragOver="{{ englishAllowDrop }}" onDrop="{{ slot.drop }}"><strong>{{ slot.label }}</strong><sc-if value="{{ slot.filled }}" hint-placeholder-val="{{ false }}"><button class="english-grammar-filled" onClick="{{ slot.remove }}"><img src="{{ slot.image }}" alt=""><span>{{ slot.word }}</span><small>{{ slot.roleLabel }}</small></button></sc-if><sc-if value="{{ slot.empty }}" hint-placeholder-val="{{ true }}"><span class="english-grammar-empty">拖到這裡</span></sc-if></div></sc-for></div>
+            <div class="english-grammar-tray"><sc-for list="{{ englishGrammarCards }}" as="card" hint-placeholder-count="3"><button class="english-grammar-chip" draggable="true" onDragStart="{{ card.drag }}" onClick="{{ card.choose }}" style="outline:{{ card.outline }}"><img src="{{ card.image }}" alt=""><span>{{ card.word }}</span><small>{{ card.roleLabel }}</small></button></sc-for></div>
+            <p class="english-grammar-feedback" style="background:{{ englishFeedbackBg }};color:{{ englishFeedbackFg }}">{{ englishGrammarFeedback }}</p>
+            <sc-if value="{{ englishGrammarCanNext }}" hint-placeholder-val="{{ false }}"><button onClick="{{ englishGrammarNext }}" style="width:100%;border:0;border-radius:17px;padding:13px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;font-size:15px;cursor:pointer">下一題 →</button></sc-if>
+          </sc-if>
+          <sc-if value="{{ englishGrammarComplete }}" hint-placeholder-val="{{ false }}">
+            <div style="min-height:390px;display:grid;place-items:center;text-align:center;padding:28px">
+              <div><div style="font-size:72px;line-height:1">🏆</div><h3 style="margin:18px 0 8px;font-size:30px;color:#2b1f57">完成 {{ englishGrammarTotal }} 題！</h3><p style="margin:0 0 22px;color:#7c74a8;font-size:17px;font-weight:800">本輪題目全部完成，沒有空白題目或重複句型。</p><button onClick="{{ englishGrammarRestart }}" style="border:0;border-radius:17px;padding:14px 30px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;font-size:16px;cursor:pointer">重新挑戰 50 題</button></div>
+            </div>
+          </sc-if>
+        </section>
+      </div>
     </sc-if>
 
     <sc-if value="{{ isEnglishAssociation }}" hint-placeholder-val="{{ false }}">
@@ -2807,9 +2829,9 @@ const EN_UNITS = [
   { id: "e6", grade: 2, difficulty: 2, icon: "🔤", tint: "#fff0cc", title: "打散字母排單字", sub: "二年級 · 拖曳拼字與導讀", kind: "english-scramble" },
   { id: "e7", grade: 2, difficulty: 2, icon: "🖼️", tint: "#ffe0ef", title: "圖片單字配對", sub: "二年級 · 60 題專圖庫 · 六對六三輪／60 秒", kind: "english-match" },
   { id: "e8", grade: 2, difficulty: 3, icon: "🧩", tint: "#e6f7ee", title: "句子缺字挑戰", sub: "二年級 · 詞義完成句子", kind: "english-chain" },
-  { id: "e9", grade: 1, difficulty: 2, icon: "🧱", tint: "#fff0cc", title: "句型積木拖曳", sub: "一年級 · 主詞＋動詞＋名詞", kind: "english-grammar" },
-  { id: "e10", grade: 2, difficulty: 2, icon: "🧱", tint: "#eafbfd", title: "句型結構拖曳", sub: "二年級 · 主詞、動詞、名詞排序", kind: "english-grammar" },
-  { id: "e11", grade: 3, difficulty: 3, icon: "🧱", tint: "#ffe0ef", title: "文法拖曳挑戰", sub: "三年級 · 主詞＋動詞＋名詞句型", kind: "english-grammar" },
+  { id: "e9", grade: 1, difficulty: 2, icon: "🧱", tint: "#fff0cc", title: "句型積木拖曳", sub: "一年級 · 50 題不重複句型", kind: "english-grammar" },
+  { id: "e10", grade: 2, difficulty: 2, icon: "🧱", tint: "#eafbfd", title: "句型結構拖曳", sub: "二年級 · 50 題不重複句型", kind: "english-grammar" },
+  { id: "e11", grade: 3, difficulty: 3, icon: "🧱", tint: "#ffe0ef", title: "文法拖曳挑戰", sub: "三年級 · 50 題不重複句型", kind: "english-grammar" },
   { id: "e12", grade: 3, difficulty: 1, icon: "📚", tint: "#eafbfd", title: "500 字單字學習庫", sub: "三年級 · 進階圖像字卡與英文導讀", kind: "english-library" },
   { id: "e13", grade: 3, difficulty: 2, icon: "🔤", tint: "#fff0cc", title: "打散字母排單字", sub: "三年級 · 拖曳拼字與導讀", kind: "english-scramble" },
   { id: "e14", grade: 3, difficulty: 2, icon: "🖼️", tint: "#ffe0ef", title: "圖片單字配對", sub: "三年級 · 生成式專圖庫 · 六對六三輪／60 秒", kind: "english-match" },
@@ -2817,6 +2839,9 @@ const EN_UNITS = [
   { id: "e16", grade: 1, difficulty: 2, icon: "🧠", tint: "#eafbfd", title: "生活關聯心智圖", sub: "一年級 · 大圖卡與子圖卡拖曳配對", kind: "english-association" },
   { id: "e17", grade: 2, difficulty: 2, icon: "🧠", tint: "#e6f7ee", title: "生活關聯心智圖", sub: "二年級 · 家屋、腳踏車、樹木部件", kind: "english-association" },
   { id: "e18", grade: 3, difficulty: 2, icon: "🧠", tint: "#ffe0ef", title: "生活關聯心智圖", sub: "三年級 · 物件與部件英文聯想", kind: "english-association" },
+  { id: "e19", grade: 4, difficulty: 2, icon: "🧱", tint: "#fff0cc", title: "句型積木挑戰", sub: "四年級 · 50 題不重複文法題庫", kind: "english-grammar" },
+  { id: "e20", grade: 5, difficulty: 3, icon: "🧱", tint: "#eafbfd", title: "句型結構挑戰", sub: "五年級 · 50 題不重複文法題庫", kind: "english-grammar" },
+  { id: "e21", grade: 6, difficulty: 3, icon: "🧱", tint: "#ffe0ef", title: "進階文法挑戰", sub: "六年級 · 50 題不重複文法題庫", kind: "english-grammar" },
 ];
 
 const MM_HUB_STYLES = [
@@ -3116,12 +3141,48 @@ const EXPERIMENT_UNITS = [
   { id: "exp-plant-water", grade: 0, difficulty: 0, icon: "🌱", tint: "#eef8df", title: "植物怎麼喝水？", sub: "分鏡＋互動實驗 · 土壤、根毛、木質部、氣孔與蒸散", kind: "experiment" },
   { id: "exp-day-night", grade: 0, difficulty: 0, icon: "🌍", tint: "#eaf2ff", title: "白天與黑夜", sub: "分鏡＋互動實驗 · 旋轉地球、判斷臺灣日夜", kind: "experiment" },
 ];
-const EN_GRAMMAR_SETS = [
-  ["cat", "sees", "bird", "貓看見鳥"], ["dog", "chases", "ball", "狗追球"], ["rabbit", "eats", "carrot", "兔子吃胡蘿蔔"],
-  ["girl", "reads", "book", "女孩讀書"], ["boy", "kicks", "ball", "男孩踢球"], ["bird", "likes", "tree", "鳥喜歡樹"],
-  ["teacher", "opens", "door", "老師打開門"], ["mother", "cooks", "rice", "媽媽煮飯"], ["farmer", "washes", "car", "農夫洗車"],
-  ["child", "holds", "flower", "孩子拿著花"], ["fox", "finds", "house", "狐狸找到房子"], ["student", "uses", "pencil", "學生使用鉛筆"],
-];
+function buildEnglishGrammarBank(subjects, verbs, nouns) {
+  const bank = [];
+  for (let round = 0; round < 5; round += 1) {
+    for (let index = 0; index < 10; index += 1) {
+      const subject = subjects[index], verb = verbs[(index + round * 2) % 10], noun = nouns[(index * 3 + round) % 10];
+      bank.push([subject[0], verb[0], noun[0], subject[1] + verb[1] + noun[1]]);
+    }
+  }
+  return bank;
+}
+const EN_GRAMMAR_BANKS = {
+  1: buildEnglishGrammarBank(
+    [["cat","貓"],["dog","狗"],["rabbit","兔子"],["girl","女孩"],["boy","男孩"],["bird","鳥"],["teacher","老師"],["mother","媽媽"],["father","爸爸"],["child","孩子"]],
+    [["sees","看見"],["likes","喜歡"],["eats","吃"],["holds","拿著"],["opens","打開"],["reads","閱讀"],["kicks","踢"],["finds","找到"],["uses","使用"],["wants","想要"]],
+    [["apple","蘋果"],["book","書"],["ball","球"],["door","門"],["flower","花"],["pencil","鉛筆"],["carrot","胡蘿蔔"],["bird","鳥"],["tree","樹"],["toy","玩具"]]
+  ),
+  2: buildEnglishGrammarBank(
+    [["student","學生"],["sister","姊姊"],["brother","哥哥"],["baby","寶寶"],["farmer","農夫"],["doctor","醫生"],["nurse","護理師"],["friend","朋友"],["grandma","奶奶"],["grandpa","爺爺"]],
+    [["washes","清洗"],["draws","畫"],["carries","拿著"],["buys","購買"],["drinks","喝"],["cooks","烹煮"],["cleans","清理"],["visits","拜訪"],["needs","需要"],["chooses","選擇"]],
+    [["car","汽車"],["picture","圖畫"],["bag","袋子"],["milk","牛奶"],["rice","米飯"],["room","房間"],["market","市場"],["cake","蛋糕"],["chair","椅子"],["shirt","襯衫"]]
+  ),
+  3: buildEnglishGrammarBank(
+    [["fox","狐狸"],["monkey","猴子"],["pilot","飛行員"],["driver","司機"],["cook","廚師"],["artist","藝術家"],["player","球員"],["classmate","同學"],["uncle","叔叔"],["aunt","阿姨"]],
+    [["chases","追趕"],["builds","建造"],["writes","書寫"],["throws","丟"],["brings","帶來"],["fixes","修理"],["plants","種植"],["feeds","餵食"],["moves","移動"],["checks","檢查"]],
+    [["kite","風箏"],["letter","信"],["bicycle","腳踏車"],["garden","花園"],["lunch","午餐"],["window","窗戶"],["chicken","雞"],["box","箱子"],["computer","電腦"],["bridge","橋"]]
+  ),
+  4: buildEnglishGrammarBank(
+    [["scientist","科學家"],["librarian","圖書館員"],["coach","教練"],["chef","主廚"],["musician","音樂家"],["visitor","訪客"],["neighbor","鄰居"],["captain","隊長"],["reporter","記者"],["gardener","園丁"]],
+    [["observes","觀察"],["explains","說明"],["collects","收集"],["prepares","準備"],["protects","保護"],["delivers","遞送"],["measures","測量"],["repairs","修復"],["organizes","整理"],["discovers","發現"]],
+    [["plant","植物"],["story","故事"],["team","隊伍"],["meal","餐點"],["instrument","樂器"],["museum","博物館"],["package","包裹"],["distance","距離"],["schedule","行程"],["insect","昆蟲"]]
+  ),
+  5: buildEnglishGrammarBank(
+    [["engineer","工程師"],["researcher","研究員"],["designer","設計師"],["manager","經理"],["volunteer","志工"],["photographer","攝影師"],["athlete","運動員"],["inventor","發明家"],["student","學生"],["teacher","老師"]],
+    [["creates","創造"],["compares","比較"],["improves","改善"],["records","記錄"],["supports","支持"],["examines","檢查"],["completes","完成"],["solves","解決"],["discusses","討論"],["describes","描述"]],
+    [["machine","機器"],["result","結果"],["model","模型"],["project","專題"],["community","社區"],["photo","照片"],["challenge","挑戰"],["problem","問題"],["experiment","實驗"],["environment","環境"]]
+  ),
+  6: buildEnglishGrammarBank(
+    [["astronomer","天文學家"],["biologist","生物學家"],["architect","建築師"],["director","主任"],["author","作者"],["guide","嚮導"],["leader","領導者"],["analyst","分析師"],["speaker","講者"],["explorer","探險家"]],
+    [["analyzes","分析"],["predicts","預測"],["designs","設計"],["presents","發表"],["publishes","出版"],["introduces","介紹"],["develops","發展"],["evaluates","評估"],["summarizes","摘要"],["investigates","調查"]],
+    [["planet","行星"],["pattern","模式"],["building","建築物"],["proposal","提案"],["article","文章"],["culture","文化"],["strategy","策略"],["evidence","證據"],["topic","主題"],["ocean","海洋"]]
+  ),
+};
 // 100 generated, topic-based association groups. Cambridge's A1 Movers topics
 // (home, school, food, places, transport, nature and daily activities) are used
 // as the scope; each round shows three groups so the board stays usable on an
@@ -4238,7 +4299,7 @@ class Component extends DCLogic {
   }
   startEnglishUnit(unit) {
     const grade = Number(unit.grade) || 1;
-    if (!this.englishPool(grade).length) { this.flash("英文單字庫還在載入中，請稍等一下"); return; }
+    if (unit.kind !== "english-grammar" && !this.englishPool(grade).length) { this.flash("英文單字庫還在載入中，請稍等一下"); return; }
     if (unit.kind === "english-library") this.setState({ screen: "englishLibrary", grade, englishCategory: "全部", englishPage: 0 });
     else if (unit.kind === "english-scramble") this.setState({ screen: "englishScramble", grade }, () => this.newEnglishScramble());
     else if (unit.kind === "english-match") this.setState({ screen: "englishMatch", grade }, () => this.startEnglishMatch());
@@ -4593,13 +4654,16 @@ class Component extends DCLogic {
 
   grammarWord(term, role) {
     const found = this.englishPool(this.state.grade).find((item) => String(item.word || "").toLowerCase() === term);
-    if (found) return Object.assign({}, found, { image: this.englishImageForWord(found), role });
-    return { id: "grammar-" + role + "-" + term, word: term, meaning: role === "subject" ? "主詞" : role === "verb" ? "動詞" : "名詞", phonetic: "", category: role, image: this.englishImageForWord({ word: term, category: role }), role };
+    const fallbackImage = { subject: "images/english-cards/words/subject.svg", verb: "images/english-cards/words/action.svg", noun: "images/english-cards/words/object.svg" }[role] || "images/english-generated-v2/atlas-01.webp";
+    if (found) return Object.assign({}, found, { id: "grammar-" + role + "-" + term, image: this.englishImageForWord(found) || fallbackImage, role });
+    return { id: "grammar-" + role + "-" + term, word: term, meaning: role === "subject" ? "主詞" : role === "verb" ? "動詞" : "名詞", phonetic: "", category: role, image: fallbackImage, role };
   }
   startEnglishGrammar() {
-    const queue = this.englishShuffle(EN_GRAMMAR_SETS).slice(0, 10).map((set, index) => {
+    const grade = Math.max(1, Math.min(6, Number(this.state.grade) || 1));
+    const bank = EN_GRAMMAR_BANKS[grade] || EN_GRAMMAR_BANKS[1];
+    const queue = this.englishShuffle(bank).map((set, index) => {
       const subject = this.grammarWord(set[0], "subject"), verb = this.grammarWord(set[1], "verb"), noun = this.grammarWord(set[2], "noun");
-      return { id: "grammar-" + index + "-" + set[0], hint: set[3], sentence: "The " + set[0] + " " + set[1] + " the " + set[2] + ".", slots: { subject, verb, noun } };
+      return { id: "grammar-g" + grade + "-" + index + "-" + set[0] + "-" + set[1] + "-" + set[2], hint: set[3], sentence: "The " + set[0] + " " + set[1] + " the " + set[2] + ".", slots: { subject, verb, noun } };
     });
     this.setState({ englishGrammarQueue: queue, englishGrammarIndex: 0, englishGrammarAssignments: {}, englishGrammarAnswered: false, englishGrammarCorrect: 0, englishGrammarSelected: "", englishGrammarFeedback: "拖曳每個詞到正確的句型欄位。" }, () => this.speakEnglishGrammarPrompt());
   }
@@ -4620,7 +4684,7 @@ class Component extends DCLogic {
   }
   nextEnglishGrammar() {
     const next = this.state.englishGrammarIndex + 1;
-    if (next >= this.state.englishGrammarQueue.length) { this.setState({ englishGrammarIndex: next, englishGrammarAnswered: true, englishGrammarFeedback: "完成 10 題文法拖曳挑戰！" }); return; }
+    if (next >= this.state.englishGrammarQueue.length) { this.setState({ englishGrammarIndex: next, englishGrammarAnswered: true, englishGrammarFeedback: "完成 50 題文法拖曳挑戰！" }); return; }
     this.setState({ englishGrammarIndex: next, englishGrammarAssignments: {}, englishGrammarSelected: "", englishGrammarAnswered: false, englishGrammarFeedback: "拖曳每個詞到正確的句型欄位。" }, () => this.speakEnglishGrammarPrompt());
   }
   speakEnglishGrammarPrompt() {
@@ -8489,7 +8553,7 @@ class Component extends DCLogic {
         };
       }),
       englishBack: () => this.setState({ screen: "map", subject: "english" }),
-      englishGradeLabel: ["", "一年級", "二年級", "三年級"][s.grade] || "英文",
+      englishGradeLabel: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][s.grade] || "英文",
       englishWordCount: englishPool.length,
       englishCategories: englishCategoriesRaw.map((label) => ({ label, go: () => this.setState({ englishCategory: label, englishPage: 0 }), bg: s.englishCategory === label ? "#2b1f57" : "#fff", fg: s.englishCategory === label ? "#fff" : "#7c74a8", border: s.englishCategory === label ? "#2b1f57" : "#ece7ff" })),
       englishLibraryWords: englishFiltered.slice(englishPage * englishPageSize, (englishPage + 1) * englishPageSize).map((word) => Object.assign({}, word, { image: this.englishImageForWord(word), speak: () => this.speakEnglish(word.word) })),
@@ -8497,11 +8561,14 @@ class Component extends DCLogic {
       englishPrevDisabled: englishPage <= 0, englishNextDisabled: englishPage >= englishPageCount - 1,
       englishPrevPage: () => this.setState({ englishPage: Math.max(0, englishPage - 1) }), englishNextPage: () => this.setState({ englishPage: Math.min(englishPageCount - 1, englishPage + 1) }),
       englishCurrentWord: "英文圖片線索", englishCurrentMeaning: englishCurrent.meaning, englishCurrentImage: this.englishImageForWord(englishCurrent),
-      englishGrammarNumber: Math.min(s.englishGrammarIndex + 1, 10),
+      englishGrammarTotal: s.englishGrammarQueue.length || 50,
+      englishGrammarPlaying: s.englishGrammarIndex < s.englishGrammarQueue.length,
+      englishGrammarComplete: s.englishGrammarQueue.length > 0 && s.englishGrammarIndex >= s.englishGrammarQueue.length,
+      englishGrammarNumber: Math.min(s.englishGrammarIndex + 1, s.englishGrammarQueue.length || 50),
       englishGrammarHint: (s.englishGrammarQueue[s.englishGrammarIndex] || {}).hint || "",
       englishGrammarFeedback: s.englishGrammarFeedback,
       englishGrammarCanNext: s.englishGrammarAnswered && s.englishGrammarIndex < s.englishGrammarQueue.length,
-      englishGrammarSpeak: () => this.speakEnglishGrammarPrompt(), englishGrammarNext: () => this.nextEnglishGrammar(),
+      englishGrammarSpeak: () => this.speakEnglishGrammarPrompt(), englishGrammarNext: () => this.nextEnglishGrammar(), englishGrammarRestart: () => this.startEnglishGrammar(),
       englishGrammarSlots: ["subject", "verb", "noun"].map((role) => {
         const qn = s.englishGrammarQueue[s.englishGrammarIndex], assigned = (s.englishGrammarAssignments || {})[role];
         const assignedWord = qn ? Object.values(qn.slots).find((word) => word.id === assigned) : null;
@@ -8652,7 +8719,7 @@ class Component extends DCLogic {
 
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
-      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "english" ? [1, 2, 3] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g],
+      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "math" || s.subject === "english" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g],
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",
         fg: s.grade === g ? "#fff" : "#7c74a8",
