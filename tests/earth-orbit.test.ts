@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, localSolarTimeFromRotation, LUNAR_SIDEREAL_DAYS, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
+import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, localSolarTimeFromRotation, LUNAR_SIDEREAL_DAYS, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, orbitProgressFromAngle, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
 
 const orbit = { centerX: 600, centerY: 337.5, radiusX: 430, radiusY: 218 };
 
@@ -37,6 +37,14 @@ describe('Earth Orbit V0.1 math', () => {
   it('uses the shortest signed delta while dragging across angle zero', () => {
     expect(shortestAngleDelta(0.05, TAU - 0.05)).toBeCloseTo(0.1, 10);
     expect(shortestAngleDelta(TAU - 0.05, 0.05)).toBeCloseTo(-0.1, 10);
+  });
+
+  it('maps a dragged orbital position to a stable point in the model year', () => {
+    expect(orbitProgressFromAngle(0)).toBe(0);
+    expect(orbitProgressFromAngle(Math.PI / 2)).toBeCloseTo(0.25, 10);
+    expect(orbitProgressFromAngle(Math.PI)).toBeCloseTo(0.5, 10);
+    expect(orbitProgressFromAngle(Math.PI * 1.5)).toBeCloseTo(0.75, 10);
+    expect(orbitProgressFromAngle(-Math.PI / 2)).toBeCloseTo(0.75, 10);
   });
 
   it('advances the Moon by its sidereal orbit ratio', () => {

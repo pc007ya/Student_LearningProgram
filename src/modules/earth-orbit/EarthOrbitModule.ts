@@ -29,6 +29,7 @@ import {
   localSolarTimeFromRotation,
   LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT,
   normalizeAngle,
+  orbitProgressFromAngle,
   orbitPosition,
   pointerToOrbitAngle,
   radiansToDegrees,
@@ -346,10 +347,15 @@ export class EarthOrbitModule {
     const delta = shortestAngleDelta(nextAngle, this.state.orbitAngle);
     const deltaSeconds = Math.max((event.timeStamp - this.previousPointerTime) / 1000, 1 / 120);
     this.previousPointerTime = event.timeStamp;
-    // Dragging is a position scrubber, not elapsed simulated time. Moving Earth
-    // around the orbit must not make the globe spin hundreds of turns or make
-    // the Moon jump through many months in a single pointer movement.
+    // Dragging scrubs the current position within one model year. Every visible
+    // readout must describe that same position, instead of retaining stale time
+    // values from before the drag.
     this.state.orbitAngle = normalizeAngle(this.state.orbitAngle + delta);
+    const orbitProgress = orbitProgressFromAngle(this.state.orbitAngle, START_ANGLE);
+    this.state.accumulatedEarthTurns = orbitProgress * SIDEREAL_ROTATIONS_PER_ORBIT;
+    this.state.earthRotation = normalizeAngle(this.state.accumulatedEarthTurns * Math.PI * 2);
+    this.state.accumulatedMoonOrbits = orbitProgress * LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT;
+    this.state.moonOrbitAngle = normalizeAngle(this.state.accumulatedMoonOrbits * Math.PI * 2);
     this.state.orbitAngularSpeed = delta / deltaSeconds;
     this.renderState();
   }

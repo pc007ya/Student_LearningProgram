@@ -34,6 +34,10 @@ export function pointerToOrbitAngle(point: Point, orbit: OrbitGeometry): number 
   return normalizeAngle(Math.atan2(normalizedY, normalizedX));
 }
 
+export function orbitProgressFromAngle(angle: number, startAngle = 0): number {
+  return normalizeAngle(angle - startAngle) / TAU;
+}
+
 export function radiansToDegrees(angle: number): number {
   return Math.round(normalizeAngle(angle) * 180 / Math.PI);
 }
