@@ -418,12 +418,18 @@ export class EarthOrbitModule {
       this.resetState();
     });
     const tips = this.host.querySelector<HTMLElement>('[data-orbit-tips]');
+    const tipsToggle = this.host.querySelector<HTMLElement>('[data-orbit-action="tips"]');
+    const setTipsVisibility = (visible: boolean): void => {
+      if (tips) tips.hidden = !visible;
+      if (tipsToggle) tipsToggle.hidden = visible;
+    };
     this.host.querySelector<HTMLElement>('[data-orbit-action="tips"]')?.addEventListener('click', () => {
-      if (tips) tips.hidden = !tips.hidden;
+      setTipsVisibility(true);
     });
     this.host.querySelector<HTMLElement>('[data-orbit-action="close-tips"]')?.addEventListener('click', () => {
-      if (tips) tips.hidden = true;
+      setTipsVisibility(false);
     });
+    setTipsVisibility(!tips?.hidden);
   }
 
   private renderState(): void {
@@ -459,6 +465,7 @@ export class EarthOrbitModule {
     const orbitSpeedOutput = this.host.querySelector<HTMLOutputElement>('[data-orbit-speed]');
     const earthSpeedOutput = this.host.querySelector<HTMLOutputElement>('[data-earth-speed]');
     const earthTurnsOutput = this.host.querySelector<HTMLOutputElement>('[data-earth-turns]');
+    const orbitDaysOutput = this.host.querySelector<HTMLOutputElement>('[data-orbit-days]');
     const speedRatioOutput = this.host.querySelector<HTMLOutputElement>('[data-speed-ratio]');
     const moonAngleOutput = this.host.querySelector<HTMLOutputElement>('[data-moon-angle]');
     const moonOrbitsOutput = this.host.querySelector<HTMLOutputElement>('[data-moon-orbits]');
@@ -472,6 +479,10 @@ export class EarthOrbitModule {
     if (orbitSpeedOutput) orbitSpeedOutput.value = `${(this.state.orbitAngularSpeed * 180 / Math.PI).toFixed(1)}°/秒`;
     if (earthSpeedOutput) earthSpeedOutput.value = `${(this.state.orbitAngularSpeed * SIDEREAL_ROTATIONS_PER_ORBIT * 180 / Math.PI).toFixed(1)}°/秒`;
     if (earthTurnsOutput) earthTurnsOutput.value = `${this.state.accumulatedEarthTurns.toFixed(2)} 圈`;
+    if (orbitDaysOutput) {
+      const orbitDays = (this.state.accumulatedEarthTurns / SIDEREAL_ROTATIONS_PER_ORBIT) * SOLAR_DAYS_PER_ORBIT;
+      orbitDaysOutput.value = `${Math.floor(orbitDays)} 天`;
+    }
     if (speedRatioOutput) speedRatioOutput.value = `${SIDEREAL_ROTATIONS_PER_ORBIT.toFixed(2)} : 1（${SOLAR_DAYS_PER_ORBIT.toFixed(2)} 日/年）`;
     if (moonAngleOutput) moonAngleOutput.value = `${radiansToDegrees(this.state.moonOrbitAngle)}°`;
     if (moonOrbitsOutput) moonOrbitsOutput.value = `${this.state.accumulatedMoonOrbits.toFixed(2)} 圈`;

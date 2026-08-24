@@ -380,8 +380,8 @@
   @media(max-width:920px){.revolution-v1-workspace{grid-template-columns:minmax(0,1fr) 300px}.revolution-v1-stage{min-height:480px}.revolution-v1-earth{width:92px}}@media(max-width:760px){.earth-lab-tabs{order:4;width:100%}.revolution-v1-workspace{grid-template-columns:1fr}.revolution-v1-stage{min-height:430px}.revolution-v1-controls{display:grid;grid-template-columns:1fr 1fr}.revolution-v1-controls>article:last-of-type,.revolution-v1-message{grid-column:1/-1}}@media(max-width:520px){.earth-lab-tabs button{flex:1}.revolution-v1-stage{min-height:370px}.revolution-v1-earth{width:76px}.revolution-v1-summary{grid-template-columns:1fr}.revolution-v1-controls{display:flex}}
   .earth-orbit-v01-shell{position:relative;min-height:560px}.earth-orbit-v01-stage{position:relative;min-width:0;height:clamp(560px,70vh,690px);overflow:hidden;border:3px solid #6154c8;border-radius:26px;background:#050b1d;box-shadow:0 18px 42px rgba(26,31,88,.3);touch-action:none}.earth-orbit-v01-canvas,.earth-orbit-v01-three-canvas{position:absolute;inset:0;display:block;width:100%;height:100%}.earth-orbit-v01-three-canvas{z-index:1;pointer-events:none}.earth-orbit-v01-hint{position:absolute;z-index:2;left:18px;top:18px;margin:0;padding:9px 13px;border:1px solid rgba(202,232,255,.45);border-radius:99px;background:rgba(8,18,54,.76);color:#eef8ff;font-size:11px;font-weight:950;pointer-events:none;backdrop-filter:blur(8px)}
   .earth-orbit-v01-actions{position:absolute;z-index:4;left:50%;bottom:16px;display:flex;gap:8px;transform:translateX(-50%);padding:7px;border:1px solid rgba(255,255,255,.28);border-radius:18px;background:rgba(5,12,38,.78);box-shadow:0 10px 28px rgba(0,0,0,.3);backdrop-filter:blur(12px)}.earth-orbit-v01-actions button{min-height:42px;border:0;border-radius:12px;padding:10px 16px;background:linear-gradient(90deg,#6657df,#22b9d0);color:#fff;font-family:inherit;font-size:12px;font-weight:1000;cursor:pointer}.earth-orbit-v01-actions button:not(:first-child){border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.12)}
-  .earth-orbit-v01-tips{position:absolute;z-index:6;right:18px;top:18px;width:min(320px,calc(100% - 36px));padding:16px;border:1px solid rgba(255,255,255,.45);border-radius:22px;background:rgba(248,251,255,.92);box-shadow:0 18px 50px rgba(3,8,30,.32);color:#213354;backdrop-filter:blur(18px)}.earth-orbit-v01-tips[hidden]{display:none}.earth-orbit-v01-tips-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.earth-orbit-v01-tips h3{margin:0;color:#253961;font-size:17px}.earth-orbit-v01-tips-close{width:34px;height:34px;border:0;border-radius:50%;background:#e9edff;color:#4436ac;font:900 20px/1 inherit;cursor:pointer}.earth-orbit-v01-tips>p{margin:8px 0 12px;color:#64738e;font-size:11px;font-weight:850;line-height:1.55}.earth-orbit-v01-readout{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0}.earth-orbit-v01-readout div{display:grid;gap:3px;padding:9px;border:1px solid #dbe5f1;border-radius:12px;background:#fff}.earth-orbit-v01-readout dt{color:#71819a;font-size:10px;font-weight:900}.earth-orbit-v01-readout dd{margin:0;color:#4436ac;font-size:11px;font-weight:1000}.earth-orbit-v01-note{margin:10px 0 0!important;padding:9px;border-radius:12px;background:#fff5d6;color:#735d1d!important}
-  @media(max-width:760px){.earth-orbit-v01-shell{min-height:470px}.earth-orbit-v01-stage{height:calc(100vh - 190px);min-height:470px}.earth-orbit-v01-actions{bottom:10px}.earth-orbit-v01-actions button{padding:9px 12px}.earth-orbit-v01-tips{top:10px;right:10px}}@media(max-width:520px){.earth-orbit-v01-stage{min-height:420px}.earth-orbit-v01-actions{width:calc(100% - 20px);justify-content:center}.earth-orbit-v01-actions button{flex:1;padding-inline:7px}}
+  .earth-orbit-v01-tips-toggle{position:absolute;z-index:5;right:18px;top:18px;border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:10px 15px;background:rgba(8,18,54,.7);color:#fff;font-family:inherit;font-size:11px;font-weight:1000;cursor:pointer;backdrop-filter:blur(12px)}.earth-orbit-v01-tips-toggle[hidden]{display:none}.earth-orbit-v01-tips{position:absolute;z-index:6;right:18px;top:18px;width:min(320px,calc(100% - 36px));padding:16px;border:1px solid rgba(210,226,255,.4);border-radius:22px;background:rgba(8,18,54,.7);box-shadow:0 18px 50px rgba(3,8,30,.32);color:#f4f8ff;backdrop-filter:blur(14px)}.earth-orbit-v01-tips[hidden]{display:none}.earth-orbit-v01-tips-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.earth-orbit-v01-tips h3{margin:0;color:#fff;font-size:17px}.earth-orbit-v01-tips-close{border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:8px 11px;background:rgba(255,255,255,.12);color:#fff;font:900 10px/1 inherit;cursor:pointer}.earth-orbit-v01-tips>p{margin:8px 0 12px;color:#cbd8ee;font-size:11px;font-weight:850;line-height:1.55}.earth-orbit-v01-readout{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0}.earth-orbit-v01-readout div{display:grid;gap:3px;padding:9px;border:1px solid rgba(219,229,241,.28);border-radius:12px;background:rgba(255,255,255,.1)}.earth-orbit-v01-readout dt{color:#bdcae2;font-size:10px;font-weight:900}.earth-orbit-v01-readout dd{margin:0;color:#fff;font-size:11px;font-weight:1000}.earth-orbit-v01-note{margin:10px 0 0!important;padding:9px;border-radius:12px;background:rgba(255,222,100,.16);color:#fff0aa!important}
+  @media(max-width:760px){.earth-orbit-v01-shell{min-height:470px}.earth-orbit-v01-stage{height:calc(100vh - 190px);min-height:470px}.earth-orbit-v01-actions{bottom:10px}.earth-orbit-v01-actions button{padding:9px 12px}.earth-orbit-v01-tips,.earth-orbit-v01-tips-toggle{top:10px;right:10px}}@media(max-width:520px){.earth-orbit-v01-stage{min-height:420px}.earth-orbit-v01-actions{width:auto;justify-content:center}.earth-orbit-v01-actions button{padding-inline:12px}}
   .earth-orbit-v01-loading{position:absolute;z-index:9;inset:0;display:grid;place-items:center;margin:0;background:rgba(3,8,26,.82);color:#e9f7ff;font-size:15px;font-weight:900}.earth-orbit-v01-loading[hidden]{display:none}.earth-orbit-v01-canvas:focus-visible{outline:4px solid #ffd75f;outline-offset:-7px}
 </style>
 </helmet>
@@ -1269,7 +1269,6 @@
         <div class="daynight-v2-head">
           <button class="daynight-v2-back" onClick="{{ dayNightBack }}" aria-label="返回實驗模組">←</button>
           <div><p>地球科學互動實驗</p><h2>{{ earthLabTitle }}</h2></div>
-          <div class="earth-lab-tabs"><button class="{{ earthRotationTabClass }}" onClick="{{ earthShowRotation }}">自轉・日夜</button><button class="{{ earthRevolutionTabClass }}" onClick="{{ earthShowRevolution }}">公轉・探索</button></div>
           <button class="daynight-v2-speak" onClick="{{ dayNightSpeak }}">🔊 聽原理</button>
           <button class="daynight-v2-reset" onClick="{{ dayNightReset }}">重新實驗</button>
         </div>
@@ -1319,7 +1318,7 @@
           <article class="rotation"><strong>地球自轉</strong><b>約 24 小時一圈</b><span>造成白天與黑夜交替</span></article>
           <i>≠</i>
           <article class="revolution"><strong>地球公轉</strong><b>約 1 年繞太陽一圈</b><span>形成一年的週期；配合地軸傾斜影響季節</span></article>
-          <sc-if value="{{ dayNightCompleted }}" hint-placeholder-val="{{ false }}"><div class="daynight-v2-finished"><span>✓ 自轉評估完成！日夜交替的主要原因是地球自轉。</span><button class="daynight-v2-next" onClick="{{ earthShowRevolution }}">下一個：觀察公轉 →</button></div></sc-if>
+          <sc-if value="{{ dayNightCompleted }}" hint-placeholder-val="{{ false }}"><div class="daynight-v2-finished"><span>✓ 自轉評估完成！日夜交替的主要原因是地球自轉。</span></div></sc-if>
         </section>
         </sc-if>
 
@@ -1327,8 +1326,9 @@
           <section class="earth-orbit-v01-shell" data-earth-orbit-v01>
             <div class="earth-orbit-v01-stage">
               <p class="earth-orbit-v01-loading" data-orbit-loading>正在載入互動場景…</p><p class="earth-orbit-v01-hint">拖曳地球觀察公轉・月球繞地球運行</p>
-              <div class="earth-orbit-v01-actions"><button type="button" data-orbit-action="toggle" aria-pressed="true">Ⅱ 暫停</button><button type="button" data-orbit-action="reset">↺ 重新開始</button><button type="button" data-orbit-action="tips">觀察提示</button></div>
-              <aside class="earth-orbit-v01-tips" data-orbit-tips><div class="earth-orbit-v01-tips-head"><h3>觀察提示</h3><button class="earth-orbit-v01-tips-close" type="button" data-orbit-action="close-tips" aria-label="關閉提示">×</button></div><p>地球持續自轉並繞太陽公轉；月球約 27.3 日繞地球一圈。拖曳地球可以停在想觀察的位置。</p><dl class="earth-orbit-v01-readout"><div><dt>目前狀態</dt><dd><output data-orbit-status>載入中</output></dd></div><div><dt>時間尺度</dt><dd><output data-time-scale>計算中</output></dd></div><div><dt>地球自轉</dt><dd><output data-earth-turns>0.00 圈</output></dd></div><div><dt>月球繞行</dt><dd><output data-moon-orbits>0.00 圈</output></dd></div></dl><p class="earth-orbit-v01-note">亮面永遠朝向太陽；地軸維持 23.5° 傾斜。</p></aside>
+              <div class="earth-orbit-v01-actions"><button type="button" data-orbit-action="toggle" aria-pressed="true">Ⅱ 暫停</button><button type="button" data-orbit-action="reset">↺ 重新開始</button></div>
+              <button class="earth-orbit-v01-tips-toggle" type="button" data-orbit-action="tips" hidden>觀察提示⌄</button>
+              <aside class="earth-orbit-v01-tips" data-orbit-tips><div class="earth-orbit-v01-tips-head"><h3>觀察提示</h3><button class="earth-orbit-v01-tips-close" type="button" data-orbit-action="close-tips" aria-label="收起提示">收起⌃</button></div><p>地球持續自轉並繞太陽公轉；月球約 27.3 日繞地球一圈。拖曳地球可以停在想觀察的位置。</p><dl class="earth-orbit-v01-readout"><div><dt>地球公轉天數</dt><dd><output data-orbit-days>0 天</output></dd></div><div><dt>時間尺度</dt><dd><output data-time-scale>計算中</output></dd></div><div><dt>地球自轉</dt><dd><output data-earth-turns>0.00 圈</output></dd></div><div><dt>月球繞行</dt><dd><output data-moon-orbits>0.00 圈</output></dd></div></dl><p class="earth-orbit-v01-note">亮面永遠朝向太陽；地軸維持 23.5° 傾斜。</p></aside>
             </div>
           </section>
         </sc-if>
@@ -3130,6 +3130,7 @@ const EXPERIMENT_UNITS = [
   { id: "exp-magnet-ii", grade: 0, difficulty: 0, icon: "🧲", tint: "#fff2d9", title: "磁鐵原理實驗室 II", sub: "任務實驗 · 預測、磁極旋轉、吸引排斥與材料測試", kind: "experiment" },
   { id: "exp-plant-water", grade: 0, difficulty: 0, icon: "🌱", tint: "#eef8df", title: "植物怎麼喝水？", sub: "分鏡＋互動實驗 · 土壤、根毛、木質部、氣孔與蒸散", kind: "experiment" },
   { id: "exp-day-night", grade: 0, difficulty: 0, icon: "🌍", tint: "#eaf2ff", title: "白天與黑夜", sub: "分鏡＋互動實驗 · 旋轉地球、判斷臺灣日夜", kind: "experiment" },
+  { id: "exp-earth-orbit", grade: 0, difficulty: 0, icon: "🌎", tint: "#e8edff", title: "地球公轉", sub: "3D 互動實驗 · 地球公轉、月球繞行與日照方向", kind: "experiment" },
 ];
 function buildEnglishGrammarBank(subjects, verbs, nouns) {
   const bank = [];
@@ -6266,6 +6267,7 @@ class Component extends DCLogic {
     if (id === "exp-magnet-ii") { this.startMagnet2Lab(); return; }
     if (id === "exp-plant-water") { this.startPlantWaterLab(); return; }
     if (id === "exp-day-night") { this.startDayNightLab(); return; }
+    if (id === "exp-earth-orbit") { this.startEarthOrbitLab(); return; }
     if (["s7", "s8", "s20", "s21"].indexOf(id) >= 0) { this.startMindmap(id); return; }
     if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
@@ -6487,6 +6489,13 @@ class Component extends DCLogic {
     this.clearDayNightTimers();
     this.setState({ screen: "dayNightLab", subject: "experiment", unit: "exp-day-night", dayNightLab: this.newDayNightLabState() });
   }
+  startEarthOrbitLab() {
+    this.clearDayNightTimers();
+    const lab = this.newDayNightLabState();
+    lab.mode = "revolution";
+    lab.standaloneRevolution = true;
+    this.setState({ screen: "dayNightLab", subject: "experiment", unit: "exp-earth-orbit", dayNightLab: lab });
+  }
   exitDayNightLab() {
     this.clearDayNightTimers();
     this.setState({ screen: "map", subject: "experiment", dayNightLab: null });
@@ -6495,6 +6504,7 @@ class Component extends DCLogic {
     this.clearDayNightTimers();
     const fresh = this.newDayNightLabState();
     fresh.mode = this.state.dayNightLab && this.state.dayNightLab.mode === "revolution" ? "revolution" : "rotation";
+    fresh.standaloneRevolution = !!(this.state.dayNightLab && this.state.dayNightLab.standaloneRevolution);
     this.setState({ dayNightLab: fresh });
     requestAnimationFrame(() => this.syncDayNightVideo(0));
   }
@@ -8102,7 +8112,7 @@ class Component extends DCLogic {
       isDayNightLab: s.screen === "dayNightLab",
       earthRotationMode: !s.dayNightLab || s.dayNightLab.mode !== "revolution",
       earthRevolutionMode: !!(s.dayNightLab && s.dayNightLab.mode === "revolution"),
-      earthLabTitle: s.dayNightLab && s.dayNightLab.mode === "revolution" ? "地球公轉探索" : "白天與黑夜",
+      earthLabTitle: s.dayNightLab && s.dayNightLab.standaloneRevolution ? "地球公轉" : s.dayNightLab && s.dayNightLab.mode === "revolution" ? "地球公轉探索" : "白天與黑夜",
       earthRotationTabClass: !s.dayNightLab || s.dayNightLab.mode !== "revolution" ? "active" : "",
       earthRevolutionTabClass: s.dayNightLab && s.dayNightLab.mode === "revolution" ? "active" : "",
       dayNightRotation: s.dayNightLab ? s.dayNightLab.rotation : 0,
