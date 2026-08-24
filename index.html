@@ -336,6 +336,30 @@
 .plant-inspector-copy h3,.plant-inspector-copy p{margin:0;font-size:15px;line-height:1.35;font-weight:900}.plant-progress{display:none}
 @media(max-width:760px){.plant-stage{grid-template-columns:1fr;padding:8px;min-height:0}.plant-canvas{aspect-ratio:16/9;min-height:0;background-position:left center}.plant-tray{width:auto;min-height:0}.plant-tools{grid-template-columns:repeat(2,minmax(0,1fr))}.plant-concepts{grid-template-columns:repeat(3,minmax(0,1fr))}.plant-inspector-copy{left:5.1%;right:5.1%;bottom:3.9%;grid-template-columns:1fr;padding:7px 10px;gap:2px}.plant-inspector-copy p{font-size:15px}}
 @media(max-width:480px){.plant-concepts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Plant water lab V3: Seed-Atlas-inspired labels and an iPad-sized single workspace. */
+.plant-shell{max-width:1180px}
+.plant-head{margin-bottom:10px}.plant-kicker{letter-spacing:.08em}.plant-title{font-size:26px}
+.plant-stage{grid-template-columns:minmax(0,1fr) clamp(210px,22vw,252px);gap:12px;padding:9px;border-width:4px;border-radius:26px}
+.plant-canvas{isolation:isolate;width:100%;align-self:start}
+.plant-status{left:2%;top:2.5%;width:25%;padding:9px 11px;border-radius:14px;background:rgba(255,254,242,.86);backdrop-filter:blur(7px)}
+.plant-status strong{font-size:15px}.plant-status p{font-size:10px}
+.plant-hotspot{z-index:9}
+.plant-label{position:absolute;z-index:19;display:flex;align-items:center;gap:6px;min-height:40px;padding:5px 10px 5px 5px;border:1.5px solid rgba(54,111,73,.44);border-radius:999px;background:rgba(255,255,247,.88);color:#315b3d;font-family:inherit;font-size:11px;font-weight:1000;box-shadow:0 7px 16px rgba(38,68,38,.16);backdrop-filter:blur(7px);cursor:pointer;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+.plant-label:hover,.plant-label:focus-visible{transform:translateY(-2px);box-shadow:0 9px 20px rgba(38,68,38,.24);outline:3px solid rgba(61,181,119,.22)}
+.plant-label i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#4c9763;color:#fff;font-style:normal;font-size:13px;box-shadow:0 2px 0 rgba(31,83,48,.22)}
+.plant-label.active{border-color:#1c9e61;background:#eafff1;box-shadow:0 0 0 4px rgba(38,180,103,.2),0 9px 20px rgba(38,68,38,.2)}
+.plant-label.done i{background:#238455}.plant-label-soil{left:4%;top:67%}.plant-label-root{left:29%;top:61%}.plant-label-stem{left:47%;top:43%}.plant-label-leaf{left:57%;top:18%}.plant-label-air{left:73%;top:7%}
+.plant-tray{gap:7px;padding:9px;background:rgba(255,253,237,.78);backdrop-filter:blur(8px)}
+.plant-tray-head{display:flex;align-items:center;justify-content:space-between;gap:6px;color:#3d6f4c;font-size:12px;font-weight:1000}.plant-tray-head b{padding:4px 7px;border-radius:99px;background:#e2f4e6;font-size:10px}
+.plant-detail{padding:8px;border:1.5px solid rgba(77,122,74,.28);border-radius:15px;background:rgba(255,255,255,.7)}
+.plant-detail img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:7px}
+.plant-detail h3{margin:0 0 4px;color:#346747;font-size:14px}.plant-detail p{margin:0;color:#566852;font-size:11px;font-weight:850;line-height:1.45}
+.plant-tools.compact{display:block}.plant-tools.compact .plant-tool{display:grid;grid-template-columns:54px 1fr;align-items:center;width:100%;min-height:58px;text-align:left}.plant-tools.compact .plant-tool img{width:48px;height:43px;margin:0}.plant-tools.compact .plant-tool span{font-size:11px}
+.plant-concept-title{margin:1px 0 -1px;color:#62754c;font-size:10px;font-weight:1000}.plant-concepts{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.plant-concept{min-height:31px;padding:4px 3px;font-size:9px}
+.plant-actions{justify-content:flex-end;margin-top:8px}
+@media(min-width:761px) and (max-width:1100px){.plant-shell{max-width:none}.plant-head{margin-bottom:7px}.plant-title{font-size:23px}.plant-stage{grid-template-columns:minmax(0,1fr) 210px}.plant-label{min-height:42px;padding:5px 9px 5px 5px;font-size:11px}.plant-label i{width:30px;height:30px}.plant-detail img{max-height:92px}.plant-detail p{font-size:11.5px;line-height:1.4}.plant-tool{min-height:58px}.plant-concept{min-height:31px}.plant-actions{margin-top:6px}}
+@media(min-width:761px) and (max-width:820px){.plant-stage{grid-template-columns:1fr}.plant-tray{display:grid;grid-template-columns:1.2fr .8fr;align-items:start}.plant-tray-head,.plant-concept-title,.plant-concepts{grid-column:1/-1}.plant-detail img{max-height:128px}.plant-tools.compact{align-self:stretch}}
+@media(max-width:760px){.plant-label span{display:none}.plant-label{min-width:40px;padding:5px}.plant-label i{width:28px;height:28px}.plant-tray{display:grid;grid-template-columns:1.2fr .8fr;align-items:start}.plant-tray-head,.plant-concept-title,.plant-concepts{grid-column:1/-1}.plant-detail img{max-height:130px}.plant-tools.compact{align-self:stretch}}
 </style>
 <style>
   /* Magnetic objects attach to the magnet instead of jittering in place. */
@@ -1248,10 +1272,10 @@
       <div class="plant-shell" data-screen-label="植物水分運輸與蒸散實驗">
         <div class="plant-head">
           <button onClick="{{ plantBack }}" aria-label="返回實驗模組" style="border:1px solid #b8d8b7;background:#fffef4;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;color:#477256">←</button>
-          <div class="plant-head-copy"><p class="plant-kicker">PAPER SCIENCE LAB</p><h2 class="plant-title">植物怎麼喝水？</h2></div>
+          <div class="plant-head-copy"><p class="plant-kicker">植物水分互動實驗</p><h2 class="plant-title">植物怎麼喝水？</h2></div>
           <button class="plant-secondary" onClick="{{ plantSpeak }}">🔊 聽水分旅程</button>
         </div>
-        <div class="plant-principle"><article><b>1　土壤滲透</b>水沿著土壤空隙向下移動。</article><article><b>2　根毛吸收</b>根毛增加接觸面積，把水吸進根部。</article><article><b>3　木質部運輸</b>水在莖的木質部中向上運送。</article><article><b>4　毛細與蒸散拉力</b>細管作用和葉片失水共同把水往上拉。</article><article><b>5　氣孔蒸散</b>水從葉片氣孔變成水蒸氣散出。</article></div>
+        <sc-if value="{{ plantIntro }}" hint-placeholder-val="true"><div class="plant-principle"><article><b>1　土壤滲透</b>水沿著土壤空隙向下移動。</article><article><b>2　根毛吸收</b>根毛增加接觸面積，把水吸進根部。</article><article><b>3　木質部運輸</b>水在莖的木質部中向上運送。</article><article><b>4　毛細與蒸散拉力</b>細管作用和葉片失水共同把水往上拉。</article><article><b>5　氣孔蒸散</b>水從葉片氣孔變成水蒸氣散出。</article></div></sc-if>
         <sc-if value="{{ plantIntro }}" hint-placeholder-val="{{ true }}">
           <section class="plant-video-card"><img src="images/science/plant-water/lesson-1.png" alt="植物吸水實驗分鏡"><div class="plant-video-note"><span>先看植物吸水分鏡，接著親手讓水走過土壤、根、莖與葉；教學影片將使用 YouTube 掛載。</span><button class="plant-primary" onClick="{{ plantBegin }}">開始實驗 →</button></div></section>
         </sc-if>
@@ -1264,11 +1288,21 @@
               <button class="plant-hotspot plant-stem {{ plantStemClass }}" data-plant-zone="stem" onClick="{{ plantStemPick }}" aria-label="觀察莖"></button>
               <button class="plant-hotspot plant-leaf {{ plantLeafClass }}" data-plant-zone="leaf" onClick="{{ plantLeafPick }}" aria-label="觀察葉片"></button>
               <button class="plant-hotspot plant-air {{ plantAirClass }}" data-plant-zone="air" onClick="{{ plantAirPick }}" aria-label="觀察蒸散"></button>
+              <button class="plant-label plant-label-soil {{ plantSoilLabelClass }}" onClick="{{ plantSoilPick }}" aria-label="標籤：土壤滲透"><i>1</i><span>土壤滲透</span></button>
+              <button class="plant-label plant-label-root {{ plantRootLabelClass }}" onClick="{{ plantRootPick }}" aria-label="標籤：根毛吸收"><i>2</i><span>根毛吸收</span></button>
+              <button class="plant-label plant-label-stem {{ plantStemLabelClass }}" onClick="{{ plantStemPick }}" aria-label="標籤：木質部"><i>3</i><span>木質部</span></button>
+              <button class="plant-label plant-label-leaf {{ plantLeafLabelClass }}" onClick="{{ plantLeafPick }}" aria-label="標籤：葉片"><i>4</i><span>葉片</span></button>
+              <button class="plant-label plant-label-air {{ plantAirLabelClass }}" onClick="{{ plantAirPick }}" aria-label="標籤：氣孔蒸散"><i>5</i><span>氣孔蒸散</span></button>
               <sc-for list="{{ plantFlowDrops }}" as="drop" hint-placeholder-count="8"><i class="plant-flow-drop {{ drop.className }}" style="left:{{ drop.x }}%;top:{{ drop.y }}%;animation-delay:{{ drop.delay }}s"></i></sc-for>
             </div>
-            <aside class="plant-tray"><h3>工具與概念卡</h3><div class="plant-tools"><button class="plant-tool {{ plantWaterToolClass }}" onPointerDown="{{ plantWaterDown }}" onClick="{{ plantWaterClick }}"><img src="images/science/plant-water/watering-can.png" alt="澆花器"><span>拖到泥土澆水</span></button><button class="plant-tool {{ plantMagnifierClass }}" onPointerDown="{{ plantMagnifierDown }}" onClick="{{ plantMagnifierClick }}"><img src="images/science/plant-water/magnifier.svg" alt="放大鏡"><span>拖到部位觀察</span></button></div><div class="plant-concepts"><sc-for list="{{ plantConcepts }}" as="concept" hint-placeholder-count="6"><button class="plant-concept {{ concept.className }}" onClick="{{ concept.pick }}">{{ concept.label }}</button></sc-for></div></aside>
+            <aside class="plant-tray">
+              <div class="plant-tray-head"><span>點圖上標籤探索</span><b>{{ plantVisitedCount }} / 5</b></div>
+              <div class="plant-detail"><img src="{{ plantInspectImage }}" alt="{{ plantInspectTitle }}"><h3>{{ plantInspectTitle }}</h3><p>{{ plantInspectText }}</p></div>
+              <div class="plant-tools compact"><button class="plant-tool {{ plantWaterToolClass }}" onPointerDown="{{ plantWaterDown }}" onClick="{{ plantWaterClick }}"><img src="images/science/plant-water/watering-can.png" alt="澆花器"><span>拖到根旁泥土，啟動水分旅程</span></button></div>
+              <p class="plant-concept-title">概念卡：先選，再點圖上標籤配對</p>
+              <div class="plant-concepts"><sc-for list="{{ plantConcepts }}" as="concept" hint-placeholder-count="6"><button class="plant-concept {{ concept.className }}" onClick="{{ concept.pick }}">{{ concept.label }}</button></sc-for></div>
+            </aside>
           </section>
-          <section class="plant-inspector"><img src="{{ plantInspectImage }}" alt="{{ plantInspectTitle }}"><div class="plant-inspector-copy"><h3>{{ plantInspectTitle }}</h3><p>{{ plantInspectText }}</p><div class="plant-progress"><sc-for list="{{ plantProgress }}" as="step" hint-placeholder-count="5"><span class="{{ step.className }}">{{ step.label }}</span></sc-for></div></div></section>
           <div class="plant-actions"><button class="plant-secondary" onClick="{{ plantShowVideo }}">重看分鏡</button><button class="plant-secondary" onClick="{{ plantReset }}">重新實驗</button></div>
         </sc-if>
       </div>
@@ -6361,10 +6395,6 @@ class Component extends DCLogic {
     const lab = this.state.plantLab;
     if (!lab) return;
     const titles = { soil: "土壤滲透", root: "根毛吸收", stem: "莖與木質部", leaf: "葉片與氣孔", air: "水蒸氣散出" };
-    if (!lab.watered && zone !== "overview") {
-      this.setState({ plantLab: Object.assign({}, lab, { message: "還沒有水可以觀察。先把澆花器拖到泥土澆水。" }) });
-      return;
-    }
     let matched = lab.matched;
     let selectedConcept = lab.selectedConcept;
     let message = "放大觀察「" + (titles[zone] || "植物") + "」：看看水往哪裡移動。";
@@ -8216,6 +8246,12 @@ class Component extends DCLogic {
       plantStemClass: s.plantLab && (s.plantLab.activeTool === "magnifier" || s.plantLab.selectedConcept === "capillary" || s.plantLab.selectedConcept === "xylem") ? "ready" : s.plantLab && s.plantLab.visited.stem ? "visited" : "",
       plantLeafClass: s.plantLab && (s.plantLab.activeTool === "magnifier" || s.plantLab.selectedConcept === "stomata" || s.plantLab.selectedConcept === "transpiration") ? "ready" : s.plantLab && s.plantLab.visited.leaf ? "visited" : "",
       plantAirClass: s.plantLab && s.plantLab.activeTool === "magnifier" ? "ready" : s.plantLab && s.plantLab.visited.air ? "visited" : "",
+      plantSoilLabelClass: s.plantLab ? (s.plantLab.inspectZone === "soil" ? "active " : "") + (s.plantLab.visited.soil ? "done" : "") : "",
+      plantRootLabelClass: s.plantLab ? (s.plantLab.inspectZone === "root" ? "active " : "") + (s.plantLab.visited.root ? "done" : "") : "",
+      plantStemLabelClass: s.plantLab ? (s.plantLab.inspectZone === "stem" ? "active " : "") + (s.plantLab.visited.stem ? "done" : "") : "",
+      plantLeafLabelClass: s.plantLab ? (s.plantLab.inspectZone === "leaf" ? "active " : "") + (s.plantLab.visited.leaf ? "done" : "") : "",
+      plantAirLabelClass: s.plantLab ? (s.plantLab.inspectZone === "air" ? "active " : "") + (s.plantLab.visited.air ? "done" : "") : "",
+      plantVisitedCount: s.plantLab ? ["soil", "root", "stem", "leaf", "air"].filter((zone) => s.plantLab.visited[zone]).length : 0,
       plantInspectImage: (() => { const zone = s.plantLab ? s.plantLab.inspectZone : "overview"; return "images/science/plant-water/lesson-" + ({ overview: 7, soil: 2, root: 3, stem: 4, leaf: 5, air: 6 }[zone] || 7) + ".png"; })(),
       plantInspectTitle: (() => { const zone = s.plantLab ? s.plantLab.inspectZone : "overview"; return ({ overview: "植物的水分旅程", soil: "水滲進土壤", root: "根毛吸收水分", stem: "木質部向上運水", leaf: "水到達葉片", air: "氣孔蒸散" }[zone] || "植物的水分旅程"); })(),
       plantInspectText: (() => { const zone = s.plantLab ? s.plantLab.inspectZone : "overview"; return ({ overview: "水從土壤進入根部，再沿莖的木質部上升，最後從葉片氣孔散到空氣中。", soil: "水沿土壤顆粒之間的空隙滲入，讓根毛附近保持濕潤。", root: "細小的根毛增加接觸面積，把土壤水吸進根的內部。", stem: "莖內木質部像許多細管；毛細作用與蒸散拉力幫助水向上。", leaf: "水沿葉脈送到葉片細胞，供植物使用，也準備從氣孔離開。", air: "葉片的氣孔會讓水變成水蒸氣散到空氣，這個過程叫蒸散作用。" }[zone] || ""); })(),
