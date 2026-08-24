@@ -399,6 +399,11 @@ export class EarthOrbitModule {
   }
 
   private bindControls(): void {
+    this.host.querySelector<HTMLElement>('[data-orbit-action="toggle"]')?.addEventListener('click', () => {
+      this.state.isPlaying = !this.state.isPlaying;
+      this.state.orbitAngularSpeed = this.state.isPlaying ? ORBIT_SPEED : 0;
+      this.renderState();
+    });
     this.host.querySelector<HTMLElement>('[data-orbit-action="play"]')?.addEventListener('click', () => {
       this.state.isPlaying = true;
       this.state.orbitAngularSpeed = ORBIT_SPEED;
@@ -411,6 +416,13 @@ export class EarthOrbitModule {
     });
     this.host.querySelector<HTMLElement>('[data-orbit-action="reset"]')?.addEventListener('click', () => {
       this.resetState();
+    });
+    const tips = this.host.querySelector<HTMLElement>('[data-orbit-tips]');
+    this.host.querySelector<HTMLElement>('[data-orbit-action="tips"]')?.addEventListener('click', () => {
+      if (tips) tips.hidden = !tips.hidden;
+    });
+    this.host.querySelector<HTMLElement>('[data-orbit-action="close-tips"]')?.addEventListener('click', () => {
+      if (tips) tips.hidden = true;
     });
   }
 
@@ -453,6 +465,7 @@ export class EarthOrbitModule {
     const timeScaleOutput = this.host.querySelector<HTMLOutputElement>('[data-time-scale]');
     const playButton = this.host.querySelector<HTMLButtonElement>('[data-orbit-action="play"]');
     const pauseButton = this.host.querySelector<HTMLButtonElement>('[data-orbit-action="pause"]');
+    const toggleButton = this.host.querySelector<HTMLButtonElement>('[data-orbit-action="toggle"]');
     if (angleOutput) angleOutput.value = `${radiansToDegrees(this.state.orbitAngle)}°`;
     if (rotationOutput) rotationOutput.value = `${radiansToDegrees(this.state.earthRotation)}°`;
     if (statusOutput) statusOutput.value = this.state.isDragging ? '拖曳中' : this.state.isPlaying ? '自動公轉中' : '停在目前位置';
@@ -465,5 +478,9 @@ export class EarthOrbitModule {
     if (timeScaleOutput) timeScaleOutput.value = `1 秒 ≈ ${SIMULATED_DAYS_PER_REAL_SECOND.toFixed(2)} 日`;
     if (playButton) playButton.disabled = this.state.isPlaying;
     if (pauseButton) pauseButton.disabled = !this.state.isPlaying;
+    if (toggleButton) {
+      toggleButton.textContent = this.state.isPlaying ? 'Ⅱ 暫停' : '▶ 繼續播放';
+      toggleButton.setAttribute('aria-pressed', String(this.state.isPlaying));
+    }
   }
 }
