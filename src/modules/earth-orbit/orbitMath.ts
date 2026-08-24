@@ -46,3 +46,18 @@ export function shortestAngleDelta(next: number, current: number): number {
 export function earthRotationDeltaForOrbit(orbitDelta: number): number {
   return orbitDelta * SIDEREAL_ROTATIONS_PER_ORBIT;
 }
+
+export interface LocalSolarTime {
+  hour: number;
+  minute: number;
+  isDaytime: boolean;
+}
+
+export function localSolarTimeFromRotation(rotation: number, initialHour = 12): LocalSolarTime {
+  const minutesPerDay = 24 * 60;
+  const rotationMinutes = normalizeAngle(rotation) / TAU * minutesPerDay;
+  const totalMinutes = Math.round(rotationMinutes + initialHour * 60) % minutesPerDay;
+  const hour = Math.floor(totalMinutes / 60);
+  const minute = totalMinutes % 60;
+  return { hour, minute, isDaytime: hour >= 6 && hour < 18 };
+}

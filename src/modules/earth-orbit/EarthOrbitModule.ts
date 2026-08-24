@@ -26,6 +26,7 @@ import { EARTH_ORBIT_ASSETS } from './assets';
 import {
   AXIAL_TILT_RADIANS,
   earthRotationDeltaForOrbit,
+  localSolarTimeFromRotation,
   LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT,
   normalizeAngle,
   orbitPosition,
@@ -44,7 +45,6 @@ const ORBIT_SPEED = 0.01;
 const KEYBOARD_ORBIT_STEP = 2 * Math.PI / 180;
 const MOON_ORBIT_RADIUS_X = 94;
 const MOON_ORBIT_RADIUS_Y = 42;
-const SIMULATED_DAYS_PER_REAL_SECOND = ORBIT_SPEED / (Math.PI * 2) * SOLAR_DAYS_PER_ORBIT;
 
 interface EarthOrbitState {
   orbitAngle: number;
@@ -469,7 +469,7 @@ export class EarthOrbitModule {
     const speedRatioOutput = this.host.querySelector<HTMLOutputElement>('[data-speed-ratio]');
     const moonAngleOutput = this.host.querySelector<HTMLOutputElement>('[data-moon-angle]');
     const moonOrbitsOutput = this.host.querySelector<HTMLOutputElement>('[data-moon-orbits]');
-    const timeScaleOutput = this.host.querySelector<HTMLOutputElement>('[data-time-scale]');
+    const localTimeOutput = this.host.querySelector<HTMLOutputElement>('[data-local-time]');
     const playButton = this.host.querySelector<HTMLButtonElement>('[data-orbit-action="play"]');
     const pauseButton = this.host.querySelector<HTMLButtonElement>('[data-orbit-action="pause"]');
     const toggleButton = this.host.querySelector<HTMLButtonElement>('[data-orbit-action="toggle"]');
@@ -486,7 +486,11 @@ export class EarthOrbitModule {
     if (speedRatioOutput) speedRatioOutput.value = `${SIDEREAL_ROTATIONS_PER_ORBIT.toFixed(2)} : 1（${SOLAR_DAYS_PER_ORBIT.toFixed(2)} 日/年）`;
     if (moonAngleOutput) moonAngleOutput.value = `${radiansToDegrees(this.state.moonOrbitAngle)}°`;
     if (moonOrbitsOutput) moonOrbitsOutput.value = `${this.state.accumulatedMoonOrbits.toFixed(2)} 圈`;
-    if (timeScaleOutput) timeScaleOutput.value = `1 秒 ≈ ${SIMULATED_DAYS_PER_REAL_SECOND.toFixed(2)} 日`;
+    if (localTimeOutput) {
+      const localTime = localSolarTimeFromRotation(this.state.earthRotation);
+      const timeText = `${String(localTime.hour).padStart(2, '0')}:${String(localTime.minute).padStart(2, '0')}`;
+      localTimeOutput.value = `${localTime.isDaytime ? '☀️' : '🌙'} ${timeText}`;
+    }
     if (playButton) playButton.disabled = this.state.isPlaying;
     if (pauseButton) pauseButton.disabled = !this.state.isPlaying;
     if (toggleButton) {

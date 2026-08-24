@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, LUNAR_SIDEREAL_DAYS, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
+import { AXIAL_TILT_RADIANS, earthRotationDeltaForOrbit, localSolarTimeFromRotation, LUNAR_SIDEREAL_DAYS, LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT, normalizeAngle, orbitPosition, pointerToOrbitAngle, shortestAngleDelta, SIDEREAL_ROTATIONS_PER_ORBIT, SOLAR_DAYS_PER_ORBIT, TAU } from '../src/modules/earth-orbit/orbitMath';
 
 const orbit = { centerX: 600, centerY: 337.5, radiusX: 430, radiusY: 218 };
 
@@ -42,6 +42,14 @@ describe('Earth Orbit V0.1 math', () => {
   it('advances the Moon by its sidereal orbit ratio', () => {
     expect(LUNAR_SIDEREAL_ORBITS_PER_EARTH_ORBIT).toBeCloseTo(13.368228, 6);
     expect(LUNAR_SIDEREAL_DAYS).toBeCloseTo(27.32166, 4);
+  });
+
+  it('maps one Earth rotation to a 24-hour clock at the same location', () => {
+    expect(localSolarTimeFromRotation(0)).toEqual({ hour: 12, minute: 0, isDaytime: true });
+    expect(localSolarTimeFromRotation(Math.PI / 2)).toEqual({ hour: 18, minute: 0, isDaytime: false });
+    expect(localSolarTimeFromRotation(Math.PI)).toEqual({ hour: 0, minute: 0, isDaytime: false });
+    expect(localSolarTimeFromRotation(Math.PI * 1.5)).toEqual({ hour: 6, minute: 0, isDaytime: true });
+    expect(localSolarTimeFromRotation(TAU)).toEqual({ hour: 12, minute: 0, isDaytime: true });
   });
 
 });
