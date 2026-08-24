@@ -8074,11 +8074,13 @@ class Component extends DCLogic {
     const activeAssociationSets = EN_ASSOCIATION_ALL_SETS.filter((set) => associationIds.includes(set.id));
     const activeAssociationGroup = ASSOCIATION_CONCEPT_GROUPS.find((group) => group.id === s.englishAssociationGroupId) || ASSOCIATION_CONCEPT_GROUPS[Number(s.englishAssociationRound || 0) % ASSOCIATION_CONCEPT_GROUPS.length];
 
+    const experimentLabScreens = ["dissolveLab", "magnetLab", "magnet2Lab", "plantWaterLab", "dayNightLab"];
+    const isExperimentLabScreen = experimentLabScreens.includes(s.screen);
     const vals = {
       isLogin: s.screen === "login",
       isApp: s.screen !== "login",
-      showAppChrome: s.screen !== "magnet2Lab",
-      appShellClass: s.screen === "magnet2Lab" ? "lab-focus" : "",
+      showAppChrome: !isExperimentLabScreen,
+      appShellClass: isExperimentLabScreen ? "lab-focus" : "",
       isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
       isMindmap: s.screen === "mindmap",
