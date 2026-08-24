@@ -338,7 +338,7 @@
 @media(max-width:480px){.plant-concepts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Plant water lab V3: Seed-Atlas-inspired labels and an iPad-sized single workspace. */
 .plant-shell{max-width:1180px}
-.plant-head{margin-bottom:10px}.plant-kicker{letter-spacing:.08em}.plant-title{font-size:26px}
+.plant-head{margin-bottom:10px}.plant-kicker{letter-spacing:.08em}.plant-title{font-size:26px}.plant-head-actions{display:flex;align-items:center;gap:7px}.plant-head-actions .plant-secondary{white-space:nowrap;padding:9px 12px}
 .plant-stage{grid-template-columns:minmax(0,1fr) clamp(210px,22vw,252px);gap:12px;padding:9px;border-width:4px;border-radius:26px}
 .plant-canvas{isolation:isolate;width:100%;align-self:start}
 .plant-status{left:2%;top:2.5%;width:25%;padding:9px 11px;border-radius:14px;background:rgba(255,254,242,.86);backdrop-filter:blur(7px)}
@@ -357,9 +357,15 @@
 .plant-tools.compact{display:block}.plant-tools.compact .plant-tool{display:grid;grid-template-columns:54px 1fr;align-items:center;width:100%;min-height:58px;text-align:left}.plant-tools.compact .plant-tool img{width:48px;height:43px;margin:0}.plant-tools.compact .plant-tool span{font-size:11px}
 .plant-concept-title{margin:1px 0 -1px;color:#62754c;font-size:10px;font-weight:1000}.plant-concepts{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.plant-concept{min-height:31px;padding:4px 3px;font-size:9px}
 .plant-actions{justify-content:flex-end;margin-top:8px}
-@media(min-width:761px) and (max-width:1100px){.plant-shell{max-width:none}.plant-head{margin-bottom:7px}.plant-title{font-size:23px}.plant-stage{grid-template-columns:minmax(0,1fr) 210px}.plant-label{min-height:42px;padding:5px 9px 5px 5px;font-size:11px}.plant-label i{width:30px;height:30px}.plant-detail img{max-height:92px}.plant-detail p{font-size:11.5px;line-height:1.4}.plant-tool{min-height:58px}.plant-concept{min-height:31px}.plant-actions{margin-top:6px}}
+@media(min-width:761px) and (max-width:1100px){.plant-shell{max-width:none}.plant-head{margin-bottom:7px}.plant-title{font-size:23px}.plant-head-actions{gap:5px}.plant-head-actions .plant-secondary{padding:8px 9px;font-size:11px}.plant-stage{grid-template-columns:minmax(0,1fr) 210px}.plant-label{min-height:42px;padding:5px 9px 5px 5px;font-size:11px}.plant-label i{width:30px;height:30px}.plant-detail img{max-height:92px}.plant-detail p{font-size:11.5px;line-height:1.4}.plant-tool{min-height:58px}.plant-concept{min-height:31px}.plant-actions{margin-top:6px}}
 @media(min-width:761px) and (max-width:820px){.plant-stage{grid-template-columns:1fr}.plant-tray{display:grid;grid-template-columns:1.2fr .8fr;align-items:start}.plant-tray-head,.plant-concept-title,.plant-concepts{grid-column:1/-1}.plant-detail img{max-height:128px}.plant-tools.compact{align-self:stretch}}
 @media(max-width:760px){.plant-label span{display:none}.plant-label{min-width:40px;padding:5px}.plant-label i{width:28px;height:28px}.plant-tray{display:grid;grid-template-columns:1.2fr .8fr;align-items:start}.plant-tray-head,.plant-concept-title,.plant-concepts{grid-column:1/-1}.plant-detail img{max-height:130px}.plant-tools.compact{align-self:stretch}}
+/* Keep magnet labs inside an iPad-height workspace: controls live in the header,
+   while the changing observation is overlaid inside the experiment scene. */
+.magnet-head-actions{display:flex;align-items:center;gap:7px}.magnet-head-actions .magnet-action{white-space:nowrap}
+.magnet-stage .magnet-note{position:absolute;z-index:24;left:2.8%;bottom:2.8%;max-width:58%;margin:0;padding:9px 12px;border:1.5px solid rgba(74,130,145,.28);background:rgba(234,248,252,.88);backdrop-filter:blur(7px);box-shadow:0 7px 16px rgba(43,73,87,.12)}
+@media(min-width:761px) and (max-width:1100px){.magnet-head{margin-bottom:7px}.magnet-title{font-size:23px}.magnet-head-actions{gap:5px}.magnet-head-actions .magnet-action{padding:8px 10px;font-size:11px}.magnet-principle{gap:6px;margin-bottom:7px}.magnet-principle article{padding:7px 9px;border-radius:14px;font-size:10px;line-height:1.35}.magnet-principle b{font-size:12px}.magnet-stage .magnet-note{font-size:11px;line-height:1.4}}
+.lab-focus .magnet2-head .magnet2-small{padding:8px 10px}
 </style>
 <style>
   /* Magnetic objects attach to the magnet instead of jittering in place. */
@@ -1214,8 +1220,8 @@
       <div class="magnet-shell" data-screen-label="磁鐵原理實驗">
         <div class="magnet-head">
           <button onClick="{{ magnetBack }}" aria-label="返回實驗模組" style="border:1px solid #b8d6df;background:#f9feff;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;color:#306978">←</button>
-          <div class="magnet-head-copy"><p class="magnet-kicker">PAPER SCIENCE LAB</p><h2 class="magnet-title">磁鐵原理實驗室</h2></div>
-          <button class="magnet-action" onClick="{{ magnetSpeak }}">🔊 聽科學原理</button>
+          <div class="magnet-head-copy"><p class="magnet-kicker">磁力互動實驗</p><h2 class="magnet-title">磁鐵原理實驗室</h2></div>
+          <div class="magnet-head-actions"><button class="magnet-action primary" onClick="{{ magnetReset }}">↻ 重新實驗</button><button class="magnet-action" onClick="{{ magnetSpeak }}">🔊 聽科學原理</button></div>
         </div>
         <div class="magnet-principle"><article><b>1　磁性材料</b>鐵、鎳、鈷等材料容易被磁鐵吸引。</article><article><b>2　磁力</b>磁鐵周圍存在看不見的磁場。</article><article><b>3　吸引與排斥</b>不同磁極相吸，相同磁極相斥。</article><article><b>4　生活觀察</b>把磁鐵靠近物品，記錄哪些會移動。</article></div>
         <section class="magnet-stage" style="background-image:url('images/science/magnet/magnet-lab-bg.png')">
@@ -1228,9 +1234,8 @@
           </div>
           <sc-for list="{{ magnetObjects }}" as="obj" hint-placeholder-count="8"><button class="magnet-object {{ obj.className }}" style="left:{{ obj.x }}%;top:{{ obj.y }}%;width:{{ obj.w }}%;height:{{ obj.h }}%" onClick="{{ obj.pick }}" aria-label="{{ obj.label }}"><img src="{{ obj.src }}" alt="{{ obj.label }}"></button></sc-for>
           <button class="magnet-tool {{ magnetToolClass }}" style="left:{{ magnetX }}%;top:{{ magnetY }}%;transform:translate(-50%,-50%) rotate({{ magnetAngle }}deg)" onPointerDown="{{ magnetPointerDown }}" aria-label="拖曳磁鐵"><img src="images/science/magnet/magnet-tool.png" alt="磁鐵"></button>
+          <p class="magnet-note">{{ magnetObservation }}</p>
         </section>
-        <p class="magnet-note">{{ magnetObservation }}</p>
-        <div class="magnet-actions"><button class="magnet-action primary" onClick="{{ magnetReset }}">重新實驗</button><button class="magnet-action" onClick="{{ magnetSpeak }}">再聽一次原理</button></div>
       </div>
     </sc-if>
 
@@ -1240,6 +1245,7 @@
           <div class="magnet2-head">
             <button class="magnet2-back" onClick="{{ magnet2Back }}" aria-label="返回實驗模組">←</button>
             <div class="magnet2-head-copy"><p>科學實驗室｜磁鐵互動實驗</p><h2>磁鐵原理實驗室 II</h2></div>
+            <button class="magnet2-small" onClick="{{ magnet2Reset }}">↻ 重新實驗</button>
             <button class="magnet2-small" onClick="{{ magnet2Hint }}">💡 提示</button>
             <div class="magnet2-progress"><b>{{ magnet2Step }}</b> / 03　{{ magnet2Stars }}</div>
           </div>
@@ -1273,7 +1279,7 @@
         <div class="plant-head">
           <button onClick="{{ plantBack }}" aria-label="返回實驗模組" style="border:1px solid #b8d8b7;background:#fffef4;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;color:#477256">←</button>
           <div class="plant-head-copy"><p class="plant-kicker">植物水分互動實驗</p><h2 class="plant-title">植物怎麼喝水？</h2></div>
-          <button class="plant-secondary" onClick="{{ plantSpeak }}">🔊 聽水分旅程</button>
+          <div class="plant-head-actions"><button class="plant-secondary" onClick="{{ plantShowVideo }}">🎞️ 重看分鏡</button><button class="plant-secondary" onClick="{{ plantReset }}">↻ 重新實驗</button><button class="plant-secondary" onClick="{{ plantSpeak }}">🔊 聽水分旅程</button></div>
         </div>
         <sc-if value="{{ plantIntro }}" hint-placeholder-val="true"><div class="plant-principle"><article><b>1　土壤滲透</b>水沿著土壤空隙向下移動。</article><article><b>2　根毛吸收</b>根毛增加接觸面積，把水吸進根部。</article><article><b>3　木質部運輸</b>水在莖的木質部中向上運送。</article><article><b>4　毛細與蒸散拉力</b>細管作用和葉片失水共同把水往上拉。</article><article><b>5　氣孔蒸散</b>水從葉片氣孔變成水蒸氣散出。</article></div></sc-if>
         <sc-if value="{{ plantIntro }}" hint-placeholder-val="{{ true }}">
@@ -1303,7 +1309,6 @@
               <div class="plant-concepts"><sc-for list="{{ plantConcepts }}" as="concept" hint-placeholder-count="6"><button class="plant-concept {{ concept.className }}" onClick="{{ concept.pick }}">{{ concept.label }}</button></sc-for></div>
             </aside>
           </section>
-          <div class="plant-actions"><button class="plant-secondary" onClick="{{ plantShowVideo }}">重看分鏡</button><button class="plant-secondary" onClick="{{ plantReset }}">重新實驗</button></div>
         </sc-if>
       </div>
     </sc-if>
@@ -6337,6 +6342,7 @@ class Component extends DCLogic {
   clearPlantTimers() {
     (this.plantTimers || []).forEach((timer) => clearTimeout(timer));
     this.plantTimers = [];
+    if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
     if (this.plantMoveListener) document.removeEventListener("pointermove", this.plantMoveListener);
     if (this.plantUpListener) document.removeEventListener("pointerup", this.plantUpListener);
     this.plantMoveListener = null;
@@ -6373,11 +6379,12 @@ class Component extends DCLogic {
       visited: Object.assign({}, lab.visited, { soil: true }),
       message: "水先滲進土壤空隙，慢慢靠近植物的根。"
     }) });
+    if (!this.state.speechMuted) this.speakText("第一步，土壤滲透。水先滲進土壤空隙，慢慢靠近植物的根。");
     const journey = [
-      { phase: 2, zone: "root", wait: 900, message: "根毛增加接觸面積，把土壤中的水吸進根部。" },
-      { phase: 3, zone: "stem", wait: 1800, message: "水進入木質部，沿著莖內的細管向上運送。" },
-      { phase: 4, zone: "leaf", wait: 2700, message: "水到達葉脈，送進葉片的每一個角落。" },
-      { phase: 5, zone: "air", wait: 3600, message: "一部分水從葉片氣孔變成水蒸氣散出，形成蒸散作用。" }
+      { phase: 2, zone: "root", wait: 3500, message: "根毛增加接觸面積，把土壤中的水吸進根部。", speech: "第二步，根毛吸收。根毛增加接觸面積，把土壤中的水吸進根部。" },
+      { phase: 3, zone: "stem", wait: 7000, message: "水進入木質部，沿著莖內的細管向上運送。", speech: "第三步，木質部運輸。水進入木質部，沿著莖內的細管向上運送。" },
+      { phase: 4, zone: "leaf", wait: 10500, message: "水到達葉脈，送進葉片的每一個角落。", speech: "第四步，水到達葉片。水沿著葉脈，送進葉片的每一個角落。" },
+      { phase: 5, zone: "air", wait: 14000, message: "一部分水從葉片氣孔變成水蒸氣散出，形成蒸散作用。", speech: "第五步，氣孔蒸散。一部分水從葉片氣孔變成水蒸氣散出，這叫蒸散作用。" }
     ];
     this.plantTimers = journey.map((step) => setTimeout(() => {
       if (this.state.screen !== "plantWaterLab" || !this.state.plantLab) return;
@@ -6389,12 +6396,20 @@ class Component extends DCLogic {
         visited: Object.assign({}, current.visited, { [step.zone]: true }),
         message: step.message
       }) });
+      if (!this.state.speechMuted) this.speakText(step.speech);
     }, step.wait));
   }
   plantInspect(zone) {
     const lab = this.state.plantLab;
     if (!lab) return;
     const titles = { soil: "土壤滲透", root: "根毛吸收", stem: "莖與木質部", leaf: "葉片與氣孔", air: "水蒸氣散出" };
+    const narrations = {
+      soil: "第一步，土壤滲透。水沿土壤顆粒之間的空隙滲入，讓根毛附近保持濕潤。",
+      root: "第二步，根毛吸收。細小的根毛增加接觸面積，把土壤水吸進根的內部。",
+      stem: "第三步，木質部運輸。莖內木質部像許多細管，幫助水向上運送。",
+      leaf: "第四步，水到達葉片。水沿葉脈送到葉片細胞，供植物使用。",
+      air: "第五步，氣孔蒸散。葉片的氣孔讓水變成水蒸氣散到空氣中。"
+    };
     let matched = lab.matched;
     let selectedConcept = lab.selectedConcept;
     let message = "放大觀察「" + (titles[zone] || "植物") + "」：看看水往哪裡移動。";
@@ -6417,6 +6432,7 @@ class Component extends DCLogic {
       activeTool: "", inspectZone: zone, selectedConcept, matched,
       visited: Object.assign({}, lab.visited, { [zone]: true }), message
     }) });
+    if (!this.state.speechMuted && narrations[zone]) this.speakText(narrations[zone]);
   }
   plantPickZone(zone) {
     const lab = this.state.plantLab;
